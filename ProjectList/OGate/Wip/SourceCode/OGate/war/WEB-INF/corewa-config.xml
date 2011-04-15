@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+	<main-layout>
+		<header id="HEADER"></header>
+		<footer id="FOOTER"></footer>
+		<left id="LEFT"></left>
+		<main id="BodyPage"></main>
+	</main-layout>
+	<home-screen>PerCal</home-screen>
+  
+    <form id="AddEventBean" class="rocky.googleapp.lunarcal.form"/>
+    
+    
+    <screen id="Layout" control="rocky.googleapp.lunarcal.control.LayoutControl" input="/WEB-INF/pages/layout.jsp">
+        <event id="init" procId="procInit" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="gotoCloudActivity" procId="gotoCloudActivity" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="gotoBaby" procId="gotoBaby" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="gotoHelp" procId="gotoHelp" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="login" procId="googleLogin"></event>
+        <event id="logout" procId="googleLogout"></event>
+    </screen>
+    <screen id="PerCal" control="rocky.googleapp.lunarcal.control.PerCalControl" input="/WEB-INF/pages/layout.jsp">
+        <event id="init" procId="procInit" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="SelectDate" procId="selectDate" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="GotoAddEvent" procId="gotoAddEvent" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="ViewEvent" procId="viewEvent" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="GotoListEvent" procId="gotoListEvent" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="GotoProfile" procId="gotoProfile" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="CloudActivity" procId="gotoCloudActivity" nextScreen="/WEB-INF/pages/CloudActivity.jsp"></event>
+        <event id="NextMonth" procId="nextMonth" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="NextDay" procId="nextDay" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="PrevMonth" procId="prevMonth" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="PrevDay" procId="prevDay" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+    </screen>
+    <screen id="AddEvent" control="rocky.googleapp.lunarcal.control.AddEventControl" formId="EventForm">
+        <event id="init" procId="procInit" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="Save" procId="save" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="Cancel" procId="cancel" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="Back" procId="back" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+    </screen>
+    <screen id="ListEvent" control="rocky.googleapp.lunarcal.control.ListEventControl" formId="ListEventForm">
+        <event id="init" procId="procInit" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="DeleteEvent" procId="delete" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="EditEvent" procId="edit" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="Search" procId="search" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="SearchDueEvent" procId="searchDueEvent" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+        <event id="Back" procId="back" nextScreen="/WEB-INF/pages/layout.jsp"></event>
+    </screen>
+    
+    <screen id="Profile" control="rocky.googleapp.lunarcal.control.ProfileControl" formId="ProfileForm">
+        <event id="init" procId="procInit" nextScreen="/WEB-INF/pages/layout.jsp">></event>
+        <event id="Update" procId="update" nextScreen="/WEB-INF/pages/layout.jsp">></event>
+        <event id="Cancel" procId="cancel" nextScreen="/WEB-INF/pages/layout.jsp">></event>
+    </screen>
+    
+    <screen id="ProfileUpdate" control="rocky.googleapp.lunarcal.control.ProfileUpdateControl">
+        <event id="init" procId="procInit" nextScreen="/WEB-INF/pages/layout.jsp">></event>
+        <event id="back" procId="back" nextScreen="/WEB-INF/pages/layout.jsp">></event>
+    </screen>
+    
+    <screen id="CloudActivity" control="rocky.googleapp.lunarcal.control.CloudActivityControl">
+        <event id="init" procId="procInit" nextScreen="/WEB-INF/pages/layout.jsp">></event>
+        <event id="Consult" procId="consult" nextScreen="/WEB-INF/pages/layout.jsp">></event>
+    </screen>
+</corewa>
