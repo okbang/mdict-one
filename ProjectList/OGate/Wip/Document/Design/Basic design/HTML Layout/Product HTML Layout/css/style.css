@@ -1,0 +1,99 @@
+a         {text-decoration: none;}
+a:link    {color: #0066FF}
+a:visited {coor: #235cdc}
+a:active  {color: #235cdc}
+a:hover   {color: #4c7ff4}
+.myLink {
+	color: #000000;
+	font-size:13px;
+	font-style:italic;
+	font-weight:normal;
+}
+
+.myLinkOrange {
+	color: #FF6666;
+	font-size:13px;
+	font-weight:normal;
+}
+
+body {
+     padding: 20px 0 ;
+     font: 13px/18px Arial, Helvetica, sans-serif;
+     text-align: center;
+     color: #424242;
+     background: #e0e0e0;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight:bold;
+	background-color:#E5E5E5;
+}
+
+h2  {
+      margin-top: 35px;
+}
+
+#myTable {
+
+}
+
+#myTable th{
+	font-size:13px;
+	font-weight:bold;
+}
+
+#myTable tr {
+	padding-left:20px;
+}
+
+#myTable td {
+	text-align:left;
+}
+
+#myTable #medium {
+	width: 80px;
+}
+
+#myTable #long {
+	width: 100px;
+}
+
+#myTable #short {
+	width: 50px;
+}
+
+#myTable #extraLong {
+	width: 160px;
+}
+
+#myTable #textAreaLabel {
+	width: 150px;
+	vertical-align: top;
+}
+
+.myTextArea {
+	width: 500px;
+}
+
+.dashedTable {
+	width: 500px;
+
+	border-left-style:dashed;
+	border-left-width:thin;
+	border-left-color:#0066FF;
+	
+	border-top-style:dashed;
+	border-top-width:thin;
+	border-top-color:#0066FF;
+}
+
+.dashedTable td {
+	border-bottom-style:dashed;
+	border-bottom-width:thin;
+	border-bottom-color:#0066FF;
+	
+	border-right-style:dashed;
+	border-right-width:thin;
+	border-right-color:#0066FF;
+}
