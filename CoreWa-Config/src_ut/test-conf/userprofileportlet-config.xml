@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+    <view-screen>Menu</view-screen>
+    <edit-screen>Edit</edit-screen>
+    <help-screen>Help</help-screen>
+    <form id="addForm" name="addForm" class="rocky.mvcportlet.userprofile.form.AddForm"/>
+    
+    <screen id="Menu" input="/WEB-INF/userprofile/menu.jsp">
+     
+     <!--  Attribute "control" is optional -->
+     <!--
+     <screen id="Menu" input="/WEB-INF/jsp/menu.jsp">
+     -->
+    	<!-- 
+        <event id="list" procId="procList" nextScreen="/WEB-INF/jsp/list.jsp"></event>
+         -->
+         <event id="list" redirect="yes" nextScreen="/WEB-INF/userprofile/list.jsp"></event>
+        <event id="add" redirect="yes" nextScreen="/WEB-INF/userprofile/add.jsp"></event>
+    </screen>
+    <screen id="List" control="rocky.mvcportlet.userprofile.control.ListControl">
+        <event id="search" procId="procSearch" nextScreen="/WEB-INF/userprofile/list.jsp"></event>
+        <event id="goHome" procId="procGoHome" nextScreen="/WEB-INF/userprofile/menu.jsp"></event>
+        <event id="goAdvanced" procId="procGoAdvanced" nextScreen="/WEB-INF/userprofile/listAdv.jsp"></event>
+        
+        <event id="next" procId="procNext"></event>
+        <event id="prev" procId="procPrev"></event>
+    </screen>
+    <screen id="Add" control="rocky.mvcportlet.userprofile.control.AddControl">
+        <event id="add" procId="procAdd"></event>
+        <event id="back" procId="procBack" nextScreen="/WEB-INF/userprofile/menu.jsp"></event>
+        <event id="save" procId="procSave" nextScreen="/WEB-INF/userprofile/add.jsp" form="addForm" scope="request"></event>
+        <event id="selectGroup" procId="procSelectGroup"></event>
+    </screen>
+</corewa>

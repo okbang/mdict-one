@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+    <view-screen>Menu</view-screen>
+    <edit-screen>Edit</edit-screen>
+    <help-screen>Help</help-screen>
+    <screen id="Menu" control="rocky.corewademo.control.MenuControl" input="/pages/menu.jsp">
+    <!-- 
+        <event id="list" procId="procList" nextScreen="/WEB-INF/jsp/list.jsp"></event>
+         -->
+         <!-- If redirect="yes", the processor is skipped. -->
+        <event id="list" redirect="yes" nextScreen="/WEB-INF/jsp/list.jsp"></event>
+        <event id="add" procId="procAdd" nextScreen="/pages/add.jsp"></event>
+    </screen>
+    <screen id="List" control="rocky.corewademo.control.ListControl">
+        <event id="Search" procId="procSearch"></event>
+        <event id="Next" procId="procNext"></event>
+        <event id="Prev" procId="procPrev"></event>
+    </screen>
+    <screen id="Add" control="rocky.corewademo.control.AddControl">
+        <event id="Add" procId="procAdd"></event>
+        <event id="SelectGroup" procId="procSelectGroup"></event>
+    </screen>
+</corewa>

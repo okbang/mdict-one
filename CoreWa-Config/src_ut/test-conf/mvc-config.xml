@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE document [
+<!ELEMENT view-screen (#PCDATA)>
+<!ELEMENT screen (event*)>
+<!ELEMENT event (#PCDATA)>
+
+<!ATTLIST view-screen id CDATA "null">
+<!ATTLIST screen id CDATA "null">
+<!ATTLIST screen controller CDATA "null">
+<!ATTLIST event id CDATA "null">
+<!ATTLIST event procId CDATA "null">
+<!ATTLIST event nextScreen CDATA "null">
+]>
+
+<document>
+    <view-screen id="/WEB-INF/jsp/a.jsp"></view-screen>
+    <screen id="a"></screen>
+        <event id="gotob" procId="clickBProc" nextScreen="/WEB-INF/jsp/b.jsp"></event>
+        <event id="gotoc" procId="clickCProc" nextScreen="/WEB-INF/jsp/c.jsp"></event>  
+    <screen id="b">
+        <event id="gotoa" procId="clickAProc" nextScreen="/WEB-INF/jsp/a.jsp"></event>          
+    </screen>
+    <screen id="c">
+        <event id="gotoa" procId="clickAProc" nextScreen="/WEB-INF/jsp/a.jsp"></event>  
+    </screen>
+</document>
