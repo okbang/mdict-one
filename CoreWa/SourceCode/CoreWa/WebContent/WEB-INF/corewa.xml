@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+
+  <screen id="Menu" control="rocky.corewademo.control.MenuControl" input="/WEB-INF/pages/menu.jsp">
+    <event id="List" procId="procList" nextScreen="/WEB-INF/pages/list.jsp"></event>
+    <event id="Add" procId="procAdd" nextScreen="/WEB-INF/pages/add.jsp"></event>
+  </screen>
+  <screen id="List">
+    <event id="Back" redirect="yes" nextScreen="/WEB-INF/pages/menu.jsp" />
+  </screen>
+  <screen id="Add">
+    <event id="Back" redirect="yes" nextScreen="/WEB-INF/pages/menu.jsp" />
+  </screen>
+</corewa>
