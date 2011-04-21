@@ -25,10 +25,6 @@ media="screen" type="text/css" rel="stylesheet">
 			
 							
 <form name="addProduct" action="Product.html" method="POST">
-		<input name="txtAction" type="hidden">
-		<input name="txtFrom" value="15" type="hidden">
-		<input name="txtTo" value="16" type="hidden">
-
 	 	
 		<table border="0" width="675px" id="myTable" cellspacing="0" cellpadding="3px">
 			<tr>
@@ -87,7 +83,12 @@ media="screen" type="text/css" rel="stylesheet">
 					</table>
 				</td>
 			</tr>
-			
+			<tr>
+				<td id="textAreaLabel"><b>Link to download:</b></td>
+				<td align="left">
+					<input type="text" name="txtLinkdownload" style="width:500px"></textarea>
+				</td>
+			</tr>
 			<tr>
 				<td id="textAreaLabel"><b>Developer teams:</b></td>
 				<td align="left">
