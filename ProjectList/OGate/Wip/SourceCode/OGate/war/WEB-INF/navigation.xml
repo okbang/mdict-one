@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>Navigation</home-screen>
+
+  <screen id="Navigation" input="/WEB-INF/pages/navigation.jsp">
+    <event id="Intro" redirect="yes" nextScreen="/WEB-INF/pages/intro.jsp" />
+    <event id="Activity" redirect="yes" nextScreen="/WEB-INF/pages/activity.jsp" />
+  </screen>
+</corewa>
