@@ -10,7 +10,7 @@
   </layout>
   <home-screen>Layout</home-screen>
   
-  <screen id="Layout" input="/WEB-INF/sample_layout_pages/layout.jsp">
+  <screen id="Layout" control="openones.corewalayoutdemo.LayoutControl" input="/WEB-INF/sample_layout_pages/layout.jsp">
   </screen>
 <!-- 
   <screen id="Header" control="rocky.corewademo.control.MenuControl" input="/WEB-INF/sample_layout_pages/header.jsp">

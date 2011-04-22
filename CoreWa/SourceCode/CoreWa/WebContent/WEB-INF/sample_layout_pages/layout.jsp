@@ -8,7 +8,7 @@
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 </head>
 <body>
-Index layout
+Index layout. Welcome <%= session.getAttribute("user") %>
     <table border="1" width="100%" cellspacing="0" cellpadding="0">
       <tr>
         <td colspan="3">

@@ -20,6 +20,10 @@ package openones.corewa.control;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +33,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.form.BaseForm;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import rocky.common.BeanUtil;
 
 public class BaseControl {
@@ -80,4 +91,51 @@ public class BaseControl {
         return (BaseForm) bean;
     }
     
+    /**
+     * This method is invoked by CoreWa.
+     * @param req
+     * @return
+     */
+    public static Map<String, Object> getMapData(HttpServletRequest req) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        LOG.log(Level.FINEST, "getMapData.START:");
+        Object bean = null;
+
+        if (!ServletFileUpload.isMultipartContent(req)) { // Normal form data
+            String fieldName;
+            for (Enumeration<String> keyEnum = req.getParameterNames(); keyEnum.hasMoreElements();) {
+                fieldName = keyEnum.nextElement();
+                result.put(fieldName, req.getParameter(fieldName));
+            }
+            return result;
+        } else { // Upload form data
+            FileItemFactory fileItemFactory = new DiskFileItemFactory();
+            ServletFileUpload portletFU = new ServletFileUpload(fileItemFactory);
+            List items;
+            try {
+                items = portletFU.parseRequest(req);
+                FileItem fit;
+                String fieldName;
+                String value;
+                for (Iterator it = items.iterator(); it.hasNext();) {
+                    fit = (FileItem) it.next();
+                    fieldName = fit.getFieldName();
+
+                    if (fit.isFormField()) { // Normal field
+                        value = fit.getString();
+                        result.put(fieldName, value);
+                    } else {
+                        result.put(fieldName, fit);
+                    }
+                }
+            } catch (FileUploadException ex) {
+                LOG.log(Level.FINE, "Parsing the request", ex);
+            }
+
+        }
+        LOG.log(Level.FINEST, "getMapData.END");
+
+        return result;
+    }
+
 }

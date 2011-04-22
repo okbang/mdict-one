@@ -33,11 +33,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import openones.corewa.config.ConfigUtil;
 import openones.corewa.config.CoreWa;
 import openones.corewa.config.Event;
 import openones.corewa.config.Screen;
+import openones.corewa.control.BaseControl;
 import rocky.common.CommonUtil;
 
 @SuppressWarnings("serial")
@@ -47,6 +49,7 @@ public class CentralConntroller extends HttpServlet {
     private final static String DEF_PROCID = "procInit";
     private final static String DEF_ERRORPAGE = "/WEB-INF/pages/error.jsp";
     private CoreWa conf;
+    private BaseOutForm resultForm;
 
     static Map<String, Object> cacheControl = new HashMap<String, Object>();
 
@@ -67,9 +70,11 @@ public class CentralConntroller extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Screen screen;
         Event event;
-        Object controlClass;
+        Object controlClass = null;
         String procId = null;
         String nextScrId = null;
+        Method method;
+        
         try {
             String screenId = req.getParameter("screenId");
             String eventId = req.getParameter("eventId");
@@ -110,22 +115,42 @@ public class CentralConntroller extends HttpServlet {
             }
 
             LOG.log(Level.INFO, "procId=" + procId + ";nextScreenId=" + nextScrId);
-
-            if ((event != null) && (!event.isRedirect())) {
-
-                Method method;
-                String ctrlClassName = screen.getCtrlClass();
+            
+            String ctrlClassName = screen.getCtrlClass();
+            
+            if (CommonUtil.isNNandNB(ctrlClassName)) {
                 if (cacheControl.containsKey(ctrlClassName)) { // The control is already created
                     controlClass = cacheControl.get(ctrlClassName);
                 } else { // Create new the instance of the control. The put it into the cache
                     controlClass = Class.forName(ctrlClassName).newInstance();
                     cacheControl.put(ctrlClassName, controlClass);
                 }
+            }
 
+            // Assumption if tag <event> without attribute "redirect", tag "control" is not null
+            if ((event != null) && (!event.isRedirect())) {
+               // ScreenForm screenForm = (ScreenForm) BaseControl.getData(request, ScreenForm.class);
+                Map<String, Object> mapReq = BaseControl.getMapData(req);
+                
                 LOG.log(Level.FINE, "Invoke method '" + procId + "' of class '" + screen.getCtrlClass() + "'");
-                method = controlClass.getClass().getMethod(procId, HttpServletRequest.class, HttpServletResponse.class);
-                method.invoke(controlClass, req, resp);
-
+                
+                try {
+                    method = controlClass.getClass().getMethod(procId, HttpServletRequest.class, Map.class,
+                            HttpServletResponse.class);
+                    resultForm = (BaseOutForm) method.invoke(controlClass, req, mapReq, resp);
+                } catch (Exception ex) {
+                    LOG.warning("Could not invoke method xxx(ActionRequest, Map, ActionRespone)");
+                    // @deprecated
+                    method = controlClass.getClass().getMethod(procId, HttpServletRequest.class, HttpServletResponse.class);
+                    method.invoke(controlClass, req, resp);
+                }
+            } else if (controlClass!= null) { // Initial screen
+                method = controlClass.getClass().getMethod(DEF_PROCID, HttpServletRequest.class, HttpServletResponse.class);
+                resultForm = (BaseOutForm) method.invoke(controlClass, req, resp);
+            }
+            
+            if (resultForm != null) {
+                partResultFormIntoWeb(resultForm, req, req.getSession());
             }
 
             RequestDispatcher dispatcher = null;
@@ -148,7 +173,38 @@ public class CentralConntroller extends HttpServlet {
             }
         } catch (Throwable th) {
             LOG.log(Level.FINEST, "doPost", th);
+            th.printStackTrace();
             req.getRequestDispatcher(DEF_ERRORPAGE).include(req, resp);
+        }
+    }
+    
+    /**
+     * 
+     * @param request
+     * @param session
+     */
+    private void partResultFormIntoWeb(BaseOutForm resultForm, HttpServletRequest request, HttpSession session) {
+        //
+        if (resultForm != null) {
+            // Scan object in session map to put into the session
+            Map<String, Object> sessionMap = resultForm.getSessionMap();
+            
+            if (sessionMap.keySet() != null) {
+                for (String key : sessionMap.keySet()) {
+                    LOG.log(Level.FINEST, "Set session attribute: key = " + key);
+                    session.setAttribute(key, sessionMap.get(key));
+                    LOG.log(Level.FINEST, "Set session attribute: sessionMap.get(key) = " + sessionMap.get(key));
+                }
+            }
+
+            // Scan object in reqest map to put into the request
+            Map<String, Object> requestMap = resultForm.getRequestMap();
+            if (requestMap.keySet() != null) {
+                for (String key : requestMap.keySet()) {
+                    LOG.log(Level.FINEST,"Set request attribute: key = " + key);
+                    request.setAttribute(key, requestMap.get(key));
+                }
+            }
         }
     }
 
