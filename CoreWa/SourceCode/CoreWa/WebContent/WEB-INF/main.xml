@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>Main</home-screen>
+
+  <screen id="Main" input="/WEB-INF/sample_layout_pages/add.jsp">
+    <event id="Menu" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/menu.jsp" />
+    <event id="List" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/list.jsp" />
+  </screen>
+  
+  <screen id="Menu" input="/WEB-INF/sample_layout_pages/menu.jsp">
+    <event id="List" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/list.jsp" />
+    <event id="Add" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/add.jsp" />
+  </screen>
+  
+    <screen id="List" input="/WEB-INF/sample_layout_pages/list.jsp">
+    <event id="goMenu" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/menu.jsp" />
+  </screen>
+</corewa>

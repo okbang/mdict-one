@@ -47,7 +47,7 @@ public class CentralConntroller extends HttpServlet {
     private final static String DEF_PROCID = "procInit";
     private final static String DEF_ERRORPAGE = "/WEB-INF/pages/error.jsp";
     private CoreWa conf;
-    
+
     static Map<String, Object> cacheControl = new HashMap<String, Object>();
 
     @Override
@@ -70,39 +70,49 @@ public class CentralConntroller extends HttpServlet {
         Object controlClass;
         String procId = null;
         String nextScrId = null;
-        String screenId = req.getParameter("screenId");
-        String eventId = req.getParameter("eventId");
-        
-        if ((screenId == null) || (eventId == null)) {
-            eventId = DEF_EVENTID;
-        }
+        try {
+            String screenId = req.getParameter("screenId");
+            String eventId = req.getParameter("eventId");
+            String servletPath = req.getServletPath().substring(1); // servlet path without forward character /
 
-        LOG.log(Level.INFO, "screenId=" + screenId + ";eventId=" + eventId);
-        screen = conf.getScreen(screenId);
-        
-        if (screen == null) { // Using home screen from the configuration
-            screen = conf.getScreens().get(conf.getHomeScreenId());
-        }
-        
-        event = screen.getEvent(eventId);
-        
-        if (event != null) {
-            procId = event.getProcId();
-            nextScrId = event.getNextScrId();
-        }
-        
-        if (procId == null) { // procId is not declared, it is default 
-            procId = DEF_PROCID;
-        }
-        
-        if (nextScrId == null) { // the next screen id is not declared, it is the same.
-            nextScrId = screen.getInputPage();
-        }
+            LOG.log(Level.INFO, "servlet path=" + servletPath);
+            LOG.log(Level.INFO, "home screen id=" + conf.getHomeScreenId());
+//            if ((conf.getLayout() != null) && (conf.getLayout().getPart(servletPath) != null) && (screenId == null)) {
+//                Part homePart = conf.getLayout().getPart(servletPath);
+//                screenId = homePart.getScreenId();
+//                LOG.log(Level.INFO, "Layout mode; screenId=" + screenId);
+//            }
+            
+            if ((screenId == null) || (eventId == null)) {
+                eventId = DEF_EVENTID;
+            }
 
-        LOG.log(Level.FINE, "procId=" + procId + ";nextScreenId=" + nextScrId);
+            LOG.log(Level.INFO, "screenId=" + screenId + ";eventId=" + eventId);
+            screen = conf.getScreen(screenId);
 
-        if ((event != null) && (!event.isRedirect())) {
-            try {
+            if (screen == null) { // Using home screen from the configuration
+                screen = conf.getScreens().get(conf.getHomeScreenId());
+            }
+
+            event = screen.getEvent(eventId);
+
+            if (event != null) {
+                procId = event.getProcId();
+                nextScrId = event.getNextScrId();
+            }
+
+            if (procId == null) { // procId is not declared, it is default
+                procId = DEF_PROCID;
+            }
+
+            if (nextScrId == null) { // the next screen id is not declared, it is the same.
+                nextScrId = screen.getInputPage();
+            }
+
+            LOG.log(Level.INFO, "procId=" + procId + ";nextScreenId=" + nextScrId);
+
+            if ((event != null) && (!event.isRedirect())) {
+
                 Method method;
                 String ctrlClassName = screen.getCtrlClass();
                 if (cacheControl.containsKey(ctrlClassName)) { // The control is already created
@@ -116,26 +126,35 @@ public class CentralConntroller extends HttpServlet {
                 method = controlClass.getClass().getMethod(procId, HttpServletRequest.class, HttpServletResponse.class);
                 method.invoke(controlClass, req, resp);
 
-            } catch (Throwable th) {
-                LOG.log(Level.FINEST, "doPost", th);
-                req.getRequestDispatcher(DEF_ERRORPAGE).forward(req, resp);
             }
-        }
-        RequestDispatcher dispatcher = req.getRequestDispatcher(nextScrId);
 
-        if ((event != null) && (event.getDispType() == Event.DispType.FORWARD)) {
-            // Forward to next screen
-            req.getRequestDispatcher(nextScrId).forward(req, resp);
-        } else {
-            // Include the next screen
-            req.getRequestDispatcher(nextScrId).include(req, resp);
+            RequestDispatcher dispatcher = null;
+            if ((conf.getLayout() != null) && CommonUtil.isNNandNB(conf.getLayout().getId())) {
+                LOG.info("Layout page:" + conf.getScreen(conf.getHomeScreenId()).getInputPage());
+                dispatcher = req.getRequestDispatcher(conf.getScreen(conf.getHomeScreenId()).getInputPage());
+                dispatcher.forward(req, resp);
+            } else {
+                dispatcher = req.getRequestDispatcher(nextScrId);
+                
+                if ((event != null) && (event.getDispType() == Event.DispType.FORWARD)) {
+                    LOG.info("Forward to '" + nextScrId);
+                    // Forward to next screen
+                    dispatcher.forward(req, resp);
+                } else {
+                    LOG.info("Include '" + nextScrId);
+                    // Include the next screen
+                    dispatcher.include(req, resp);
+                }
+            }
+        } catch (Throwable th) {
+            LOG.log(Level.FINEST, "doPost", th);
+            req.getRequestDispatcher(DEF_ERRORPAGE).include(req, resp);
         }
-
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
- 
+
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <layout id="Layout">
+    <part id="layout.do" screen="Layout"/>
+    <part id="header.do" screen="Header"/>
+    <part id="left.do" screen="Left"/>
+    <part id="main.do" screen="Main"/>
+    <part id="right.do" screen="Right"/>
+    <part id="footer.do" screen="Footer"/>
+  </layout>
+  <home-screen>Layout</home-screen>
+  
+  <screen id="Layout" input="/WEB-INF/sample_layout_pages/layout.jsp">
+  </screen>
+<!-- 
+  <screen id="Header" control="rocky.corewademo.control.MenuControl" input="/WEB-INF/sample_layout_pages/header.jsp">
+    <event id="List" procId="procList" nextScreen="/WEB-INF/sample_layout_pages/list.jsp"></event>
+    <event id="Add" procId="procAdd" nextScreen="/WEB-INF/sample_layout_pages/add.jsp"></event>
+  </screen>
+  <screen id="Left" input="/WEB-INF/sample_layout_pages/left.jsp">
+    <event id="Back" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/menu.jsp" />
+  </screen>
+  <screen id="Main" input="index.jsp">
+    <event id="Back" redirect="yes" nextScreen="index.jsp" />
+  </screen>
+  
+  <screen id="Right" input="/WEB-INF/sample_layout_pages/main.jsp">
+    <event id="Back" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/menu.jsp" />
+  </screen>
+  
+  <screen id="Footer" input="/WEB-INF/sample_layout_pages/footer.jsp">
+    <event id="Back" redirect="yes" nextScreen="/WEB-INF/sample_layout_pages/menu.jsp" />
+  </screen>
+ -->
+</corewa>

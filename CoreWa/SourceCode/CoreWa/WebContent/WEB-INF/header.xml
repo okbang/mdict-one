@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>Header</home-screen>
+
+  <screen id="Header" control="rocky.corewademo.control.MenuControl" input="/WEB-INF/sample_layout_pages/header.jsp">
+  </screen>
+</corewa>
