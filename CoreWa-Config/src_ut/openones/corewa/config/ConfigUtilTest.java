@@ -232,4 +232,24 @@ public class ConfigUtilTest extends TestCase {
 
     }
 
+    public void testParseLayout() {
+
+        try {
+            fileCfgIs = CommonUtil.loadResource("/test-conf/sample_layout.xml");
+        } catch (FileNotFoundException fnfEx) {
+            fnfEx.printStackTrace();
+            fail(fileCfgPath + " not found!");
+            return;
+        }
+        CoreWa conf = ConfigUtil.parse(fileCfgIs);
+        Layout layout = conf.getLayout();
+
+        Assert.assertEquals("Layout", layout.getId());
+        Assert.assertEquals(6, layout.getPartMap().size());
+
+        Part main = layout.getPartMap().get("main.do");
+        
+        Assert.assertEquals("main.do", main.getId());
+        Assert.assertEquals("Main", main.getScreenId());
+    }
 }

@@ -32,6 +32,16 @@ public class CoreWa {
 	/** Store tag <form>. */
     private Map<String, Form> forms = new HashMap<String, Form>();
 	
+    private Layout layout;
+    
+    public Layout getLayout() {
+        return layout;
+    }
+
+    public void setLayout(Layout layout) {
+        this.layout = layout;
+    }
+
     public String getViewScreen() {
 		return viewScreen;
 	}

@@ -47,7 +47,7 @@ public class ConfigUtil {
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xp = xpf.newXPath();
         try {
-            // Lookup view-screen
+            // Lookup view-screen, edit-screen, help-screen for Portlet only
             String value = xp.evaluate("//view-screen/text()", doc);
             cwInfo.setViewScreen(value);
             
@@ -57,9 +57,11 @@ public class ConfigUtil {
             value = xp.evaluate("//help-screen/text()", doc);
             cwInfo.setHelpScreen(value);
             
+            // Lookup home-screen for Servlet only
             value = xp.evaluate("//home-screen/text()", doc);
             cwInfo.setHomeScreenId(value);
             
+            cwInfo.setLayout(parseLayout(doc));
             cwInfo.setForms(parseForm(doc));
             cwInfo.setScreens(parseScreen(doc));
         } catch (XPathExpressionException e) {
@@ -68,7 +70,49 @@ public class ConfigUtil {
         
         return cwInfo; 
     }
-
+    /**
+     * Parse node
+          <layout id="Layout">
+              <part id="header.do" screen="Header"/>
+              <part id="left.do" screen="Left"/>
+              <part id="main.do" screen="Main"/>
+              <part id="right.do" screen="Right"/>
+              <part id="footer.do" screen="Footer"/>
+          </layout>
+     * @param doc
+     * @return
+     */
+    private static Layout parseLayout(Document doc) {
+        Map<String, Form> formBeanMap = new HashMap<String, Form>();
+        XPathFactory xpf = XPathFactory.newInstance();
+        XPath xp = xpf.newXPath();
+        Layout layout = new Layout();
+        
+        try {
+            Node layoutNode = (Node) xp.evaluate("//layout", doc, XPathConstants.NODE);
+            layout.setId(xp.evaluate("@id", layoutNode));
+            
+            NodeList partNodeList = (NodeList) xp.evaluate("//layout/part", doc, XPathConstants.NODESET);
+            
+            int len = (partNodeList != null)? partNodeList.getLength():0;
+            Node partNode;
+            Part part;
+            String key;
+            for (int i = 0; i < len; i++) {
+                partNode = partNodeList.item(i);
+                
+                part = new Part();
+                part.setId(xp.evaluate("@id", partNode));
+                part.setScreenId(xp.evaluate("@screen", partNode));
+                
+                layout.add(part);
+            }
+            
+        } catch (XPathExpressionException e) {
+            LOG.error("Parse configuration file: lookup form", e);
+        }
+        return layout;
+    }
     /**
      * Parse node <form>
      * @param doc
@@ -160,7 +204,7 @@ public class ConfigUtil {
                 eventInfo.setFormBean(xp.evaluate("@form", eventNode));
                 eventInfo.setScope(xp.evaluate("@scope", eventNode));
                 
-                eventInfo.setDispType(xp.evaluate("@disp-type", eventNode));
+                eventInfo.setDispType(xp.evaluate("@disp-type", eventNode).toUpperCase());
                 
                 eventMap.put(eventInfo.getId(), eventInfo);
             }

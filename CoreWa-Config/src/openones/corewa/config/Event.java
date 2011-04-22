@@ -8,7 +8,7 @@ public class Event {
     private String procId;
     
     private String nextScrId;
-    private DispType dispType = DispType.FORWARD;
+    private DispType dispType = DispType.INCLUDE;
     
     /** If attribute "redirect" is declared, the procId is skipped. */
     private boolean isRedirect = false;
