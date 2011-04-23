@@ -41,6 +41,7 @@ import openones.corewa.config.Event;
 import openones.corewa.config.Screen;
 import openones.corewa.control.BaseControl;
 import rocky.common.CommonUtil;
+import rocky.common.Constant;
 
 @SuppressWarnings("serial")
 public class CentralConntroller extends HttpServlet {
@@ -76,6 +77,9 @@ public class CentralConntroller extends HttpServlet {
         Method method;
         
         try {
+            req.setCharacterEncoding(Constant.DEF_ENCODE);
+            resp.setCharacterEncoding(Constant.DEF_ENCODE);
+
             String screenId = req.getParameter("screenId");
             String eventId = req.getParameter("eventId");
             String servletPath = req.getServletPath().substring(1); // servlet path without forward character /
@@ -106,11 +110,11 @@ public class CentralConntroller extends HttpServlet {
                 nextScrId = event.getNextScrId();
             }
 
-            if (procId == null) { // procId is not declared, it is default
+            if (!CommonUtil.isNNandNB(procId)) { // procId is not declared, it is default
                 procId = DEF_PROCID;
             }
 
-            if (nextScrId == null) { // the next screen id is not declared, it is the same.
+            if (!CommonUtil.isNNandNB(nextScrId)) { // the next screen id is not declared, it is the same.
                 nextScrId = screen.getInputPage();
             }
 
@@ -139,37 +143,56 @@ public class CentralConntroller extends HttpServlet {
                             HttpServletResponse.class);
                     resultForm = (BaseOutForm) method.invoke(controlClass, req, mapReq, resp);
                 } catch (Exception ex) {
-                    LOG.warning("Could not invoke method xxx(ActionRequest, Map, ActionRespone)");
+                    LOG.warning("Could not invoke method " + controlClass + "." + procId + "(Request, Map, Respone)");
                     // @deprecated
                     method = controlClass.getClass().getMethod(procId, HttpServletRequest.class, HttpServletResponse.class);
-                    method.invoke(controlClass, req, resp);
+                    resultForm = (BaseOutForm) method.invoke(controlClass, req, resp);
                 }
-            } else if (controlClass!= null) { // Initial screen
+            } else if (controlClass != null) { // Initial screen
                 method = controlClass.getClass().getMethod(DEF_PROCID, HttpServletRequest.class, HttpServletResponse.class);
                 resultForm = (BaseOutForm) method.invoke(controlClass, req, resp);
             }
             
+            Event.DispType distType = null;
             if (resultForm != null) {
                 partResultFormIntoWeb(resultForm, req, req.getSession());
+                if (CommonUtil.isNNandNB(resultForm.getNextScreen())) {
+                    nextScrId = resultForm.getNextScreen();
+                    distType = resultForm.getDispType();
+                    
+                    if (resultForm.isDispatched()) { // Skip next section if the request is dispatche in the control
+                        return;
+                    }
+                    // resp.sendRedirect(resultForm.getNextScreen());
+                }
             }
-
-            RequestDispatcher dispatcher = null;
-            if ((conf.getLayout() != null) && CommonUtil.isNNandNB(conf.getLayout().getId())) {
-                LOG.info("Layout page:" + conf.getScreen(conf.getHomeScreenId()).getInputPage());
-                dispatcher = req.getRequestDispatcher(conf.getScreen(conf.getHomeScreenId()).getInputPage());
-                dispatcher.forward(req, resp);
-            } else {
-                dispatcher = req.getRequestDispatcher(nextScrId);
+            
+            if ((resultForm == null) || (!CommonUtil.isNNandNB(resultForm.getNextScreen()))) {
+                if ((conf.getLayout() != null) && CommonUtil.isNNandNB(conf.getLayout().getId())) {
+                    LOG.info("Layout page:" + conf.getScreen(conf.getHomeScreenId()).getInputPage());
+                    nextScrId = conf.getScreen(conf.getHomeScreenId()).getInputPage();
+                }
                 
                 if ((event != null) && (event.getDispType() == Event.DispType.FORWARD)) {
                     LOG.info("Forward to '" + nextScrId);
-                    // Forward to next screen
-                    dispatcher.forward(req, resp);
+                    distType = Event.DispType.FORWARD;
                 } else {
                     LOG.info("Include '" + nextScrId);
-                    // Include the next screen
-                    dispatcher.include(req, resp);
+                    distType = Event.DispType.INCLUDE;
                 }
+            }
+            
+            LOG.info("nextScrId=" + nextScrId + ";distType");
+            
+            // Process transition screen
+            RequestDispatcher dispatcher = req.getRequestDispatcher(nextScrId);
+            
+            if (distType == Event.DispType.FORWARD) {
+                dispatcher.forward(req, resp);
+            } else if (distType == Event.DispType.INCLUDE) {
+                dispatcher.include(req, resp);
+            } else { // redirect
+                resp.sendRedirect(nextScrId);
             }
         } catch (Throwable th) {
             LOG.log(Level.FINEST, "doPost", th);
