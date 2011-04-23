@@ -4,7 +4,7 @@
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.0.3-201104112054345.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.0.4-201104112055424.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.0.5-201104113103720.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.0.5-201104113103758.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

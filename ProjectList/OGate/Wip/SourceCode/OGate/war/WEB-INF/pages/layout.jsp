@@ -17,7 +17,14 @@
  * limitations under the License.
  */
  --%>
+<%@page import="openones.gate.control.LayoutControl"%>
+<%@page import="openones.gate.Cons"%>
+<%@page import="com.google.appengine.api.users.User"%>
+<%@page import="com.google.appengine.api.users.UserServiceFactory"%>
+<%@page import="com.google.appengine.api.users.UserService"%>
+<%@page import="openones.gate.session.SessionCounter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -27,6 +34,14 @@
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 <link rel=stylesheet type=text/css href="pages/css/java.css">
 </head>
+<%
+    UserService userService = UserServiceFactory.getUserService();
+    User user = userService.getCurrentUser();
+    if (user != null) {
+        session.setAttribute(Cons.SK_USER, user);
+    }
+%>
+
 <body>
   <table border="1" width="100%" cellspacing="0" cellpadding="0">
     <tr>
@@ -60,8 +75,8 @@
       <td width="78%" class=uportal-channel-text>
         <p align="center">@Open-Ones Group giữ bản quyền
       </td>
-      <td width="12%" class=uportal-channel-text>Lượt truy cập:
-        1000<br> Đang đăng nhập: ${nmLogonUser}</td>
+      <td width="12%" class=uportal-channel-text>Lượt truy cập: <%= SessionCounter.getNumberOfSessions() %>
+       <br> Đang đăng nhập: ${nmLogonUser}</td>
     </tr>
   </table>
 

@@ -41,10 +41,10 @@ public class LayoutControl extends BaseControl {
     public void procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO Auto-generated method stub
         HttpSession session = req.getSession();
-        updateNmLogonUser(session, 0);
+        //updateNmLogonUser(session, 0);
     }
 
-    protected void updateNmLogonUser(HttpSession session, int delta) {
+    public static int updateNmLogonUser(HttpSession session, int delta) {
         // Update number of logon user
         Object nmLogonUserObj = session.getAttribute(Cons.SK_NMLOGON_USER);
         
@@ -56,7 +56,8 @@ public class LayoutControl extends BaseControl {
         if (nmLogonUser < 0) {
             nmLogonUser = 0;
         }
-        
         session.setAttribute(Cons.SK_NMLOGON_USER, nmLogonUser);
+        
+        return nmLogonUser;
     }
 }

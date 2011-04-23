@@ -18,11 +18,13 @@
  */
  --%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"  isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@page import="com.google.appengine.api.users.UserService"%>
 <%@page import="com.google.appengine.api.users.User"%>
 <%@page import="com.google.appengine.api.users.UserServiceFactory"%>
+<%@page import="openones.gate.Cons"%>
+<%@page import="openones.gate.control.LayoutControl"%>
 
 <form name="frmHeader" action="header.do" method="post">
   <input type="hidden" name="screenId" value="Header" />

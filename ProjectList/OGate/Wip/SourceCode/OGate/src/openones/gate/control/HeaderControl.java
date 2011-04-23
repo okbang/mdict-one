@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
-import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
 
 import com.google.appengine.api.users.User;
@@ -40,22 +39,27 @@ import com.google.appengine.api.users.UserServiceFactory;
  */
 public class HeaderControl extends LayoutControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
-    private static int nmLogonUser = 0;
+//    private static int nmLogonUser = 0;
+    
     public BaseOutForm googleLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
+        BaseOutForm outForm = new BaseOutForm();
         UserService userService = UserServiceFactory.getUserService();
 
-        resp.sendRedirect(userService.createLoginURL(req.getRequestURI()));
+        //resp.setCharacterEncoding("utf8");
+        outForm.setNextScreen(userService.createLoginURL(req.getRequestURI()));
+        //outForm.setDispatched(true);
+        //resp.sendRedirect(userService.createLoginURL(req.getRequestURI()));
 
-        User user = userService.getCurrentUser();
-        HttpSession session = req.getSession();
+//        User user = userService.getCurrentUser();
+//        HttpSession session = req.getSession();
+//
+//        if (user != null) {
+//            //session.setAttribute(Cons.SK_USER, user);
+//            updateNmLogonUser(session, +1);
+//        }
 
-        if (user != null) {
-            session.setAttribute(Cons.SK_USER, user);
-            updateNmLogonUser(session, +1);
-        }
-
-        return null;
+        return outForm;
     }
     public void googleLogout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = UserServiceFactory.getUserService();
