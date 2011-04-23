@@ -51,13 +51,8 @@ public class HeaderControl extends LayoutControl {
         //outForm.setDispatched(true);
         //resp.sendRedirect(userService.createLoginURL(req.getRequestURI()));
 
-//        User user = userService.getCurrentUser();
-//        HttpSession session = req.getSession();
-//
-//        if (user != null) {
-//            //session.setAttribute(Cons.SK_USER, user);
-//            updateNmLogonUser(session, +1);
-//        }
+        // Assumption: user click on Login mean will try to login successfully
+        updateNmLogonUser(req.getSession(), +1);
 
         return outForm;
     }
