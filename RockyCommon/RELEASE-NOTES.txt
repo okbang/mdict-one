@@ -1,0 +1,20 @@
+                        Rocky Commons Package
+                            
+                           Release Notes
+
+
+INTRODUCTION:
+
+This document contains the release notes for the 0.2 version of Rocky Common.
+Rocky Common is a set of utility functions and reusable components that should be of use in any Java environment.
+*** Version 0.5
+- Fixed bug: URL Pattern of MSSQL
+*** Version 0.3
+- Add sample of Excel manipulation
+
+*** Version 0.2
+- Removed (Change to "@Deprecated") class Util.java
+- Change methods NNandNE in CommonUtil into isNNNE.
+*** Version 0.1
+
+Le Ngoc Thach
