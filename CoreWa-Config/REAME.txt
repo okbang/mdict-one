@@ -5,4 +5,9 @@ How to compile and release binary package
 Run script dist.bat
 The binary package is built in folder "dist".
 
+Changes Tracking
+=========================================
+*** Version 0.0.6:
+ + Support xml configuration: a event can has many results which forward to new jsp page.
+
 Thach Le

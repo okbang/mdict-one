@@ -23,7 +23,7 @@
         <event id="prev" procId="procPrev"></event>
     </screen>
     <screen id="Add" control="rocky.corewademo.control.AddControl">
-        <event id="add" procId="procAdd"></event>
+        <event id="add" procId="procAdd" disp-type="FORWARD"></event>
         <event id="back" procId="procBack" nextScreen="/WEB-INF/jsp/menu.jsp"></event>
         <event id="selectGroup" procId="procSelectGroup"></event>
     </screen>

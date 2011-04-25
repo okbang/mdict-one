@@ -90,6 +90,10 @@ public class ConfigUtil {
         
         try {
             Node layoutNode = (Node) xp.evaluate("//layout", doc, XPathConstants.NODE);
+            if (layoutNode == null) {
+                return null;
+            }
+
             layout.setId(xp.evaluate("@id", layoutNode));
             
             NodeList partNodeList = (NodeList) xp.evaluate("//layout/part", doc, XPathConstants.NODESET);
@@ -207,12 +211,46 @@ public class ConfigUtil {
                 eventInfo.setDispType(xp.evaluate("@disp-type", eventNode).toUpperCase());
                 
                 eventMap.put(eventInfo.getId(), eventInfo);
+                eventInfo.setResults(parseResult(eventNode));
             }
         } catch (XPathExpressionException e) {
             LOG.error("Parse configuration file: lookup event", e);
         }
         
         return eventMap;
+    }
+
+    /**
+     * Parse node <Result> within node <Event>
+     * @param screenNode
+     * @return
+     */
+    private static Map<String, Result> parseResult(Node eventNode) {
+        Map<String, Result> resultMap = new HashMap<String, Result>();
+        
+        XPathFactory xpf = XPathFactory.newInstance();
+        XPath xp = xpf.newXPath();
+        
+        try {
+            NodeList resultNodeList = (NodeList) xp.evaluate("result", eventNode, XPathConstants.NODESET);
+            int len = (resultNodeList != null) ? resultNodeList.getLength() : 0;
+            
+            Node resultNode;
+            Result resultInfo;
+            for (int i = 0; i < len; i++) {
+                eventNode = resultNodeList.item(i);
+                
+                resultInfo = new Result();
+                resultInfo.setId(xp.evaluate("@id", eventNode));
+                resultInfo.setNextScrId(xp.evaluate("@nextScreen", eventNode));
+                
+                resultMap.put(resultInfo.getId(), resultInfo);
+            }
+        } catch (XPathExpressionException e) {
+            LOG.error("Parse node configuration file: lookup result of node event", e);
+        }
+        
+        return resultMap;
     }
 
     public static CoreWa parse(String resource) {

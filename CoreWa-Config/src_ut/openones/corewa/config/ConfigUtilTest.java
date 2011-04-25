@@ -252,4 +252,29 @@ public class ConfigUtilTest extends TestCase {
         Assert.assertEquals("main.do", main.getId());
         Assert.assertEquals("Main", main.getScreenId());
     }
+    
+    public void testParseMultiResult() {
+
+        try {
+            fileCfgIs = CommonUtil.loadResource("/test-conf/sample_multiresults.xml");
+        } catch (FileNotFoundException fnfEx) {
+            fnfEx.printStackTrace();
+            fail(fileCfgPath + " not found!");
+            return;
+        }
+        CoreWa conf = ConfigUtil.parse(fileCfgIs);
+        Layout layout = conf.getLayout();
+
+        //Assert.assertEquals("Layout", layout.getId());
+        //Assert.assertEquals(0, layout.getPartMap().size());
+
+        Assert.assertEquals(2, conf.getScreen("Layout").getEvent("init").getResults().size());
+        
+        Assert.assertEquals("/WEB-INF/sample_multiresults/normalUser.jsp"
+                          , conf.getScreen("Layout").getEvent("init").getResult("normalUser").getNextScrId());
+
+        Assert.assertEquals("adminUser"
+                          , conf.getScreen("Layout").getEvent("init").getResult("adminUser").getId());
+
+    }
 }

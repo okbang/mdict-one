@@ -3,6 +3,6 @@
     <view-screen id="search"></view-screen>
     <screen id="Search">
         <event id="search" procId="clickSearch" nextScreen="/WEB-INF/jsp/search.jsp" disp-type="INCLUDE"></event>
-        <event id="add" procId="clickAdd" nextScreen="/WEB-INF/jsp/c.jsp"></event>
+        <event id="add" procId="clickAdd" nextScreen="/WEB-INF/jsp/c.jsp" disp-type="FORWARD"></event>
      </screen>  
 </document>

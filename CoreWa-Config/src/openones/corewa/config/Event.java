@@ -1,5 +1,8 @@
 package openones.corewa.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import rocky.common.CommonUtil;
 
 public class Event {
@@ -15,6 +18,8 @@ public class Event {
 
     private String formBean;
     private String scope;
+    
+    private Map<String, Result> results = new HashMap<String, Result>();
     
     public Event() {
     }
@@ -87,4 +92,15 @@ public class Event {
         }
     }
 
+    public Map<String, Result> getResults() {
+        return results;
+    }
+
+    public void setResults(Map<String, Result> results) {
+        this.results = results;
+    }
+    
+    public Result getResult(String resultId) {
+        return results.get(resultId);
+    }
 }

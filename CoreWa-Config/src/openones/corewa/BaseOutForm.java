@@ -10,7 +10,8 @@ public class BaseOutForm implements Serializable {
     private Map<String, Object> requestMap = new HashMap<String, Object>();
     private Map<String, Object> sessionMap = new HashMap<String, Object>();
     private BaseInForm inForm;
-    private String nextScreen;
+    private String nextResult;
+
     /** transType: FORWARE, INCLUDE. Null means redirect */
     private Event.DispType dispType;
 
@@ -56,13 +57,12 @@ public class BaseOutForm implements Serializable {
     public void setInForm(BaseInForm inForm) {
         this.inForm = inForm;
     }
-
-    public String getNextScreen() {
-        return nextScreen;
+    public String getNextResult() {
+        return nextResult;
     }
 
-    public void setNextScreen(String nextScreen) {
-        this.nextScreen = nextScreen;
+    public void setNextResult(String nextResult) {
+        this.nextResult = nextResult;
     }
 
 }
