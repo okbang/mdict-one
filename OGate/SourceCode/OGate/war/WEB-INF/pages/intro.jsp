@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<p class="uportal-channel-text" style="color:blue">
+<b>
+Nhằm liên kết các bạn yêu thích công nghệ thông tin - các bạn đang học tập, làm việc, nghiên cứu đang mong muốn nâng cao kiến thức, kỹ năng, đang muốn trải nghiệm kỹ năng làm phần mềm; Nhóm Open-Ones này được lập ra với mong muốn chúng ta cùng liên kết các ý tưởng, kỹ năng của mỗi cá nhân để tạo ra các sản phẩm ý nghĩa cho cộng đồng.
+</b>
+</p>
+<br/>
 <b>Trang web đang được xây dựng. Mời bạn gia 
         nhập nhóm tại đây: </b>
         <a href="http://groups.google.com/group/open-ones/subscribe" target=_blank>

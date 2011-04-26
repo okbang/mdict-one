@@ -61,9 +61,24 @@
         src="pages/images/transparent.gif" width=100 height=1> Menu
       </td>
       <td width="78%" height="436" valign="top">
-        <jsp:include page="/main.part">
-            <jsp:param name="screenId" value="Main"/>
-        </jsp:include></td>
+        <c:if test='${MainScreen == "Service"}'>
+          <jsp:include page="/service.mod">
+              <jsp:param name="screenId" value="Main"/>
+          </jsp:include></td>
+        </c:if>
+
+        <c:if test='${MainScreen == "Introduction"}'>
+          <jsp:include page="/intro.mod">
+              <jsp:param name="screenId" value="Main"/>
+          </jsp:include></td>
+        </c:if>
+        
+        <c:if test='${empty MainScreen}'>
+          <jsp:include page="/main.part">
+              <jsp:param name="screenId" value="Main"/>
+          </jsp:include></td>
+        </c:if>
+        
       <td width="12%" nowrap height="436" valign="top">
       <IMG alt="" src="pages/images/transparent.gif" width=150 height=1>
         <jsp:include page="/link.part">

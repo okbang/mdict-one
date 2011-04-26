@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<form name="frmNavigation" action="main.part" method="post">
-      <input type="hidden" name="screenId" value="main" />
+<form name="frmNavigation" action="main.do" method="post">
+      <input type="hidden" name="screenId" value="Navigation" />
        <input type="hidden" name="eventId" value="" />
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
     <tr height="20" align="left" valign="top">
@@ -22,12 +22,8 @@
                   </TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-dark height=20
-                    vAlign=center noWrap><IMG alt=""
-                    src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text-selected
-                    href="#">Giới thiệu</A><IMG alt=""
-                    src="pages/images/transparent.gif" width=10
+                  <TD class=uportal-background-dark height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10
+                    height=10> <A class=uportal-tab-text-selected href="#" onclick='submitAction("frmNavigation","Introduction", "clickIntroduction")'>Giới thiệu</A><IMG alt="" src="pages/images/transparent.gif" width=10
                     height=10>
                   </TD>
                 </TR>
@@ -61,8 +57,7 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Sản
-                      phẩm</A><IMG alt="" src="pages/images/transparent.gif"
+                    height=10> <A class=uportal-tab-text href="#">Sản phẩm</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -94,8 +89,7 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Dịch
-                      vụ</A><IMG alt="" src="pages/images/transparent.gif"
+                    height=10> <A class=uportal-tab-text href="#" onclick='submitAction("frmNavigation","Navigation", "clickService")'>Dịch vụ</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
