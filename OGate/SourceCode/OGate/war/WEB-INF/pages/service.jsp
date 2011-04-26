@@ -4,10 +4,8 @@
 Free seminar for Students, Tutor!
 </b>
 <a target="_blank" href="http://open-ones.googlecode.com/files/SDP_Software%20Development%20in%20Practice_v0.9.1.pdf">
-Download PDF format.</a><br>
-</p>
-<br/>
-<TABLE FRAME=VOID CELLSPACING=0 COLS=6 RULES=NONE BORDER=0 height="895">
+Download PDF format</a>.<br/>
+<TABLE FRAME=VOID CELLSPACING=0 COLS=6 RULES=NONE BORDER=0 height="739">
     <COLGROUP><COL WIDTH=32><COL WIDTH=50><COL WIDTH=200><COL WIDTH=342><COL WIDTH=90><COL WIDTH=27></COLGROUP>
     <TBODY>
         <TR>
@@ -70,123 +68,117 @@ Download PDF format.</a><br>
             2 training days (4h/days) + 2 days for home work<BR></TD>
         </TR>
         <TR>
-            <TD STYLE="border-top: 1px solid #000000" HEIGHT=19 ALIGN=LEFT VALIGN=TOP colspan="6"><B>
-            Topics:</B><BR></TD>
-        </TR>
-        <TR>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=19 ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="24"><B>
+            <TD STYLE="border-top: 1px solid #000000" HEIGHT=363 ALIGN=LEFT VALIGN=TOP colspan="6"><B>
+            Topics:<br>
+&nbsp;</B><table border="1" width="100%" id="table1" cellspacing="0" cellpadding="0" height="321">
+                <tr>
+                    <TD HEIGHT=19 ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="24"><B>
             No.</B></TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="26"><B>
+            <TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="26"><B>
             Day</B></TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="220"><B>
+            <TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="220"><B>
             Topic</B></TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="418"><B>
-            <IMG alt="" src="pages/images/transparent.gif" width=150 height=1>
+            <TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="418"><B>
             Topic objectives</B></TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="75"><B>
+            <TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="75"><B>
             Duration (h)</B></TD>
             <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=54 ALIGN=CENTER VALIGN=TOP SDVAL="2" SDNUM="1033;" width="24">
-            2</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER VALIGN=TOP SDVAL="1" SDNUM="1033;" width="26">
+            <TD HEIGHT=34 ALIGN=CENTER VALIGN=TOP width="24">
             1</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="220">
+            <TD ALIGN=CENTER VALIGN=TOP width="26">
+            1</TD>
+            <TD ALIGN=LEFT VALIGN=TOP width="220">
             Software development Life-cycle</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="418">
+            <TD ALIGN=LEFT VALIGN=TOP width="418">
             - Understand stages, output of each stage in SDLC<BR>- Comprehensive 
             roles and responsibilities in software development</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=RIGHT VALIGN=TOP SDVAL="0.0416666666666667" SDNUM="1033;1033;H:MM" width="75">
+            <TD ALIGN=RIGHT VALIGN=TOP width="75">
             1:00</TD>
             <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=101 ALIGN=CENTER VALIGN=TOP SDVAL="3" SDNUM="1033;" width="24">
-            3</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER VALIGN=TOP SDVAL="1" SDNUM="1033;" width="26">
+            <TD HEIGHT=82 ALIGN=CENTER VALIGN=TOP SDVAL="3" SDNUM="1033;" width="24">
+            2</TD>
+            <TD ALIGN=CENTER VALIGN=TOP SDVAL="1" SDNUM="1033;" width="26">
             1</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="220">
+            <TD ALIGN=LEFT VALIGN=TOP width="220">
             Overview CMMI – How to apply into the software development</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="418">
+            <TD ALIGN=LEFT VALIGN=TOP width="418">
             Can understand and apply some main Process Areas from CMMI:<BR>- 
             REQM - Requirements Management<BR>- CM - Configuration Management<BR>
             - VER – Verification <BR>- CAR - Causal Analysis and Resolution</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=RIGHT VALIGN=TOP SDVAL="0.0208333333333333" SDNUM="1033;1033;H:MM" width="75">
+            <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0208333333333333" SDNUM="1033;1033;H:MM" width="75">
             0:30</TD>
             <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=71 ALIGN=CENTER VALIGN=TOP SDVAL="4" SDNUM="1033;" width="24">
-            4</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER VALIGN=TOP SDVAL="1" SDNUM="1033;" width="26">
+            <TD HEIGHT=50 ALIGN=CENTER VALIGN=TOP SDVAL="4" SDNUM="1033;" width="24">
+            3</TD>
+            <TD ALIGN=CENTER VALIGN=TOP SDVAL="1" SDNUM="1033;" width="26">
             1</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="220">
+            <TD ALIGN=LEFT VALIGN=TOP width="220">
             Software project introduction</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="418">
+            <TD ALIGN=LEFT VALIGN=TOP width="418">
             - Can verify software documents by checklist<BR>- Understand coding 
             standard and can apply tools to check code.<BR>- Can define project 
             task list</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=RIGHT VALIGN=TOP SDVAL="0.0416666666666667" SDNUM="1033;1033;H:MM" width="75">
+            <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0416666666666667" SDNUM="1033;1033;H:MM" width="75">
             1:00</TD>
             <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=57 ALIGN=CENTER VALIGN=TOP SDVAL="5" SDNUM="1033;" width="24">
-            5</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER VALIGN=TOP SDVAL="1" SDNUM="1033;" width="26">
+            <TD HEIGHT=50 ALIGN=CENTER VALIGN=TOP SDVAL="5" SDNUM="1033;" width="24">
+            4</TD>
+            <TD ALIGN=CENTER VALIGN=TOP SDVAL="1" SDNUM="1033;" width="26">
             1</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="220">
+            <TD ALIGN=LEFT VALIGN=TOP width="220">
             Plan for home work</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="418">
+            <TD ALIGN=LEFT VALIGN=TOP width="418">
             - Understand what will be done in homework<BR>- Join the team in 
             googlecode.<BR>- Using Eclipse and TortoiseSVN</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=RIGHT VALIGN=TOP SDVAL="0.0104166666666667" SDNUM="1033;1033;H:MM" width="75">
+            <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0104166666666667" SDNUM="1033;1033;H:MM" width="75">
             0:15</TD>
             <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=87 ALIGN=CENTER VALIGN=TOP SDVAL="6" SDNUM="1033;" width="24">
-            6</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER VALIGN=TOP SDVAL="2" SDNUM="1033;" width="26">
+            <TD HEIGHT=50 ALIGN=CENTER VALIGN=TOP SDVAL="6" SDNUM="1033;" width="24">
+            5</TD>
+            <TD ALIGN=CENTER VALIGN=TOP SDVAL="2" SDNUM="1033;" width="26">
             2</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="220">
+            <TD ALIGN=LEFT VALIGN=TOP width="220">
             Workshop – review<BR>Home work</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="418">
+            <TD ALIGN=LEFT VALIGN=TOP width="418">
             - Comprehensive applying coding standard in software development<BR>
             - Can practice the method of cross-check/peer review source code<BR>
             - Perform Unit Test</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=RIGHT VALIGN=TOP SDVAL="0.0625" SDNUM="1033;1033;H:MM" width="75">
+            <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0625" SDNUM="1033;1033;H:MM" width="75">
             1:30</TD>
             <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=57 ALIGN=CENTER VALIGN=TOP SDVAL="7" SDNUM="1033;" width="24">
-            7</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER VALIGN=TOP SDVAL="2" SDNUM="1033;" width="26">
+            <TD HEIGHT=34 ALIGN=CENTER VALIGN=TOP SDVAL="7" SDNUM="1033;" width="24">
+            6</TD>
+            <TD ALIGN=CENTER VALIGN=TOP SDVAL="2" SDNUM="1033;" width="26">
             2</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="220">
+            <TD ALIGN=LEFT VALIGN=TOP width="220">
             Workshop – CMMI applying</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=LEFT VALIGN=TOP width="418">
+            <TD ALIGN=LEFT VALIGN=TOP width="418">
             - To identify causes of selected outcomes and take action to improve<BR>
             - Review the software project by CMMI&#39;s PA</TD>
-            <TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=RIGHT VALIGN=TOP SDVAL="0.0625" SDNUM="1033;1033;H:MM" width="75">
+            <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0625" SDNUM="1033;1033;H:MM" width="75">
             1:30</TD>
             <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
+                </tr>
+        </table>
+        </TD>
         </TR>
         <TR>
-            <TD HEIGHT=18 ALIGN=LEFT VALIGN=TOP width="26"><BR></TD>
-            <TD ALIGN=LEFT VALIGN=TOP width="28">&nbsp;</TD>
-            <TD ALIGN=LEFT VALIGN=TOP width="222">&nbsp;</TD>
-            <TD ALIGN=LEFT VALIGN=TOP width="420">&nbsp;</TD>
-            <TD ALIGN=LEFT VALIGN=TOP width="77"><BR></TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
+            <TD HEIGHT=18 ALIGN=LEFT colspan="6"><B>Prerequisites</B></TD>
         </TR>
         <TR>
-            <TD HEIGHT=23 ALIGN=LEFT colspan="6"><B>Prerequisites</B></TD>
-        </TR>
-        <TR>
-            <TD HEIGHT=20 ALIGN=LEFT width="26">&nbsp;</TD>
+            <TD HEIGHT=18 ALIGN=LEFT width="26"></TD>
             <TD ALIGN=LEFT colspan="5">- Have background about OOP</TD>
         </TR>
         <TR>
@@ -200,17 +192,17 @@ Download PDF format.</a><br>
             project by Java with following (not mandatory):</TD>
         </TR>
         <TR>
-            <TD HEIGHT=22 ALIGN=LEFT width="26">&nbsp;</TD>
+            <TD HEIGHT=18 ALIGN=LEFT width="26"></TD>
             <TD ALIGN=LEFT width="28">&nbsp;</TD>
             <TD ALIGN=LEFT colspan="4">+ Java Script, CSS</TD>
         </TR>
         <TR>
-            <TD HEIGHT=23 ALIGN=LEFT width="26"><BR></TD>
+            <TD HEIGHT=18 ALIGN=LEFT width="26"><BR></TD>
             <TD ALIGN=LEFT width="28"><BR></TD>
             <TD ALIGN=LEFT colspan="4">+ JSP, Taglib</TD>
         </TR>
         <TR>
-            <TD HEIGHT=21 ALIGN=LEFT width="26"><BR></TD>
+            <TD HEIGHT=18 ALIGN=LEFT width="26"><BR></TD>
             <TD ALIGN=LEFT width="28"><BR></TD>
             <TD ALIGN=LEFT colspan="4">+ Servlet</TD>
         </TR>
@@ -221,8 +213,6 @@ Download PDF format.</a><br>
         </TR>
     </TBODY>
 </TABLE>
-<p>
-Contact:
+<p>Contact:
 <a href="mailto:thachln@gmail.com?subject=[Register][Seminar] I would like the Open-Ones Group conduct this seminar">
 Open-Ones Group</a></p>
-

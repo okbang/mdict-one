@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
 
@@ -38,10 +39,12 @@ public class LayoutControl extends BaseControl {
     private static int nmLogonUser = 0;
 
     @Override
-    public void procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        HttpSession session = req.getSession();
-        //updateNmLogonUser(session, 0);
+    public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        BaseOutForm outForm = new BaseOutForm();
+
+        outForm.putRequest("MainScreen", "Introduction");
+
+        return outForm;
     }
 
     public static int updateNmLogonUser(HttpSession session, int delta) {
