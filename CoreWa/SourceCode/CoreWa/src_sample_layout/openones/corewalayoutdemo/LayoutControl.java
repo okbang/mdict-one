@@ -24,6 +24,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
 
 /**
@@ -33,8 +34,11 @@ import openones.corewa.control.BaseControl;
 public class LayoutControl extends BaseControl {
 
     @Override
-    public void procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getSession().setAttribute("user", "Guest");
+    public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        BaseOutForm outForm = new BaseOutForm();
+        outForm.putSession("user", "Guest");
+        
+        return outForm;
     }
 
 }

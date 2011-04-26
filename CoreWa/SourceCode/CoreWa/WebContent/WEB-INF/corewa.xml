@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<corewa>
+<corewa xsi:schemaLocation="http://www.open-ones.com corewa.xsd">
 
   <screen id="Menu" control="rocky.corewademo.control.MenuControl" input="/WEB-INF/pages/menu.jsp">
     <event id="List" procId="procList" nextScreen="/WEB-INF/pages/list.jsp"></event>
@@ -11,4 +11,7 @@
   <screen id="Add">
     <event id="Back" redirect="yes" nextScreen="/WEB-INF/pages/menu.jsp" />
   </screen>
+  
+  <scree>
+  </scree>
 </corewa>

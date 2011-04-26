@@ -32,6 +32,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import openones.corewa.BaseOutForm;
 import openones.corewa.form.BaseForm;
 
 import org.apache.commons.fileupload.FileItem;
@@ -46,9 +47,11 @@ public class BaseControl {
     final static Logger LOG = Logger.getLogger("BaseControl");
 
     
-    public void procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.log(Level.INFO, "procInit.START");
         LOG.log(Level.INFO, "procInit.END");
+        
+        return null;
     }
     
 
