@@ -5,15 +5,15 @@ Free seminar for Students, Tutor!
 </b>
 <a target="_blank" href="http://open-ones.googlecode.com/files/SDP_Software%20Development%20in%20Practice_v0.9.1.pdf">
 Download PDF format</a>.<br/>
-<TABLE FRAME=VOID CELLSPACING=0 COLS=6 RULES=NONE BORDER=0 height="739">
+<TABLE background="#FFFFFF" FRAME=VOID CELLSPACING=0 COLS=6 RULES=NONE BORDER=0 height="739" width="742">
     <COLGROUP><COL WIDTH=32><COL WIDTH=50><COL WIDTH=200><COL WIDTH=342><COL WIDTH=90><COL WIDTH=27></COLGROUP>
     <TBODY>
         <TR>
-            <TD WIDTH=741 HEIGHT=21 ALIGN=LEFT VALIGN=TOP colspan="6">Course name: Software Development in Practice</TD>
+            <TD WIDTH=740 HEIGHT=21 ALIGN=LEFT VALIGN=TOP colspan="6"><b>Course name</b>: Software Development in Practice</TD>
         </TR>
         <TR>
             <TD STYLE="border-bottom: 1px solid #000000" HEIGHT=21 ALIGN=LEFT VALIGN=TOP colspan="6">
-            Course outlines:</TD>
+            <b>Course outlines</b>:</TD>
         </TR>
         <TR>
             <TD STYLE="border-top: 1px solid #000000" HEIGHT=3 ALIGN=LEFT VALIGN=TOP width="26"></TD>
@@ -21,7 +21,7 @@ Download PDF format</a>.<br/>
             <TD STYLE="border-top: 1px solid #000000" ALIGN=LEFT VALIGN=TOP height="3" width="222"></TD>
             <TD STYLE="border-top: 1px solid #000000" ALIGN=LEFT VALIGN=TOP height="3" width="420"></TD>
             <TD STYLE="border-top: 1px solid #000000" ALIGN=LEFT VALIGN=TOP height="3" width="77"></TD>
-            <TD STYLE="border-top: 1px solid #000000" ALIGN=LEFT VALIGN=TOP height="3"></TD>
+            <TD STYLE="border-top: 1px solid #000000" ALIGN=LEFT VALIGN=TOP height="3" width="9"></TD>
         </TR>
         <TR>
             <TD HEIGHT=19 ALIGN=RIGHT VALIGN=TOP width="26"><FONT FACE="Wingdings">Ø</FONT></TD>
@@ -44,12 +44,12 @@ Download PDF format</a>.<br/>
             improvement<BR></TD>
         </TR>
         <TR>
-            <TD HEIGHT=3 ALIGN=LEFT VALIGN=TOP width="26"><BR></TD>
-            <TD ALIGN=LEFT VALIGN=TOP height="3" width="28"><BR></TD>
-            <TD ALIGN=LEFT VALIGN=TOP height="3" width="222"><BR></TD>
-            <TD ALIGN=LEFT VALIGN=TOP height="3" width="420"><BR></TD>
-            <TD ALIGN=LEFT VALIGN=TOP height="3" width="77"><BR></TD>
-            <TD ALIGN=LEFT VALIGN=TOP height="3"><BR></TD>
+            <TD HEIGHT=3 ALIGN=LEFT VALIGN=TOP width="26"></TD>
+            <TD ALIGN=LEFT VALIGN=TOP height="3" width="28"></TD>
+            <TD ALIGN=LEFT VALIGN=TOP height="3" width="222"></TD>
+            <TD ALIGN=LEFT VALIGN=TOP height="3" width="420"></TD>
+            <TD ALIGN=LEFT VALIGN=TOP height="3" width="77"></TD>
+            <TD ALIGN=LEFT VALIGN=TOP height="3" width="9"></TD>
         </TR>
         <TR>
             <TD STYLE="border-bottom: 1px solid #000000" HEIGHT=19 ALIGN=LEFT VALIGN=TOP colspan="6"><B>Training Outcomes</B></TD>
@@ -64,7 +64,7 @@ Download PDF format</a>.<br/>
             </TR>
         <TR>
             <TD STYLE="border-bottom: 1px solid #000000" HEIGHT=21 ALIGN=LEFT VALIGN=TOP colspan="6">
-            Duration:
+            <b>Duration</b>:
             2 training days (4h/days) + 2 days for home work<BR></TD>
         </TR>
         <TR>
@@ -82,7 +82,6 @@ Download PDF format</a>.<br/>
             Topic objectives</B></TD>
             <TD ALIGN=LEFT VALIGN=TOP BGCOLOR="#FFCC99" width="75"><B>
             Duration (h)</B></TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
             <TD HEIGHT=34 ALIGN=CENTER VALIGN=TOP width="24">
@@ -96,7 +95,6 @@ Download PDF format</a>.<br/>
             roles and responsibilities in software development</TD>
             <TD ALIGN=RIGHT VALIGN=TOP width="75">
             1:00</TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
             <TD HEIGHT=82 ALIGN=CENTER VALIGN=TOP SDVAL="3" SDNUM="1033;" width="24">
@@ -111,7 +109,6 @@ Download PDF format</a>.<br/>
             - VER – Verification <BR>- CAR - Causal Analysis and Resolution</TD>
             <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0208333333333333" SDNUM="1033;1033;H:MM" width="75">
             0:30</TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
             <TD HEIGHT=50 ALIGN=CENTER VALIGN=TOP SDVAL="4" SDNUM="1033;" width="24">
@@ -126,7 +123,6 @@ Download PDF format</a>.<br/>
             task list</TD>
             <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0416666666666667" SDNUM="1033;1033;H:MM" width="75">
             1:00</TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
             <TD HEIGHT=50 ALIGN=CENTER VALIGN=TOP SDVAL="5" SDNUM="1033;" width="24">
@@ -140,7 +136,6 @@ Download PDF format</a>.<br/>
             googlecode.<BR>- Using Eclipse and TortoiseSVN</TD>
             <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0104166666666667" SDNUM="1033;1033;H:MM" width="75">
             0:15</TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
             <TD HEIGHT=50 ALIGN=CENTER VALIGN=TOP SDVAL="6" SDNUM="1033;" width="24">
@@ -155,7 +150,6 @@ Download PDF format</a>.<br/>
             - Perform Unit Test</TD>
             <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0625" SDNUM="1033;1033;H:MM" width="75">
             1:30</TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
         </TR>
         <TR>
             <TD HEIGHT=34 ALIGN=CENTER VALIGN=TOP SDVAL="7" SDNUM="1033;" width="24">
@@ -169,7 +163,6 @@ Download PDF format</a>.<br/>
             - Review the software project by CMMI&#39;s PA</TD>
             <TD ALIGN=RIGHT VALIGN=TOP SDVAL="0.0625" SDNUM="1033;1033;H:MM" width="75">
             1:30</TD>
-            <TD ALIGN=LEFT VALIGN=TOP><BR></TD>
                 </tr>
         </table>
         </TD>

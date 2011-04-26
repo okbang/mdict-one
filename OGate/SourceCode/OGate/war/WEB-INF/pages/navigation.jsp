@@ -56,26 +56,21 @@
               height="1">
               <TABLE border=0 cellSpacing=0 cellPadding=0>
                 <TR>
-                  <TD class=uportal-background-${nav_intro_med_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1>
-                  </TD>
-                  <TD class=uportal-background-${nav_intro_dark_med} rowSpan=4 width=22><IMG alt="" src="pages/images/after_${nav_intro_inactive}_tab.gif" width=22 height=23>
-                  </TD>
+                  <TD class=uportal-background-${nav_intro_med_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
+                  <TD class=uportal-background-${nav_intro_dark_med} rowSpan=4 width=22><IMG alt="" src="pages/images/after_${nav_intro_inactive}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-${nav_intro_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10
                     height=10> <A class=uportal-tab-text${nav_intro_selected} href="#" onclick='submitAction("frmNavigation","Introduction", "clickIntroduction")'>Giới thiệu</A><IMG alt="" src="pages/images/transparent.gif" width=10
-                    height=10>
-                  </TD>
+                    height=10></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-${nav_intro_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-${nav_intro_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
               </TABLE></td>
 
@@ -84,11 +79,8 @@
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
-                  <TD class=uportal-background-med rowSpan=4 width=22>
-                  <IMG alt="" src="pages/images/${nav_product_before_selected}_tab.gif" width=22 height=23>
-                  </TD>
+                    height=1></TD>
+                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_product_before_selected}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt=""
@@ -99,36 +91,29 @@
                 <TR>
                   <TD class=uportal-background-shadow noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
               </TABLE></td>
             <td>
               <TABLE border=0 cellSpacing=0 cellPadding=0>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1>
-                  </TD>
-                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/after_${nav_service_active}_tab.gif" width=22 height=23>
-                  </TD>
+                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1></TD>
+                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/after_${nav_service_active}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10>
-                   <A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickService")'>Dịch vụ</A>
+                  <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickService")'>Dịch vụ</A>
                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1>
-                  </TD>
+                  <TD class=uportal-background-${nav_service_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1>
-                  </TD>
+                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
                 </TR>
               </TABLE></td>
             <td>
@@ -136,12 +121,10 @@
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                   <TD class=uportal-background-med rowSpan=4 width=22><IMG
                     alt="" src="pages/images/after_inactive_tab.gif"
-                    width=22 height=23>
-                  </TD>
+                    width=22 height=23></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-med height=20
@@ -153,14 +136,12 @@
                 <TR>
                   <TD class=uportal-background-shadow noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
               </TABLE></td>
             <td>
@@ -168,12 +149,10 @@
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                   <TD class=uportal-background-med rowSpan=4 width=22><IMG
                     alt="" src="pages/images/after_inactive_tab.gif"
-                    width=22 height=23>
-                  </TD>
+                    width=22 height=23></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-med height=20
@@ -186,14 +165,12 @@
                 <TR>
                   <TD class=uportal-background-shadow noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
               </TABLE></td>
             <td>
@@ -201,12 +178,10 @@
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                   <TD class=uportal-background-med rowSpan=4 width=22><IMG
                     alt="" src="pages/images/after_inactive_tab.gif"
-                    width=22 height=23>
-                  </TD>
+                    width=22 height=23></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-med height=20
@@ -218,14 +193,12 @@
                 <TR>
                   <TD class=uportal-background-shadow noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
               </TABLE></td>
             <td>
@@ -233,12 +206,10 @@
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                   <TD class=uportal-background-med rowSpan=4 width=22><IMG
                     alt="" src="pages/images/after_inactive_tab.gif"
-                    width=22 height=23>
-                  </TD>
+                    width=22 height=23></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-med height=20
@@ -251,14 +222,12 @@
                 <TR>
                   <TD class=uportal-background-shadow noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
               </TABLE></td>
             <TD class=uportal-background-med width="100%" noWrap
@@ -267,8 +236,7 @@
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-channel-text height=20 vAlign=center
@@ -277,14 +245,12 @@
                 <TR>
                   <TD class=uportal-background-shadow noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
-                    height=1>
-                  </TD>
+                    height=1></TD>
                 </TR>
               </TABLE></TD>
           </tr>
@@ -292,4 +258,3 @@
     </tr>
     </table>
     </form>
-
