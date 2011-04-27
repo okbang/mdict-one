@@ -6,7 +6,7 @@ package openones.corewa.config;
  */
 public class Form {
     private String id;
-    private String name;
+    private String validateFile;
     private String className;
     
     public Form() {
@@ -20,12 +20,23 @@ public class Form {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+
+    /**
+     * Get value of validateFile.
+     * @return the validateFile
+     */
+    public String getValidateFile() {
+        return validateFile;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    /**
+     * Set the value for validateFile.
+     * @param validateFile the validateFile to set
+     */
+    public void setValidateFile(String validateFile) {
+        this.validateFile = validateFile;
     }
+
     public String getClassName() {
         return className;
     }

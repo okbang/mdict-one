@@ -139,13 +139,11 @@ public class ConfigUtil {
                 
                 formBeanInfo = new Form();
                 formBeanInfo.setId(xp.evaluate("@id", formBeanNode));
-                formBeanInfo.setName(xp.evaluate("@name", formBeanNode));
                 formBeanInfo.setClassName(xp.evaluate("@class", formBeanNode));
+                formBeanInfo.setValidateFile(xp.evaluate("@validate-file", formBeanNode));
                 
                 if (CommonUtil.isNNandNB(formBeanInfo.getId())) {
                     formBeanMap.put(formBeanInfo.getId(), formBeanInfo);
-                } else {
-                    formBeanMap.put(formBeanInfo.getName(), formBeanInfo);
                 }
             }
             
@@ -173,6 +171,7 @@ public class ConfigUtil {
                 screenInfo.setId(xp.evaluate("@id", screenNode));
                 screenInfo.setCtrlClass(xp.evaluate("@control", screenNode));
                 screenInfo.setInputPage(xp.evaluate("@input", screenNode));
+                screenInfo.setFormId(xp.evaluate("@form", screenNode));
                 screenInfo.setEvents(parseEvent(screenNode));
                 
                 screenMap.put(screenInfo.getId(), screenInfo);
