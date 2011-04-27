@@ -18,6 +18,7 @@
  */
 package openones.corewa.config.validate;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,6 +26,65 @@ import java.util.Map;
  *
  */
 public class Validator {
-    Map<String, Var> varMap;
-    Map<String, Form> formMap;
+    
+    private Map<String, Var> varMap = new HashMap<String, Var>();
+    private Map<String, Form> formMap = new HashMap<String, Form>();
+    
+    /**
+     * 
+     */
+    public Validator() {
+        // TODO Auto-generated constructor stub
+    }
+        
+    public Validator(Map<String, Var> varMap, Map<String, Form> formMap) {
+        this.varMap = varMap;
+        this.formMap = formMap;
+    }
+        
+    /**
+     * Get value of varMap.
+     * @return the varMap
+     */
+    public Map<String, Var> getVarMap() {
+        return varMap;
+    }
+    /**
+     * Set the value for varMap.
+     * @param varMap the varMap to set
+     */
+    public void setVarMap(Map<String, Var> varMap) {
+        this.varMap = varMap;
+    }
+    /**
+     * Get value of formMap.
+     * @return the formMap
+     */
+    public Map<String, Form> getFormMap() {
+        return formMap;
+    }
+    /**
+     * Set the value for formMap.
+     * @param formMap the formMap to set
+     */
+    public void setFormMap(Map<String, Form> formMap) {
+        this.formMap = formMap;
+    }
+    
+    public void addVar(Var var) {
+        varMap.put(var.getName(), var);
+    }
+    
+    public Var getVar(String name) {
+        return varMap.get(name);
+    }
+    
+    public void addForm(Form form) {
+        formMap.put(form.getId(), form);
+    }
+    
+    public Form getForm(String id) {
+        return formMap.get(id);
+    }
+    
 }

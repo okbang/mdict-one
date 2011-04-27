@@ -23,5 +23,49 @@ package openones.corewa.config.validate;
  *
  */
 public class Var {
+    
+    private String name;
+    private String value;
+    
+    /**
+     * 
+     */
+    public Var() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public Var(String name, String value) {
+        this.name = name;
+        this.value = value;
+    }
+    
+    /**
+     * Get value of name.
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+    /**
+     * Set the value for name.
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Get value of value.
+     * @return the value
+     */
+    public String getValue() {
+        return value;
+    }
+    /**
+     * Set the value for value.
+     * @param value the value to set
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }   
 
 }

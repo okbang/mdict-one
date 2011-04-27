@@ -18,10 +18,80 @@
  */
 package openones.corewa.config.validate;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author MKhang
  *
  */
 public class Form {
 
+    private String id;
+    private String ctrlClass;
+    private Map<String, Field> fieldMap = new HashMap<String, Field>();
+    
+    /**
+     * 
+     */
+    public Form() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public Form(String id, String ctrlClass) {
+        this.id = id;
+        this.ctrlClass = ctrlClass;
+    }
+    
+    /**
+     * Get value of id.
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+    /**
+     * Set the value for id.
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Get value of ctrlClass.
+     * @return the ctrlClass
+     */
+    public String getCtrlClass() {
+        return ctrlClass;
+    }
+    /**
+     * Set the value for ctrlClass.
+     * @param ctrlClass the ctrlClass to set
+     */
+    public void setCtrlClass(String ctrlClass) {
+        this.ctrlClass = ctrlClass;
+    }
+    /**
+     * Get value of fieldMap.
+     * @return the fieldMap
+     */
+    public Map<String, Field> getFieldMap() {
+        return fieldMap;
+    }
+    /**
+     * Set the value for fieldMap.
+     * @param fieldMap the fieldMap to set
+     */
+    public void setFieldMap(Map<String, Field> fieldMap) {
+        this.fieldMap = fieldMap;   
+    }
+   
+    public void addField(Field field) {
+        fieldMap.put(field.getName(), field);
+    }
+    
+    public Field getField(String name) {
+        return fieldMap.get(name);
+    }
+    
 }
