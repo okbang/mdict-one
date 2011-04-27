@@ -6,6 +6,7 @@ import java.util.Map;
 
 import openones.corewa.config.Event;
 
+@SuppressWarnings("serial")
 public class BaseOutForm implements Serializable {
     private Map<String, Object> requestMap = new HashMap<String, Object>();
     private Map<String, Object> sessionMap = new HashMap<String, Object>();

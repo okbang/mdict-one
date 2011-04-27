@@ -32,6 +32,7 @@ import rocky.common.BeanUtil;
 public class ReqUtil {
     final public static Logger LOG = Logger.getLogger("ReqUtil");
     
+    @SuppressWarnings("rawtypes")
     public static BaseInForm getData(Map<String, Object> mapReq, Class clazz) {
         LOG.debug("getData.START:clazz=" + clazz);
         Object bean = null;
