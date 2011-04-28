@@ -186,35 +186,6 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Thành
-                      viên</A><IMG alt="" src="pages/images/transparent.gif"
-                    width=10 height=10></TD>
-                </TR>
-                <TR>
-                  <TD class=uportal-background-shadow noWrap><IMG
-                    alt="" src="pages/images/transparent.gif" width=1
-                    height=1></TD>
-                </TR>
-                <TR>
-                  <TD class=uportal-background-highlight noWrap><IMG
-                    alt="" src="pages/images/transparent.gif" width=1
-                    height=1></TD>
-                </TR>
-              </TABLE></td>
-            <td>
-              <TABLE border=0 cellSpacing=0 cellPadding=0>
-                <TR>
-                  <TD class=uportal-background-highlight noWrap><IMG
-                    alt="" src="pages/images/transparent.gif" width=1
-                    height=1></TD>
-                  <TD class=uportal-background-med rowSpan=4 width=22><IMG
-                    alt="" src="pages/images/after_inactive_tab.gif"
-                    width=22 height=23></TD>
-                </TR>
-                <TR>
-                  <TD class=uportal-background-med height=20
-                    vAlign=center noWrap><IMG alt=""
-                    src="pages/images/transparent.gif" width=10
                     height=10> <A class=uportal-tab-text href="#">Hoạt động</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
