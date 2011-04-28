@@ -21,5 +21,6 @@
   <screen id="Navigation" control="openones.gate.control.NavigationControl" input="/WEB-INF/pages/layout.jsp" >
     <event id="clickService" procId="gotoService"></event>
     <event id="clickIntroduction" procId="gotoIntroduction"></event>
+    <event id="clickMember" procId="gotoMember"></event>
   </screen>  
 </corewa>
