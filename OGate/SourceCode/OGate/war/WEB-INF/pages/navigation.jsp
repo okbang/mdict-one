@@ -43,6 +43,17 @@
   <c:set var="nav_intro_inactive" value="active"/>
 </c:if>
 
+<c:if test='${MainScreen == "Member"}'>
+  <c:set var="nav_intro_med_highlight" value="med"/>
+  <c:set var="nav_intro_dark_highlight" value="dark" />
+  <c:set var="nav_intro_dark_med" value="dark" />
+  <c:set var="nav_intro_dark_shadow" value="dark" />
+
+  <c:set var="nav_intro_active" value="active" />
+  <c:set var="nav_intro_selected" value="-selected" />
+  <c:set var="nav_intro_inactive" value="active"/>
+</c:if>
+
 <form name="frmNavigation" action="main.do" method="post">
       <input type="hidden" name="screenId" value="Navigation" />
        <input type="hidden" name="eventId" value="" />
@@ -107,6 +118,23 @@
                 </TR>
                 <TR>
                   <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickService")'>Dịch vụ</A>
+                    <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-${nav_service_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
+                </TR>
+              </TABLE></td>
+              <td>
+              <TABLE border=0 cellSpacing=0 cellPadding=0>
+                <TR>
+                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1></TD>
+                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/after_${nav_service_active}_tab.gif" width=22 height=23></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickMember")'>Thành viên</A>
                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD>
                 </TR>
                 <TR>
