@@ -14,13 +14,18 @@
 <c:set var="nav_service_dark_highlight" value="highlight"/>
 <c:set var="nav_service_dark_med" value="med"/>
 <c:set var="nav_service_dark_shadow" value="shadow"/>
-
-
 <c:set var="nav_service_active" value="inactive"/>
 <c:set var="nav_service_selected" value=""/>
-
-
 <c:set var="nav_product_before_selected" value="after_inactive"/>
+
+<%-- For member tab --%>
+<c:set var="nav_member_dark_highlight" value="highlight"/>
+<c:set var="nav_member_dark_med" value="med"/>
+<c:set var="nav_member_dark_shadow" value="shadow"/>
+<c:set var="nav_member_active" value="inactive"/>
+<c:set var="nav_member_selected" value=""/>
+<c:set var="nav_product_before_selected" value="after_inactive"/>
+
 
 <c:if test='${MainScreen == "Service"}'>
   <c:set var="nav_service_dark_highlight" value="dark" />
@@ -44,14 +49,12 @@
 </c:if>
 
 <c:if test='${MainScreen == "Member"}'>
-  <c:set var="nav_intro_med_highlight" value="med"/>
-  <c:set var="nav_intro_dark_highlight" value="dark" />
-  <c:set var="nav_intro_dark_med" value="dark" />
-  <c:set var="nav_intro_dark_shadow" value="dark" />
+  <c:set var="nav_member_dark_highlight" value="dark" />
+  <c:set var="nav_member_dark_med" value="dark" />
+  <c:set var="nav_member_dark_shadow" value="dark" />
 
-  <c:set var="nav_intro_active" value="active" />
-  <c:set var="nav_intro_selected" value="-selected" />
-  <c:set var="nav_intro_inactive" value="active"/>
+  <c:set var="nav_member_active" value="active" />
+  <c:set var="nav_member_selected" value="-selected" />
 </c:if>
 
 <form name="frmNavigation" action="main.do" method="post">
@@ -130,18 +133,18 @@
               <td>
               <TABLE border=0 cellSpacing=0 cellPadding=0>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1></TD>
-                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/after_${nav_service_active}_tab.gif" width=22 height=23></TD>
+                  <TD class=uportal-background-${nav_member_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1></TD>
+                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/after_${nav_member_active}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickMember")'>Thành viên</A>
+                  <TD class=uportal-background-${nav_member_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_member_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickMember")'>Thành viên</A>
                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
+                  <TD class=uportal-background-${nav_member_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
+                  <TD class=uportal-background-${nav_member_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD>
                 </TR>
               </TABLE></td>
             <td>
@@ -159,6 +162,35 @@
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
                     height=10> <A class=uportal-tab-text href="#">Diễn đàn</A><IMG alt="" src="pages/images/transparent.gif"
+                    width=10 height=10></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG
+                    alt="" src="pages/images/transparent.gif" width=1
+                    height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG
+                    alt="" src="pages/images/transparent.gif" width=1
+                    height=1></TD>
+                </TR>
+              </TABLE></td>
+            <td>
+              <TABLE border=0 cellSpacing=0 cellPadding=0>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG
+                    alt="" src="pages/images/transparent.gif" width=1
+                    height=1></TD>
+                  <TD class=uportal-background-med rowSpan=4 width=22><IMG
+                    alt="" src="pages/images/after_inactive_tab.gif"
+                    width=22 height=23></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-med height=20
+                    vAlign=center noWrap><IMG alt=""
+                    src="pages/images/transparent.gif" width=10
+                    height=10> <A class=uportal-tab-text href="#">Thành
+                      viên</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
