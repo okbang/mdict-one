@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>Member</home-screen>
+  <screen id="Member" input="/WEB-INF/pages/member.jsp" >
+  </screen>
+  
+</corewa>

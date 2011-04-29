@@ -24,14 +24,13 @@
 <c:set var="nav_member_dark_shadow" value="shadow"/>
 <c:set var="nav_member_active" value="inactive"/>
 <c:set var="nav_member_selected" value=""/>
-<c:set var="nav_product_before_selected" value="after_inactive"/>
+<c:set var="nav_service_before_selected" value="after_inactive"/>
 
 
 <c:if test='${MainScreen == "Service"}'>
   <c:set var="nav_service_dark_highlight" value="dark" />
   <c:set var="nav_service_dark_med" value="dark" />
   <c:set var="nav_service_dark_shadow" value="dark" />
-
   <c:set var="nav_service_active" value="active" />
   <c:set var="nav_service_selected" value="-selected" />
   <c:set var="nav_product_before_selected" value="before_active" />
@@ -42,7 +41,6 @@
   <c:set var="nav_intro_dark_highlight" value="dark" />
   <c:set var="nav_intro_dark_med" value="dark" />
   <c:set var="nav_intro_dark_shadow" value="dark" />
-
   <c:set var="nav_intro_active" value="active" />
   <c:set var="nav_intro_selected" value="-selected" />
   <c:set var="nav_intro_inactive" value="active"/>
@@ -52,9 +50,9 @@
   <c:set var="nav_member_dark_highlight" value="dark" />
   <c:set var="nav_member_dark_med" value="dark" />
   <c:set var="nav_member_dark_shadow" value="dark" />
-
   <c:set var="nav_member_active" value="active" />
   <c:set var="nav_member_selected" value="-selected" />
+  <c:set var="nav_service_before_selected" value="before_active" />
 </c:if>
 
 <form name="frmNavigation" action="main.do" method="post">
