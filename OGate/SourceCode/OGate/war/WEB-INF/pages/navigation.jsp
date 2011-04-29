@@ -10,6 +10,7 @@
 <c:set var="nav_intro_inactive" value="inactive"/>
 
 
+
 <%-- For service tab --%>
 <c:set var="nav_service_dark_highlight" value="highlight"/>
 <c:set var="nav_service_dark_med" value="med"/>
@@ -23,8 +24,13 @@
 <c:set var="nav_member_dark_shadow" value="shadow"/>
 <c:set var="nav_member_active" value="after_inactive"/>
 <c:set var="nav_member_selected" value=""/>
-<!--<c:set var="nav_service_before_selected" value="after_inactive"/>-->
 
+<%-- For product tab --%>
+<c:set var="nav_product_dark_highlight" value="highlight"/>
+<c:set var="nav_product_dark_med" value="med"/>
+<c:set var="nav_product_dark_shadow" value="shadow"/>
+<c:set var="nav_product_active" value="after_inactive"/>
+<c:set var="nav_product_selected" value=""/>
 
 <c:if test='${MainScreen == "Service"}'>
   <c:set var="nav_service_dark_highlight" value="dark" />
@@ -32,6 +38,7 @@
   <c:set var="nav_service_dark_shadow" value="dark" />
   <c:set var="nav_service_active" value="after_active" />
   <c:set var="nav_service_selected" value="-selected" />
+  <c:set var="nav_product_active" value="before_active" />
 </c:if>
 
 <c:if test='${MainScreen == "Introduction"}'>
@@ -90,7 +97,7 @@
                   <TD class=uportal-background-highlight noWrap><IMG
                     alt="" src="pages/images/transparent.gif" width=1
                     height=1></TD>
-                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_product_before_selected}_tab.gif" width=22 height=23></TD>
+                  <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_product_active}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt=""
