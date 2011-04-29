@@ -187,8 +187,7 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Thành
-                      viên</A><IMG alt="" src="pages/images/transparent.gif"
+                    height=10> <A class=uportal-tab-text href="#">Việc làm</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
