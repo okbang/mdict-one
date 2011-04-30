@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rocky.common.CommonUtil;
+
 /**
  * Data model of xml configuration with below format:
  * <root>
@@ -100,6 +102,10 @@ public class CoreWa {
 
     public Map<String, Form> getForms() {
         return forms;
+    }
+    
+    public Form getForm(String formId) {
+        return CommonUtil.isNNandNB(formId) ? forms.get(formId): null;
     }
 
     public void setForms(Map<String, Form> forms) {
