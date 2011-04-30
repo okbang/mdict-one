@@ -126,6 +126,22 @@ public class CommonUtil {
     }
 
     /**
+     * Adds or subtracts the specified amount of days to the given date.
+     * For example, to subtract 5 days from the current date, you can achieve it by calling:
+     * addDay(Calendar.DAY_OF_MONTH, -5).
+     * @param dte root date
+     * @param numDays  the amount of days to be added to the field.
+     * @return
+     */
+    public static Date addDay(Date dte, int numDays) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dte);
+        cal.add(Calendar.DAY_OF_MONTH, numDays);
+        
+        return cal.getTime();
+    }
+    
+    /**
      * Get year, month, day of a given date
      * 
      * @param dte
@@ -304,11 +320,11 @@ public class CommonUtil {
     /**
      * Format a string with pattern: xxxx${var}xxxx Supported
      * @param strTemplate
-     * @param mapValue
+     * @param valueMap
      * @return
      * @throws SQLException
      */
-    public static String formatPattern(String strTemplate, Map<String, Object> mapValue) {
+    public static String formatPattern(String strTemplate, Map<String, Object> valueMap) {
         Pattern pattern = Pattern.compile(VARIABLE_NAME_PATTERN);
         Matcher matcher = pattern.matcher(strTemplate);
         StringBuffer sb = new StringBuffer();
@@ -318,9 +334,11 @@ public class CommonUtil {
         // Find column name
         while (matcher.find()) {
             key = matcher.group(1);
-            objVal = mapValue.get(key);
+            objVal = valueMap.get(key);
             // replace the column name pattern by question mark
-            matcher.appendReplacement(sb, objVal.toString());
+            if (objVal != null) {
+                matcher.appendReplacement(sb, objVal.toString());
+            }
         }
         // append the tail of the query template to the String buffer
         matcher.appendTail(sb);
