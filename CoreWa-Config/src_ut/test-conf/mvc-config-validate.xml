@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+    <view-screen>Menu</view-screen>
+    <edit-screen>Edit</edit-screen>
+    <help-screen>Help</help-screen>
+    
+    <!-- validate-file: xml configuration for data validation of screen Add -->
+    <form id="AddFormId" class="rocky.corewademo.form.AddForm" validate-file="/validate/AddForm.xml"/>
+    
+    <!--AddFormId: Form to capture the data from JSP Form. Refer tag <form id="AddFormId"...>   -->
+    <screen id="Add" control="rocky.corewademo.control.AddControl" form="AddFormId">
+        <event id="add" procId="procAdd"></event>
+        <event id="back" procId="procBack" nextScreen="/WEB-INF/jsp/menu.jsp"></event>
+        <event id="selectGroup" procId="procSelectGroup"></event>
+    </screen>
+</corewa>
