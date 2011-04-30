@@ -84,7 +84,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
             <param-name>conf-file</param-name>
             <param-value>member.xml</param-value>
         </init-param>
-    </servlet>   
+    </servlet> 
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+        <init-param>
+            <param-name>conf-file</param-name>
+            <param-value>product.xml</param-value>
+        </init-param>
+    </servlet>     
 	<servlet-mapping>
 		<servlet-name>CoreController</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -128,6 +136,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     <servlet-mapping>
         <servlet-name>MemberController</servlet-name>
         <url-pattern>/member.mod</url-pattern>
+    </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/product.mod</url-pattern>
     </servlet-mapping> 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

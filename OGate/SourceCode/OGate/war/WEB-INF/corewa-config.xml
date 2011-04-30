@@ -22,5 +22,6 @@
     <event id="clickService" procId="gotoService"></event>
     <event id="clickIntroduction" procId="gotoIntroduction"></event>
     <event id="clickMember" procId="gotoMember"></event>
+    <event id="clickProduct" procId="gotoProduct"></event>
   </screen>  
 </corewa>

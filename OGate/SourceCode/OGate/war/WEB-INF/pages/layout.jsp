@@ -85,6 +85,12 @@
           </jsp:include></td>
         </c:if>
         
+        <c:if test='${MainScreen == "Product"}'>
+          <jsp:include page="/product.mod">
+              <jsp:param name="screenId" value="Main"/>
+          </jsp:include></td>
+        </c:if>
+        
       <td width="12%" nowrap height="436" valign="top">
       <IMG alt="" src="pages/images/transparent.gif" width=150 height=1>
         <jsp:include page="/link.part">

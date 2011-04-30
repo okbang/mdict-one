@@ -61,4 +61,13 @@ public class NavigationControl extends LayoutControl {
 
         return outForm;
     }
+
+    public BaseOutForm gotoProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+            IOException {
+        BaseOutForm outForm = new BaseOutForm();
+
+        outForm.putRequest("MainScreen", "Product");
+
+        return outForm;
+    }
 }
