@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <layout id="Layout">
+  </layout>
+  <home-screen>Layout</home-screen>
+  
+  <screen id="Layout" control="openones.gate.control.LayoutControl" input="/WEB-INF/pages/layout.jsp">
+  </screen>
+  
+  <screen id="Header" control="openones.gate.control.HeaderControl" input="/WEB-INF/pages/layout.jsp" >
+  </screen>
+
+  <screen id="Navigation" control="openones.gate.control.NavigationControl" input="/WEB-INF/pages/layout.jsp" >
+    <event id="clickIntro" procId="gotoIntro"></event>
+    <event id="clickMenu" procId="gotoMenu"></event>
+    <event id="clickContact" procId="gotoContact"></event>
+  </screen>  
+</corewa>

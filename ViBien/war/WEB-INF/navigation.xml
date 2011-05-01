@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>Navigation</home-screen>
+
+  <screen id="Navigation" input="/WEB-INF/pages/navigation.jsp">
+  </screen>
+</corewa>

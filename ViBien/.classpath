@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.0.6-201104116085601.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.0.5-201104113103758.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/rocky-common-0.0.7-201104113103018.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>

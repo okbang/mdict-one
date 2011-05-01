@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>LeftMenu</home-screen>
+
+  <screen id="LeftMenu" input="/WEB-INF/pages/leftmenu.jsp">
+  </screen>
+</corewa>
