@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>Contact</home-screen>
+
+  <screen id="Contact" input="/WEB-INF/pages/contact.jsp" >
+  </screen>
+  
+</corewa>

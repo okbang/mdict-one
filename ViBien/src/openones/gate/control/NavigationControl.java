@@ -36,6 +36,7 @@ public class NavigationControl extends LayoutControl {
 
     public BaseOutForm gotoIntro(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
+        LOG.finest("gotoIntro.START");
         BaseOutForm outForm = new BaseOutForm();
 
         outForm.putRequest("MainScreen", "Intro");
@@ -46,6 +47,7 @@ public class NavigationControl extends LayoutControl {
 
     public BaseOutForm gotoMenu(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
+        LOG.finest("gotoMenu.START");
         BaseOutForm outForm = new BaseOutForm();
 
         outForm.putRequest("MainScreen", "Menu");
@@ -55,6 +57,7 @@ public class NavigationControl extends LayoutControl {
     
     public BaseOutForm gotoContact(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
+        LOG.finest("gotoContact.START");
         BaseOutForm outForm = new BaseOutForm();
 
         outForm.putRequest("MainScreen", "Contact");

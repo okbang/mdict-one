@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <corewa>
   <home-screen>Navigation</home-screen>
-
-  <screen id="Navigation" input="/WEB-INF/pages/navigation.jsp">
+<screen id="Navigation" input="/WEB-INF/pages/navigation.jsp"/>
+<!-- 
+  <screen id="Navigation" control="openones.gate.control.NavigationControl" input="/WEB-INF/pages/navigation.jsp">
+    <event id="clickIntro" procId="gotoIntro" disp-type="FORWARD" nextScreen="/WEB-INF/pages/layout.jsp"/>
+    <event id="clickMenu" procId="gotoMenu" nextScreen="/WEB-INF/pages/layout.jsp"/>
+    <event id="clickContact" procId="gotoContact" disp-type="FORWARD" nextScreen="/WEB-INF/pages/layout.jsp"/>
   </screen>
+  
+   -->
+
+   
 </corewa>

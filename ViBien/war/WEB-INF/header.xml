@@ -2,7 +2,6 @@
 <corewa>
   <home-screen>Header</home-screen>
 
-  <screen id="Header" input="/WEB-INF/pages/header.jsp" >
-  </screen>
+  <screen id="Header" input="/WEB-INF/pages/header.jsp"/>
   
 </corewa>

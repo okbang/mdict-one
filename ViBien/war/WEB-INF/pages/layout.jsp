@@ -37,28 +37,28 @@
       </td>
     </tr>
     <tr>
-        <td width="99%" colspan="3" class=uportal-background-dark noWrap align=left height=6>
+        <td width="100%" colspan="3" class=uportal-background-dark noWrap align=left height=6>
         <jsp:include page="/navigation.part">
-            <jsp:param name="screenId" value="Main"/>
+            <jsp:param name="screenId" value="Navigation"/>
         </jsp:include>
         </td>
     </tr>
     <tr>
-      <td width="10%" nowrap rowspan="2"><IMG alt="" src="pages/images/transparent.gif" width=100 height=1>
+      <td width="150px" nowrap rowspan="2" valign="top"><IMG alt="" src="pages/images/transparent.gif" width=100 height=1>
         <jsp:include page="/leftmenu.part">
-          <jsp:param name="screenId" value="Main" />
+          <jsp:param name="screenId" value="LeftMenu" />
         </jsp:include>
       </td>
-      <td width="78%" height="350" valign="top">
+      <td height="350" valign="top">
         <c:if test='${MainScreen == "Menu"}'>
-          <jsp:include page="/Menu.mod">
-              <jsp:param name="screenId" value="Main"/>
+          <jsp:include page="/menu.part">
+              <jsp:param name="screenId" value="Menu"/>
           </jsp:include>
         </c:if>
 
         <c:if test='${MainScreen == "Intro"}'>
           <jsp:include page="/intro.mod">
-              <jsp:param name="screenId" value="Main"/>
+              <jsp:param name="screenId" value="Intro"/>
           </jsp:include>
         </c:if>
         
@@ -70,11 +70,11 @@
         
         <c:if test='${MainScreen == "Contact"}'>
           <jsp:include page="/contact.mod">
-              <jsp:param name="screenId" value="Main"/>
+              <jsp:param name="screenId" value="Contact"/>
           </jsp:include>
         </c:if>
       </td>
-      <td width="12%" rowspan="2" nowrap valign="top">
+      <td width="150px" rowspan="2" nowrap valign="top">
       <IMG alt="" src="pages/images/transparent.gif" width=150 height=1>
         <jsp:include page="/link.part">
             <jsp:param name="screenId" value="Link"/>
@@ -83,7 +83,7 @@
     </tr>
     <tr>
       <td width="78%" class=uportal-channel-text>
-        <p align="center">Trang web được sự hỗ trợ bởi <a href="http://open-ones.appspot.com">Open-Ones Group</a>
+        <p align="center">Trang web được hỗ trợ bởi <a href="http://open-ones.appspot.com">Open-Ones Group</a>
       </td>
     </tr>
   </table>

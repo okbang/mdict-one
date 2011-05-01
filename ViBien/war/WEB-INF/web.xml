@@ -119,6 +119,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   </servlet-mapping>
 
   <servlet-mapping>
+    <servlet-name>NavigationController</servlet-name>
+    <url-pattern>/navigation.mod</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
     <servlet-name>IntroController</servlet-name>
     <url-pattern>/intro.mod</url-pattern>
   </servlet-mapping>

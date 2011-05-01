@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<corewa>
+  <home-screen>Menu</home-screen>
+
+  <screen id="Menu" input="/WEB-INF/pages/menu.jsp" >
+  </screen>
+  
+</corewa>
