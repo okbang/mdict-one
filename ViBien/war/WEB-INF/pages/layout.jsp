@@ -24,7 +24,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Open-Ones Group Home page</title>
+        <meta name="robots" content="INDEX,FOLLOW" />
+<title>Vị biển</title>
+<meta name="description" content="Đặc sản biển, ốc, Ốc Nha Trang"/>
+<meta name="keywords" content="Ốc, Biển, Beach, shellfish"/>
+
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 <link rel=stylesheet type=text/css href="pages/css/java.css">
 </head>
