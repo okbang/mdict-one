@@ -5,7 +5,7 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     <listener>
-        <listener-class>openones.gate.session.SessionCounter</listener-class>
+        <listener-class>openones.gae.session.SessionCounter</listener-class>
     </listener>
     <servlet>
         <servlet-name>CoreController</servlet-name>

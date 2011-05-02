@@ -22,7 +22,7 @@
 <%@page import="com.google.appengine.api.users.User"%>
 <%@page import="com.google.appengine.api.users.UserServiceFactory"%>
 <%@page import="com.google.appengine.api.users.UserService"%>
-<%@page import="openones.gate.session.SessionCounter"%>
+<%@page import="openones.gae.session.SessionCounter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
@@ -102,7 +102,7 @@
       <td width="78%" class=uportal-channel-text>
         <p align="center">@Open-Ones Group giữ bản quyền
       </td>
-      <td width="12%" class=uportal-channel-text>Lượt truy cập: <%= SessionCounter.getNumberOfSessions() %>
+      <td width="12%" class=uportal-channel-text>Lượt truy cập: <%= SessionCounter.getNmHits() %>
        <br> Đang đăng nhập: ${nmLogonUser}</td>
     </tr>
   </table>

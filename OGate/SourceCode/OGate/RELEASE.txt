@@ -1,0 +1,18 @@
+Hi all,
+
+I would like to inform you about the release the first version of source code OGate 0.0.1. It's a demo or draft version only.
+
+Source code 0.0.1 is at: https://open-ones.googlecode.com/svn/tags/OGate/SourceCode/OGate-0.0.1
+On Progress source code is at: https://open-ones.googlecode.com/svn/trunk/OGate/SourceCode/OGate
+
+It provides a core framework of GAE by MVC module CoreWa (http://code.google.com/p/open-ones/w/edit/03_RadMVC).
+
+The OOG 0.0.1 is depployed at http://open-ones.appspot.com.
+Two tab (or module) "Gi?i thi?u" and "D?ch v?" can be browsed.
+
+Welcome you join to study and write document and wiki for it.
+
+Next plan:
++ Create the design for OOG: Architecture, Support multi-language, auto data-validation in RadMVC
++ Design for sub modules such and Forum,
++ etc.
