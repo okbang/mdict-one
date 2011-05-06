@@ -1,15 +1,23 @@
 package openones.corewa;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import openones.corewa.config.Event;
+import openones.corewa.validate.config.ErrorField;
 
 public class BaseOutForm implements Serializable {
     private Map<String, Object> requestMap = new HashMap<String, Object>();
     private Map<String, Object> sessionMap = new HashMap<String, Object>();
     private BaseInForm inForm;
+    
+    /** Support specified next jsp page. */
+    private String nextScreen;
+    
+    /** Support multi forwards. */
     private String nextResult;
 
     /** transType: FORWARE, INCLUDE. Null means redirect */
@@ -17,7 +25,7 @@ public class BaseOutForm implements Serializable {
 
     /** Processed request dispatch in sub control. */
     private boolean isDispatched;
-
+    
     public void putRequest(String key, Object value) {
         requestMap.put(key, value);
     }
@@ -64,5 +72,12 @@ public class BaseOutForm implements Serializable {
     public void setNextResult(String nextResult) {
         this.nextResult = nextResult;
     }
+    
+    public String getNextScreen() {
+        return nextScreen;
+    }
 
+    public void setNextScreen(String nextScreen) {
+        this.nextScreen = nextScreen;
+    }
 }

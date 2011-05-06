@@ -70,6 +70,7 @@ public class ReqUtil {
             }
             List<Field> fieldList; 
             ErrorField errorField = null;
+            BaseInForm inForm;
             for (String propName : beanSetterMap.keySet()) {
                 // get value from the request basing property
                 value = reqMap.get(propName);
@@ -78,12 +79,18 @@ public class ReqUtil {
                     fieldList = formVd.getFieldByName(propName);
                     for (Field field : fieldList) {
                         LOG.debug("Check field '" + field.getName() + ";value=" + value);
-                        errorField = CheckUtil.checkInput(field, value, reqMap);
-                        LOG.debug(";result=" + errorField);
-                        if (errorField != null) {
-                            // Add error into form bean
-                            ((BaseInForm) bean).putError(errorField);
+
+                        // If a validation is a depend check, verify 
+                        inForm = (BaseInForm) bean;
+                        if (!inForm.isError(field.getDependIdList())) { // Depended checks have no error
+                            errorField = CheckUtil.checkInput(field, value, reqMap);
+                            LOG.debug(";result=" + errorField);
+                        
+                            if (errorField != null) { // Add error into form bean
+                                ((BaseInForm) bean).putError(errorField);
+                            }
                         }
+                        
                     }
                 }
                 method = beanSetterMap.get(propName);

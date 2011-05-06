@@ -119,6 +119,7 @@ public class ValidateConfUtil {
                 
                 fieldInfo = new Field();
                 fieldInfo.setId(xp.evaluate("@id", fieldNode));
+                fieldInfo.setDependIdList(xp.evaluate("@depends", fieldNode));
                 fieldInfo.setName(xp.evaluate("@name", fieldNode));
                 fieldInfo.setCheckType(xp.evaluate("@check-type", fieldNode));
                 fieldInfo.setPattern(xp.evaluate("@pattern", fieldNode));

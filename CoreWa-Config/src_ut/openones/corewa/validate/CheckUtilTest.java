@@ -32,20 +32,22 @@ import org.junit.Test;
 
 /**
  * @author ThachLN
- *
+ * 
  */
 public class CheckUtilTest extends TestCase {
     /**
-     * Test method for {@link openones.corewa.CheckUtil#checkInput(openones.corewa.config.validate.Field, java.lang.Object, java.util.Map)}.
+     * Test method for
+     * {@link openones.corewa.CheckUtil#checkInput(openones.corewa.config.validate.Field, java.lang.Object, java.util.Map)}
+     * .
      */
     @Test
     public void testCheckInput01() {
         Field field = new Field("01", "firstName", "mandatory", "Field '{?}' is mandatory");
         Object firstName = "Văn";
         Map<String, Object> valueMap = null;
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, firstName, valueMap);
-        
+
         assertNull(errorField);
     }
 
@@ -54,144 +56,156 @@ public class CheckUtilTest extends TestCase {
         Field field = new Field("01", "firstName", "mandatory", "Field '{?}' is mandatory");
         Object firstName = "";
         Map<String, Object> valueMap = null;
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, firstName, valueMap);
-        
+
         assertNotNull(errorField);
-        
+
         assertEquals("01", errorField.getId());
         assertEquals("firstName", errorField.getFieldName());
         assertEquals("Field '{?}' is mandatory", errorField.getErrorMessage());
-        
+
     }
-    
+
     @Test
     public void testCheckInput03() {
         Field field = new Field("01", "birthDay", CheckType.datefmt, "dd/MM/yyyy", "Format of field '{1}' is invalid.");
         String birthDay = "abc";
         Map<String, Object> valueMap = null;
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, birthDay, valueMap);
-        
+
         assertNotNull(errorField);
-        
+
         assertEquals("01", errorField.getId());
         assertEquals("birthDay", errorField.getFieldName());
         assertEquals("Format of field '{1}' is invalid.", errorField.getErrorMessage());
-        
+
     }
     @Test
     public void testCheckInput04() {
         Field field = new Field("01", "birthDay", CheckType.datefmt, "dd/MM/yyyy", "Format of field '{1}' is invalid.");
         String birthDay = "abc";
         Map<String, Object> valueMap = null;
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, birthDay, valueMap);
-        
+
         assertNotNull(errorField);
-        
+
         assertEquals("01", errorField.getId());
         assertEquals("birthDay", errorField.getFieldName());
         assertEquals("Format of field '{1}' is invalid.", errorField.getErrorMessage());
-        
+
     }
-    
+
     @Test
     public void testCheckInput05() {
         Field field = new Field("01", "birthDay", CheckType.datefmt, "dd/MM/yyyy", "Format of field '{1}' is invalid.");
         String birthDay = "32/1/1990";
         Map<String, Object> valueMap = null;
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, birthDay, valueMap);
-        
+
         assertNull(errorField);
     }
-    
+
     @Test
     public void testCheckInputPhone06() {
         String phonePattern = "[0-9 ]+";
         Field field = new Field("01", "phone", CheckType.pattern, phonePattern, "Format of field '{1}' is invalid.");
         String phone = "09121234";
         Map<String, Object> valueMap = null;
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, phone, valueMap);
-        
+
         assertNull(errorField);
-        
+
         phone = "091 212 345";
         errorField = CheckUtil.checkInput(field, phone, valueMap);
         assertNull(errorField);
-        
+
         phone = "O91212345";
         errorField = CheckUtil.checkInput(field, phone, valueMap);
         assertNotNull(errorField);
         assertEquals("phone", errorField.getFieldName());
         assertEquals("Format of field '{1}' is invalid.", errorField.getErrorMessage());
     }
-    
+
     @Test
     public void testCheckInputLength01() {
         String address = "Tôi yêu tiếng nước tôi!";
         Field field = new Field("01", "address", CheckType.length, "Lengh of field is not above ${1}");
         field.setMax(10);
-        
+
         Map<String, Object> valueMap = new HashMap<String, Object>();
         valueMap.put("1", 10);
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, address, valueMap);
-        
+
         assertNotNull(errorField);
-        
+
         assertEquals("address", errorField.getFieldName());
         assertEquals("Lengh of field is not above 10", errorField.getErrorMessage());
     }
-    
+
     @Test
-    public void testCheckInputLength02() {
+    public void testCheckInputSize02() {
         String address = "Tôi yêu tiếng nước tôi!";
-        Field field = new Field("01", "address", CheckType.length, "Lengh of field is not above ${1}");
+        Field field = new Field("01", "address", CheckType.size, "Size of field is not above ${1}");
         field.setMax(100);
-        
+
         Map<String, Object> valueMap = new HashMap<String, Object>();
         valueMap.put("1", 100);
-        
+
         ErrorField errorField = CheckUtil.checkInput(field, address, valueMap);
-        
+
         assertNull(errorField);
+
+        int maxSize = 10;
+        field.setMax(maxSize);
+
+        valueMap = new HashMap<String, Object>();
+        valueMap.put("1", maxSize);
+
+        errorField = CheckUtil.checkInput(field, address, valueMap);
+
+        assertNotNull(errorField);
+        assertEquals("address", errorField.getFieldName());
+        assertEquals("Size of field is not above " + 10, errorField.getErrorMessage());
+
     }
-    
+
     /**
      * Test method for {@link openones.corewa.CheckUtil#evaluateVar(java.util.Map, java.util.Map)}.
      */
     @Test
     public void testEvaluateVar0001() {
         Map<String, Var> varMap = new HashMap<String, Var>();
-        
+
         Date dteToday = new Date();
         Var todayVar = new Var("today", dteToday);
         varMap.put("today", todayVar);
         CheckUtil.evaluateVar(varMap, null);
-        
+
         assertEquals(dteToday, varMap.get("today").getValue());
-        
+
     }
 
     @Test
     public void testEvaluateVar0002() {
         Map<String, Object> reqMap = new HashMap<String, Object>();
         Map<String, Var> varMap = new HashMap<String, Var>();
-        
+
         Date dteToday = new Date();
         Var todayVar = new Var("today", "Today is ${todayVar}");
         varMap.put("today", todayVar);
-        
-        reqMap.put("todayVar", dteToday);
-        
-        CheckUtil.evaluateVar(varMap, reqMap);
-        
-        assertEquals("Today is " + dteToday, varMap.get("today").getValue());
-        
-    }
 
+        reqMap.put("todayVar", dteToday);
+
+        CheckUtil.evaluateVar(varMap, reqMap);
+
+        assertEquals("Today is " + dteToday, varMap.get("today").getValue());
+
+    }
 
 }

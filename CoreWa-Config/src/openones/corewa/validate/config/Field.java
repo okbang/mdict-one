@@ -19,14 +19,23 @@
 package openones.corewa.validate.config;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import rocky.common.CommonUtil;
+
+
 /**
- * @author MKhang
+ * @author Khangm, Thach Le
  *
  */
 public class Field {
 
     private String id;
 
+    private List<String> dependIdList = new ArrayList<String>();
+    
     private String name;
     private CheckType checkType;
     
@@ -172,4 +181,27 @@ public class Field {
         this.name = name;
     }
     
+    public List<String> getDependIdList() {
+        return dependIdList;
+    }
+
+    public void setDependIdList(List<String> dependIdList) {
+        this.dependIdList = dependIdList;
+    }
+    
+    public void addDependId(String dependId) {
+        dependIdList.add(dependId);
+    }
+    /**
+     * 
+     * @param depends string of check it with separator: ,;
+     */
+    public void setDependIdList(String depends) {
+        if (CommonUtil.isNNandNB(depends)) {
+            StringTokenizer tokenizer = new StringTokenizer(depends, ",; \t");
+            while (tokenizer.hasMoreTokens()) {
+                addDependId(tokenizer.nextToken());
+            }
+        }
+    }
 }

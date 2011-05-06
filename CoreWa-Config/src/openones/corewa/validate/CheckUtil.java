@@ -84,18 +84,38 @@ public class CheckUtil {
         CheckType typeOfChk = field.getCheckType();
         boolean hasError = false;
         
+        Double min = field.getMin();
+        Double max = field.getMax();
+        
         switch (typeOfChk) {
             case mandatory :
                 hasError = (!CommonUtil.isNNandNB(value));
                 break;
+            case size :
+                min = field.getMin();
+                max = field.getMax();
+                int actSize = ((String) value).length();
+                
+                if ((min != null) && (max != null)) { // Has low limit and upper limit
+                    hasError = ((actSize < min) || (actSize > max));
+                } else if (max == null) { // Only low limit, no upper limit
+                    hasError = (actSize < min);
+                } else if (min == null) { // No low limit, only upper limit
+                    hasError = (actSize > max);
+                }
+                break;
             case length :
-                Double min = field.getMin();
-                Double max = field.getMax();
+                min = field.getMin();
+                max = field.getMax();
                 Double dblValue = null;
                 if ((value instanceof Double) || (value instanceof Float)) {
                     dblValue = (Double) value;
                 } else { // compare size if it is String
-                    dblValue = Double.valueOf(((String) value).length());
+                    if ((CommonUtil.isNNandNB(value)) && ((String) value).matches("[0-9.,]*")) { // is digit
+                        dblValue = Double.valueOf((String) value);
+                    } else { // value is not a number
+                        break;
+                    }
                 }
                 
                 if ((min != null) && (max != null)) { // Has low limit and upper limit

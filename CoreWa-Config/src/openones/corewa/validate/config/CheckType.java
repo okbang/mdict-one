@@ -19,9 +19,15 @@
 package openones.corewa.validate.config;
 
 /**
- * @author ThachLN
- *
+ * Definition types of data checking.
+ * mandatory:
+ * size: number of characters in a string
+ * length: range values of a number
+ * pattern: regular expression
+ * datefmt: data format
+ * decfmt: decimal format
+ * @author ThachLe
  */
 public enum CheckType {
-    mandatory, length, pattern, datefmt, decfmt;
+    mandatory, size, length, pattern, datefmt, decfmt;
 }

@@ -24,7 +24,7 @@ import org.junit.Test;
 
 /**
  * @author ThachLN
- *
+ * 
  */
 public class ValidateConfUtilTest extends TestCase {
 
@@ -34,27 +34,27 @@ public class ValidateConfUtilTest extends TestCase {
     @Test
     public void testParseValidation() {
         ValidationConf validator = ValidateConfUtil.parse("/validate/AddForm.xml");
-        
+
         assertEquals(1, validator.getVarMap().size());
-        
+
         FormValidation form = validator.getFormValidation();
         assertEquals("AddFormId", form.getId());
-        
+
         assertEquals(1, validator.getVarMap().size());
-        
+
         Field field01 = form.getField("01");
         assertEquals("name", field01.getName());
         assertEquals(CheckType.mandatory, field01.getCheckType());
         assertEquals("${error.require}", field01.getError());
-        
+
         Field field = form.getField("02");
         assertEquals("phone", field.getName());
         assertEquals(CheckType.pattern, field.getCheckType());
-        
+
         field = form.getField("03");
         assertEquals("birthday", field.getName());
         assertEquals(CheckType.datefmt, field.getCheckType());
-        
+
         field = form.getField("04");
         assertEquals("address", field.getName());
         assertEquals(CheckType.length, field.getCheckType());
@@ -62,5 +62,53 @@ public class ValidateConfUtilTest extends TestCase {
         assertEquals(0.0, field.getMin());
     }
 
-}
+    public void testParseDepends01() {
+        ValidationConf validator = ValidateConfUtil.parse("/validate/AddFormDepend.xml");
 
+        assertEquals(1, validator.getVarMap().size());
+
+        FormValidation form = validator.getFormValidation();
+        assertEquals("AddFormId", form.getId());
+
+        assertEquals(1, validator.getVarMap().size());
+
+        Field field01 = form.getField("01");
+        assertEquals("toeflMark", field01.getName());
+        assertEquals(CheckType.pattern, field01.getCheckType());
+        assertEquals("Toelf Mark contains digits only.", field01.getError());
+
+        Field field = form.getField("02");
+        assertEquals("toeflMark", field.getName());
+        assertEquals(CheckType.length, field.getCheckType());
+
+        assertNotNull(field.getDependIdList());
+        assertEquals("01", field.getDependIdList().get(0));
+
+    }
+    
+    public void testParseDepends02() {
+        ValidationConf validator = ValidateConfUtil.parse("/validate/AddFormDepend02.xml");
+
+        assertEquals(1, validator.getVarMap().size());
+
+        FormValidation form = validator.getFormValidation();
+        assertEquals("AddFormId", form.getId());
+
+        assertEquals(1, validator.getVarMap().size());
+
+        Field field01 = form.getField("01");
+        assertEquals("toeflMark", field01.getName());
+        assertEquals(CheckType.pattern, field01.getCheckType());
+        assertEquals("Toelf Mark contains digits only.", field01.getError());
+
+        Field field = form.getField("02");
+        assertEquals("toeflMark", field.getName());
+        assertEquals(CheckType.length, field.getCheckType());
+
+        assertNotNull(field.getDependIdList());
+        assertEquals(2, field.getDependIdList().size());
+        assertEquals("01", field.getDependIdList().get(0));
+        assertEquals("03", field.getDependIdList().get(1));
+
+    }
+}
