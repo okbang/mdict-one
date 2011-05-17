@@ -4,10 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Dòng chạy tin nổi bật của Open-O</title>
 <link rel=stylesheet type=text/css href="css/java.css">
+<script type="text/javascript" src="fckeditor.js"></script>
+<script type="text/javascript">
+	function goBack() {
+		if (confirm("Bạn có muốn lưu lại các thay đổi?")) {
+			//window.location = "intro_admin.html";
+//			window.open("intro_admin.html");
+//            document.open("intro_admin.html");
+			window.open("intro_admin.html", '_parent');
+
+		}
+	}
+</script>
 </head>
 
 <body>
-<form action=index_admin.html>
+<form>
 <table border="1" width="100%" cellspacing="0" cellpadding="0">
 	<tr>
 		<td colspan="3">
@@ -25,8 +37,7 @@
 			<tr>
 				<td width="76%"><font FACE="Arial" SIZE="2"><i>
 				<p ALIGN="LEFT" DIR="LTR">&nbsp;</i></font></td>
-				<td width="14%">
-				<p align="right"><IMG alt="" src="images/transparent.gif" width=20 height=1><input type="button" value="Đăng nhập" name="B1" onclick='window.location = "intro_admin.html"'></td>
+				<td width="14%" nowrap>Welcome admin<input type="button" value="Đăng xuất" name="B1"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><font FACE="Arial" SIZE="2"><i>Dòng chạy tin nổi 
@@ -191,42 +202,43 @@
 	</tr>
 	<tr>
 		<td width="10%" nowrap rowspan="2"><IMG alt="" src="images/transparent.gif" width=100 height=1></td>
-		<td width="78%" height="436" valign=top><b>Trang web đang được xây dựng. Mời bạn gia 
-		nhập nhóm tại đây: </b>
-		<a href="http://groups.google.com/group/open-ones/subscribe" target=_blank>
-		http://groups.google.com/group/open-ones/subscribe</a><p><b>Đối tượng 
-		tham gia Open-One Group:</b><br>
-		<b style="color: blue;">1) Sinh viên CNTT</b> cần một kỳ thực tập thực 
-		tế:<br>
-		Các bạn SV CNTT năm cuối từ các trường ĐH, CĐ, Trung Tâm tin học như 
-		Aptech, NIIT,v.v...(gọi tắc là các Đơn vị đào tạo - ĐVĐT) có thể tham 
-		gia vào các dự án với vai trò Programmer, Designer, Tester, v.v... (1 
-		hoặc nhiều vai trò).<br>
-		<b><span style="color: blue;">2) Các bạn đang đi làm</span></b> mong 
-		muốn nâng cao kỹ năng làm việc và muốn tự nguyện đóng góp, chia sẻ kinh 
-		nghiệm cho các bạn trẻ, cho cộng đồng có thể tham gia vào Open-Ones 
-		Group với vai trò như Designer, Senior Developer hoặc các vị trí cao hơn 
-		như Team Leader, Project Manager,v.v...<br>
-		<b style="color: blue;">3) Các cá nhân</b> có ý tưởng về sản phẩm phần 
-		mềm nhưng chưa có thời gian, nhân lực để triển khai có thể tham gia vào 
-		nhóm để cùng phát triển.<br>
-		<b style="color: blue;">4) Các ĐVĐT</b> có thể tham gia Open-Ones Group 
-		với vai trò khách hàng đặc biệt, các SV của đơn vị được tham gia thực 
-		tập với phí tượng trưng gần như bằng không. Chương trình được thiết kế 
-		đặc biệt theo qui trình phát triền phần mềm chuẩn thế giới, SV tốt 
-		nghiệp khóa thực tập đủ tự tin và kỹ năng làm việc có thể đáp ứng tốt 
-		công việc sau này.<br>
-		Đơn vị có thề chọn hình thức thực tập tại chỗ, có nghĩa là đơn vị lo chỗ 
-		làm việc, cơ sở vật chất cần thiết cho thực tập. Open-Ones Group sẽ hỗ 
-		trợ chương trình, người hướng dẫn.<br>
-		Đơn vị đào tạo có thể hỗ trợ giảng viên để tham gia đào tạo cho các nhóm 
-		thực tập.<br>
-		<b style="color: blue;">5) Các công ty phần mềm </b>có thể tham gia vào 
-		Open-Ones Group với vai trò khách hàng, được lựa chọn nguổn nhân lực tốt 
-		cho mình.<br>
-		<b style="color: blue;">6) Các tổ chức khác</b> có thể tham gia vào 
-		Open-Ones Group để sử dụng các sản phẩm phần mềm của Open-Ones hoặc của 
-		cộng đồng nguồn mở với sự tư vấn miễn phí từ Open-Ones.</td>
+		<td width="78%" height="436" valign=top>
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr align=right height=16>
+				<td></td>
+				<td><a href="?"><img border="0" src="images/backward_nav.gif" width="16" height="16" onclick='goBack()'></a></td>
+			</tr>
+		</table>
+		<p>
+				<script type="text/javascript">
+<!--
+// Automatically calculates the editor base path based on the _samples directory.
+// This is usefull only for these samples. A real application should use something like this:
+// oFCKeditor.BasePath = '/fckeditor/' ;	// '/fckeditor/' is the default value.
+var sBasePath = document.location.href.substring(0,document.location.href.lastIndexOf('_samples')) ;
+
+var oFCKeditor = new FCKeditor( 'FCKeditor1' ) ;
+oFCKeditor.BasePath	= sBasePath ;
+oFCKeditor.Height	= 500 ;
+oFCKeditor.Value	= '<p><b>Trang web đang được x&acirc;y dựng. Mời bạn gia nhập nh&oacute;m tại đ&acirc;y: </b><a href="http://groups.google.com/group/open-ones/subscribe" target="_blank"><font color="#000000" face="Verdana">http://groups.google.com/group/open-ones/subscribe</font></a>'
++ '<p><strong>Đối tượng tham gia Open-One Group:<br />'
++ '1) Sinh vi&ecirc;n CNTT</strong> cần một kỳ thực tập thực tế:<br />'
++ 'C&aacute;c bạn SV CNTT năm cuối từ c&aacute;c trường ĐH, CĐ, Trung T&acirc;m tin học như Aptech, NIIT,v.v...(gọi tắc l&agrave; c&aacute;c Đơn vị đ&agrave;o tạo - ĐVĐT) c&oacute; thể tham gia v&agrave;o c&aacute;c dự &aacute;n với vai tr&ograve; Programmer, Designer, Tester, v.v... (1 hoặc nhiều vai tr&ograve;).<br />'
++ '&nbsp;</p>'
++ '<p><span style="color: blue"><strong>2) C&aacute;c bạn đang đi l&agrave;m</strong></span> mong muốn n&acirc;ng cao kỹ năng l&agrave;m việc v&agrave; muốn tự nguyện đ&oacute;ng g&oacute;p, chia sẻ kinh nghiệm cho c&aacute;c bạn trẻ, cho cộng đồng c&oacute; thể tham gia v&agrave;o Open-Ones Group với vai tr&ograve; như Designer, Senior Developer hoặc c&aacute;c vị tr&iacute; cao hơn như Team Leader, Project Manager,v.v...<br />'
++ '<b style="color: blue">3) C&aacute;c c&aacute; nh&acirc;n</b> c&oacute; &yacute; tưởng về sản phẩm phần mềm nhưng chưa c&oacute; thời gian, nh&acirc;n lực để triển khai c&oacute; thể tham gia v&agrave;o nh&oacute;m để c&ugrave;ng ph&aacute;t triển.<br />'
++ '<b style="color: blue">4) C&aacute;c ĐVĐT</b> c&oacute; thể tham gia Open-Ones Group với vai tr&ograve; kh&aacute;ch h&agrave;ng đặc biệt, c&aacute;c SV của đơn vị được tham gia thực tập với ph&iacute; tượng trưng gần như bằng kh&ocirc;ng. Chương tr&igrave;nh được thiết kế đặc biệt theo qui tr&igrave;nh ph&aacute;t triền phần mềm chuẩn thế giới, SV tốt nghiệp kh&oacute;a thực tập đủ tự tin v&agrave; kỹ năng l&agrave;m việc c&oacute; thể đ&aacute;p ứng tốt c&ocirc;ng việc sau n&agrave;y.<br />'
++ 'Đơn vị c&oacute; thề chọn h&igrave;nh thức thực tập tại chỗ, c&oacute; nghĩa l&agrave; đơn vị lo chỗ l&agrave;m việc, cơ sở vật chất cần thiết cho thực tập. Open-Ones Group sẽ hỗ trợ chương tr&igrave;nh, người hướng dẫn.<br />'
++ 'Đơn vị đ&agrave;o tạo c&oacute; thể hỗ trợ giảng vi&ecirc;n để tham gia đ&agrave;o tạo cho c&aacute;c nh&oacute;m thực tập.<br />'
++ '<b style="color: blue">5) C&aacute;c c&ocirc;ng ty phần mềm </b>c&oacute; thể tham gia v&agrave;o Open-Ones Group với vai tr&ograve; kh&aacute;ch h&agrave;ng, được lựa chọn nguổn nh&acirc;n lực tốt cho m&igrave;nh.<br />'
++ '<b style="color: blue">6) C&aacute;c tổ chức kh&aacute;c</b> c&oacute; thể tham gia v&agrave;o Open-Ones Group để sử dụng c&aacute;c sản phẩm phần mềm của Open-Ones hoặc của cộng đồng nguồn mở với sự tư vấn miễn ph&iacute; từ Open-Ones.</p>'
+
++ '</p>' ;
+oFCKeditor.Create() ;
+//-->
+		</script>
+		</p>
+</td>
 		<td width="12%" nowrap height="436"><IMG alt="" src="images/transparent.gif" width=150 height=1></td>
 	</tr>
 	<tr>
