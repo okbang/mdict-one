@@ -1,0 +1,110 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD><TITLE>Module layout</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=content-type><LINK 
+rel=stylesheet type=text/css href="res/interface.css"><LINK rel="shortcut icon" href="images/favicon.ico">
+<SCRIPT type=text/javascript src="res/interface.js"></SCRIPT>
+
+</HEAD>
+<BODY class=x-layout-container>
+
+
+<DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 100%; TOP: 0px; LEFT: 0px" 
+id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+<DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west 
+class=x-layout-active-content>
+<DIV id=mylogo>
+<TABLE style="BORDER-BOTTOM: #a9bfd3 1px solid; BORDER-TOP: #ffffff 1px solid" cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD>Thực đơn</TD></TR>
+   </TBODY>
+</TABLE>
+</DIV>
+<DIV id=mytoolbar 
+class="x-dock-panel x-dock-panel-text x-dock-panel-title-expanded x-layout-panel-hd">
+<TABLE cellSpacing=0 cellPadding=1>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <P>&nbsp;&nbsp;Tìm&nbsp;&nbsp; <INPUT 
+      style="PADDING-BOTTOM: 1px; MARGIN: 0pt; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 1px" 
+      id=find-field title="Nhập ít nhất 3 ký tự để khởi động chức năng tìm kiếm. Xóa bỏ để trở về danh mục ban đầu." 
+      onkeyup="searchPanels(acc, this);" 
+      alt="Nhập ít nhất 3 ký tự để khởi động chức năng tìm kiếm. Xóa bỏ để trở về danh mục ban đầu." 
+      size=12> </P></TD>
+    <TD noWrap>
+      <DIV align=right><IMG title="Expand All" onclick="expandAll(acc);return false;" alt="Expand All" align=absMiddle src="images/expand-collapse.gif"> 
+      <IMG title="Collapse All" onclick="collapseAll(acc);return false;" alt="Collapse All" align=absMiddle src="images/collapse-expand.gif"> 
+      <IMG title="Hide Menu" onclick=toggleNav(); alt="Hide Menu" 
+      align=absMiddle 
+      src="res/control_rewind_blue.gif"></DIV></TD></TR></TBODY>
+</TABLE>
+</DIV>
+<DIV style="BACKGROUND-COLOR: #f7f7fd; WIDTH: 100%; OVERFLOW: auto" id=mynav 
+class=x-dock-panel>
+<DIV id=accpanel>
+<DIV id=accpanel-header class=selected title=images/package.gif>Nội dung tab</DIV>
+<DIV id=accpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
+<A class=linkitem href="res/intro.htm">Giới thiệu</A>
+<A class=linkitem href="res/service.htm">Dịch vụ</A>
+<A class=linkitem href="res/activity.htm">Hoạt động</A>
+<A class=linkitem href="res/member.htm">Thành viên</A> 
+
+</DIV>
+</DIV>
+<DIV id=settingpanel>
+<DIV id=settingpanel-header title=images/wrench.gif>Cấu hình chung</DIV>	
+<DIV style="DISPLAY: none" id=settingpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
+<A class=linkitem href="res/tab.htm">Hệ thống tab</A>
+<A class=linkitem href="res/account.htm">Tài khoản quản trị</A>
+<A class=linkitem href="res/language.htm">Ngôn ngữ</A>
+
+</DIV>
+</DIV>
+</DIV></DIV></DIV><!-- collapsed bar //-->
+<DIV 
+style="WIDTH: 20px; DISPLAY: none; HEIGHT: 100%; VISIBILITY: visible; TOP: 0px; LEFT: 2px" 
+id=collapsedNav class="x-layout-collapsed x-layout-collapsed-west" 
+onmouseover="addStyle(this, 'x-layout-collapsed-over');" 
+onmouseout="remStyle(this, 'x-layout-collapsed-over');" onclick=toggleNav();>
+<DIV class=x-layout-collapsed-tools>
+<DIV class=x-layout-ctools-inner>
+<DIV id=ext-gen19 class=x-layout-tools-button>
+<DIV 
+class="x-layout-tools-button-inner x-layout-expand-west"></DIV></DIV></DIV></DIV></DIV>
+<DIV style="HEIGHT: 100%; VISIBILITY: visible; TOP: 0px; LEFT: 210px" 
+id=ext-gen7-split 
+class="x-layout-split x-layout-split-west x-splitbar-h x-layout-split-h" 
+onclick=toggleNav();></DIV>
+<DIV style="WIDTH: 90%; HEIGHT: 100%; TOP: 0px; LEFT: 215px" id=rightPanel 
+class="x-layout-panel x-layout-panel-center">
+<DIV id=topBar 
+class="x-unselectable x-layout-panel-hd x-layout-title-center x-layout-panel-hd-text" 
+unselectable="on">Quản trị hệ thống Open-Ones Gate</DIV>
+<DIV style="POSITION: relative; WIDTH: 100%; HEIGHT: 100%; OVERFLOW: auto" 
+id=iframeWrapper class="x-layout-active-content x-tabs-item-body">
+<IFRAME  style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 100%; DISPLAY: block; HEIGHT: 100%; OVERFLOW: auto; BORDER-TOP: 0px; BORDER-RIGHT: 0px" 
+         id=tab1-iframe src="res/admin.htm" frameBorder=0 name=tab1-iframe>
+</IFRAME>
+<IFRAME 
+style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 100%; DISPLAY: none; HEIGHT: 100%; OVERFLOW: auto; BORDER-TOP: 0px; BORDER-RIGHT: 0px" 
+id=tab2-iframe src="res/blank.htm" 
+frameBorder=0 name=tab2-iframe></IFRAME></DIV>
+<DIV style="WIDTH: 100%; OVERFLOW: hidden" id=tabContainer 
+class="x-layout-panel-body x-tabs-bottom">
+<DIV class=x-tabs-wrap>
+<DIV id=tabWrapper class=x-tabs-strip-wrap>
+<TABLE class=x-tabs-strip border=0 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV style="FLOAT: left" id=tab1 class=on><A class=x-tabs-right 
+      onclick="showTab('tab1', '', 0); return false;"><EM 
+      class="x-tabs-left x-tabs-inner x-tabs-text" unselectable="on">Quản trị hệ thống Open-Ones Gate</EM></A>
+      </DIV>
+      
+     </TD></TR></TBODY></TABLE>
+     </DIV>
+     </DIV></DIV></DIV>
+</BODY></HTML>
