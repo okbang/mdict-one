@@ -42,7 +42,7 @@ public class LayoutControl extends BaseControl {
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BaseOutForm outForm = new BaseOutForm();
 
-        outForm.putRequest("MainScreen", "Introduction");
+        outForm.putRequest("MainScreen", "Intro");
 
         return outForm;
     }

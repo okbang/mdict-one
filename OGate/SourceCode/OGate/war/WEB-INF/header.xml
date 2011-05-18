@@ -2,7 +2,7 @@
 <corewa>
   <home-screen>Header</home-screen>
 
-  <screen id="Header" input="/WEB-INF/pages/header.jsp" >
+  <screen id="Header" control="openones.gate.control.HeaderControl" input="/WEB-INF/pages/header.jsp" >
   </screen>
-  
+    
 </corewa>

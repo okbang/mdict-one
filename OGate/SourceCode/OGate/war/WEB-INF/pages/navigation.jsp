@@ -39,7 +39,7 @@
   <c:set var="nav_product_active" value="before_active" />
 </c:if>
 
-<c:if test='${MainScreen == "Introduction"}'>
+<c:if test='${MainScreen == "Intro"}'>
   <c:set var="nav_intro_med_highlight" value="med"/>
   <c:set var="nav_intro_dark_highlight" value="dark" />
   <c:set var="nav_intro_dark_med" value="dark" />
@@ -85,7 +85,7 @@
                 </TR>
                 <TR>
                   <TD class=uportal-background-${nav_intro_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text${nav_intro_selected} href="#" onclick='submitAction("frmNavigation","Introduction", "clickIntroduction")'>Giới thiệu</A><IMG alt="" src="pages/images/transparent.gif" width=10
+                    height=10> <A class=uportal-tab-text${nav_intro_selected} href="#" onclick='submitAction("frmNavigation","Intro", "clickIntro")'>Giới thiệu</A><IMG alt="" src="pages/images/transparent.gif" width=10
                     height=10></TD>
                 </TR>
                 <TR>

@@ -19,6 +19,7 @@
 package openones.gate.control;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -27,9 +28,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
+import openones.corewa.ReqUtil;
 import openones.gate.Cons;
+import openones.gate.header.form.HeaderInForm;
+import openones.gate.header.form.HeaderOutForm;
 
-import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
@@ -39,7 +42,16 @@ import com.google.appengine.api.users.UserServiceFactory;
  */
 public class HeaderControl extends LayoutControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
-//    private static int nmLogonUser = 0;
+    
+    @Override
+    public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("procInit.START");
+        HeaderOutForm headerOutForm = new HeaderOutForm();
+        
+        outForm.putRequest("outForm", headerOutForm);
+        
+        return outForm;
+    }
     
     public BaseOutForm googleLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
@@ -67,5 +79,44 @@ public class HeaderControl extends LayoutControl {
             updateNmLogonUser(session, -1);
         }
     }
+    
+    public BaseOutForm changeLanguage(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("changeLanguage.START");
+        HeaderOutForm headerOutForm = new HeaderOutForm();
+        
+        for (Object key: reqMap.keySet()) {
+            LOG.info(key + "=" + reqMap.get(key));
+        }
+        HeaderInForm headerInForm = (HeaderInForm) ReqUtil.getData(reqMap, HeaderInForm.class);
+        String selectedLang = headerInForm.getLang();
+        
+        headerOutForm.setSelectedLang(selectedLang);
+        
+        LOG.info("Selected language:" + selectedLang);
+        outForm.putSession("outForm", headerOutForm);
+        
+        LOG.info("Reload the resource of language code " + headerOutForm.getLangCd(selectedLang));
+        reloadResource(headerOutForm.getLangCd(selectedLang));
+        
+        return outForm;
+    }
+
+    
+    public BaseOutForm changeLanguage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("changeLanguage.START");
+        HeaderOutForm headerOutForm = new HeaderOutForm();
+        
+        String selectedLang = req.getParameter("lang");
+        
+        headerOutForm.setSelectedLang(selectedLang);
+        
+        LOG.info("Selected language:" + selectedLang);
+        outForm.putSession("outForm", headerOutForm);
+        
+        LOG.info("Reload the resource of language code " + headerOutForm.getLangCd(selectedLang));
+        reloadResource(headerOutForm.getLangCd(selectedLang));
+        
+        return outForm;
+    }   
 
 }

@@ -1,147 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://java.sun.com/xml/ns/javaee"
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-    <listener>
-        <listener-class>openones.gae.session.SessionCounter</listener-class>
-    </listener>
-    <servlet>
-        <servlet-name>CoreController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>corewa-config.xml</param-value>
-        </init-param>
-    </servlet>
- 
-   <servlet>
-        <servlet-name>HeaderController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>header.xml</param-value>
-        </init-param>
-    </servlet>
-       
-    <servlet>
-        <servlet-name>NavigationController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>navigation.xml</param-value>
-        </init-param>
-    </servlet>
-    
-    <servlet>
-        <servlet-name>MenuController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>navigation.xml</param-value>
-        </init-param>
-    </servlet>
-       
-    <servlet>
-        <servlet-name>MainController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>main.xml</param-value>
-        </init-param>
-    </servlet>
-    
-    <servlet>
-        <servlet-name>LinkController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>link.xml</param-value>
-        </init-param>
-    </servlet>
+  xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+  version="2.5">
+  <listener>
+    <listener-class>openones.gae.session.SessionCounter</listener-class>
+  </listener>
+ <!--  FCKEditor.START -->
+  <servlet>
+    <servlet-name>Connector</servlet-name>
+    <servlet-class>net.fckeditor.connector.ConnectorServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 
-    <servlet>
-        <servlet-name>IntroController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>intro.xml</param-value>
-        </init-param>
-    </servlet>      
-    <servlet>
-        <servlet-name>ServiceController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>service.xml</param-value>
-        </init-param>
-    </servlet>   
-    <servlet>
-        <servlet-name>MemberController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>member.xml</param-value>
-        </init-param>
-    </servlet> 
-    <servlet>
-        <servlet-name>ProductController</servlet-name>
-        <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-        <init-param>
-            <param-name>conf-file</param-name>
-            <param-value>product.xml</param-value>
-        </init-param>
-    </servlet>     
-	<servlet-mapping>
-		<servlet-name>CoreController</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
-    
-    <!--  Mapping parts in layout -->
-    <servlet-mapping>
-        <servlet-name>HeaderController</servlet-name>
-        <url-pattern>/header.part</url-pattern>
-    </servlet-mapping>
-        
-    <servlet-mapping>
-        <servlet-name>NavigationController</servlet-name>
-        <url-pattern>/navigation.part</url-pattern>
-    </servlet-mapping>
-   
-    <servlet-mapping>
-        <servlet-name>MenuController</servlet-name>
-        <url-pattern>/menu.part</url-pattern>
-    </servlet-mapping>
-      
-    <servlet-mapping>
-        <servlet-name>MainController</servlet-name>
-        <url-pattern>/main.part</url-pattern>
-    </servlet-mapping>
-    
-    <servlet-mapping>
-        <servlet-name>LinkController</servlet-name>
-        <url-pattern>/link.part</url-pattern>
-    </servlet-mapping>
-    
-    <servlet-mapping>
-        <servlet-name>IntroController</servlet-name>
-        <url-pattern>/intro.mod</url-pattern>
-    </servlet-mapping>
-       
-    <servlet-mapping>
-        <servlet-name>ServiceController</servlet-name>
-        <url-pattern>/service.mod</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MemberController</servlet-name>
-        <url-pattern>/member.mod</url-pattern>
-    </servlet-mapping> 
-    <servlet-mapping>
-        <servlet-name>ProductController</servlet-name>
-        <url-pattern>/product.mod</url-pattern>
-    </servlet-mapping> 
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
+  <servlet-mapping>
+    <servlet-name>Connector</servlet-name>
+    <url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
+  </servlet-mapping>
+<!--  FCKEditor.END -->
+
+  <servlet>
+    <servlet-name>CoreController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>corewa-config.xml</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>HeaderController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>header.xml</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>NavigationController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>navigation.xml</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MenuController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>navigation.xml</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>MainController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>main.xml</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>LinkController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>link.xml</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>IntroController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>intro.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>ServiceController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>service.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>MemberController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>member.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>ProductController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>product.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CoreController</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+  <!-- Mapping parts in layout -->
+  <servlet-mapping>
+    <servlet-name>HeaderController</servlet-name>
+    <url-pattern>/header.part</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HeaderController</servlet-name>
+    <url-pattern>header.mod</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>NavigationController</servlet-name>
+    <url-pattern>/navigation.part</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MenuController</servlet-name>
+    <url-pattern>/menu.part</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>MainController</servlet-name>
+    <url-pattern>/main.part</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LinkController</servlet-name>
+    <url-pattern>/link.part</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>IntroController</servlet-name>
+    <url-pattern>/intro.mod</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ServiceController</servlet-name>
+    <url-pattern>/service.mod</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MemberController</servlet-name>
+    <url-pattern>/member.mod</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProductController</servlet-name>
+    <url-pattern>/product.mod</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

@@ -44,11 +44,11 @@ public class NavigationControl extends LayoutControl {
         return outForm;
     }
 
-    public BaseOutForm gotoIntroduction(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+    public BaseOutForm gotoIntro(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         BaseOutForm outForm = new BaseOutForm();
 
-        outForm.putRequest("MainScreen", "Introduction");
+        outForm.putRequest("MainScreen", "Intro");
 
         return outForm;
     }

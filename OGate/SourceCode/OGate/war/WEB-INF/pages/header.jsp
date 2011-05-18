@@ -42,21 +42,27 @@
                 <tbody>
                     <tr>
                         <td nowrap="nowrap">
-                        <p align="right">Ngôn ngữ: <select size="1"
-                            name="D1" disabled="disabled">
-                            <option selected="selected">Việt</option>
-                            <option>English</option>
+                        <p align="right">${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
+                            <c:forEach var="lang" items="${outForm.langList}">
+                              <c:if test='${lang.name == outForm.selectedLang}'>
+                                <option id="${lang.id}" selected="selected">${lang.name}</option>
+                              </c:if>
+                              <c:if test='${lang.name != outForm.selectedLang}'>
+                                <option id="${lang.id}">${lang.name}</option>
+                              </c:if>
+                            </c:forEach>
+                            
                         </select></p>
                         </td>
                     </tr>
                     <tr>
                         <td align="right" nowrap="nowrap">
                         <c:if test="${empty user}">
-                          <input type="button" value="Đăng nhập" name="login" onclick='submitAction("frmHeader","Header", "login")'>
+                          <input type="button" value="${applicationScope.Logon}" name="login" onclick='submitAction("frmHeader","Header", "login")'>
                         </c:if>
                         <c:if test="${not empty user}">
                           Chào ${user.nickname}
-                          <input type="button" value="Đăng xuất" name="logout" onclick='submitAction("frmHeader","Header", "logout")'>
+                          <input type="button" value="${applicationScope.Logoff}" name="logout" onclick='submitAction("frmHeader","Header", "logout")'>
                         </c:if>
                         </td>
                     </tr>

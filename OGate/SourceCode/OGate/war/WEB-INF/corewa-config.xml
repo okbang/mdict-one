@@ -14,13 +14,16 @@
   </screen>
   
   <screen id="Header" control="openones.gate.control.HeaderControl" input="/WEB-INF/pages/layout.jsp" >
-    <event id="login" procId="googleLogin"></event>
-    <event id="logout" procId="googleLogout"></event>
+    <event id="login" procId="googleLogin"/>
+    <event id="logout" procId="googleLogout"/>
+    <event id="changeLanguage" procId="changeLanguage"/>
+    
   </screen>
+
 
   <screen id="Navigation" control="openones.gate.control.NavigationControl" input="/WEB-INF/pages/layout.jsp" >
     <event id="clickService" procId="gotoService"></event>
-    <event id="clickIntroduction" procId="gotoIntroduction"></event>
+    <event id="clickIntro" procId="gotoIntro"></event>
     <event id="clickMember" procId="gotoMember"></event>
     <event id="clickProduct" procId="gotoProduct"></event>
   </screen>  

@@ -2,7 +2,11 @@
 <corewa>
   <home-screen>Intro</home-screen>
 
-  <screen id="Intro" input="/WEB-INF/pages/intro.jsp" >
+  <screen id="Intro" control="openones.gate.control.IntroControl" input="/WEB-INF/pages/intro.jsp" >
+    <event id="edit" redirect="yes" nextScreen="/WEB-INF/pages/layout.jsp"/>
+    <event id="save" procId="save" nextScreen="/WEB-INF/pages/layout.jsp"/>
+    <event id="list" procId="list" nextScreen="/WEB-INF/pages/layout.jsp"/>
+    <event id="delete" procId="delete" nextScreen="/WEB-INF/pages/layout.jsp"/>
   </screen>
   
 </corewa>
