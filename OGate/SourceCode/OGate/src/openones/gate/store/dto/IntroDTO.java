@@ -18,35 +18,23 @@
  */
 package openones.gate.store.dto;
 
-import static org.junit.Assert.*;
-import junit.framework.Assert;
+import javax.jdo.annotations.PersistenceCapable;
 
-import openones.gate.store.IntroStore;
-
-import org.junit.Test;
+import com.google.appengine.api.datastore.Text;
 
 /**
  * @author ThachLN
  *
  */
-public class IntroStoreTest {
+@PersistenceCapable
+public class IntroDTO extends ModuleDTO {
 
     /**
-     * Test method for {@link openones.gate.store.IntroStore#save(openones.gate.store.IntroDTO)}.
+     * @param introContent
      */
-    @Test
-    public void testSave() {
-        fail("Not yet implemented");
+    public IntroDTO(Text introContent) {
+        super(introContent);
     }
 
-    /**
-     * Test method for {@link openones.gate.store.IntroStore#getLastContent()}.
-     */
-    @Test
-    public void testGetLastContent() {
-        String content = IntroStore.getLastContent();
-        
-        Assert.assertEquals("", content);
-    }
 
 }

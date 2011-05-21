@@ -31,8 +31,8 @@ import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
 import openones.gate.intro.form.IntroOutForm;
-import openones.gate.store.IntroDTO;
-import openones.gate.store.dto.IntroStore;
+import openones.gate.store.IntroStore;
+import openones.gate.store.dto.IntroDTO;
 import openones.gate.util.DtoUtil;
 
 import com.google.appengine.api.datastore.Text;
@@ -73,7 +73,7 @@ public class IntroControl extends BaseControl {
         }
         
         // Keep the content in the out form
-        introOutForm.setContent(intro.getContent());
+        introOutForm.setContent(intro.getStringContent());
         
         outForm.putRequest("introForm", introOutForm);
 
