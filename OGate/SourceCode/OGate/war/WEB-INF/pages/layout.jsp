@@ -120,8 +120,8 @@
       <td width="78%" class=uportal-channel-text>
         <p align="center">${applicationScope.Copyright}
       </td>
-      <td width="12%" class=uportal-channel-text>Lượt truy cập: <%= SessionCounter.getNmHits() %>
-       <br> Đang đăng nhập: ${nmLogonUser}</td>
+      <td width="12%" class=uportal-channel-text>${applicationScope.NumberOfAccess}: <%= SessionCounter.getNmHits() %>
+       <br> ${applicationScope.NumberOfLogin}: ${nmLogonUser}</td>
     </tr>
   </table>
 

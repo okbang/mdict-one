@@ -85,7 +85,7 @@
                 </TR>
                 <TR>
                   <TD class=uportal-background-${nav_intro_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text${nav_intro_selected} href="#" onclick='submitAction("frmNavigation","Intro", "clickIntro")'>Giới thiệu</A><IMG alt="" src="pages/images/transparent.gif" width=10
+                    height=10> <A class=uportal-tab-text${nav_intro_selected} href="#" onclick='submitAction("frmNavigation","Intro", "clickIntro")'>${applicationScope.Introduction}</A><IMG alt="" src="pages/images/transparent.gif" width=10
                     height=10></TD>
                 </TR>
                 <TR>
@@ -105,7 +105,7 @@
                   <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_product_active}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_product_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_product_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickProduct")'>Sản phẩm</A>
+                  <TD class=uportal-background-${nav_product_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_product_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickProduct")'>${applicationScope.Product}</A>
                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -122,7 +122,7 @@
                   <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_service_active}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickService")'>Dịch vụ</A>
+                  <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickService")'>${applicationScope.Service}</A>
                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -139,7 +139,7 @@
                   <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_member_active}_tab.gif" width=22 height=23></TD>
                 </TR>
                 <TR>
-                  <TD class=uportal-background-${nav_member_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_member_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickMember")'>Thành viên</A>
+                  <TD class=uportal-background-${nav_member_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_member_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickMember")'>${applicationScope.Member}</A>
                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -163,7 +163,7 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Diễn đàn</A><IMG alt="" src="pages/images/transparent.gif"
+                    height=10> <A class=uportal-tab-text href="#">${applicationScope.Forum}</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -191,7 +191,7 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Việc làm</A><IMG alt="" src="pages/images/transparent.gif"
+                    height=10> <A class=uportal-tab-text href="#">${applicationScope.Career}</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -219,7 +219,7 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Hoạt động</A><IMG alt="" src="pages/images/transparent.gif"
+                    height=10> <A class=uportal-tab-text href="#">${applicationScope.Activity}</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -247,8 +247,7 @@
                   <TD class=uportal-background-med height=20
                     vAlign=center noWrap><IMG alt=""
                     src="pages/images/transparent.gif" width=10
-                    height=10> <A class=uportal-tab-text href="#">Dự
-                      án</A><IMG alt="" src="pages/images/transparent.gif"
+                    height=10> <A class=uportal-tab-text href="#">${applicationScope.Project}</A><IMG alt="" src="pages/images/transparent.gif"
                     width=10 height=10></TD>
                 </TR>
                 <TR>
@@ -272,7 +271,7 @@
                 </TR>
                 <TR>
                   <TD class=uportal-channel-text height=20 vAlign=center
-                    align="right" noWrap>Số thành viên: 60</TD>
+                    align="right" noWrap>${applicationScope.NumberOfMember}: 60</TD>
                 </TR>
                 <TR>
                   <TD class=uportal-background-shadow noWrap><IMG
