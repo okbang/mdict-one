@@ -23,7 +23,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Open-Ones Group Home page</title>
+<title>${applicationScope.HomePage}</title>
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 <link rel=stylesheet type=text/css href="pages/css/java.css">
 </head>

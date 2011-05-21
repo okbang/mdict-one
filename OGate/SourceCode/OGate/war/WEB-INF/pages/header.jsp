@@ -61,7 +61,7 @@
                           <input type="button" value="${applicationScope.Logon}" name="login" onclick='submitAction("frmHeader","Header", "login")'>
                         </c:if>
                         <c:if test="${not empty user}">
-                          Chào ${user.nickname}
+                          ${applicationScope.Welcome} ${user.nickname} !
                           <input type="button" value="${applicationScope.Logoff}" name="logout" onclick='submitAction("frmHeader","Header", "logout")'>
                         </c:if>
                         </td>
