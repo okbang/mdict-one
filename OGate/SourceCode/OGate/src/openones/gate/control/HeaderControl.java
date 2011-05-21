@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +30,7 @@ import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
 import openones.corewa.ReqUtil;
+import openones.corewa.res.DefaultRes;
 import openones.gate.Cons;
 import openones.gate.header.form.HeaderInForm;
 import openones.gate.header.form.HeaderOutForm;
@@ -42,12 +44,14 @@ import com.google.appengine.api.users.UserServiceFactory;
  */
 public class HeaderControl extends LayoutControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
+    private ServletContext context = null;
     
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("procInit.START");
         HeaderOutForm headerOutForm = new HeaderOutForm();
         
+        context = req.getSession().getServletContext();
         outForm.putRequest("outForm", headerOutForm);
         
         return outForm;
@@ -119,4 +123,24 @@ public class HeaderControl extends LayoutControl {
         return outForm;
     }   
 
+    /* 
+     * Explain the description for this method here
+     * @see openones.corewa.control.BaseControl#reloadResource(java.lang.String)
+     */
+    @Override
+    public void reloadResource(String langCd) {
+        //Check context
+        if (context == null) {
+            LOG.info("Context is null!!!!!!!!!");
+            return;
+        }
+        
+        // Load resource
+        DefaultRes resource = new DefaultRes(langCd);
+        if (resource != null) {
+            for (Object key : resource.getKey()) {
+                context.setAttribute(key.toString(), resource.get(key.toString()));
+            }
+        }
+    }
 }
