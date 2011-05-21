@@ -25,7 +25,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 import openones.gaecore.PMF;
-import openones.gate.store.dto.IntroDTO;
+import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
 import rocky.common.Constant;
 
@@ -36,7 +36,7 @@ import rocky.common.Constant;
 public class IntroStore {
     final static Logger LOG = Logger.getLogger("IntroStore");
     
-    public static boolean save(IntroDTO intro) {
+    public static boolean save(ModuleDTO intro) {
         LOG.info("intro.getContent()=" + intro.getContent());
         return PMF.save(intro);
     }
@@ -47,12 +47,12 @@ public class IntroStore {
      */
     public static String getLastContent() {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-        //String query = "select from " + IntroDTO.class.getName();
-        Query query = pm.newQuery(IntroDTO.class);
+        //String query = "select from " + ModuleDTO.class.getName();
+        Query query = pm.newQuery(ModuleDTO.class);
 
         query.setOrdering("modified descending");
 
-        List<IntroDTO> introList = (List<IntroDTO>) query.execute();
+        List<ModuleDTO> introList = (List<ModuleDTO>) query.execute();
 
         if (CommonUtil.isNNandNB(introList)) {
             System.out.println("content=" + introList.get(0).getContent());
@@ -63,11 +63,11 @@ public class IntroStore {
     /**
      * @return
      */
-    public static List<IntroDTO> getContents() {
+    public static List<ModuleDTO> getContents() {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-        String query = "select from " + IntroDTO.class.getName();
+        String query = "select from " + ModuleDTO.class.getName();
         
-        List<IntroDTO> introList = (List<IntroDTO>) pm.newQuery(query).execute();
+        List<ModuleDTO> introList = (List<ModuleDTO>) pm.newQuery(query).execute();
         
         return introList;
     }
@@ -78,9 +78,9 @@ public class IntroStore {
      */
     public static boolean delete(Long contentKey) {
         if (contentKey == -1) { //Delete all
-            return PMF.deleteAll(IntroDTO.class);
+            return PMF.deleteAll(ModuleDTO.class);
         } else {
-            return PMF.delete(contentKey, IntroDTO.class);
+            return PMF.delete(contentKey, ModuleDTO.class);
         }
     }
 }

@@ -34,7 +34,7 @@ import com.google.appengine.api.datastore.Text;
  * @author Thach Le
  */
 @PersistenceCapable
-public class ModuleDTO extends Object implements Serializable {
+public class ModuleDTO implements Serializable {
 
     /** Physical primary key of the object. */
     @PrimaryKey

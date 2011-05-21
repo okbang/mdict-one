@@ -59,4 +59,11 @@ public class HeaderOutForm extends BaseOutForm {
         this.selectedLang = selectedLang;
     }
     
+    /**
+     * Get list of supported languages.
+     * @return Array of string of language
+     */
+    public String[] getLanguages() {
+        return LANGS;
+    }
 }

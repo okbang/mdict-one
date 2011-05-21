@@ -32,7 +32,7 @@ import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
 import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.IntroStore;
-import openones.gate.store.dto.IntroDTO;
+import openones.gate.store.dto.ModuleDTO;
 import openones.gate.util.DtoUtil;
 
 import com.google.appengine.api.datastore.Text;
@@ -62,7 +62,7 @@ public class IntroControl extends BaseControl {
         
         LOG.info("content="  + reqMap.get("content"));
         Text introContent = new Text((String) reqMap.get("content"));
-        IntroDTO intro = new IntroDTO(introContent);
+        ModuleDTO intro = new ModuleDTO(introContent);
         
         if (IntroStore.save(intro )) {
             introOutForm.setSaveResult(Cons.ActResult.OK);
@@ -84,8 +84,8 @@ public class IntroControl extends BaseControl {
     public BaseOutForm list(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("list.START");
         
-        List<IntroDTO> introDtoList = IntroStore.getContents();
-        List<IntroOutForm> outFormList = DtoUtil.dto2IntroFormList(introDtoList);
+        List<ModuleDTO> ModuleDTOList = IntroStore.getContents();
+        List<IntroOutForm> outFormList = DtoUtil.dto2IntroFormList(ModuleDTOList);
         outForm.putRequest("intros", outFormList);
 
         LOG.finest("list.END");

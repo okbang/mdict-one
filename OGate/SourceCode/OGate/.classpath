@@ -15,6 +15,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl-1.1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gae-core-0.0.2-201105132105116.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.0.8-201105136081100.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.0.9-201105141123148.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -41,14 +41,14 @@
                 cellspacing="0">
                 <tbody>
                     <tr>
-                        <td nowrap="nowrap">
+                      <td nowrap="nowrap">
                         <p align="right">${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
-                            <c:forEach var="lang" items="${outForm.langList}">
-                              <c:if test='${lang.name == outForm.selectedLang}'>
-                                <option id="${lang.id}" selected="selected">${lang.name}</option>
+                            <c:forEach var="langItem" items="${outForm.langList}">
+                              <c:if test='${langItem.name == lang}'>
+                                <option id="${langItem.id}" selected="selected">${langItem.name}</option>
                               </c:if>
-                              <c:if test='${lang.name != outForm.selectedLang}'>
-                                <option id="${lang.id}">${lang.name}</option>
+                              <c:if test='${langItem.name != lang}'>
+                                <option id="${langItem.id}">${langItem.name}</option>
                               </c:if>
                             </c:forEach>
                             

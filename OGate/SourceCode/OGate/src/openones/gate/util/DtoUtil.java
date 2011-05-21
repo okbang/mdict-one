@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import openones.gate.intro.form.IntroOutForm;
-import openones.gate.store.dto.IntroDTO;
+import openones.gate.store.dto.ModuleDTO;
 
 /**
  * This class provides utilities to manipulate the entities, forms.
@@ -35,7 +35,7 @@ public class DtoUtil {
      * @param dto entity of Introduction
      * @return formatted data form
      */
-    public static IntroOutForm dto2IntroForm(IntroDTO dto) {
+    public static IntroOutForm dto2IntroForm(ModuleDTO dto) {
         IntroOutForm form = new IntroOutForm();
         
         form.setContent(dto.getStringContent());
@@ -45,14 +45,14 @@ public class DtoUtil {
     }
     
     /**
-     * Convert list of IntroDTO into list of IntroOutForm
+     * Convert list of ModuleDTO into list of IntroOutForm
      * @param dtoList list of entity Introduction
      * @return list of formatted Introduction data
      */
-    public static List<IntroOutForm> dto2IntroFormList(List<IntroDTO> dtoList) {
+    public static List<IntroOutForm> dto2IntroFormList(List<ModuleDTO> dtoList) {
         List<IntroOutForm> formList = new ArrayList<IntroOutForm>();
         
-        for (IntroDTO dto : dtoList) {
+        for (ModuleDTO dto : dtoList) {
             formList.add(dto2IntroForm(dto));
         }
         
