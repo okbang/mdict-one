@@ -34,7 +34,7 @@
         <tr>
             <td width="49"><img src="pages/images/oog_logo.png" border="0" width="150" height="50"></td>
             <td>
-            <p align="center"><font size="6">Chia sẻ, liên kết, cùng triển khai ý tưởng</font></p>
+            <p align="center"><font size="6">${applicationScope.ShareAssociateDevelopIdea}</font></p>
             </td>
             <td width="148">
             <table id="table3" width="100%" border="0" cellpadding="0"
