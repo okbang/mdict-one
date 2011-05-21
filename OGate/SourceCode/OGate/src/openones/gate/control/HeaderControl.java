@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +30,7 @@ import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
 import openones.corewa.ReqUtil;
+import openones.corewa.res.DefaultRes;
 import openones.gate.Cons;
 import openones.gate.header.form.HeaderInForm;
 import openones.gate.header.form.HeaderOutForm;
@@ -43,6 +45,13 @@ import com.google.appengine.api.users.UserServiceFactory;
 public class HeaderControl extends LayoutControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     //private ServletContext context = null;
+    
+    private HeaderControl() {
+    }
+    
+    public HeaderControl(ServletConfig config) {
+        super(config);
+    }
     
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -102,7 +111,10 @@ public class HeaderControl extends LayoutControl {
         outForm.putSession(Cons.SK_LANG, selectedLang);
         
         LOG.info("Reload the resource of language code " + headerOutForm.getLangCd(selectedLang));
-        reloadResource(headerOutForm.getLangCd(selectedLang));
+        
+        String langCd = headerOutForm.getLangCd(selectedLang);
+        LOG.info("Loading resource for language " + langCd + ";" + selectedLang);
+        reloadResource(langCd);
         
         return outForm;
     }
@@ -125,24 +137,21 @@ public class HeaderControl extends LayoutControl {
         return outForm;
     }   
 
-//    /* 
-//     * Explain the description for this method here
-//     * @see openones.corewa.control.BaseControl#reloadResource(java.lang.String)
-//     */
-//    @Override
-//    public void reloadResource(String langCd) {
-//        //Check context
-//        if (context == null) {
-//            LOG.info("Context is null!!!!!!!!!");
-//            return;
-//        }
-//        
-//        // Load resource
-//        DefaultRes resource = new DefaultRes(langCd);
-//        if (resource != null) {
-//            for (Object key : resource.getKey()) {
-//                context.setAttribute(key.toString(), resource.get(key.toString()));
-//            }
-//        }
-//    }
+    /* 
+     * Explain the description for this method here
+     * @see openones.corewa.control.BaseControl#reloadResource(java.lang.String)
+     */
+    @Override
+    public void reloadResource(String langCd) {
+        LOG.info("reloadResource:" + langCd);
+        // Load resource
+        DefaultRes resource = new DefaultRes(langCd);
+        if (resource != null) {
+            LOG.info("Number of resource:" + resource.getKey().size());
+            for (Object key : resource.getKey()) {
+                LOG.info(key.toString() + "=" + resource.get(key.toString()));
+                config.getServletContext().setAttribute(key.toString(), resource.get(key.toString()));
+            }
+        }
+    }
 }

@@ -6,7 +6,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.0.9-201105126021653.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-simple-1.5.8.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/fckeditor-java-core-2.6.jar"/>
@@ -16,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gae-core-0.0.2-201105132105116.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.0.9-201105141123148.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.1.0-201105141021206.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

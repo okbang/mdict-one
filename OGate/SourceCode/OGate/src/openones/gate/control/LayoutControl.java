@@ -21,6 +21,7 @@ package openones.gate.control;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,13 @@ public class LayoutControl extends BaseControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     private static int nmLogonUser = 0;
 
+    public LayoutControl() {
+    }
+    
+    public LayoutControl(ServletConfig config) {
+        super(config);
+    }
+    
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BaseOutForm outForm = new BaseOutForm();

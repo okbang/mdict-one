@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.jdo.PersistenceManager;
-import javax.jdo.Query;
 
 import openones.gaecore.PMF;
 import openones.gate.store.dto.ModuleDTO;
@@ -47,12 +46,14 @@ public class IntroStore {
      */
     public static String getLastContent() {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-        //String query = "select from " + ModuleDTO.class.getName();
-        Query query = pm.newQuery(ModuleDTO.class);
-
-        query.setOrdering("modified descending");
-
-        List<ModuleDTO> introList = (List<ModuleDTO>) query.execute();
+        String query = "select from " + ModuleDTO.class.getName();
+        
+        //Query query = pm.newQuery(ModuleDTO.class);
+        //query.setOrdering("modified descending");
+      //List<ModuleDTO> introList = (List<ModuleDTO>) query.execute();
+        
+        List<ModuleDTO> introList = (List<ModuleDTO>) pm.newQuery(query).execute();
+        
 
         if (CommonUtil.isNNandNB(introList)) {
             System.out.println("content=" + introList.get(0).getContent());
