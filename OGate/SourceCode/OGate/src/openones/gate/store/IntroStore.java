@@ -18,6 +18,7 @@
  */
 package openones.gate.store;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -34,9 +35,17 @@ import rocky.common.Constant;
  */
 public class IntroStore {
     final static Logger LOG = Logger.getLogger("IntroStore");
+    final static String MOD_ID = "intro";
     
     public static boolean save(ModuleDTO intro) {
         LOG.info("intro.getContent()=" + intro.getContent());
+        if (intro.getCreated() == null) {
+            intro.setCreated(new Date()); // set current Date
+        }
+        
+        if (!CommonUtil.isNNandNB(intro.getCreatedBy())) {
+            intro.setCreatedBy(MOD_ID);
+        }
         return PMF.save(intro);
     }
 
@@ -46,11 +55,13 @@ public class IntroStore {
      */
     public static String getLastContent() {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-        String query = "select from " + ModuleDTO.class.getName();
+        
+        // Get top 5 newest contents
+        String query = "select from " + ModuleDTO.class.getName() + " order by created desc range 0,5";
         
         //Query query = pm.newQuery(ModuleDTO.class);
-        //query.setOrdering("modified descending");
-      //List<ModuleDTO> introList = (List<ModuleDTO>) query.execute();
+        //query.setOrdering("created descending");
+        //List<ModuleDTO> introList = (List<ModuleDTO>) query.execute();
         
         List<ModuleDTO> introList = (List<ModuleDTO>) pm.newQuery(query).execute();
         
@@ -66,7 +77,7 @@ public class IntroStore {
      */
     public static List<ModuleDTO> getContents() {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-        String query = "select from " + ModuleDTO.class.getName();
+        String query = "select from " + ModuleDTO.class.getName() + " order by created desc";
         
         List<ModuleDTO> introList = (List<ModuleDTO>) pm.newQuery(query).execute();
         

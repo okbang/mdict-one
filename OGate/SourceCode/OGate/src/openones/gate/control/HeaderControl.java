@@ -141,17 +141,17 @@ public class HeaderControl extends LayoutControl {
      * Explain the description for this method here
      * @see openones.corewa.control.BaseControl#reloadResource(java.lang.String)
      */
-    @Override
-    public void reloadResource(String langCd) {
-        LOG.info("reloadResource:" + langCd);
-        // Load resource
-        DefaultRes resource = new DefaultRes(langCd);
-        if (resource != null) {
-            LOG.info("Number of resource:" + resource.getKey().size());
-            for (Object key : resource.getKey()) {
-                LOG.info(key.toString() + "=" + resource.get(key.toString()));
-                config.getServletContext().setAttribute(key.toString(), resource.get(key.toString()));
-            }
-        }
-    }
+//    @Override
+//    public void reloadResource(String langCd) {
+//        LOG.info("reloadResource:" + langCd);
+//        // Load resource
+//        DefaultRes resource = new DefaultRes(langCd);
+//        if (resource != null) {
+//            LOG.info("Number of resource:" + resource.getKey().size());
+//            for (Object key : resource.getKey()) {
+//                LOG.info(key.toString() + "=" + resource.get(key.toString()));
+//                config.getServletContext().setAttribute(key.toString(), resource.get(key.toString()));
+//            }
+//        }
+//    }
 }

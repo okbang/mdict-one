@@ -21,6 +21,7 @@ package openones.gate.intro.form;
 import java.io.Serializable;
 
 import openones.gate.Cons;
+import rocky.common.Constant;
 
 /**
  * @author ThachLN
@@ -30,10 +31,11 @@ public class IntroOutForm implements Serializable {
     private Cons.ActResult saveResult;
     
     /** IntroSaveFail | IntroSaveOk. */
-    private String msgKey;
+    private String key;
     
+    private String content = Constant.BLANK;
     
-    private String content;
+    private String created = Constant.BLANK;
     
     public Cons.ActResult getSaveResult() {
         return saveResult;
@@ -41,11 +43,11 @@ public class IntroOutForm implements Serializable {
     public void setSaveResult(Cons.ActResult saveResult) {
         this.saveResult = saveResult;
     }
-    public String getMsgKey() {
-        return msgKey;
+    public String getKey() {
+        return key;
     }
-    public void setMsgKey(String msgKey) {
-        this.msgKey = msgKey;
+    public void setKey(String msgKey) {
+        this.key = msgKey;
     }
 
     public String getContent() {
@@ -53,5 +55,11 @@ public class IntroOutForm implements Serializable {
     }
     public void setContent(String content) {
         this.content = content;
+    }
+    public String getCreated() {
+        return created;
+    }
+    public void setCreated(String created) {
+        this.created = created;
     }
 }

@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
+import openones.gate.intro.form.IntroListOutForm;
 import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.IntroStore;
 import openones.gate.store.dto.ModuleDTO;
@@ -62,14 +63,14 @@ public class IntroControl extends BaseControl {
         
         LOG.info("content="  + reqMap.get("content"));
         Text introContent = new Text((String) reqMap.get("content"));
-        ModuleDTO intro = new ModuleDTO(introContent);
+        ModuleDTO intro = new ModuleDTO("intro", introContent);
         
-        if (IntroStore.save(intro )) {
+        if (IntroStore.save(intro)) {
             introOutForm.setSaveResult(Cons.ActResult.OK);
-            introOutForm.setMsgKey("IntroSaveOk");
+            //introOutForm.setKey("IntroSaveOk");
         } else {
             introOutForm.setSaveResult(Cons.ActResult.FAIL);
-            introOutForm.setMsgKey("IntroSaveFail");
+            //introOutForm.setKey("IntroSaveFail");
         }
         
         // Keep the content in the out form
@@ -84,9 +85,14 @@ public class IntroControl extends BaseControl {
     public BaseOutForm list(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("list.START");
         
-        List<ModuleDTO> ModuleDTOList = IntroStore.getContents();
-        List<IntroOutForm> outFormList = DtoUtil.dto2IntroFormList(ModuleDTOList);
-        outForm.putRequest("intros", outFormList);
+        List<ModuleDTO> moduleDTOList = IntroStore.getContents();
+        LOG.info("moduleDTOList.size=" + moduleDTOList.size());
+        List<IntroOutForm> outFormList = DtoUtil.dto2IntroFormList(moduleDTOList);
+        LOG.info("outFormList.size=" + outFormList.size());
+        
+        IntroListOutForm introList = new IntroListOutForm();
+        introList.setIntroList(outFormList);
+        outForm.putRequest("intro_outForm", introList);
 
         LOG.finest("list.END");
         return outForm;
@@ -102,11 +108,9 @@ public class IntroControl extends BaseControl {
         } else {
             outForm.putRequest("deleteResult", "FAIL");
         }
+        LOG.finest("delete.END");
         
         // refresh the list
-        outForm.putRequest("intros", IntroStore.getContents());
-
-        LOG.finest("delete.END");
-        return outForm;
+        return list(req, reqMap, resp);
     }
 }

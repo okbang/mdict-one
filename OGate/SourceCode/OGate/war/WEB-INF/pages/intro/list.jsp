@@ -40,14 +40,14 @@ function submitDelete(frmName, screenId, eventId, contentId) {
     </td>
     
     </tr>
-    <c:forEach var="intro" items="${intros}">
+    <%-- intro: IntroOutForm --%>
+    <c:forEach var="intro" items="${intro_outForm.introList}">
      <tr>
        <td>&nbsp;</td>
        <td>${intro.key}</td>
-       <td>${intro.modified}</td>
+       <td>${intro.created}</td>
        <td>${intro.content}</td>
        <td><a href="#" onclick='submitDelete("frmIntro","Intro", "delete", "${intro.key}")'><img border="0" src="pages/images/delete.gif" width="16" height="16"></a></td>
      </tr>
      </c:forEach>
 </table>
-          

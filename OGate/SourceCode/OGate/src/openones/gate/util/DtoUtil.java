@@ -23,6 +23,8 @@ import java.util.List;
 
 import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.dto.ModuleDTO;
+import rocky.common.CommonUtil;
+import rocky.common.Constant;
 
 /**
  * This class provides utilities to manipulate the entities, forms.
@@ -37,9 +39,12 @@ public class DtoUtil {
      */
     public static IntroOutForm dto2IntroForm(ModuleDTO dto) {
         IntroOutForm form = new IntroOutForm();
-        
+
         form.setContent(dto.getStringContent());
-        form.setMsgKey(String.valueOf(dto.getKey()));
+        form.setKey(String.valueOf(dto.getKey()));
+        if (dto.getCreated() != null) {
+            form.setCreated(CommonUtil.formatDate(dto.getCreated(), Constant.DEF_DATEFMT));
+        }
         
         return form;
     }

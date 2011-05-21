@@ -20,21 +20,31 @@
   </tr>
   <tr>
   <td>
-  <c:if test='${(eventId == "list") || (eventId == "delete")}'>
-    <jsp:include page="/WEB-INF/pages/intro/list.jsp"></jsp:include>
-  </c:if>
-  <c:if test='${(eventId == "edit") || (eventId == "save")}'>
-    <FCK:editor instanceName="content" height="500">
-      <jsp:attribute name="value">
-      <p>${introForm.content}</p>
-      </jsp:attribute>
-    </FCK:editor>
-  </c:if>
-  <c:if test='${(eventId != "edit") && (eventId != "save")}'>
-  <p class="uportal-channel-text" style="color:blue">
-   ${introForm.content}
+   <!--  Admin -->
+  <c:if test="${(not empty user) && (user.isAdmin)}">
+    <c:choose>
+         <%-- list screen --%>
+        <c:when test='${(eventId == "list") || (eventId == "delete")}'>
+         <jsp:include page="/WEB-INF/pages/intro/list.jsp"></jsp:include>
+        </c:when>
+      <c:when test='${(eventId == "edit") || (eventId == "save")}'>
+        <FCK:editor instanceName="content" height="500">
+          <jsp:attribute name="value">
+          <p>${introForm.content}</p>
+          </jsp:attribute>
+        </FCK:editor>
+      </c:when>
+  
+        <c:otherwise>
+    ${introForm.content}    
+        </c:otherwise>
+    </c:choose>
   </c:if>
   
+  <%--  Guest or Normal user --%>
+  <c:if test="${(empty user) || (not user.isAdmin)}">
+  <p>${introForm.content}</p>
+  </c:if>
   </td>
   </tr>
 </table>

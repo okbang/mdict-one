@@ -19,6 +19,7 @@
 package openones.gate.store.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
@@ -65,11 +66,24 @@ public class ModuleDTO implements Serializable {
     @Persistent
     private Text content;
 
+    @Persistent
+    private Date created;
+    
+    @Persistent
+    private String createdBy;
+    
+    @Persistent
+    private Date lastModified;
+    
+    @Persistent
+    private Date lastModifiedBy;
+    
     /**
      * 
      * @param introContent
      */
-    public ModuleDTO(Text introContent) {
+    public ModuleDTO(String moduleId, Text introContent) {
+        this.id = moduleId;
         this.content = introContent;
     }
     /**
@@ -165,5 +179,29 @@ public class ModuleDTO implements Serializable {
      */
     public void setContent(String content) {
         this.content = new Text(content);
+    }
+    public Date getCreated() {
+        return created;
+    }
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+    public String getCreatedBy() {
+        return createdBy;
+    }
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+    public Date getLastModified() {
+        return lastModified;
+    }
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+    public Date getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+    public void setLastModifiedBy(Date lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 }
