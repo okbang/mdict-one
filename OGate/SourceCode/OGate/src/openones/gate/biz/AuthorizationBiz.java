@@ -1,0 +1,48 @@
+/**
+ * Licensed to Open-Ones Group under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work
+ * for additional information regarding copyright ownership.
+ * Open-Ones Group licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package openones.gate.biz;
+
+import openones.gate.store.AuthorizationStore;
+import rocky.common.CommonUtil;
+
+/**
+ * @author ThachLN
+ *
+ */
+public class AuthorizationBiz {
+    /**
+     * Check the account has authorization for given module, screen, event.
+     * @param account Account name of gmail.com or the email address.
+     * @param moduleId
+     * @param screenId
+     * @param eventId
+     * @return true if the account has authorization.
+     */
+    public static boolean isAuthorized(String account, String moduleId, String screenId, String eventId) {
+        if (!CommonUtil.isNNandNB(account)) {
+            return false;
+        }
+        
+        String emailAddr = (account.indexOf("@") > -1) ? account: account + "@gmail.com";
+        
+        AuthorizationStore store = new AuthorizationStore();
+        
+        return store.isExisted(emailAddr, moduleId, screenId, eventId);
+    }
+}

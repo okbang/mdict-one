@@ -18,6 +18,8 @@
     <event id="logout" procId="googleLogout"/>
     <event id="changeLanguage" procId="changeLanguage"/>
     
+    <event id="setting" procId="setting"/>
+    
   </screen>
 
 

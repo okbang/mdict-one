@@ -17,7 +17,16 @@
  * limitations under the License.
  */
  --%>
-
+<%--
+Part: Header
+Contains: 
+ + Open-Ones's slogan (done)
+ + List of sponsors (not)
+ + Hot news (not)
+ + Change language (done)
+ + Logon/Logout (done)
+ + Setting (for authorized user) (not)
+ --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"  isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@page import="com.google.appengine.api.users.UserService"%>
@@ -32,7 +41,7 @@
 <table id="table2" width="100%" class="uportal-background-light" border="0" height="20">
     <tbody>
         <tr>
-            <td width="49"><img src="pages/images/oog_logo.png" border="0" width="150" height="50"></td>
+            <td width="49"><a href="www.open-ones.com"><img src="pages/images/oog_logo.png" border="0" width="150" height="50"></a></td>
             <td>
             <p align="center"><font size="6">${applicationScope.ShareAssociateDevelopIdea}</font></p>
             </td>
@@ -41,8 +50,8 @@
                 cellspacing="0">
                 <tbody>
                     <tr>
-                      <td nowrap="nowrap">
-                        <p align="right">${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
+                      <td nowrap="nowrap" align="right">
+                        ${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
                             <c:forEach var="langItem" items="${outForm.langList}">
                               <c:if test='${langItem.name == lang}'>
                                 <option id="${langItem.id}" selected="selected">${langItem.name}</option>
@@ -52,7 +61,11 @@
                               </c:if>
                             </c:forEach>
                             
-                        </select></p>
+                        </select>
+                        <%-- Display Setting link --%>
+                        <c:if test="${(not empty user) && (user.isAdmin)}">
+                         <a href="#" title="${applicationScope.SettingLinkTitle}" onclick='submitAction("frmHeader","Header", "setting")'><img src="pages/images/setting.gif" border="0" width="20" height="20"></a>
+                        </c:if>
                         </td>
                     </tr>
                     <tr>

@@ -137,6 +137,20 @@ public class HeaderControl extends LayoutControl {
         return outForm;
     }   
 
+    /**
+     * Setting configuration for the application.
+     * This is used for authorized uses.
+     * @param req
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    public BaseOutForm setting(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("setting.START");
+        
+        return null;
+    } 
     /* 
      * Explain the description for this method here
      * @see openones.corewa.control.BaseControl#reloadResource(java.lang.String)
