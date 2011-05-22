@@ -168,6 +168,13 @@ function resize()
 		if ($('leftPanel').style.display != "none" && $('leftPanel').offsetWidth != 210){ $('leftPanel').style.width = "210px"; }
 		if ($('collapsedNav').style.display != "none" && $('collapsedNav').offsetWidth != 22){ $('collapsedNav').style.width = "22px"; }
 	    $('rightPanel').style.width = ($('leftPanel').style.display == 'none')? (x - $('collapsedNav').offsetWidth - 4) : (x - $('leftPanel').offsetWidth - 5);
+	    
+	    <!-- Slogan, sponsor, login panel -->
+	    $('headerTopPanel').style.width = (x - $('headerlogo').offsetWidth - 1);
+
+	    <!-- Hot news panel -->
+	    $('headerBottomPanel').style.width = (x - $('headerlogo').offsetWidth - 1);
+	    
 		$('iframeWrapper').style.height = y - $('topBar').offsetHeight - $('tabContainer').offsetHeight - 2;
 		$('mynav').style.height = y - $('mylogo').offsetHeight - $('mytoolbar').offsetHeight;
 	}

@@ -3,28 +3,230 @@
 
 <HTML>
 <HEAD><TITLE>Module layout</TITLE>
-<META content="text/html; charset=utf-8" http-equiv=content-type><LINK 
-rel=stylesheet type=text/css href="res/interface.css"><LINK rel="shortcut icon" href="images/favicon.ico">
+<META content="text/html; charset=utf-8" http-equiv=content-type>
+<LINK rel=stylesheet type=text/css href="res/interface.css">
+<link rel=stylesheet type=text/css href="css/layout.css">
+<LINK rel="shortcut icon" href="images/favicon.ico">
+
 <SCRIPT type=text/javascript src="res/interface.js"></SCRIPT>
 
 </HEAD>
 <BODY class=x-layout-container>
+<!-- Header -->
+<DIV style="POSITION: absolute; WIDTH: 100%; HEIGHT: 75px; TOP: 0px; LEFT: 0px" id=headerPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+  <DIV id=headerlogo style="POSITION: absolute; WIDTH: 150px; HEIGHT: 100%; TOP: 0px; LEFT: 0px">
+		<img border="0" src="images/oog_logo.png" width="150" height="75">
+  </DIV>
+  
+  <DIV style="WIDTH: 90%; HEIGHT: 53px; TOP: 0px; LEFT: 150px; position:absolute" id=headerTopPanel class="header-top-layout-panel">
+  	<table border="0" cellpadding=0 cellspacing=0 width="100%" height=100%>
+		<tr>
+			<td width="50%">Sharing, associating, developing ideas together</td>
+			<td width="20%">
+			  Danh sách nhà tài trợ
 
+			</td>
+			<td nowrap width="30%"><table border="0" cellpadding=0 cellspacing=0 width="100%">
+			 <tr>
+               <td class=uportal-channel-text width="14%" nowrap align=right>
+				Ngôn ngữ: <select size="1" name="D1">
+						<option>Việt</option>
+						<option>English</option>
+						</select><a href="../../Setting%20HTML%20Layout/index.htm"><img border="0" src="images/setting.gif" width="20" height="20"></a>
+		        </td>
+             </tr>
+             <tr>
+	          <td nowrap class=uportal-channel-text align=right>Welcome admin<input type="button" value="Đăng xuất" name="B1"></td>
+            </tr>
+	         </table>
+ 
+			</td>
+		</tr>
+	</table>
+  </DIV>
+  
+  
+  <!-- Hot news -->
+  <DIV style="WIDTH: 90%; HEIGHT: 20px; BOTTOM: 0px; LEFT: 150px" id=headerBottomPanel class="header-layout-panel">
+  	<table border="0" cellpadding=0 cellspacing=0 width="100%" height=100%>
+		<tr>
+			<td align=right>
+			<marquee >Tin mới</marquee>
+			</td>
+		</tr>
+	</table>
 
-<DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 100%; TOP: 0px; LEFT: 0px" 
-id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
-<DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west 
-class=x-layout-active-content>
-<DIV id=mylogo>
-<TABLE style="BORDER-BOTTOM: #a9bfd3 1px solid; BORDER-TOP: #ffffff 1px solid" cellSpacing=0 cellPadding=0 width="100%">
-  <TBODY>
-  <TR>
-    <TD>Thực đơn</TD></TR>
-   </TBODY>
-</TABLE>
+  </DIV>
 </DIV>
-<DIV id=mytoolbar 
-class="x-dock-panel x-dock-panel-text x-dock-panel-title-expanded x-layout-panel-hd">
+
+<!-- Navigation -->
+<DIV style="POSITION: absolute; WIDTH: 100%; HEIGHT: 24px; TOP: 75px; LEFT: 0px" id=headerPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+  		<td width="99%" colspan="3" class=uportal-background-dark noWrap align=left height=6>
+		<table border=0 cellSpacing=0 cellPadding=0>
+			<tr>
+			  <td class=uportal-background-med noWrap align=left>
+				 <TABLE border=0 cellSpacing=0 cellPadding=0>
+				 	<TR>
+				 		<TD class=uportal-background-med noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+				 		<TD class=uportal-background-dark rowSpan=4 width=22><IMG alt="" src="images/after_active_tab.gif" width=22 height=23></TD>
+				 	</TR>
+				 	<TR>
+				 		<TD class=uportal-background-dark height=19 vAlign=center noWrap><IMG alt="" src="images/transparent.gif" width=10 height=10>
+				 		<A class=uportal-tab-text-selected href="#">Giới thiệu</A><IMG alt="" src="images/transparent.gif" width=10 height=10></TD>
+				 	</TR>
+			        <TR>
+			        	<TD class=uportal-background-dark noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+			        </TR>
+			        <TR>
+			        	<TD class=uportal-background-dark noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+			        </TR>
+		        </TABLE>
+		       </td>
+        
+			  <td class=uportal-background-med noWrap align=left>
+			   <TABLE border=0 cellSpacing=0 cellPadding=0>
+	        	<TR>
+	              <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+	              <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="images/after_inactive_tab.gif" width=22 height=23></TD>
+	            </TR>
+	            <TR>
+	              <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              <A class=uportal-tab-text href="#">Sản phẩm</A><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              </TD>
+	            </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+              </TABLE>
+             </td>
+			  <td>
+			   <TABLE border=0 cellSpacing=0 cellPadding=0>
+	        	<TR>
+	              <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+	              <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="images/after_inactive_tab.gif" width=22 height=23></TD>
+	            </TR>
+	            <TR>
+	              <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              <A class=uportal-tab-text href="#">Dịch vụ</A><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              </TD>
+	            </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+              </TABLE>
+			  </td>
+			  <td>
+			   <TABLE border=0 cellSpacing=0 cellPadding=0>
+	        	<TR>
+	              <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+	              <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="images/after_inactive_tab.gif" width=22 height=23></TD>
+	            </TR>
+	            <TR>
+	              <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              <A class=uportal-tab-text href="#">Diễn đàn</A><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              </TD>
+	            </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+              </TABLE>
+			  </td>
+			  <td>
+			   <TABLE border=0 cellSpacing=0 cellPadding=0>
+	        	<TR>
+	              <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+	              <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="images/after_inactive_tab.gif" width=22 height=23></TD>
+	            </TR>
+	            <TR>
+	              <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              <A class=uportal-tab-text href="#">Thành viên</A><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              </TD>
+	            </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+              </TABLE>
+			  </td>
+			  <td>
+			   <TABLE border=0 cellSpacing=0 cellPadding=0>
+	        	<TR>
+	              <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+	              <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="images/after_inactive_tab.gif" width=22 height=23></TD>
+	            </TR>
+	            <TR>
+	              <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              <A class=uportal-tab-text href="layout_selected_middle_tab.html">Hoạt động</A><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              </TD>
+	            </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+              </TABLE>
+			  </td>
+			  <td>
+			   <TABLE border=0 cellSpacing=0 cellPadding=0>
+	        	<TR>
+	              <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+	              <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="images/after_inactive_tab.gif" width=22 height=23></TD>
+	            </TR>
+	            <TR>
+	              <TD class=uportal-background-med height=20 vAlign=center noWrap><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              <A class=uportal-tab-text href="layout_selected_last_tab.html">Dự án</A><IMG alt="" src="images/transparent.gif" width=10 height=10>
+	              </TD>
+	            </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD>
+                </TR>
+              </TABLE>
+			  </td>
+			  <TD class=uportal-background-med width="100%" noWrap>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+        <TR>
+          <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD></TR>
+        <TR>
+          <TD class=uportal-channel-text height=20 vAlign=center noWrap>
+			<p align="right"><IMG alt="" src="images/transparent.gif" width=1 height=1>Số 
+			thành viên: 30</TD></TR>
+        <TR>
+          <TD class=uportal-background-shadow noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD></TR>
+        <TR>
+          <TD class=uportal-background-highlight noWrap><IMG alt="" src="images/transparent.gif" width=1 height=1></TD></TR>
+        </TABLE></TD>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</DIV>
+
+<DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 100%; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+<DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west class=x-layout-active-content>
+	<DIV id=mylogo>
+		<TABLE style="BORDER-BOTTOM: #a9bfd3 1px solid; BORDER-TOP: #ffffff 1px solid" cellSpacing=0 cellPadding=0 width="100%">
+		  <TBODY>
+		  <TR>
+		    <TD>Thực đơn</TD></TR>
+		   </TBODY>
+		</TABLE>
+	</DIV>
+<DIV id=mytoolbar class="x-dock-panel x-dock-panel-text x-dock-panel-title-expanded x-layout-panel-hd">
 <TABLE cellSpacing=0 cellPadding=1>
   <TBODY>
   <TR>
@@ -43,8 +245,7 @@ class="x-dock-panel x-dock-panel-text x-dock-panel-title-expanded x-layout-panel
       src="res/control_rewind_blue.gif"></DIV></TD></TR></TBODY>
 </TABLE>
 </DIV>
-<DIV style="BACKGROUND-COLOR: #f7f7fd; WIDTH: 100%; OVERFLOW: auto" id=mynav 
-class=x-dock-panel>
+<DIV style="BACKGROUND-COLOR: #f7f7fd; WIDTH: 100%; OVERFLOW: auto" id=mynav class=x-dock-panel>
 <DIV id=accpanel>
 <DIV id=accpanel-header class=selected title=images/package.gif>Nội dung tab</DIV>
 <DIV id=accpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
@@ -52,20 +253,19 @@ class=x-dock-panel>
 <A class=linkitem href="res/service.htm">Dịch vụ</A>
 <A class=linkitem href="res/activity.htm">Hoạt động</A>
 <A class=linkitem href="res/member.htm">Thành viên</A> 
-
 </DIV>
 </DIV>
-<DIV id=settingpanel>
- <DIV id=settingpanel-header title=images/wrench.gif>Cấu hình chung</DIV>	
- <DIV style="DISPLAY: none" id=settingpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
+<DIV id=accpanel2>
+ <DIV id=accpanel2-header title=images/wrench.gif>Cấu hình chung</DIV>	
+ <DIV id=accpanel2-content class="x-dock-panel-body x-dock-panel-body-expanded">
    <A class=linkitem href="res/tab.htm">Hệ thống tab</A>
    <A class=linkitem href="res/account.htm">Tài khoản quản trị</A>
    <A class=linkitem href="res/language.htm">Ngôn ngữ</A>
  </DIV>
 </DIV>
-<DIV id=layoutpanel>
- <DIV id=layoutpanel-header title=images/layout.gif>Layout</DIV>	
- <DIV style="DISPLAY: none" id=layoutpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
+<DIV id=accpanel3>
+ <DIV id=accpanel3-header title=images/layout.gif>Layout</DIV>	
+ <DIV id=accpanel2-content class="x-dock-panel-body x-dock-panel-body-expanded">
    <A class=linkitem href="res/logo.htm">Logo</A>
    <A class=linkitem href="res/slogan.htm">Slogan</A>
    <A class=linkitem href="res/sponsor.htm">Đơn vị tài trợ</A>
@@ -79,7 +279,7 @@ class=x-dock-panel>
 
 </DIV></DIV></DIV><!-- collapsed bar //-->
 <DIV 
-style="WIDTH: 20px; DISPLAY: none; HEIGHT: 100%; VISIBILITY: visible; TOP: 0px; LEFT: 2px" 
+style="WIDTH: 20px; DISPLAY: none; HEIGHT: 100%; VISIBILITY: visible; TOP: 100px; LEFT: 2px" 
 id=collapsedNav class="x-layout-collapsed x-layout-collapsed-west" 
 onmouseover="addStyle(this, 'x-layout-collapsed-over');" 
 onmouseout="remStyle(this, 'x-layout-collapsed-over');" onclick=toggleNav();>
@@ -88,11 +288,11 @@ onmouseout="remStyle(this, 'x-layout-collapsed-over');" onclick=toggleNav();>
 <DIV id=ext-gen19 class=x-layout-tools-button>
 <DIV 
 class="x-layout-tools-button-inner x-layout-expand-west"></DIV></DIV></DIV></DIV></DIV>
-<DIV style="HEIGHT: 100%; VISIBILITY: visible; TOP: 0px; LEFT: 210px" 
+<DIV style="HEIGHT: 100%; VISIBILITY: visible; TOP: 100px; LEFT: 210px" 
 id=ext-gen7-split 
 class="x-layout-split x-layout-split-west x-splitbar-h x-layout-split-h" 
 onclick=toggleNav();></DIV>
-<DIV style="WIDTH: 90%; HEIGHT: 100%; TOP: 0px; LEFT: 215px" id=rightPanel 
+<DIV style="WIDTH: 90%; HEIGHT: 100%; TOP: 100px; LEFT: 215px" id=rightPanel 
 class="x-layout-panel x-layout-panel-center">
 <DIV id=topBar 
 class="x-unselectable x-layout-panel-hd x-layout-title-center x-layout-panel-hd-text" 
