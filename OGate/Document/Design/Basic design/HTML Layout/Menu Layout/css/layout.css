@@ -1,0 +1,318 @@
+.x-layout-container {
+  WIDTH: 100%; BACKGROUND: #deecfd; HEIGHT: 100%;
+}
+
+.x-layout-panel-east {
+  Z-INDEX: 10
+}
+.x-layout-panel-north {
+  Z-INDEX: 10
+}
+
+.x-layout-panel-body {
+  OVERFLOW: hidden
+}
+
+.x-layout-inactive-content {
+  POSITION: absolute; VISIBILITY: hidden; TOP: -10000px; LEFT: -10000px
+}
+.x-layout-active-content {
+  VISIBILITY: visible
+}
+
+.x-splitbar-h {
+  CURSOR: col-resize
+}
+
+.x-layout-collapsed .x-layout-tools-button {
+  MARGIN: 0px
+}
+.x-layout-collapsed .x-layout-tools-button-inner {
+  WIDTH: 16px; HEIGHT: 16px
+}
+
+.x-layout-panel-center {
+  BORDER-BOTTOM: #aca899 1px solid
+}
+
+.header-top-layout-panel {
+  BORDER-BOTTOM: #99bbe8 1px solid; POSITION: absolute; BORDER-LEFT: #99bbe8 1px solid; BACKGROUND-COLOR: white; OVERFLOW: hidden; BORDER-RIGHT: #99bbe8 1px solid
+}
+
+.header-layout-panel {
+  POSITION: absolute; BORDER-LEFT: #99bbe8 1px solid; BACKGROUND-COLOR: white; OVERFLOW: hidden; BORDER-RIGHT: #99bbe8 1px solid
+}
+.x-layout-panel-hd {
+  BORDER-BOTTOM: #99bbe8 1px solid; BACKGROUND: url(images/aero/grid/grid-hrow.gif) #ebeadb repeat-x; COLOR: black
+}
+
+.linkitem {
+  BACKGROUND-IMAGE: url(../images/bullet_white.gif); BORDER-BOTTOM: #ebebeb 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 28px; PADDING-RIGHT: 2px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 5px 1px; FONT-SIZE: 11px; CURSOR: pointer; PADDING-TOP: 2px
+}
+
+.x-dock-panel .x-dock-panel-body {
+  POSITION: relative; BACKGROUND-COLOR: white; ZOOM: 1; FONT: 8pt tahoma,verdana,helvetica; COLOR: black; TOP: 0px
+}
+.x-dock-panel .x-dock-panel-body-undocked {
+  BORDER-BOTTOM: #a9bfd3 1px solid; BORDER-LEFT: #a9bfd3 1px solid; BORDER-RIGHT: #a9bfd3 1px solid
+}
+.x-dock-panel .x-dock-panel-title-over {
+  BACKGROUND-POSITION: 0px -5px
+}
+.x-dock-body {
+  POSITION: relative; BACKGROUND-COLOR: #f7f7fd; TOP: 0px; LEFT: 0px
+}
+.x-dock-panel .x-window-header-text {
+  CURSOR: pointer
+}
+.x-layout-collapsed {
+  Z-INDEX: 20; BORDER-BOTTOM: #99bbe8 1px solid; POSITION: absolute; BORDER-LEFT: #99bbe8 1px solid; BACKGROUND-COLOR: #deecfd; WIDTH: 20px; HEIGHT: 20px; VISIBILITY: hidden; OVERFLOW: hidden; BORDER-TOP: #99bbe8 1px solid; TOP: -10000px; BORDER-RIGHT: #99bbe8 1px solid; LEFT: -10000px
+}
+
+.x-layout-collapsed-west .x-layout-collapsed-tools {
+  POSITION: absolute; WIDTH: 20px; HEIGHT: 20px; TOP: 0px; LEFT: 0px
+}
+
+.x-layout-collapsed-north {
+  Z-INDEX: 12
+}
+.x-layout-collapsed-south {
+  Z-INDEX: 12
+}
+.x-layout-collapsed-east {
+  Z-INDEX: 12
+}
+.x-layout-collapsed-west {
+  Z-INDEX: 12
+}
+.x-layout-collapsed-over {
+  BACKGROUND-COLOR: #f5f9fe
+}
+
+.x-layout-split {
+  Z-INDEX: 3; POSITION: absolute; LINE-HEIGHT: 1px; BACKGROUND-COLOR: #c3daf9; WIDTH: 5px; HEIGHT: 5px; FONT-SIZE: 1px
+}
+
+HTML {
+  BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT: 12px verdana; HEIGHT: 100%;  BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+  BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT: 12px verdana; HEIGHT: 100%; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+
+#content P {
+	MARGIN: 5px
+}
+
+#mynav P {
+	FONT: 10px tahoma,verdana,helvetica; COLOR: #15428b
+}
+
+INPUT {
+	FONT: 12px tahoma,verdana,helvetica; COLOR: #15428b
+}
+
+#mytoolbar P {
+	FONT: 12px tahoma,verdana,helvetica; COLOR: #15428b
+}
+
+#wrapper{ 
+	width:100%;	
+	overflow: hidden;
+}
+#outter{width:100%; margin: 0 auto}
+
+#leftMenuPanel{ 
+	margin: 0 auto
+}
+/*---------Footer-----------*/ 
+#footer{
+	clear: both;
+	width: 100%;	
+	background: url(../images/bgfooter.gif) left top repeat-x ;
+	margin-top: 10px;
+	float: left;
+}
+#footer ul{
+	width: 974px;
+	margin: 17px auto;	
+	text-align: center;
+}
+#footer ul li{
+	display: inline;
+	border-right: 1px solid #FFF;	
+	padding: 0 8px;
+}
+#footer ul li.enddiv{ border:none!important}
+#footer ul li a{ color: #FFF; text-decoration: none;}
+#footer ul li a:hover{ color: #FFF; text-decoration: underline;}
+#footer .copyright{ width: 100%; text-align: center; padding: 5px 0 8px 0; float: left}
+
+A {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; TEXT-DECORATION: none
+}
+A:visited {
+  COLOR: black
+}
+A:hover {
+  COLOR: #cc6600
+}
+A.navigation {
+  COLOR: black
+}
+A.navigation:visited {
+  COLOR: black
+}
+A.navigation:hover {
+  COLOR: #cc6600
+}
+.uportal-text {
+  FONT-FAMILY: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; FONT-SIZE: 12px
+}
+.uportal-text-small {
+  FONT-FAMILY: Arial, Verdana,Georgia, "Times New Roman", Times, serif; COLOR: black; FONT-SIZE: 10px
+}
+.uportal-text-medium {
+  FONT-FAMILY: Arial, Verdana,Georgia, "Times New Roman", Times, serif; COLOR: black; FONT-SIZE: 11px
+}
+.uportal-button {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; BACKGROUND: #ccccff; COLOR: black; FONT-SIZE: 11px
+}
+.uportal-label {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; FONT-SIZE: 10px; FONT-WEIGHT: bold
+}
+.uportal-input-text {
+  FONT-FAMILY: Monaco, Andale Mono, monospace; BACKGROUND: #ccccff; COLOR: black; FONT-SIZE: 12px
+}
+.uportal-text-reversed {
+  FONT-FAMILY: Georgia, "Times New Roman", Times, serif; COLOR: white; FONT-SIZE: 12px
+}
+A.uportal-navigation-category {
+  COLOR: black; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+A.uportal-navigation-category:visited {
+  COLOR: black; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+A.uportal-navigation-category:hover {
+  COLOR: #cc6600; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-navigation-category-selected {
+  COLOR: #666699; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+A.uportal-navigation-channel {
+  FONT-FAMILY: Tahoma, "Times New Roman", Georgia, Times, serif; COLOR: black; FONT-SIZE: 12px
+}
+A.uportal-navigation-channel:visited {
+  COLOR: black; FONT-SIZE: 12px
+}
+A.uportal-navigation-channel:hover {
+  COLOR: #cc6600; FONT-SIZE: 12px
+}
+.uportal-navigation-channel-selected {
+  BACKGROUND: black; COLOR: white; FONT-SIZE: 12px
+}
+.uportal-header-text {
+  FONT-FAMILY: Tahoma,  Georgia, "Times New Roman", Times, serif; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+.uportal-header-welcome {
+  FONT-STYLE: italic; FONT-FAMILY: Verdana, Tahoma, "Times New Roman", Times, serif; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+A.uportal-header-text {
+  FONT-FAMILY: Tahoma,  Georgia, "Times New Roman", Times, serif; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+A.uportal-header-text:hover {
+  FONT-FAMILY: Tahoma,  Georgia, "Times New Roman", Times, serif; COLOR: #cc6600; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+A.uportal-header-text:visited {
+  FONT-FAMILY: Tahoma,  Georgia, "Times New Roman", Times, serif; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+.uportal-tab-text {
+  FONT-FAMILY: Tahoma,  Tahoma; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+A.uportal-tab-text {
+  FONT-FAMILY: Tahoma,  Tahoma; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+A.uportal-tab-text:visited {
+  FONT-FAMILY: Tahoma,  Tahoma; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+A.uportal-tab-text:hover {
+  FONT-FAMILY: Tahoma,  Tahoma; COLOR: #cc6600; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+.uportal-tab-text-selected {
+  FONT-FAMILY: Tahoma,  Tahoma; COLOR: #cc6600; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+.uportal-crumbtrail {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: #666666; FONT-SIZE: 10px
+}
+.uportal-copyright {
+  FONT-STYLE: italic; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; FONT-SIZE: 11px
+}
+.uportal-channel-text {
+  FONT-FAMILY: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; FONT-SIZE: 12px
+}
+.uportal-channel-header {
+  FONT-FAMILY: Tahoma,  Georgia, "Times New Roman", Times, serif; COLOR: #333333; FONT-SIZE: 8pt; FONT-WEIGHT: bold
+}
+.uportal-channel-title {
+  FONT-FAMILY: Tahoma, Georgia, "MS Sans Serif", Geneva, sans-serif; COLOR: #ff6600; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.uportal-channel-title-reversed {
+  FONT-FAMILY: Tahoma, Georgia, "MS Sans Serif", Geneva, sans-serif; COLOR: #ffffff; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-channel-subtitle {
+  FONT-FAMILY: Tahoma, Georgia, "MS Sans Serif", Geneva, sans-serif; COLOR: #999999; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-channel-subtitle-reversed {
+  FONT-FAMILY: Tahoma, Georgia, "MS Sans Serif", Geneva, sans-serif; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-channel-emphasis {
+  FONT-FAMILY: Tahoma, Georgia, "Times New Roman", Times, serif; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-channel-strong {
+  FONT-FAMILY: Tahoma, Georgia, "Times New Roman", Times, serif; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-channel-code {
+  FONT-FAMILY: Tahoma, Monaco, Andale Mono, monospace; COLOR: black; FONT-SIZE: 12px
+}
+.uportal-channel-copyright {
+  FONT-STYLE: italic; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; FONT-SIZE: 11px
+}
+.uportal-channel-warning {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: #8b0000; FONT-SIZE: 10px
+}
+.uportal-channel-error {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; FONT-SIZE: 11px
+}
+.uportal-channel-table-caption {
+  TEXT-ALIGN: center; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: #6666ff; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-channel-table-header {
+  TEXT-ALIGN: left; FONT-FAMILY: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: #666699; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.uportal-channel-table-row-even {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: black; FONT-SIZE: 11px
+}
+.uportal-channel-table-row-odd {
+  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; COLOR: #666666; FONT-SIZE: 11px
+}
+.uportal-background {
+  BACKGROUND: #ffffff
+}
+.uportal-background-dark {
+  BACKGROUND: #666699
+}
+.uportal-background-med {
+  BACKGROUND: #9999cc
+}
+.uportal-background-light {
+  BACKGROUND: #ccccff
+}
+.uportal-background-content {
+  BACKGROUND: #ffffff
+}
+.uportal-background-highlight {
+  BACKGROUND: #e3e3e3
+}
+.uportal-background-shadow {
+  BACKGROUND: #000000
+}

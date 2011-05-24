@@ -1,0 +1,168 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Menu</title>
+<link rel=stylesheet type=text/css href="css/interface.css">
+<SCRIPT type=text/javascript src="scripts/layout.js"></SCRIPT>
+</head>
+
+<body class=x-layout-container>
+<DIV id="aboveWrapper" style="overflow: hidden">
+  <!-- Header -->
+  <DIV  id=headerPanel style="POSITION: absolute; WIDTH: 100%; HEIGHT: 75px; TOP: 0px; LEFT: 0px; BORDER-BOTTOM: #99bbe8 1px solid;" class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+    <p>Header</p>
+   </DIV>
+
+  <!-- Navigation -->
+  <DIV style="POSITION: absolute; WIDTH: 100%; HEIGHT: 24px; TOP: 75px; LEFT: 0px; BORDER-BOTTOM: #99bbe8 1px solid;" id=headerPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+  <p>Navigation</p>
+  </DIV>
+  <table width=100% height=100px cellpadding=0 cellspacing=0>
+   <tr>
+   <td>
+   </td>
+   </tr>
+  </table>
+   
+
+ <table id="tablePanel" width=100% height=100% cellpadding=0 cellspacing=0>
+  <tr>
+   <td id="leftColPanel" width=215px>
+<!-- Left Menu -->
+<DIV style="POSITION: absolute; WIDTH: 210px; HEIGHT: 85%; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+<DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west class=x-layout-active-content>
+	<DIV id=menu>
+		<TABLE style="BORDER-BOTTOM: #a9bfd3 1px solid; BORDER-TOP: #ffffff 1px solid" cellSpacing=0 cellPadding=0 width="100%">
+		  <TBODY>
+		  <TR>
+		    <TD>Danh mục chức năng</TD></TR>
+		   </TBODY>
+		</TABLE>
+	</DIV>
+<DIV id=mytoolbar class="x-dock-panel x-dock-panel-text x-dock-panel-title-expanded x-layout-panel-hd">
+<TABLE cellSpacing=0 cellPadding=1>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <P>&nbsp;&nbsp;Tìm&nbsp;&nbsp; <INPUT style="PADDING-BOTTOM: 1px; MARGIN: 0pt; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 1px" 
+      id=find-field title="Nhập ít nhất 3 ký tự để tìm kiếm chức năng." 
+      onkeyup="searchPanels(acc, this);" 
+      alt="Nhập ít nhất 3 ký tự để tìm kiếm chức năng." 
+      size=12> </P></TD>
+    <TD noWrap>
+      <DIV align=right><IMG title="Hiển thị tất cả chức năng" onclick="expandAll(acc);return false;" alt="Expand All" align=absMiddle src="images/expand-collapse.gif"> 
+      <IMG title="Chỉ hiển thị danh mục nhóm chức năng" onclick="collapseAll(acc);return false;" alt="Collapse All" align=absMiddle src="images/collapse-expand.gif"> 
+      <IMG title="Ẩn menu" onclick=toggleNav(); alt="Hide Menu" align=absMiddle src="images/control_rewind_blue.gif">
+      </DIV>
+     </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</DIV>
+<DIV style="BACKGROUND-COLOR: #f7f7fd; WIDTH: 100%;" id=mynav class=x-dock-panel>
+<DIV id=accpanel>
+<DIV id=accpanel-header class=selected title=images/package.gif>Nội dung tab</DIV>
+<DIV id=accpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
+<A class=linkitem href="res/intro.htm">Giới thiệu</A>
+<A class=linkitem href="res/service.htm">Dịch vụ</A>
+<A class=linkitem href="res/activity.htm">Hoạt động</A>
+<A class=linkitem href="res/member.htm">Thành viên</A> 
+</DIV>
+</DIV>
+<DIV id=accpanel2>
+ <DIV id=accpanel2-header title=images/wrench.gif>Cấu hình chung</DIV>	
+ <DIV id=accpanel2-content class="x-dock-panel-body x-dock-panel-body-expanded">
+   <A class=linkitem href="res/tab.htm">Hệ thống tab</A>
+   <A class=linkitem href="res/account.htm">Tài khoản quản trị</A>
+   <A class=linkitem href="res/language.htm">Ngôn ngữ</A>
+ </DIV>
+</DIV>
+<DIV id=accpanel3>
+ <DIV id=accpanel3-header title=images/layout.gif>Layout</DIV>	
+ <DIV id=accpanel3-content class="x-dock-panel-body x-dock-panel-body-expanded">
+   <A class=linkitem href="res/logo.htm">Logo</A>
+   <A class=linkitem href="res/slogan.htm">Slogan</A>
+   <A class=linkitem href="res/sponsor.htm">Đơn vị tài trợ</A>
+   <A class=linkitem href="res/hotnews.htm">Tin nổi bật</A>
+   <A class=linkitem href="res/leftadv.htm">Quảng cáo bên trái</A>
+   <A class=linkitem href="res/link.htm">Liên kết</A>
+   <A class=linkitem href="res/rightadv.htm">Quảng cáo bên phải</A>
+   
+ </DIV>
+</DIV>
+
+</DIV></DIV></DIV><!-- collapsed bar //-->
+<DIV style="WIDTH: 20px; DISPLAY: none; HEIGHT: 100%; VISIBILITY: visible; TOP: 100px; LEFT: 2px" id=collapsedNav class="x-layout-collapsed x-layout-collapsed-west" onmouseover="addStyle(this, 'x-layout-collapsed-over');" onmouseout="remStyle(this, 'x-layout-collapsed-over');" onclick=toggleNav();>
+<DIV class=x-layout-collapsed-tools>
+<DIV class=x-layout-ctools-inner>
+	<DIV id=ext-gen19 class=x-layout-tools-button>
+	  <DIV class="x-layout-tools-button-inner x-layout-expand-west"></DIV>
+	</DIV>
+</DIV>
+</DIV>
+</DIV>
+<!-- Splittor -->
+<DIV style="HEIGHT: 100%; VISIBILITY: visible; TOP: 100px; LEFT: 210px" id=ext-gen7-split class="x-layout-split x-layout-split-west x-splitbar-h x-layout-split-h" onclick=toggleNav();></DIV>
+</DIV>
+</td>
+<td valign="top">
+<p>1 Line&lt;br/&gt;<br>
+2 Line&lt;br/&gt;<br>
+3 Line&lt;br/&gt;<br>
+4 Line&lt;br/&gt;<br>
+5 Line&lt;br/&gt;<br>
+6 Line&lt;br/&gt;<br>
+7 Line&lt;br/&gt;<br>
+8 Line&lt;br/&gt;<br>
+9 Line&lt;br/&gt;<br>
+10 Line&lt;br/&gt;<br>
+11 Line&lt;br/&gt;<br>
+12 Line&lt;br/&gt;<br>
+13 Line&lt;br/&gt;<br>
+14 Line&lt;br/&gt;<br>
+15 Line&lt;br/&gt;<br>
+16 Line&lt;br/&gt;<br>
+17 Line&lt;br/&gt;<br>
+18 Line&lt;br/&gt;<br>
+19 Line&lt;br/&gt;<br>
+20 Line&lt;br/&gt;<br>
+21 Line&lt;br/&gt;<br>
+22 Line&lt;br/&gt;<br>
+23 Line&lt;br/&gt;<br>
+24 Line&lt;br/&gt;<br>
+25 Line&lt;br/&gt;<br>
+26 Line&lt;br/&gt;<br>
+27 Line&lt;br/&gt;<br>
+28 Line&lt;br/&gt;<br>
+29 Line&lt;br/&gt;<br>
+30 Line&lt;br/&gt;<br>
+31 Line&lt;br/&gt;<br>
+32 Line&lt;br/&gt;<br>
+33 Line&lt;br/&gt;<br>
+34 Line&lt;br/&gt;<br>
+35 Line&lt;br/&gt;<br>
+36 Line&lt;br/&gt;<br>
+37 Line&lt;br/&gt;<br>
+38 Line&lt;br/&gt;<br>
+39 Line&lt;br/&gt;<br>
+40 Line&lt;br/&gt;<br>
+41 Line&lt;br/&gt;<br>
+42 Line&lt;br/&gt;<br>
+43 Line&lt;br/&gt;<br>
+44 Line&lt;br/&gt;<br>
+45 Line&lt;br/&gt;<br>
+46 Line&lt;br/&gt;<br>
+47 Line&lt;br/&gt;<br>
+&nbsp;</td>
+  </tr>
+ </table>
+<!-- Footer -->
+<div id="footer">
+    <div class="copyright">Copyright © Open-Ones Group 2011.  All Rights Reserved.</div>
+</div>
+
+</body>
+
+</html>
