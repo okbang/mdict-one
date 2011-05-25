@@ -19,8 +19,10 @@
 package openones.gate.control;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.logging.Logger;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,40 +30,22 @@ import javax.servlet.http.HttpServletResponse;
 import openones.corewa.BaseOutForm;
 
 /**
+ * Controller of part Header.
  * @author Thach Le
- * 
  */
-public class NavigationControl extends LayoutControl {
+public class MenuControl extends LayoutControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
-    // private static int nmLogonUser = 0;
 
-    public BaseOutForm gotoService(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-        setMainScreen("Service");
-        
-        return outForm;
+    private MenuControl() {
     }
 
-    public BaseOutForm gotoIntro(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-
-        setMainScreen("Intro");
-
-        return outForm;
+    public MenuControl(ServletConfig config) {
+        super(config);
     }
 
-    public BaseOutForm gotoMember(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-
-        setMainScreen("Member");
-        
-        return outForm;
-    }
-
-    public BaseOutForm gotoProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-        
-        setMainScreen("Product");
+    public BaseOutForm procItem(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("procItem.START");
+        setMainScreen("EditModuleIntro");
 
         return outForm;
     }

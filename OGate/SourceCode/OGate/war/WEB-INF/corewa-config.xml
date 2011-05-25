@@ -28,5 +28,10 @@
     <event id="clickIntro" procId="gotoIntro"></event>
     <event id="clickMember" procId="gotoMember"></event>
     <event id="clickProduct" procId="gotoProduct"></event>
+  </screen>
+  
+  <!-- Menu for Admin -->
+  <screen id="Menu" control="openones.gate.control.MenuControl" input="/WEB-INF/pages/layout.jsp" >
+    <event id="selectItem" procId="procItem"/>
   </screen>  
 </corewa>

@@ -17,6 +17,7 @@
  * limitations under the License.
  */
  --%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="openones.gate.util.ConfManager"%>
 <%@page import="openones.gae.users.OUser"%>
 <%@page import="openones.gate.control.LayoutControl"%>
@@ -25,7 +26,7 @@
 <%@page import="com.google.appengine.api.users.UserServiceFactory"%>
 <%@page import="com.google.appengine.api.users.UserService"%>
 <%@page import="openones.gae.session.SessionCounter"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -34,6 +35,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${applicationScope.HomePage}</title>
 <script type="text/javascript" src='pages/scripts/common.js'></script>
+<SCRIPT type=text/javascript src='pages/scripts/layout.js'></SCRIPT>
+<link rel=stylesheet type=text/css href="pages/css/interface.css">
 <link rel=stylesheet type=text/css href="pages/css/java.css">
 </head>
 <%
@@ -51,79 +54,60 @@
     }
 %>
 
-<body>
-  <table border="1" width="100%" cellspacing="0" cellpadding="0">
-    <tr>
-      <td colspan="3">
-        <jsp:include page="/header.part" flush="true"></jsp:include>
-      </td>
-    </tr>
-    <tr>
-        <td width="99%" colspan="3" class=uportal-background-dark noWrap align=left height=6>
-        <jsp:include page="/navigation.part" flush="true">
+<body class=x-layout-container>
+<!-- Header -->
+<table border="0" width="100%" height="70px" cellspacing="0" cellpadding="0">
+<tr><td>
+<DIV style="POSITION: absolute; WIDTH: 100%; HEIGHT: 75px; TOP: 0px; LEFT: 0px" id=headerPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+  <jsp:include page="/header.part" flush="true"></jsp:include>
+</DIV>
+</td></tr>
+</table>
+
+<table border="0" width="100%" height="30px" cellspacing="0" cellpadding="0">
+<tr><td>
+<!-- Navigation -->
+<DIV style="POSITION: absolute; WIDTH: 100%; HEIGHT: 24px; TOP: 75px; LEFT: 0px" id=headerPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+  <jsp:include page="/navigation.part" flush="true">
+    <jsp:param name="screenId" value="${screenId}"/>
+    <jsp:param name="eventId" value="${eventId}"/>
+  </jsp:include>
+</DIV>
+</td></tr>
+</table>
+   
+ <table id="tablePanel" width=100% height=100% cellpadding=0 cellspacing=0>
+  <tr>
+   <td id="leftColPanel" width=215px>
+     <c:choose>
+         <%-- Display Menu for Admin --%>
+        <c:when test='${(not empty user) && (user.isAdmin)}'>
+          <jsp:include page="/WEB-INF/pages/leftmenu.jsp" flush="true">
             <jsp:param name="screenId" value="${screenId}"/>
             <jsp:param name="eventId" value="${eventId}"/>
-        </jsp:include>
-        </td>
-    </tr>
-    <tr>
-      <td width="10%" nowrap rowspan="2"><IMG alt=""
-        src="pages/images/transparent.gif" width=100 height=1> Menu
-        <br/>
-        ScreenId: ${screenId}<br/>
-        EventId: ${eventId}<br/>
-      </td>
-      <td width="78%" height="436" valign="top">
-        <c:if test='${MainScreen == "Service"}'>
-          <jsp:include page="/service.mod" flush="true">
-             <jsp:param name="screenId" value="${screenId}"/>
-             <jsp:param name="eventId" value="${eventId}"/>
-          </jsp:include></td>
-        </c:if>
-
-        <c:if test='${MainScreen == "Intro"}'>
-           <jsp:include page="/intro.mod" flush="true">
-             <jsp:param name="screenId" value="${screenId}"/>
-             <jsp:param name="eventId" value="${eventId}"/>
            </jsp:include>
-        </c:if>
-        
-        <c:if test='${empty MainScreen}'>
-          <jsp:include page="/main.part" flush="true">
-              <jsp:param name="screenId" value="Main"/>
-          </jsp:include></td>
-        </c:if>
-        
-        <c:if test='${MainScreen == "Member"}'>
-          <jsp:include page="/member.mod" flush="true">
-             <jsp:param name="screenId" value="${screenId}"/>
-             <jsp:param name="eventId" value="${eventId}"/>
-          </jsp:include></td>
-        </c:if>
-        
-        <c:if test='${MainScreen == "Product"}'>
-          <jsp:include page="/product.mod" flush="true">
-             <jsp:param name="screenId" value="${screenId}"/>
-             <jsp:param name="eventId" value="${eventId}"/>
-          </jsp:include></td>
-        </c:if>
-        
-      <td width="12%" nowrap height="436" valign="top">
-      <IMG alt="" src="pages/images/transparent.gif" width=150 height=1>
-        <jsp:include page="/link.part" flush="true">
+        </c:when>
+        <c:otherwise>
+          <jsp:include page="/WEB-INF/pages/leftmenu4user.jsp" flush="true">
             <jsp:param name="screenId" value="${screenId}"/>
             <jsp:param name="eventId" value="${eventId}"/>
-        </jsp:include></td>
-      </td>
-    </tr>
-    <tr>
-      <td width="78%" class=uportal-channel-text>
-        <p align="center">${applicationScope.Copyright}
-      </td>
-      <td width="12%" class=uportal-channel-text>${applicationScope.NumberOfAccess}: <%= SessionCounter.getNmHits() %>
-       <br> ${applicationScope.NumberOfLogin}: ${nmLogonUser}</td>
-    </tr>
-  </table>
-
+           </jsp:include>
+        </c:otherwise>
+    </c:choose>
+    </td>
+<td valign="top">
+<%-- Main body --%>
+  <jsp:include page="/WEB-INF/pages/mainbody.jsp" flush="true">
+    <jsp:param name="MainScreen" value="${MainScreen}" />
+    <jsp:param name="screenId" value="${screenId}" />
+    <jsp:param name="eventId" value="${eventId}" />
+  </jsp:include>
+</td>
+  </tr>
+ </table>
+<jsp:include page="/WEB-INF/pages/footer.jsp" flush="true">
+    <jsp:param name="screenId" value="${screenId}"/>
+    <jsp:param name="eventId" value="${eventId}"/>
+</jsp:include>
 </body>
 </html>

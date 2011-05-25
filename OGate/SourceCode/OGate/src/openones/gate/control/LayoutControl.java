@@ -36,21 +36,23 @@ import openones.gate.Cons;
  * 
  */
 public class LayoutControl extends BaseControl {
+    /**  . */
+    public static final String SK_MAINSCREEN = "MainScreen";
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     private static int nmLogonUser = 0;
 
     public LayoutControl() {
     }
-    
+
     public LayoutControl(ServletConfig config) {
         super(config);
     }
-    
+
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BaseOutForm outForm = new BaseOutForm();
 
-        outForm.putRequest("MainScreen", "Intro");
+        outForm.putRequest(SK_MAINSCREEN, "Intro");
 
         return outForm;
     }
@@ -58,7 +60,7 @@ public class LayoutControl extends BaseControl {
     public static int updateNmLogonUser(HttpSession session, int delta) {
         // Update number of logon user
         Object nmLogonUserObj = session.getAttribute(Cons.SK_NMLOGON_USER);
-        
+
         if (nmLogonUserObj != null) {
             nmLogonUser = (Integer) nmLogonUserObj;
         }
@@ -68,7 +70,15 @@ public class LayoutControl extends BaseControl {
             nmLogonUser = 0;
         }
         session.setAttribute(Cons.SK_NMLOGON_USER, nmLogonUser);
-        
+
         return nmLogonUser;
+    }
+    
+    /**
+     * Set screen identifier into the request/session with key "MainScreen" 
+     * @param screenId
+     */
+    public void setMainScreen(String screenId) {
+        outForm.putRequest(SK_MAINSCREEN, screenId);
     }
 }

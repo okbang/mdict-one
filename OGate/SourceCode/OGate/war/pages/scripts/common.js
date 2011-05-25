@@ -22,3 +22,12 @@ function submitAction(frmName, screenId, eventId) {
     frm.eventId.value = eventId;
     frm.submit();
 }
+
+
+function submitMenu(frmName, screenId, eventId, menuId) {
+    var frm = document.forms[frmName];
+    frm.screenId.value = screenId;
+    frm.eventId.value = eventId;
+    frm.menuId.value = menuId;
+    frm.submit();
+}

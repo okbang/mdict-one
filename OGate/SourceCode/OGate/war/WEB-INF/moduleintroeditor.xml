@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <corewa>
-  <home-screen>Intro</home-screen>
+  <home-screen>ModuleIntroEditor</home-screen>
 
-  <screen id="Intro" control="openones.gate.control.IntroControl" input="/WEB-INF/pages/intro.jsp" disp-type="INCLUDE">
+  <screen id="ModuleIntroEditor" control="openones.gate.control.ModuleIntroEditorControl" input="/WEB-INF/pages/moduleintroeditor.jsp" disp-type="INCLUDE">
     <event id="edit" redirect="yes" nextScreen="/WEB-INF/pages/layout.jsp"/>
     <event id="save" procId="save" nextScreen="/WEB-INF/pages/layout.jsp"/>
     <event id="list" procId="list" nextScreen="/WEB-INF/pages/layout.jsp"/>

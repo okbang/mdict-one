@@ -38,51 +38,46 @@ Contains:
 <form name="frmHeader" action="header.do" method="post">
   <input type="hidden" name="screenId" value="Header" />
   <input type="hidden" name="eventId" value="" />
-<table id="table2" width="100%" class="uportal-background-light" border="0" height="20">
-    <tbody>
-        <tr>
-            <td width="49"><a href="www.open-ones.com"><img src="pages/images/oog_logo.png" border="0" width="150" height="50"></a></td>
-            <td>
-            <p align="center"><font size="6">${applicationScope.ShareAssociateDevelopIdea}</font></p>
-            </td>
-            <td width="148">
-            <table id="table3" width="100%" border="0" cellpadding="0"
-                cellspacing="0">
-                <tbody>
-                    <tr>
-                      <td nowrap="nowrap" align="right">
-                        ${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
-                            <c:forEach var="langItem" items="${outForm.langList}">
-                              <c:if test='${langItem.name == lang}'>
-                                <option id="${langItem.id}" selected="selected">${langItem.name}</option>
-                              </c:if>
-                              <c:if test='${langItem.name != lang}'>
-                                <option id="${langItem.id}">${langItem.name}</option>
-                              </c:if>
-                            </c:forEach>
-                            
-                        </select>
-                        <%-- Display Setting link --%>
-                        <c:if test="${(not empty user) && (user.isAdmin)}">
-                         <a href="#" title="${applicationScope.SettingLinkTitle}" onclick='submitAction("frmHeader","Header", "setting")'><img src="pages/images/setting.gif" border="0" width="20" height="20"></a>
-                        </c:if>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" nowrap="nowrap">
-                        <c:if test="${empty user}">
-                          <input type="button" value="${applicationScope.Logon}" name="login" onclick='submitAction("frmHeader","Header", "login")'>
-                        </c:if>
-                        <c:if test="${not empty user}">
-                          ${applicationScope.Welcome} ${user.nickname} !
-                          <input type="button" value="${applicationScope.Logoff}" name="logout" onclick='submitAction("frmHeader","Header", "logout")'>
-                        </c:if>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            </td>
-        </tr>
-    </tbody>
-</table>
+
+  <!-- Header -->
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="10%" rowspan="3"><a href="/"><img border="0" src="pages/images/oog_logo.png" width="150" height="75"></a>
+      </td>
+      <td width="38%" rowspan="2">${applicationScope.ShareAssociateDevelopIdea}
+      </td>
+      <td width="38%" rowspan="2">${applicationScope.sponsorList}</td>
+      <td class=uportal-channel-text width="14%" nowrap align=right>
+        ${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
+            <c:forEach var="langItem" items="${outForm.langList}">
+              <c:if test='${langItem.name == lang}'>
+                <option id="${langItem.id}" value="${langItem.id}" selected="selected">${langItem.name}</option>
+              </c:if>
+              <c:if test='${langItem.name != lang}'>
+                <option id="${langItem.id}">${langItem.name}</option>
+              </c:if>
+            </c:forEach>
+        </select>
+        <%-- Display Setting link --%>
+        <c:if test="${(not empty user) && (user.isAdmin)}">
+         <a href="#" title="${applicationScope.SettingLinkTitle}" onclick='submitAction("frmHeader","Header", "setting")'><img src="pages/images/setting.gif" border="0" width="20" height="20"></a>
+        </c:if>
+      </td>
+    </tr>
+    <tr>
+      <td width="14%" align="right">
+         <c:if test="${empty user}">
+            <input type="button" value="${applicationScope.Logon}" name="login" onclick='submitAction("frmHeader","Header", "login")'>
+         </c:if>
+         <c:if test="${not empty user}">
+           ${applicationScope.Welcome} ${user.nickname} !
+           <input type="button" value="${applicationScope.Logoff}" name="logout" onclick='submitAction("frmHeader","Header", "logout")'>
+         </c:if>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <!-- Hot news --> <marquee>Tin mới</marquee></td>
+    </tr>
+  </table>
 </form>
