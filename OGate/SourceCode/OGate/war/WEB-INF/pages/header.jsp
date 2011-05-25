@@ -47,7 +47,7 @@ Contains:
       <td width="38%" rowspan="2">${applicationScope.ShareAssociateDevelopIdea}
       </td>
       <td width="38%" rowspan="2">${applicationScope.sponsorList}</td>
-      <td class=uportal-channel-text width="14%" nowrap align=right>
+      <td class=uportal-channel-text width="14%" nowrap="nowrap" align=right>
         ${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
             <c:forEach var="langItem" items="${outForm.langList}">
               <c:if test='${langItem.name == lang}'>
@@ -65,7 +65,7 @@ Contains:
       </td>
     </tr>
     <tr>
-      <td width="14%" align="right">
+      <td width="14%" align="right" nowrap="nowrap">
          <c:if test="${empty user}">
             <input type="button" value="${applicationScope.Logon}" name="login" onclick='submitAction("frmHeader","Header", "login")'>
          </c:if>

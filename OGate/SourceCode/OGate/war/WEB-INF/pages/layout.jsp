@@ -76,7 +76,7 @@
 </td></tr>
 </table>
    
- <table id="tablePanel" width=100% height=100% cellpadding=0 cellspacing=0>
+ <table id="tablePanel" width=100% height=80% cellpadding=0 cellspacing=0>
   <tr>
    <td id="leftColPanel" width=215px>
      <c:choose>
@@ -103,11 +103,12 @@
     <jsp:param name="eventId" value="${eventId}" />
   </jsp:include>
 </td>
-  </tr>
+ </tr>
  </table>
-<jsp:include page="/WEB-INF/pages/footer.jsp" flush="true">
+ <jsp:include page="/WEB-INF/pages/footer.jsp" flush="true">
     <jsp:param name="screenId" value="${screenId}"/>
     <jsp:param name="eventId" value="${eventId}"/>
 </jsp:include>
+ 
 </body>
 </html>

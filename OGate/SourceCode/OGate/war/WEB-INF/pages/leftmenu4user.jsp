@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 100%; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+<DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 400px; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
 <DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west class=x-layout-active-content>
     <DIV id=mylogo>
         <TABLE style="BORDER-BOTTOM: #a9bfd3 1px solid; BORDER-TOP: #ffffff 1px solid" cellSpacing=0 cellPadding=0 width="100%">
@@ -28,11 +28,11 @@
 </DIV>
 <DIV style="BACKGROUND-COLOR: #f7f7fd; WIDTH: 100%; OVERFLOW: auto" id=mynav class=x-dock-panel>
 <DIV id=linkpanel>
-<DIV id=linkpanel-header style="display: block" class=selected title=pages/images/package.gif>Liên kết</DIV>
+<DIV id=linkpanel-header style="display: block" class=selected title=pages/images/ed_link.gif>Liên kết</DIV>
  <DIV id=linkpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
-   <A class=linkitem href="" onclick="window.open('http://open-ones.blogspot.com');">${applicationScope.Blog}</A>
-  <A class=linkitem href="" onclick="window.open('http://groups.google.com/group/open-ones');">${applicationScope.Group}</A>
-  <A class=linkitem href="" onclick="window.open('http://open-ones.googlecode.com');">${applicationScope.GoogleCode}</A>
+   <A class=linkitem href="http://open-ones.blogspot.com" onclick="window.open('http://open-ones.blogspot.com');">${applicationScope.Blog}</A>
+  <A class=linkitem href="http://groups.google.com/group/open-ones" onclick="window.open('http://groups.google.com/group/open-ones');">${applicationScope.Group}</A>
+  <A class=linkitem href="http://open-ones.googlecode.com" onclick="window.open('http://open-ones.googlecode.com');">${applicationScope.GoogleCode}</A>
  </DIV>
 </DIV>
 <DIV id=modulepanel>
@@ -56,7 +56,7 @@
 </DIV></DIV></DIV>
 
 <!-- collapsed bar //-->
-<DIV style="WIDTH: 20px; DISPLAY: none; HEIGHT: 100%; VISIBILITY: visible; TOP: 100px; LEFT: 2px" 
+<DIV style="WIDTH: 20px; DISPLAY: none; HEIGHT: 400px; VISIBILITY: visible; TOP: 100px; LEFT: 2px" 
      id=collapsedNav class="x-layout-collapsed x-layout-collapsed-west" 
      onmouseover="addStyle(this, 'x-layout-collapsed-over');" 
      onmouseout="remStyle(this, 'x-layout-collapsed-over');" onclick=toggleNav();>
@@ -68,5 +68,5 @@
     </DIV>
   </DIV>
 </DIV>
-<DIV style="HEIGHT: 100%; VISIBILITY: visible; TOP: 100px; LEFT: 210px" id=ext-gen7-split class="x-layout-split x-layout-split-west x-splitbar-h x-layout-split-h" onclick=toggleNav();>
+<DIV style="HEIGHT: 400px; VISIBILITY: visible; TOP: 100px; LEFT: 210px" id=ext-gen7-split class="x-layout-split x-layout-split-west x-splitbar-h x-layout-split-h" onclick=toggleNav();>
 </DIV>

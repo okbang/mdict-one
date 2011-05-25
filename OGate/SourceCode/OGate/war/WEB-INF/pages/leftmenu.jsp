@@ -4,7 +4,7 @@
   <input type="hidden" name="eventId" value=""/>
   <input type="hidden" name="menuId" value=""/>
 
-<DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 100%; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
+<DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 600px; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
 <DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west class=x-layout-active-content>
     <DIV id=mylogo>
         <TABLE style="BORDER-BOTTOM: #a9bfd3 1px solid; BORDER-TOP: #ffffff 1px solid" cellSpacing=0 cellPadding=0 width="100%">
@@ -66,7 +66,7 @@
 </DIV></DIV></DIV>
 
 <!-- collapsed bar //-->
-<DIV style="WIDTH: 20px; DISPLAY: none; HEIGHT: 100%; VISIBILITY: visible; TOP: 100px; LEFT: 2px" 
+<DIV style="WIDTH: 20px; DISPLAY: none; HEIGHT: 600px; VISIBILITY: visible; TOP: 100px; LEFT: 2px" 
      id=collapsedNav class="x-layout-collapsed x-layout-collapsed-west" 
      onmouseover="addStyle(this, 'x-layout-collapsed-over');" 
      onmouseout="remStyle(this, 'x-layout-collapsed-over');" onclick=toggleNav();>
