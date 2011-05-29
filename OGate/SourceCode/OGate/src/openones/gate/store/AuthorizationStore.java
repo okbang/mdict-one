@@ -33,7 +33,7 @@ public class AuthorizationStore {
     public Long save(AuthorizationDTO dto) {
         return (PMF.save(dto) ? dto.getKey(): null);
     }
-    
+
     /**
      * [Give the description for method].
      * @param emailAddr

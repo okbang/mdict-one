@@ -16,23 +16,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate;
+package openones.gate.form.setting;
+
+import openones.corewa.BaseInForm;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
-public class Cons {
-    final static public String SK_USER = "user";
-    final static public String SK_NMLOGON_USER = "nmLogonUser";
-    public static final String SK_NEXTPAGE = "nextPage";
-    public static final String SK_LANG = "lang";
-    
-    public static enum ActResult {
-        OK, FAIL
-    };
-    
-    public static enum Screens {
-        TabSetting, AccSetting, LangSetting
+public class LangSettingForm extends BaseInForm {
+    /** String of languages. Each language is in a line.
+    Format of a line:
+    <Language code>-<Language name>
+    Ex:
+      vn-Việt Nam
+      en-English
+    */
+    private String languages;
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
     }
 }

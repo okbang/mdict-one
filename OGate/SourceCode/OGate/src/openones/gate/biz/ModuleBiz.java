@@ -16,23 +16,35 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate;
+package openones.gate.biz;
+
+import java.util.List;
+
+import openones.gae.users.OUser;
+import openones.gate.store.FilterCond;
+import openones.gate.store.ModuleStore;
+import openones.gate.store.dto.ModuleDTO;
 
 /**
  * @author ThachLN
  *
  */
-public class Cons {
-    final static public String SK_USER = "user";
-    final static public String SK_NMLOGON_USER = "nmLogonUser";
-    public static final String SK_NEXTPAGE = "nextPage";
-    public static final String SK_LANG = "lang";
-    
-    public static enum ActResult {
-        OK, FAIL
-    };
-    
-    public static enum Screens {
-        TabSetting, AccSetting, LangSetting
+public class ModuleBiz {
+    private OUser loginUser;
+    /**
+     * @param logonUser
+     */
+    public ModuleBiz(OUser logonUser) {
+        this.loginUser = loginUser;
     }
+
+    /**
+     * Get list of module from persistence layer.
+     * @return
+     */
+    public List<ModuleDTO> getModules(String langCd) {
+        FilterCond filterCond = new FilterCond(ModuleDTO.class, langCd);
+        return ModuleStore.getModules(filterCond, null);
+    }
+
 }

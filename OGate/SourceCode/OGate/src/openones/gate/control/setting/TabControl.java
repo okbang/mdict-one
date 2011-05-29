@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate.control;
+package openones.gate.control.setting;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,6 +30,8 @@ import javax.servlet.http.HttpServletResponse;
 import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
+import openones.gate.biz.AuthorizationBiz;
+import openones.gate.biz.ModuleBiz;
 import openones.gate.intro.form.IntroListOutForm;
 import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.ModuleStore;
@@ -42,18 +44,21 @@ import com.google.appengine.api.datastore.Text;
  * @author Thach Le
  *
  */
-public class ModuleIntroEditorControl extends BaseControl {
+public class TabControl extends BaseControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
 
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("procInit.START");
-        IntroOutForm introOutForm = new IntroOutForm();
-
-        introOutForm.setContent(ModuleStore.getLastContent());
-        outForm.putRequest("introForm", introOutForm);
-
-        LOG.finest("procInit.END");
+//        IntroOutForm introOutForm = new IntroOutForm();
+//
+//        introOutForm.setContent(IntroStore.getLastContent());
+//        outForm.putRequest("introForm", introOutForm);
+//
+//        LOG.finest("procInit.END");
+        ModuleBiz biz = new ModuleBiz(AuthorizationBiz.getLogonUser());
+        //List<ModuleDTO> moduleList = biz.getModules();
+        
         return outForm;
     }
 

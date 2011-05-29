@@ -19,6 +19,7 @@
 package openones.gate.control;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletConfig;
@@ -30,14 +31,17 @@ import javax.servlet.http.HttpSession;
 import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
+import openones.gate.store.ModuleStore;
+import openones.gate.store.dto.ModuleDTO;
 
 /**
  * @author Thach Le
- * 
  */
 public class LayoutControl extends BaseControl {
-    /**  . */
+    /** . */
     public static final String SK_MAINSCREEN = "MainScreen";
+    public static final String K_FORM = "form";
+    
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     private static int nmLogonUser = 0;
 
@@ -52,6 +56,11 @@ public class LayoutControl extends BaseControl {
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BaseOutForm outForm = new BaseOutForm();
 
+        // Get list of tab and it's content
+        List<ModuleDTO> moduleTasList = ModuleStore.getTabModules();
+        
+        outForm.putRequest("moduleTabs", moduleTasList);
+        
         outForm.putRequest(SK_MAINSCREEN, "Intro");
 
         return outForm;
@@ -73,12 +82,17 @@ public class LayoutControl extends BaseControl {
 
         return nmLogonUser;
     }
-    
+
     /**
-     * Set screen identifier into the request/session with key "MainScreen" 
+     * Set screen identifier into the request/session with key "MainScreen".
+     * 
      * @param screenId
      */
     public void setMainScreen(String screenId) {
+        outForm.putRequest(SK_MAINSCREEN, screenId);
+    }
+
+    public void setMainScreen(Cons.Screens screenId) {
         outForm.putRequest(SK_MAINSCREEN, screenId);
     }
 }

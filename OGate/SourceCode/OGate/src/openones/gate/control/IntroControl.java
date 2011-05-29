@@ -32,7 +32,7 @@ import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
 import openones.gate.intro.form.IntroListOutForm;
 import openones.gate.intro.form.IntroOutForm;
-import openones.gate.store.IntroStore;
+import openones.gate.store.ModuleStore;
 import openones.gate.store.dto.ModuleDTO;
 import openones.gate.util.DtoUtil;
 
@@ -50,7 +50,7 @@ public class IntroControl extends BaseControl {
         LOG.finest("procInit.START");
         IntroOutForm introOutForm = new IntroOutForm();
         
-        introOutForm.setContent(IntroStore.getLastContent());
+        introOutForm.setContent(ModuleStore.getLastContent());
         outForm.putRequest("introForm", introOutForm);
         
         LOG.finest("procInit.END");
@@ -65,7 +65,7 @@ public class IntroControl extends BaseControl {
         Text introContent = new Text((String) reqMap.get("content"));
         ModuleDTO intro = new ModuleDTO("intro", introContent);
         
-        if (IntroStore.save(intro)) {
+        if (ModuleStore.save(intro)) {
             introOutForm.setSaveResult(Cons.ActResult.OK);
             //introOutForm.setKey("IntroSaveOk");
         } else {
@@ -85,7 +85,7 @@ public class IntroControl extends BaseControl {
     public BaseOutForm list(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("list.START");
         
-        List<ModuleDTO> moduleDTOList = IntroStore.getContents();
+        List<ModuleDTO> moduleDTOList = ModuleStore.getModules();
         LOG.info("moduleDTOList.size=" + moduleDTOList.size());
         List<IntroOutForm> outFormList = DtoUtil.dto2IntroFormList(moduleDTOList);
         LOG.info("outFormList.size=" + outFormList.size());
@@ -103,7 +103,7 @@ public class IntroControl extends BaseControl {
         String contentId = (String) reqMap.get("contentId");
         Long contentKey = Long.valueOf(contentId);
         
-        if (IntroStore.delete(contentKey)) {
+        if (ModuleStore.delete(contentKey)) {
             outForm.putRequest("deleteResult", "OK");
         } else {
             outForm.putRequest("deleteResult", "FAIL");

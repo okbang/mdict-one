@@ -16,23 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate;
+package openones.gate.form.setting;
+
+import java.util.List;
+
+import openones.gate.form.TabForm;
 
 /**
  * @author ThachLN
  *
  */
-public class Cons {
-    final static public String SK_USER = "user";
-    final static public String SK_NMLOGON_USER = "nmLogonUser";
-    public static final String SK_NEXTPAGE = "nextPage";
-    public static final String SK_LANG = "lang";
-    
-    public static enum ActResult {
-        OK, FAIL
-    };
-    
-    public static enum Screens {
-        TabSetting, AccSetting, LangSetting
-    }
+public class TabSettingOutForm extends TabSettingForm {
+    private List<TabForm> tabFormList;
 }

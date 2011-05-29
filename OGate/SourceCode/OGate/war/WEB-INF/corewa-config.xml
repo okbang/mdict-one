@@ -33,5 +33,11 @@
   <!-- Menu for Admin -->
   <screen id="Menu" control="openones.gate.control.MenuControl" input="/WEB-INF/pages/layout.jsp" >
     <event id="selectItem" procId="procItem"/>
+    
+    <!-- Common Item -->
+    <event id="ciTabSetting" procId="procCommonItem"/>
+    <event id="ciAccSetting" procId="procCommonItem"/>
+    <event id="ciLangSetting" procId="procCommonItem"/>
+    
   </screen>  
 </corewa>

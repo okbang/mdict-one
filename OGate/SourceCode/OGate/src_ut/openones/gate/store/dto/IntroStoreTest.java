@@ -21,7 +21,7 @@ package openones.gate.store.dto;
 import static org.junit.Assert.*;
 import junit.framework.Assert;
 
-import openones.gate.store.IntroStore;
+import openones.gate.store.ModuleStore;
 
 import org.junit.Test;
 
@@ -32,7 +32,7 @@ import org.junit.Test;
 public class IntroStoreTest {
 
     /**
-     * Test method for {@link openones.gate.store.IntroStore#save(openones.gate.store.IntroDTO)}.
+     * Test method for {@link openones.gate.store.ModuleStore#save(openones.gate.store.IntroDTO)}.
      */
     @Test
     public void testSave() {
@@ -40,11 +40,11 @@ public class IntroStoreTest {
     }
 
     /**
-     * Test method for {@link openones.gate.store.IntroStore#getLastContent()}.
+     * Test method for {@link openones.gate.store.ModuleStore#getLastContent()}.
      */
     @Test
     public void testGetLastContent() {
-        String content = IntroStore.getLastContent();
+        String content = ModuleStore.getLastContent();
         
         Assert.assertEquals("", content);
     }

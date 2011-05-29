@@ -24,28 +24,33 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 /**
- * Data model of authorization
+ * Data model of Language.
  * @author Thach Le
  */
 @PersistenceCapable
-public class AuthorizationDTO {
+public class LangDTO {
+
     /** Physical primary key of the object. */
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private Long key;
 
+    /** Language code. */
     @Persistent
-    private String emailAdd;
+    private String cd;
 
-    /** Identifier of the module application. */
+    /** Language name. */
     @Persistent
-    private String moduleId;
+    private String name;
 
-    @Persistent
-    private String screenId;
-
-    @Persistent
-    private String eventId;
+    /**
+     * @param langCd
+     * @param langName
+     */
+    public LangDTO(String langCd, String langName) {
+        this.cd = langCd;
+        this.name = langName;
+    }
 
     public Long getKey() {
         return key;
@@ -55,36 +60,25 @@ public class AuthorizationDTO {
         this.key = key;
     }
 
-    public String getModuleId() {
-        return moduleId;
+    public String getCd() {
+        return cd;
     }
 
-    public void setModuleId(String moduleId) {
-        this.moduleId = moduleId;
+    public void setCd(String cd) {
+        this.cd = cd;
     }
 
-    public String getEmailAdd() {
-        return emailAdd;
+    public String getName() {
+        return name;
     }
 
-    public void setEmailAdd(String emailAdd) {
-        this.emailAdd = emailAdd;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getScreenId() {
-        return screenId;
-    }
-
-    public void setScreenId(String screenId) {
-        this.screenId = screenId;
-    }
-
-    public String getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    @Override
+    public String toString() {
+        return cd + "-" + name;
     }
 
 }

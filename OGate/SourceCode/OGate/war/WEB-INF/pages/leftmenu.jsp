@@ -44,9 +44,9 @@
 <DIV id=accpanel2>
  <DIV id=accpanel2-header title=pages/images/wrench.gif>Cấu hình chung</DIV>  
  <DIV id=accpanel2-content class="x-dock-panel-body x-dock-panel-body-expanded">
-   <A class=linkitem href="res/tab.htm">Hệ thống tab</A>
-   <A class=linkitem href="res/account.htm">Tài khoản quản trị</A>
-   <A class=linkitem href="res/language.htm">Ngôn ngữ</A>
+   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciTabSetting", "tabSetting")' title="Cấu hình các thanh tab">Hệ thống tab</A>
+   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciAccSetting", "accSetting")' title="Thiết lập quyền để quản lý các module">Tài khoản quản trị</A>
+   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciLangSetting", "langSetting")' title="Cấu hình ngôn ngữ">Ngôn ngữ</A>
  </DIV>
 </DIV>
 <DIV id=accpanel3>

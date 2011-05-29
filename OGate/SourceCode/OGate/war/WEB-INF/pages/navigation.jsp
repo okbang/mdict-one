@@ -70,6 +70,16 @@
 <form name="frmNavigation" action="main.do" method="post">
       <input type="hidden" name="screenId" value="Navigation" />
        <input type="hidden" name="eventId" value="" />
+       
+<%-- New version: dynamic tabs are loaded from persistence layer --%>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+        <%-- tab: instance of ModuleDTO --%>
+        <c:forEach var="tab" items="${moduleTabs}">
+            <td>${tab.name}</td>
+        </c:forEach>
+    </tr>
+</table>
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
     <tr height="20" align="left" valign="top">
       <td width="99%" colspan="3" class=uportal-background-dark noWrap

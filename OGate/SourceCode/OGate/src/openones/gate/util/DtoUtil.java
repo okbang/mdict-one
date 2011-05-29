@@ -21,6 +21,7 @@ package openones.gate.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import openones.gate.form.TabForm;
 import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
@@ -28,12 +29,14 @@ import rocky.common.Constant;
 
 /**
  * This class provides utilities to manipulate the entities, forms.
+ *
  * @author ThachLN
  */
 public class DtoUtil {
-    
+
     /**
      * Convert entity Introduction into the formatted data
+     * 
      * @param dto entity of Introduction
      * @return formatted data form
      */
@@ -45,22 +48,42 @@ public class DtoUtil {
         if (dto.getCreated() != null) {
             form.setCreated(CommonUtil.formatDate(dto.getCreated(), Constant.DEF_DATEFMT));
         }
-        
+
         return form;
     }
-    
+
     /**
      * Convert list of ModuleDTO into list of IntroOutForm
+     * 
      * @param dtoList list of entity Introduction
      * @return list of formatted Introduction data
      */
     public static List<IntroOutForm> dto2IntroFormList(List<ModuleDTO> dtoList) {
         List<IntroOutForm> formList = new ArrayList<IntroOutForm>();
-        
+
         for (ModuleDTO dto : dtoList) {
             formList.add(dto2IntroForm(dto));
         }
-        
+
+        return formList;
+    }
+
+    public static TabForm dto2TabForm(ModuleDTO dto) {
+        TabForm form = new TabForm();
+
+        form.setName(dto.getName());
+        // form.setKey(String.valueOf(dto.getKey()));
+
+        return form;
+    }
+
+    public static List<TabForm> dto2TabFormList(List<ModuleDTO> dtoList) {
+        List<TabForm> formList = new ArrayList<TabForm>();
+
+        for (ModuleDTO dto : dtoList) {
+            formList.add(dto2TabForm(dto));
+        }
+
         return formList;
     }
 }

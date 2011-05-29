@@ -20,7 +20,6 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="openones.gate.util.ConfManager"%>
 <%@page import="openones.gae.users.OUser"%>
-<%@page import="openones.gate.control.LayoutControl"%>
 <%@page import="openones.gate.Cons"%>
 <%@page import="com.google.appengine.api.users.User"%>
 <%@page import="com.google.appengine.api.users.UserServiceFactory"%>

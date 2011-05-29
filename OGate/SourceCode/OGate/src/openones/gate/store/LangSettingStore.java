@@ -16,23 +16,30 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate;
+package openones.gate.store;
+
+import java.util.List;
+
+import openones.gaecore.PMF;
+import openones.gate.store.dto.LangDTO;
 
 /**
  * @author ThachLN
- *
  */
-public class Cons {
-    final static public String SK_USER = "user";
-    final static public String SK_NMLOGON_USER = "nmLogonUser";
-    public static final String SK_NEXTPAGE = "nextPage";
-    public static final String SK_LANG = "lang";
-    
-    public static enum ActResult {
-        OK, FAIL
-    };
-    
-    public static enum Screens {
-        TabSetting, AccSetting, LangSetting
+public class LangSettingStore {
+    public static List<LangDTO> getLangs() {
+        List<LangDTO> langObjList = (List<LangDTO>) PMF.getObjects(LangDTO.class, PMF.NO_FILTER, PMF.NO_IMPORT,
+                                                                   PMF.NO_PARAM, "name desc", PMF.NO_PARAMVALUE);
+
+        return langObjList;
+    }
+
+    /**
+     * [Give the description for method].
+     * @param langDto
+     */
+    public static void save(LangDTO langDto) {
+        PMF.save(langDto);
+
     }
 }

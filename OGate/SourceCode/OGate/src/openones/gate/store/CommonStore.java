@@ -16,23 +16,32 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate;
+package openones.gate.store;
+
+import java.util.Date;
+import java.util.logging.Logger;
+
+import openones.gaecore.PMF;
+import openones.gate.biz.AuthorizationBiz;
+import openones.gate.store.dto.ModuleDTO;
+import rocky.common.CommonUtil;
 
 /**
  * @author ThachLN
  *
  */
-public class Cons {
-    final static public String SK_USER = "user";
-    final static public String SK_NMLOGON_USER = "nmLogonUser";
-    public static final String SK_NEXTPAGE = "nextPage";
-    public static final String SK_LANG = "lang";
-    
-    public static enum ActResult {
-        OK, FAIL
-    };
-    
-    public static enum Screens {
-        TabSetting, AccSetting, LangSetting
+public class CommonStore {
+    final static Logger LOG = Logger.getLogger("CommonStore");
+
+    public static boolean save(ModuleDTO module) {
+        LOG.info("intro.getContent()=" + module.getContent());
+        if (module.getCreated() == null) {
+            module.setCreated(new Date()); // set current Date
+        }
+
+        if (!CommonUtil.isNNandNB(module.getCreatedBy())) {
+            module.setCreatedBy(AuthorizationBiz.getLogonUser().getEmail());
+        }
+        return PMF.save(module);
     }
 }

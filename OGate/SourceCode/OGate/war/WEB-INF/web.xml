@@ -117,6 +117,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
       <param-value>product.xml</param-value>
     </init-param>
   </servlet>
+  <!--  Setting -->
+  <servlet>
+    <servlet-name>SettingController</servlet-name>
+    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
+    <init-param>
+      <param-name>conf-file</param-name>
+      <param-value>setting.xml</param-value>
+    </init-param>
+  </servlet>
+  
   <servlet-mapping>
     <servlet-name>CoreController</servlet-name>
     <url-pattern>*.do</url-pattern>
@@ -161,6 +171,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   <servlet-mapping>
     <servlet-name>ModuleIntroEditorController</servlet-name>
     <url-pattern>/moduleintroeditor.mod</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SettingController</servlet-name>
+    <url-pattern>/setting.mod</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>

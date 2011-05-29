@@ -18,14 +18,20 @@
  */
 package openones.gate.biz;
 
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
+import openones.gae.users.OUser;
 import openones.gate.store.AuthorizationStore;
 import rocky.common.CommonUtil;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
 public class AuthorizationBiz {
+    private static OUser logonUser = null;
     /**
      * Check the account has authorization for given module, screen, event.
      * @param account Account name of gmail.com or the email address.
@@ -38,11 +44,26 @@ public class AuthorizationBiz {
         if (!CommonUtil.isNNandNB(account)) {
             return false;
         }
-        
-        String emailAddr = (account.indexOf("@") > -1) ? account: account + "@gmail.com";
-        
+
+        String emailAddr = (account.indexOf("@") > -1) ? account : account + "@gmail.com";
+
         AuthorizationStore store = new AuthorizationStore();
-        
+
         return store.isExisted(emailAddr, moduleId, screenId, eventId);
+    }
+
+    /**
+     * Get wrapper of logon user.
+     * @return
+     */
+    public static OUser getLogonUser() {
+        if (logonUser != null) {
+            UserService userService = UserServiceFactory.getUserService();
+            User user = userService.getCurrentUser();
+            if (user != null) {
+                logonUser = new OUser(user);
+            }
+        }
+        return logonUser;
     }
 }

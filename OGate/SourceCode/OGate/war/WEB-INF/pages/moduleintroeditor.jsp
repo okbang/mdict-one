@@ -4,7 +4,7 @@
 <%--
 <script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
  --%>
-<form name="frmIntro" action="/intro.mod" method="post">
+<form name="frmIntro" action="/moduleintroeditor.mod" method="post">
   <input type="hidden" name="screenId" value="Intro"/>
   <%-- Default event: save --%>
   <input type="hidden" name="eventId" value="save"/>

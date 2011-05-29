@@ -32,10 +32,11 @@ import com.google.appengine.api.datastore.Text;
 
 /**
  * This entity is model of module which is displayed as tab in the web page.
+ * 
  * @author Thach Le
  */
 @PersistenceCapable
-public class ModuleDTO implements Serializable {
+public class ModuleDTO extends BaseDTO implements Serializable {
 
     /** Physical primary key of the object. */
     @PrimaryKey
@@ -46,18 +47,17 @@ public class ModuleDTO implements Serializable {
     @Persistent
     private String id;
 
-    /** Name of the module. This name is the key of displayed title/
-     * Ex: Tab "Intro" has the title "Giới thiệu" which is in the resource properties file of Vietnamese.
-     * For resource properties English, this tab has the title "Introduction".
-     *
+    /**
+     * Name of the module. This name is the key of displayed title/ Ex: Tab "Intro" has the title "Giới thiệu" which is
+     * in the resource properties file of Vietnamese. For resource properties English, this tab has the title
+     * "Introduction".
      */
     @Persistent
     private String name;
 
-    /** Language code of the content.
-     * For each language, the content has corresponsive value.
-     * Examples value of lang: vn, en
-     * These values are the suffix of the propertity file name.
+    /**
+     * Language code of the content. For each language, the content has coresponsive value. Examples value of lang: vn,
+     * en These values are the suffix of the property file name.
      */
     @Persistent
     private String lang;
@@ -65,21 +65,24 @@ public class ModuleDTO implements Serializable {
     /** Rich-text content of the module/tab. */
     @Persistent
     private Text content;
+    
+    @Persistent
+    private int order;
 
     @Persistent
     private Date created;
-    
+
     @Persistent
     private String createdBy;
-    
+
     @Persistent
     private Date lastModified;
-    
+
     @Persistent
-    private Date lastModifiedBy;
-    
+    private String lastModifiedBy;
+
     /**
-     * 
+     * @param moduleId
      * @param introContent
      */
     public ModuleDTO(String moduleId, Text introContent) {
@@ -88,6 +91,7 @@ public class ModuleDTO implements Serializable {
     }
     /**
      * Get the key of object.
+     * 
      * @return Long
      */
     public Long getKey() {
@@ -96,6 +100,7 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Set the key for object.
+     * 
      * @param key Long
      */
     public void setKey(Long key) {
@@ -104,6 +109,7 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Get identifier of object.
+     * 
      * @return String of identifier
      */
     public String getId() {
@@ -112,6 +118,7 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Set the identifier for the object.
+     * 
      * @param id String of identifier
      */
     public void setId(String id) {
@@ -120,14 +127,16 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Get name of the module.
+     * 
      * @return String of module name
      */
     public String getName() {
         return name;
     }
 
-    /** 
+    /**
      * Set name for the module.
+     * 
      * @param name String of module name
      */
     public void setName(String name) {
@@ -136,6 +145,7 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Get language code of the module.
+     * 
      * @return short code of language
      */
     public String getLang() {
@@ -144,6 +154,7 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Set language code for the module.
+     * 
      * @param lang short code of language
      */
     public void setLang(String lang) {
@@ -152,14 +163,22 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Get rich text format content of the module.
+     * 
      * @return Rich text format content
      */
     public Text getContent() {
         return content;
     }
 
+    public int getOrder() {
+        return order;
+    }
+    public void setOrder(int order) {
+        this.order = order;
+    }
     /**
      * Get the String format of content.
+     * 
      * @return if the content is null, return BLANK string
      */
     public String getStringContent() {
@@ -167,6 +186,7 @@ public class ModuleDTO implements Serializable {
     }
     /**
      * Set content for the module.
+     * 
      * @param content rich text format content
      */
     public void setContent(Text content) {
@@ -175,33 +195,92 @@ public class ModuleDTO implements Serializable {
 
     /**
      * Set content for the module.
+     * 
      * @param content String of rich text format
      */
     public void setContent(String content) {
         this.content = new Text(content);
     }
+
+    /**
+     * Explain the description for this method here
+     * 
+     * @see openones.gate.store.dto.BaseDTO#getCreated()
+     */
+    @Override
     public Date getCreated() {
         return created;
     }
+    
+    /**
+     * Explain the description for this method here
+     * 
+     * @see openones.gate.store.dto.BaseDTO#setCreated(java.util.Date)
+     */
+    @Override
     public void setCreated(Date created) {
         this.created = created;
+
     }
+    
+    /**
+     * Explain the description for this method here
+     * 
+     * @see openones.gate.store.dto.BaseDTO#getCreatedBy()
+     */
+    @Override
     public String getCreatedBy() {
         return createdBy;
     }
+    
+    /**
+     * Explain the description for this method here
+     * 
+     * @see openones.gate.store.dto.BaseDTO#setCreatedBy(java.lang.String)
+     */
+    @Override
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
+    
+    /**
+     * Explain the description for this method here
+     * 
+     * @see openones.gate.store.dto.BaseDTO#getLastModified()
+     */
+    @Override
     public Date getLastModified() {
         return lastModified;
     }
+    
+    /**
+     * Explain the description for this method here
+     * 
+     * @see openones.gate.store.dto.BaseDTO#setLastModified(java.util.Date)
+     */
+    @Override
     public void setLastModified(Date lastModified) {
         this.lastModified = lastModified;
     }
-    public Date getLastModifiedBy() {
+    
+    /**
+     * Explain the description for this method here
+     * 
+     * @see openones.gate.store.dto.BaseDTO#getLastModifiedBy()
+     */
+    @Override
+    public String getLastModifiedBy() {
         return lastModifiedBy;
     }
-    public void setLastModifiedBy(Date lastModifiedBy) {
+    
+    /**
+     * [Explain the description for this method here].
+     * @param lastModifiedBy
+     * @see openones.gate.store.dto.BaseDTO#setLastModifiedBy(java.util.Date)
+     */
+    @Override
+    public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
+
 }

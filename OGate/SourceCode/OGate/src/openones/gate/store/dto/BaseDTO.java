@@ -16,23 +16,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate;
+package openones.gate.store.dto;
+
+import java.util.Date;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
-public class Cons {
-    final static public String SK_USER = "user";
-    final static public String SK_NMLOGON_USER = "nmLogonUser";
-    public static final String SK_NEXTPAGE = "nextPage";
-    public static final String SK_LANG = "lang";
-    
-    public static enum ActResult {
-        OK, FAIL
-    };
-    
-    public static enum Screens {
-        TabSetting, AccSetting, LangSetting
-    }
+public abstract class BaseDTO {
+
+    abstract public Date getCreated();
+
+    abstract public void setCreated(Date created);
+
+    abstract public String getCreatedBy();
+
+    abstract public void setCreatedBy(String createdBy);
+
+    abstract public Date getLastModified();
+
+    abstract public void setLastModified(Date lastModified);
+
+    abstract public String getLastModifiedBy();
+
+    abstract public void setLastModifiedBy(String lastModifiedBy);
 }

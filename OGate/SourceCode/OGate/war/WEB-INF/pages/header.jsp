@@ -33,7 +33,6 @@ Contains:
 <%@page import="com.google.appengine.api.users.User"%>
 <%@page import="com.google.appengine.api.users.UserServiceFactory"%>
 <%@page import="openones.gate.Cons"%>
-<%@page import="openones.gate.control.LayoutControl"%>
 
 <form name="frmHeader" action="header.do" method="post">
   <input type="hidden" name="screenId" value="Header" />
