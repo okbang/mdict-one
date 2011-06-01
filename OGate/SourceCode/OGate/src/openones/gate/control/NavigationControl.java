@@ -37,7 +37,7 @@ public class NavigationControl extends LayoutControl {
 
     public BaseOutForm gotoService(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
-        setMainScreen("Service");
+        setMainScreen("service");
         
         return outForm;
     }
@@ -45,7 +45,7 @@ public class NavigationControl extends LayoutControl {
     public BaseOutForm gotoIntro(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
 
-        setMainScreen("Intro");
+        setMainScreen("intro");
 
         return outForm;
     }
@@ -53,7 +53,7 @@ public class NavigationControl extends LayoutControl {
     public BaseOutForm gotoMember(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
 
-        setMainScreen("Member");
+        setMainScreen("member");
         
         return outForm;
     }
@@ -61,7 +61,7 @@ public class NavigationControl extends LayoutControl {
     public BaseOutForm gotoProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         
-        setMainScreen("Product");
+        setMainScreen("product");
 
         return outForm;
     }
