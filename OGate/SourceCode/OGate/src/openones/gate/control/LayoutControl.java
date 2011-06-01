@@ -61,7 +61,7 @@ public class LayoutControl extends BaseControl {
         
         outForm.putRequest("moduleTabs", moduleTasList);
         
-        outForm.putRequest(SK_MAINSCREEN, "Intro");
+        outForm.putRequest(SK_MAINSCREEN, "intro");
 
         return outForm;
     }
