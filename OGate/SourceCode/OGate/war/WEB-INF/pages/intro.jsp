@@ -5,7 +5,7 @@
 <script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
  --%>
 <form name="frmIntro" action="/intro.mod" method="post">
-  <input type="hidden" name="screenId" value="Intro"/>
+  <input type="hidden" name="screenId" value="intro"/>
   <%-- Default event: save --%>
   <input type="hidden" name="eventId" value="save"/>
 
