@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <corewa>
-  <home-screen>Service</home-screen>
-  <screen id="Service" input="/WEB-INF/pages/service.jsp" >
+  <home-screen>service</home-screen>
+  <screen id="service" input="/WEB-INF/pages/service.jsp" >
   </screen>
   
 </corewa>
