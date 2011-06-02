@@ -42,4 +42,13 @@ public class LangSettingStore {
         PMF.save(langDto);
 
     }
+
+    /**
+     * [Give the description for method].
+     * @param key
+     * @return
+     */
+    public static boolean delete(Long key) {
+        return PMF.delete(key, LangDTO.class);
+    }
 }

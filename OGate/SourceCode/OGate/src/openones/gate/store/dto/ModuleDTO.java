@@ -83,10 +83,12 @@ public class ModuleDTO extends BaseDTO implements Serializable {
 
     /**
      * @param moduleId
+     * @param name
      * @param introContent
      */
-    public ModuleDTO(String moduleId, Text introContent) {
+    public ModuleDTO(String moduleId, String name, Text introContent) {
         this.id = moduleId;
+        this.name = name;
         this.content = introContent;
     }
     /**

@@ -34,21 +34,21 @@
         </tr>
         <tr align=left>
             <td width="35">
-            <img border="0" src="../images/to-top.png" width="24" height="24"></td>
+            <img border="0" src="pages/images/to-top.png" width="24" height="24"></td>
             <td>
             &nbsp;</td>
         </tr>
         <tr align=left>
-            <td width="35"><img border="0" src="../images/up.png" width="24" height="24"></td>
+            <td width="35"><img border="0" src="pages/images/up.png" width="24" height="24"></td>
             <td>&nbsp;</td>
         </tr>
         <tr align=left>
-            <td width="35"><img border="0" src="../images/down.png" width="24" height="24"></td>
+            <td width="35"><img border="0" src="pages/images/down.png" width="24" height="24"></td>
             <td>&nbsp;</td>
         </tr>
         <tr align=left>
             <td width="35">
-            <img border="0" src="../images/to-bottom.png" width="24" height="24"></td>
+            <img border="0" src="pages/images/to-bottom.png" width="24" height="24"></td>
             <td>
             &nbsp;</td>
         </tr>
@@ -57,8 +57,8 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td colspan=2><input type="text" name="T1" size="20"><input type="button" value="Add tab" name="Add"></td>
-            <td colspan=2><input type="text" name="T2" size="20"><input type="button" value="Add moderator" name="AddModerator"></td>
+            <td colspan=2><input type="text" name="T1" size="20"><input type="button" value="Add Tab" name="Add"></td>
+            <td colspan=2><input type="text" name="T2" size="20"><input type="button" value="Add Manager" name="AddManager"></td>
         </tr>
     </table>
     <p style="text-align: left">

@@ -19,6 +19,7 @@
 package openones.gate.control.setting;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -32,6 +33,13 @@ import openones.gate.Cons;
 import openones.gate.biz.setting.LangSettingBiz;
 import openones.gate.control.LayoutControl;
 import openones.gate.form.setting.LangSettingForm;
+import openones.gate.intro.form.IntroListOutForm;
+import openones.gate.intro.form.IntroOutForm;
+import openones.gate.store.LangSettingStore;
+import openones.gate.store.ModuleStore;
+import openones.gate.store.dto.LangDTO;
+import openones.gate.store.dto.ModuleDTO;
+import openones.gate.util.DtoUtil;
 import rocky.common.Constant;
 
 import com.google.appengine.api.datastore.Text;
@@ -75,22 +83,48 @@ public class LangControl extends LayoutControl {
 
 
         LOG.info("languages="  + form.getLanguages());
-        Text introContent = new Text((String) reqMap.get("content"));
         LangSettingBiz biz = new LangSettingBiz();
         biz.save(form);
 
         if (biz.save(form) > 0) {
             //outForm.setSaveResult(Cons.ActResult.OK);
             //introOutForm.setKey("IntroSaveOk");
+            outForm.putRequest("DialogMessage", "Save succesfully");
         } else {
             //introOutForm.setSaveResult(Cons.ActResult.FAIL);
             //introOutForm.setKey("IntroSaveFail");
         }
 
-        outForm.putRequest(K_FORM, outForm);
+        outForm.putRequest(K_FORM, form);
 
         LOG.finest("save.END");
         return outForm;
     }
 
+    public BaseOutForm list(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("list.START");
+
+        List<LangDTO> langDTOList = LangSettingStore.getLangs();
+        LOG.info("moduleDTOList.size=" + langDTOList.size());
+        outForm.putRequest(K_FORM, langDTOList);
+
+        LOG.finest("list.END");
+        return outForm;
+    }
+
+    public BaseOutForm delete(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("delete.START");
+        String contentId = (String) reqMap.get("langId");
+        Long contentKey = Long.valueOf(contentId);
+        
+        if (LangSettingStore.delete(contentKey)) {
+            outForm.putRequest("deleteResult", "OK");
+        } else {
+            outForm.putRequest("deleteResult", "FAIL");
+        }
+        LOG.finest("delete.END");
+        
+        // refresh the list
+        return list(req, reqMap, resp);
+    }
 }

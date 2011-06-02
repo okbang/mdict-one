@@ -30,8 +30,10 @@ import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
+import openones.gae.users.OUser;
 import openones.gate.Cons;
-import openones.gate.store.ModuleStore;
+import openones.gate.biz.ModuleBiz;
+import openones.gate.biz.SessionBiz;
 import openones.gate.store.dto.ModuleDTO;
 
 /**
@@ -54,15 +56,15 @@ public class LayoutControl extends BaseControl {
 
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BaseOutForm outForm = new BaseOutForm();
-
-        // Get list of tab and it's content
-        List<ModuleDTO> moduleTasList = ModuleStore.getTabModules();
-        
-        outForm.putRequest("moduleTabs", moduleTasList);
-        
         outForm.putRequest(SK_MAINSCREEN, "intro");
-
+        OUser logonUser = SessionBiz.getLogonUser();
+        ModuleBiz moduleBiz = new ModuleBiz(logonUser );
+        // Get list of tab and it's content
+        List<ModuleDTO> moduleTasList = moduleBiz.getModules(SessionBiz.getLangCd());
+        
+        LOG.info("Number of tabs:" + moduleTasList.size());
+        outForm.putSession("moduleTabs", moduleTasList);
+        
         return outForm;
     }
 

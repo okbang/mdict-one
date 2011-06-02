@@ -26,13 +26,13 @@ import java.util.logging.Logger;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import com.google.appengine.api.datastore.Text;
-
 import openones.gaecore.PMF;
-import openones.gate.biz.AuthorizationBiz;
+import openones.gate.biz.SessionBiz;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
 import rocky.common.Constant;
+
+import com.google.appengine.api.datastore.Text;
 
 /**
  * @author ThachLN
@@ -48,8 +48,8 @@ public class ModuleStore {
         }
 
         if (!CommonUtil.isNNandNB(module.getCreatedBy())) {
-            if (AuthorizationBiz.getLogonUser() != null) {
-                module.setCreatedBy(AuthorizationBiz.getLogonUser().getEmail());
+            if (SessionBiz.getLogonUser() != null) {
+                module.setCreatedBy(SessionBiz.getLogonUser().getEmail());
             }
         }
         return PMF.save(module);
@@ -85,28 +85,28 @@ public class ModuleStore {
     public static List<ModuleDTO> getTabModules() {
         List<ModuleDTO> moduleList = new ArrayList<ModuleDTO>();
         
-        ModuleDTO intro = new ModuleDTO("intro", new Text("This is the content of Introduction tab"));
+        ModuleDTO intro = new ModuleDTO("intro", "Intro", new Text("This is the content of Introduction tab"));
         intro.setOrder(1);
         
-        ModuleDTO product = new ModuleDTO("product", new Text("This is the content of Product tab"));
+        ModuleDTO product = new ModuleDTO("product", "Product", new Text("This is the content of Product tab"));
         product.setOrder(2);
         
-        ModuleDTO service = new ModuleDTO("service", new Text("This is the content of service tab"));
+        ModuleDTO service = new ModuleDTO("service", "Service", new Text("This is the content of service tab"));
         service.setOrder(3);
         
-        ModuleDTO member = new ModuleDTO("member", new Text("This is the content of member tab"));
+        ModuleDTO member = new ModuleDTO("member", "Member", new Text("This is the content of member tab"));
         member.setOrder(4);
         
-        ModuleDTO forum = new ModuleDTO("forum", new Text("This is the content of forum tab"));
+        ModuleDTO forum = new ModuleDTO("forum", "Forum", new Text("This is the content of forum tab"));
         forum.setOrder(5);
         
-        ModuleDTO career = new ModuleDTO("career", new Text("This is the content of career tab"));
+        ModuleDTO career = new ModuleDTO("career", "Career", new Text("This is the content of career tab"));
         career.setOrder(6);
         
-        ModuleDTO activity = new ModuleDTO("activity", new Text("This is the content of activity tab"));
+        ModuleDTO activity = new ModuleDTO("activity", "Activity", new Text("This is the content of activity tab"));
         activity.setOrder(7);
         
-        ModuleDTO project = new ModuleDTO("project", new Text("This is the content of project tab"));
+        ModuleDTO project = new ModuleDTO("project", "Project", new Text("This is the content of project tab"));
         project.setOrder(8);
         
         moduleList.add(intro);

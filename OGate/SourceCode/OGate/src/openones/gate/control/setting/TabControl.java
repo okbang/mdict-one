@@ -30,8 +30,8 @@ import javax.servlet.http.HttpServletResponse;
 import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
-import openones.gate.biz.AuthorizationBiz;
 import openones.gate.biz.ModuleBiz;
+import openones.gate.biz.SessionBiz;
 import openones.gate.intro.form.IntroListOutForm;
 import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.ModuleStore;
@@ -56,7 +56,7 @@ public class TabControl extends BaseControl {
 //        outForm.putRequest("introForm", introOutForm);
 //
 //        LOG.finest("procInit.END");
-        ModuleBiz biz = new ModuleBiz(AuthorizationBiz.getLogonUser());
+        ModuleBiz biz = new ModuleBiz(SessionBiz.getLogonUser());
         //List<ModuleDTO> moduleList = biz.getModules();
         
         return outForm;
@@ -77,7 +77,7 @@ public class TabControl extends BaseControl {
 
         LOG.info("content="  + reqMap.get("content"));
         Text introContent = new Text((String) reqMap.get("content"));
-        ModuleDTO intro = new ModuleDTO("intro", introContent);
+        ModuleDTO intro = new ModuleDTO("intro", "Intro", introContent);
 
         if (ModuleStore.save(intro)) {
             introOutForm.setSaveResult(Cons.ActResult.OK);

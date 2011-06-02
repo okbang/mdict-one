@@ -43,8 +43,9 @@ public class ModuleBiz {
      * @return
      */
     public List<ModuleDTO> getModules(String langCd) {
-        FilterCond filterCond = new FilterCond(ModuleDTO.class, langCd);
-        return ModuleStore.getModules(filterCond, null);
+        return ModuleStore.getTabModules();
+//        FilterCond filterCond = new FilterCond(ModuleDTO.class, langCd);
+//        return ModuleStore.getModules(filterCond, null);
     }
 
 }

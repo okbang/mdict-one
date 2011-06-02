@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.logging.Logger;
 
 import openones.gaecore.PMF;
-import openones.gate.biz.AuthorizationBiz;
+import openones.gate.biz.SessionBiz;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
 
@@ -40,7 +40,7 @@ public class CommonStore {
         }
 
         if (!CommonUtil.isNNandNB(module.getCreatedBy())) {
-            module.setCreatedBy(AuthorizationBiz.getLogonUser().getEmail());
+            module.setCreatedBy(SessionBiz.getLogonUser().getEmail());
         }
         return PMF.save(module);
     }

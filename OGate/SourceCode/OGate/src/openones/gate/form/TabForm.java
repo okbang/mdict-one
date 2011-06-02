@@ -18,12 +18,19 @@
  */
 package openones.gate.form;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author ThachLN
  *
  */
 public class TabForm {
     private String name;
+    
+    /** List of email address can manage the tab. */
+    private List<String> emailMangers = new ArrayList<String>();
+    
 
     public String getName() {
         return name;
@@ -31,5 +38,27 @@ public class TabForm {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * [Give the description for method].
+     * @param emailAddr
+     * @return true if the emailAddr has not existed in the list.
+     */
+    public boolean addManager(String emailAddr) {
+        if (emailMangers.contains(emailAddr)) {
+            return false;
+        } else {
+            emailMangers.add(emailAddr);
+            return true;
+        }
+    }
+    
+    public List<String> getEmailMangers() {
+        return emailMangers;
+    }
+
+    public void setEmailMangers(List<String> emailMangers) {
+        this.emailMangers = emailMangers;
     }
 }

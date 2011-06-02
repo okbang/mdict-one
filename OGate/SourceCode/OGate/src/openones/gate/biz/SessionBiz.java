@@ -18,20 +18,21 @@
  */
 package openones.gate.biz;
 
-import com.google.appengine.api.users.User;
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
-
 import openones.gae.users.OUser;
 import openones.gate.store.AuthorizationStore;
 import rocky.common.CommonUtil;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 
 /**
  * @author Thach Le
  *
  */
-public class AuthorizationBiz {
+public class SessionBiz {
     private static OUser logonUser = null;
+    private static String langCd = null;
     /**
      * Check the account has authorization for given module, screen, event.
      * @param account Account name of gmail.com or the email address.
@@ -65,5 +66,20 @@ public class AuthorizationBiz {
             }
         }
         return logonUser;
+    }
+
+    /**
+     * [Give the description for method].
+     * @return
+     */
+    public static String getLangCd() {
+        if (langCd == null) {
+            langCd = "vn";
+        }
+        return langCd;
+    }
+    
+    public static void setLangCd(String langCode) {
+        langCd = langCode;
     }
 }

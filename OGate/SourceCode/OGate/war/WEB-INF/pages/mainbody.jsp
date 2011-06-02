@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-Main screen: ${MainScreen}
+Main screen: ${MainScreen}; eventId=${eventId}
+<c:if test='${empty MainScreen}'>
+  Welcome to Open-Ones Group
+</c:if>
+
 
 <c:if test='${MainScreen == "service"}'>
   <jsp:include page="/service.mod" flush="true">
@@ -13,12 +17,6 @@ Main screen: ${MainScreen}
   <jsp:include page="/intro.mod" flush="true">
     <jsp:param name="screenId" value="${screenId}" />
     <jsp:param name="eventId" value="${eventId}" />
-  </jsp:include>
-</c:if>
-
-<c:if test='${empty MainScreen}'>
-  <jsp:include page="/main.part" flush="true">
-    <jsp:param name="screenId" value="Main" />
   </jsp:include>
 </c:if>
 
@@ -54,5 +52,5 @@ Main screen: ${MainScreen}
   <jsp:include page="/setting.mod" flush="true">
     <jsp:param name="screenId" value="LangSetting" />
     <jsp:param name="eventId" value="${eventId}" />
-  </jsp:include></td>
+  </jsp:include>
 </c:if>

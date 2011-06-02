@@ -22,9 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
-import openones.gaecore.PMF;
 import openones.gate.form.setting.LangSettingForm;
 import openones.gate.store.LangSettingStore;
 import openones.gate.store.dto.LangDTO;

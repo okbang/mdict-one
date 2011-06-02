@@ -72,7 +72,7 @@ public class ModuleIntroEditorControl extends BaseControl {
 
         LOG.info("content="  + reqMap.get("content"));
         Text introContent = new Text((String) reqMap.get("content"));
-        ModuleDTO intro = new ModuleDTO("intro", introContent);
+        ModuleDTO intro = new ModuleDTO("intro", "Intro", introContent);
 
         if (ModuleStore.save(intro)) {
             introOutForm.setSaveResult(Cons.ActResult.OK);

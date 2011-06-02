@@ -32,6 +32,13 @@ import openones.corewa.BaseOutForm;
  * 
  */
 public class NavigationControl extends LayoutControl {
+    @Override
+    public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        outForm = super.procInit(req, resp);
+        
+        return outForm;
+    }
+
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     // private static int nmLogonUser = 0;
 
