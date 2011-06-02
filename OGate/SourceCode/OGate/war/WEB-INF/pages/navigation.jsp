@@ -6,7 +6,7 @@
 <c:set var="inactive_bg" value="med"/>
 <c:set var="before_selected_tab" value="before_active_tab"/>
 <c:set var="after_selected_tab" value="after_active_tab"/>
-<c:set var="after_inactive_tab" value="affter_inactive_tab"/>
+<c:set var="after_inactive_tab" value="after_inactive_tab"/>
 <c:forEach var="tab" items="${moduleTabs}">
     <c:if test="${MainScreen == tab.id}">
         <c:set var="selectedTabIndex" value="${tab.order}"></c:set>
@@ -115,16 +115,16 @@
                     <c:forEach var="tab2" items="${moduleTabs}">
                         <c:choose>
                             <%--Neu tab dc chon la intro --%>
-                            <c:when test="${MainScreen=='intro'}">
+                            <c:when test="${selectedTabIndex==tab.order}">
                                 <%--Hien thi tab intro voi after_selected_tab  --%>
                                 <%--code--%>
                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
+                                <td class=uportal-background-highlight noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
-                                <td class=uportal-background-shadow rowSpan=4 width=22>
+                                <td class=uportal-background-med rowSpan=4 width=22>
                                 <img alt="" src="pages/images/${after_selected_tab}.gif" width=22 height=23>
                                 </td>
                                 </tr>
@@ -132,7 +132,7 @@
                                 <td class=uportal-background-${active_bg} height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id}</a>
+                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id} ${tab2.order}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>
@@ -160,10 +160,10 @@
                                         <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
+                                <td class=uportal-background-highlight noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
-                                <td class=uportal-background-shadow rowSpan=4 width=22>
+                                <td class=uportal-background-med rowSpan=4 width=22>
                                 <img alt="" src="pages/images/${before_selected_tab}.gif" width=22 height=23>
                                 </td>
                                 </tr>
@@ -198,7 +198,7 @@
                                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
+                                <td class=uportal-background-highlight noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 <td class=uportal-background-shadow rowSpan=4 width=22>
@@ -219,7 +219,7 @@
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
+                                <td class=uportal-background-shadow noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
@@ -231,18 +231,18 @@
                                             <%--Neu day la tab binh thuong --%>
                                             <%--Hien thi tab nay voi after_inactive_tab--%>
                                                 <%--code --%>
-                                                <td class=uportal-background-shadow noWrap align=left height="1">
+                                                <td class=uportal-background-light noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
+                                <td class=uportal-background-highlight noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
-                                <td class=uportal-background-shadow rowSpan=4 width=22>
+                                <td class=uportal-background-med rowSpan=4 width=22>
                                 <img alt="" src="pages/images/${after_inactive_tab}.gif" width=22 height=23>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-med height=20 vAlign=center noWrap>
+                                <td class=uportal-background-${inactive_bg} height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
                                 onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id}</a>
@@ -250,12 +250,12 @@
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
+                                <td class=uportal-background-light noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
+                                <td class=uportal-background-shadow noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
