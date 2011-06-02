@@ -171,7 +171,7 @@
                                 <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id}</a>
+                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>
@@ -209,7 +209,7 @@
                                 <td class=uportal-background-dark height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id}</a>
+                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>
@@ -245,7 +245,7 @@
                                 <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id}</a>
+                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>
