@@ -8,6 +8,7 @@ import java.util.Properties;
 import java.util.TreeMap;
 
 import rocky.common.CommonUtil;
+import rocky.common.Constant;
 
 /**
  * This class provides utilities for the query processing.
@@ -114,7 +115,8 @@ public class RockySql {
         
         for (Iterator<String> it = sortedMap.keySet().iterator(); it.hasNext();) {
             key = it.next();
-            sbSql.append(sortedMap.get(key));
+            // Add a space at the end of sql part.
+            sbSql.append(sortedMap.get(key)).append(Constant.SPACE);
         }
         
         return sbSql.toString();

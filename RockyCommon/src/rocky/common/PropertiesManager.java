@@ -40,27 +40,27 @@ public class PropertiesManager {
      * Để sử dụng PropertiesManager, method initialize này phải được gọi trước tiên.
      * @throws IOException lỗi đọc file cấu hình. File cấu hình phải được đạt trong thư mục chứa các classes.
      */
-    /*
-    public static Properties newInstanceFromXML(String configPath) throws IOException {
+    
+    public static Properties newInstanceFromXML(String configXmlPath) throws IOException {
         Properties props = new Properties();
-        props.loadFromXML(PropertiesManager.class.getResourceAsStream(configPath));
+        props.loadFromXML(CommonUtil.loadResource(configXmlPath));
         
         return props;
     }
-    */
+    
     
     /**
      * Tạo đối tượng Properties từ file .properties.
      * @param filePath đường dẫn file tương đối trong thư mục của CLASSPATH
      * @return đối tượng Properties tương ứng của file
      */
-    /*
+    
     public static Properties newInstanceFromProps(String configPath) throws IOException {
         Properties props = new Properties();
-        props.load(PropertiesManager.class.getResourceAsStream(configPath));
+        props.load(CommonUtil.loadResource(configPath));
         return props;
     }
-    */
+    
     
     /**
      * Khởi tạo properties.

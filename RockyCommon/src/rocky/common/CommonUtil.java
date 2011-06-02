@@ -89,6 +89,10 @@ public class CommonUtil {
         return (str != null) && (str.length() > 0);
     }
     
+    public static boolean isNNandNB(List objList) {
+        return (objList != null) && (objList.size() > 0);
+    }
+    
     public static boolean isNNandNB(Object strObj) {
         return (strObj != null) && (strObj.toString().length() > 0);
     }
