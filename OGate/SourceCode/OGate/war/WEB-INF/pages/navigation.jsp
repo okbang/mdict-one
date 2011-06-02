@@ -121,7 +121,7 @@
                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-highlight noWrap>
+                                <td class=uportal-background-dark noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 <td class=uportal-background-med rowSpan=4 width=22>
@@ -129,7 +129,7 @@
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-${active_bg} height=20 vAlign=center noWrap>
+                                <td class=uportal-background-dark height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
                                 onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id} ${tab2.order}</a>
@@ -176,12 +176,12 @@
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
+                                <td class=uportal-background-shadow noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
+                                <td class=uportal-background-highlight noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
@@ -198,15 +198,15 @@
                                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-highlight noWrap>
+                                <td class=uportal-background-dark noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
-                                <td class=uportal-background-shadow rowSpan=4 width=22>
+                                <td class=uportal-background-med rowSpan=4 width=22>
                                 <img alt="" src="pages/images/${after_selected_tab}.gif" width=22 height=23>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-${active_bg} height=20 vAlign=center noWrap>
+                                <td class=uportal-background-dark height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
                                 onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id}</a>
@@ -219,7 +219,7 @@
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
+                                <td class=uportal-background-dark noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
@@ -231,10 +231,10 @@
                                             <%--Neu day la tab binh thuong --%>
                                             <%--Hien thi tab nay voi after_inactive_tab--%>
                                                 <%--code --%>
-                                                <td class=uportal-background-light noWrap align=left height="1">
+                                                <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-highlight noWrap>
+                                <td class=uportal-background-highlight noWrap><%--tren cung --%>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 <td class=uportal-background-med rowSpan=4 width=22>
@@ -242,7 +242,7 @@
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-${inactive_bg} height=20 vAlign=center noWrap>
+                                <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
                                 onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id}</a>
@@ -250,12 +250,12 @@
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-light noWrap>
+                                <td class=uportal-background-shadow noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
+                                <td class=uportal-background-highlight noWrap><%--duoi cung --%>
                                 <img alt="" src="pages/images/transparent.gif" width=1 height=1>
                                 </td>
                                 </tr>
