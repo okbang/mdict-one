@@ -102,8 +102,8 @@
 
 <form name="frmNavigation" action="main.do" method="post">
       <input type="hidden" name="screenId" value="Navigation" />
-       <input type="hidden" name="eventId" value="" />
-       
+      <input type="hidden" name="eventId" value="" />
+      <input type="hidden" name="tabId" value="" />
 <%-- New version: dynamic tabs are loaded from persistence layer --%>
 <table border="0" width="100%" cellspacing="0" cellpadding="0" name="newNavigation" >
     <tr height="20" align="left" valign="top">
@@ -132,7 +132,7 @@
                                 <td class=uportal-background-dark height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.id} ${tab2.order}</a>
+                                onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>
@@ -171,7 +171,7 @@
                                 <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.name}</a>
+                                onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>
@@ -209,7 +209,7 @@
                                 <td class=uportal-background-dark height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.name}</a>
+                                onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>
@@ -245,7 +245,7 @@
                                 <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitAction("frmNavigation","Navigation", "click_${tab2.id}")'>${tab2.name}</a>
+                                onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 </td>
                                 </tr>

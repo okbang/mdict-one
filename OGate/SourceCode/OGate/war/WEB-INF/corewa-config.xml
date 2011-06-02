@@ -24,10 +24,11 @@
 
 
   <screen id="Navigation" control="openones.gate.control.NavigationControl" input="/WEB-INF/pages/layout.jsp" >
-    <event id="click_service" procId="gotoService"></event>
-    <event id="click_intro" procId="gotoIntro"></event>
-    <event id="click_member" procId="gotoMember"></event>
-    <event id="click_product" procId="gotoProduct"></event>
+    <event id="clickTab" procId="selectTab"></event>
+<!--     <event id="click_service" procId="gotoService"></event> -->
+<!--     <event id="click_intro" procId="gotoIntro"></event> -->
+<!--     <event id="click_member" procId="gotoMember"></event> -->
+<!--     <event id="click_product" procId="gotoProduct"></event> -->
   </screen>
   
   <!-- Menu for Admin -->

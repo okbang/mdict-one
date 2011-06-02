@@ -42,34 +42,45 @@ public class NavigationControl extends LayoutControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     // private static int nmLogonUser = 0;
 
-    public BaseOutForm gotoService(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-        setMainScreen("service");
+    public BaseOutForm selectTab(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String screenId = req.getParameter("screenId");
+        String eventId = req.getParameter("eventId");
+        String tabId = req.getParameter("tabId");
         
+        LOG.info("selectTab.START:screenId=" + screenId + ";eventId=" + eventId + ";tabId=" + tabId);
+
+        setMainScreen(tabId);
         return outForm;
     }
     
-    public BaseOutForm gotoIntro(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-
-        setMainScreen("intro");
-
-        return outForm;
-    }
-
-    public BaseOutForm gotoMember(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-
-        setMainScreen("member");
-        
-        return outForm;
-    }
-
-    public BaseOutForm gotoProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-        
-        setMainScreen("product");
-
-        return outForm;
-    }
+//    public BaseOutForm gotoService(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+//            IOException {
+//        setMainScreen("service");
+//        
+//        return outForm;
+//    }
+//
+//    public BaseOutForm gotoIntro(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+//            IOException {
+//
+//        setMainScreen("intro");
+//
+//        return outForm;
+//    }
+//
+//    public BaseOutForm gotoMember(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+//            IOException {
+//
+//        setMainScreen("member");
+//        
+//        return outForm;
+//    }
+//
+//    public BaseOutForm gotoProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+//            IOException {
+//        
+//        setMainScreen("product");
+//
+//        return outForm;
+//    }
 }
