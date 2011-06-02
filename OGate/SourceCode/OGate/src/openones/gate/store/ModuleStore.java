@@ -30,7 +30,6 @@ import openones.gaecore.PMF;
 import openones.gate.biz.SessionBiz;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
-import rocky.common.Constant;
 
 import com.google.appengine.api.datastore.Text;
 
@@ -60,7 +59,7 @@ public class ModuleStore {
      * 
      * @return
      */
-    public static String getLastContent() {
+    public static ModuleDTO getLastModuleContent(String moduleId) {
         PersistenceManager pm = PMF.get().getPersistenceManager();
 
         // Get top 5 newest contents
@@ -72,10 +71,11 @@ public class ModuleStore {
 
         List<ModuleDTO> modList = (List<ModuleDTO>) pm.newQuery(query).execute();
 
-        if (CommonUtil.isNNandNB(modList)) {
-            System.out.println("content=" + modList.get(0).getContent());
-        }
-        return (CommonUtil.isNNandNB(modList) ? modList.get(0).getStringContent() : Constant.BLANK);
+//        if (CommonUtil.isNNandNB(modList)) {
+//            //System.out.println("content=" + modList.get(0).getContent());
+//        }
+        return (CommonUtil.isNNandNB(modList) ? modList.get(0) : null);
+        //return (CommonUtil.isNNandNB(modList) ? modList.get(0).getStringContent() : Constant.BLANK);
     }
 
     /**

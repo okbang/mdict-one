@@ -35,6 +35,7 @@ import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.ModuleStore;
 import openones.gate.store.dto.ModuleDTO;
 import openones.gate.util.DtoUtil;
+import rocky.common.Constant;
 
 import com.google.appengine.api.datastore.Text;
 
@@ -50,13 +51,34 @@ public class ModuleIntroEditorControl extends BaseControl {
         LOG.finest("procInit.START");
         IntroOutForm introOutForm = new IntroOutForm();
 
-        introOutForm.setContent(ModuleStore.getLastContent());
+        String moduleId = "Get tabId";
+        ModuleDTO intro = ModuleStore.getLastModuleContent(moduleId );
+        String content = (intro != null ? intro.getStringContent() : Constant.BLANK);  
+
+        introOutForm.setContent(content);
         outForm.putRequest("introForm", introOutForm);
 
         LOG.finest("procInit.END");
         return outForm;
     }
 
+    public BaseOutForm edit(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("edit.START");
+        IntroOutForm introOutForm = new IntroOutForm();
+
+        String moduleId = "Get tabId";
+        ModuleDTO intro = ModuleStore.getLastModuleContent(moduleId );
+        String content = (intro != null ? intro.getStringContent() : Constant.BLANK);  
+        
+        // Keep the content in the out form
+        introOutForm.setContent(content);
+
+        outForm.putRequest("introForm", introOutForm);
+
+        LOG.finest("edit.END");
+        return outForm;
+    }
+    
     /**
      * .
      * @param req

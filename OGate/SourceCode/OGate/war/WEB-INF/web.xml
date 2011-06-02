@@ -28,7 +28,13 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
       <param-value>corewa-config.xml</param-value>
     </init-param>
   </servlet>
-
+  
+  <!-- MainBodyController: use to display content of tab -->
+  <servlet>
+    <servlet-name>MainBodyController</servlet-name>
+    <servlet-class>openones.gate.control.MainBody</servlet-class>
+  </servlet>
+  
   <servlet>
     <servlet-name>HeaderController</servlet-name>
     <servlet-class>openones.corewa.CentralConntroller</servlet-class>
@@ -74,15 +80,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     </init-param>
   </servlet>
 
-  <servlet>
-    <servlet-name>IntroController</servlet-name>
-    <servlet-class>openones.corewa.CentralConntroller</servlet-class>
-    <init-param>
-      <param-name>conf-file</param-name>
-      <param-value>intro.xml</param-value>
-    </init-param>
-  </servlet>
-  
   <servlet>
     <servlet-name>ModuleIntroEditorController</servlet-name>
     <servlet-class>openones.corewa.CentralConntroller</servlet-class>
@@ -164,11 +161,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>IntroController</servlet-name>
-    <url-pattern>/intro.mod</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
     <servlet-name>ModuleIntroEditorController</servlet-name>
     <url-pattern>/moduleintroeditor.mod</url-pattern>
   </servlet-mapping>
@@ -190,6 +182,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     <servlet-name>ProductController</servlet-name>
     <url-pattern>/product.mod</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>MainBodyController</servlet-name>
+    <url-pattern>/mainbody.mod</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

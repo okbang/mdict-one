@@ -12,8 +12,8 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr><td align="right">
       <c:if test="${(not empty user) && (user.isAdmin)}">
-       <a href="#" onclick='submitAction("frmIntro","Intro", "edit")'><img border="0" src="pages/images/editContent.gif" width="16" height="16"></a>
-       <a href="#" onclick='submitAction("frmIntro","Intro", "list")'><img border="0" src="pages/images/ed_list_num.gif" width="16" height="16"></a>
+       <a href="#" onclick='submitAction("frmIntro","ModuleIntroEditor", "edit")'><img border="0" src="pages/images/editContent.gif" width="16" height="16"></a>
+       <a href="#" onclick='submitAction("frmIntro","ModuleIntroEditor", "list")'><img border="0" src="pages/images/ed_list_num.gif" width="16" height="16"></a>
       </c:if>
     
   </td>
