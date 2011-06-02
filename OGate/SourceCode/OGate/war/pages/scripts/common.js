@@ -31,3 +31,18 @@ function submitMenu(frmName, screenId, eventId, menuId) {
     frm.menuId.value = menuId;
     frm.submit();
 }
+
+/**
+ * Submit form the Navigation bar.
+ * @param frmName
+ * @param screenId
+ * @param eventId
+ * @param tabId
+ */
+function submitNav(frmName, screenId, eventId, tabId) {
+    var frm = document.forms[frmName];
+    frm.screenId.value = screenId;
+    frm.eventId.value = eventId;
+    frm.tabId.value = tabId;
+    frm.submit();
+}
