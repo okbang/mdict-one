@@ -48,7 +48,7 @@ public class NavigationControl extends LayoutControl {
         
         return outForm;
     }
-
+    
     public BaseOutForm gotoIntro(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
 
