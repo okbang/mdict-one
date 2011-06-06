@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; 
+charset=UTF-8">
+<title>OGATE</title><meta content="text/html; charset=UTF-8" 
+http-equiv="Content-Type"><meta content="uPortal by JA-SIG: The academic
+ open source portal built for higher education by higher education" 
+name="description"><meta content="portal, uPortal, academic, higher 
+education, open source, enterprise, JA-SIG, JASIG" name="keywords"><link
+ type="image/x-icon" href="http://raiportal/services/favicon.ico" 
+rel="shortcut icon">
+<link 
+href="css/uportal3.css" media="screen" type="text/css" rel="stylesheet">
+</head>
+<body class="fl-theme-uportal3" id="portal">
+	<div class="not-logged-in dashboard fl-container-flex" id="portalPage">
+		<div class="layout-1-columns sidebar sidebar-left-250 " id="portalPageInner">
+			<div class="fl-container-flex" id="portalPageBody">
+				<div id="portalPageBodyLayout" class="fl-col-mixed-250">
+					<div class="fl-col-flex-left">
+
+<script language="javascript">
+	function changeImage_hover(id){
+		var temp = id.substring(0, id.indexOf("_") + 1);
+		var index = id.substring(id.indexOf("_") + 1,  id.length);
+		var indexInt = eval(index);
+		
+		for (i = 1; i <= indexInt; i++){
+			var mImg = document.getElementById(temp + i);
+			mImg.src = "img/star_hover.png";
+		}
+	}
+	
+	function changeImage_normal(id, stt){
+		var tempId = id.substring(0, id.indexOf("_") + 1);
+		var tempStt = stt.substring(0, stt.indexOf("_") + 1);
+		var index = id.substring(id.indexOf("_") + 1,  id.length);
+		var indexInt = eval(index);
+	
+		for (i = 1; i <= indexInt; i++){
+			var status = document.getElementById(tempStt + i);
+			var mImg = document.getElementById(tempId + i);
+			if (status.value == "")
+				mImg.src = "img/star.png";
+			else {
+				mImg.src = "img/star_hover.png";
+			}
+		}
+	}
+	
+	function changeImage_click(id, stt){
+		var tempId = id.substring(0, id.indexOf("_") + 1);
+		var tempStt = stt.substring(0, stt.indexOf("_") + 1);
+		var index = id.substring(id.indexOf("_") + 1,  id.length);
+		var indexInt = eval(index);
+		
+		var countTotalStar = 0;
+		for (i = 1; i <= 5; i++){
+			var status = document.getElementById(tempStt + i);
+			if (status.value != "")
+				countTotalStar++;
+		}
+		
+		if (eval(countTotalStar) == indexInt){
+			resetStar(id, stt);
+		}
+		
+		else {
+			for (i = 1; i <= indexInt; i++){
+				var status = document.getElementById(tempStt + i);
+				var mImg = document.getElementById(tempId + i);
+				
+				status.value = "clicked";
+				mImg.src = "img/star_hover.png";
+			}
+			
+			
+			for (i = indexInt + 1; i <= 5; i++){
+				var status = document.getElementById(tempStt + i);
+				var mImg = document.getElementById(tempId + i);
+				
+				status.value = "";
+				mImg.src = "img/star.png";
+			}
+		}
+	}
+	
+	function resetStar(id, stt){
+		var tempId = id.substring(0, id.indexOf("_") + 1);
+		var tempStt = stt.substring(0, stt.indexOf("_") + 1);
+		
+		for (i = 1; i <= 5; i++){
+			var status = document.getElementById(tempStt + i);
+			var mImg = document.getElementById(tempId + i);
+			
+			status.value = "";
+			mImg.src = "img/star.png";
+		}
+	}
+</script>
+
+<form name="" action="" method="POST">
+		<input name="txtAction" type="hidden">
+
+<table>
+	<tr><td>
+		<table border="0" width="580px" id="table2" cellspacing="0" cellpadding="0" height="22">
+			<tr>
+				<td align="right">
+					<a href="AddMember.html">Add member</a></td>
+			</tr>
+		</table>
+		<table id="myTable">
+			<tr>
+				<td align="left" id="long">Find members:</td>
+				<td align="left">
+					<input name="txtSearch" autocomplete="off" value="Input a key of member name here" style="width:400px" type="text">
+				</td>
+				<td align="left">
+					<input name="btnSearch" autocomplete="off" value="Search" type="button">
+				</td>
+			</tr>
+		</table>
+		<table id="myTable">
+			<tr>
+				<td id="long" align="left">
+					<p align="left">by Alphabet:</p>
+				</td>
+				<td width="80">
+					<p align="left"><a href="#">A - E</a></p>
+				</td>
+					<td width="80">
+					<p align="left"><a href="#">F - J</a></p>
+				</td>
+					<td width="80">
+					<p align="left"><a href="#">H - L</a></p>
+				</td>
+					<td width="80">
+					<p align="left"><a href="#">M - P</a></p>
+				 </td>
+					<td width="80">
+					<p align="left"><a href="#">Q - Z</a></p>
+				 </td>
+			</tr>
+		</table>
+	 </td></tr>
+		<br/>
+	<tr><td>
+		<table width="580px">
+			<tr>
+				<td align="left" colspan="6">
+					<h3> Found members: </h3>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="myTable" border=1>
+						<tr>
+							<th align="left"><b>No</b></th>
+							<th align="left"><b>Name</b></th>
+							<th align="left"><b>Qualification</b></th>
+							<th align="left"><b>Project participated</b></th>
+							<th align="left"><b>Uploaded CV</b></th>
+							<th align="left"><b>Viewed</b></th>
+						<tr>
+							<td><a class="myLink" href="ViewMemberInfo.html">01</a></td>
+							<td>Vo Thien Thanh</td>
+							<td>CCNA</td>
+							<td>OGate</td>
+							<td>Yes</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td><a class="myLink" href="ViewMemberInfo.html">02</a></td>
+							<td>Luu Thuy Ha</td>
+							<td>CCNA</td>
+							<td>OGate</td>
+							<td>No</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td><a class="myLink" href="ViewMemberInfo.html">03</a></td>
+							<td>Nguyen Xuan Doan</td>
+							<td></td>
+							<td>OGate</td>
+							<td>Yes</td>
+							<td>12</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" colspan="6"><a href="#">Prev</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">>></a></td>
+			</tr>
+		</table>
+	</td></tr>
+</table>
+		
+					</form></div></div></div></div></div></body></html>
