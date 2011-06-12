@@ -18,6 +18,10 @@
  */
 package openones.gate.form.setting;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import openones.corewa.BaseInForm;
 
 /**
@@ -25,5 +29,73 @@ import openones.corewa.BaseInForm;
  *
  */
 public class TabSettingForm extends BaseInForm {
+    private String selectedTab;
+    /** List of email of editor. */
+    private String emailManagers;
     
+    private String newTab;
+    private String newEmailManager;
+
+    List<TabForm> tabFormList = null;
+    private String tabKeys;
+    
+    public String getSelectedTab() {
+        return selectedTab;
+    }
+    public void setSelectedTab(String selectedTab) {
+        this.selectedTab = selectedTab;
+    }
+    public String getEmailManagers() {
+        return emailManagers;
+    }
+    public void setEmailManagers(String emailManagers) {
+        this.emailManagers = emailManagers;
+    }
+    public String getNewTab() {
+        return newTab;
+    }
+    public void setNewTab(String newTab) {
+        this.newTab = newTab;
+    }
+    public String getNewEmailManager() {
+        return newEmailManager;
+    }
+    public void setNewEmailManager(String newEmailManager) {
+        this.newEmailManager = newEmailManager;
+    }
+    
+    public List<TabForm> getTabFormList() {
+        return tabFormList;
+    }
+
+    public void setTabFormList(List<TabForm> tabFormList) {
+        this.tabFormList = tabFormList;
+    }
+    /**
+     * [Give the description for method].
+     * @param allTabs
+     */
+    public void setTabForms(String[] allTabs) {
+        if (tabFormList == null) {
+            tabFormList = new ArrayList<TabForm>();
+        }
+        
+        TabForm tabForm;
+        for (String tabName: allTabs) {
+            tabForm = new TabForm(tabName);
+            tabFormList.add(tabForm);
+        }
+    }
+    
+    /**
+     * List of tab key with delim is semi common.
+     * @return
+     */
+    public String getTabKeys() {
+        return tabKeys;
+    }
+    
+    public void setTabKeys(String tabKeys) {
+        this.tabKeys = tabKeys;
+    }
 }

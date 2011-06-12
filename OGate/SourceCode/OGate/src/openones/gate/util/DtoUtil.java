@@ -21,7 +21,7 @@ package openones.gate.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import openones.gate.form.TabForm;
+import openones.gate.form.setting.TabForm;
 import openones.gate.intro.form.IntroOutForm;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
@@ -29,13 +29,12 @@ import rocky.common.Constant;
 
 /**
  * This class provides utilities to manipulate the entities, forms.
- *
- * @author ThachLN
+ * @author Thach Le
  */
 public class DtoUtil {
 
     /**
-     * Convert entity Introduction into the formatted data
+     * Convert entity Introduction into the formatted data.
      * 
      * @param dto entity of Introduction
      * @return formatted data form
@@ -53,7 +52,7 @@ public class DtoUtil {
     }
 
     /**
-     * Convert list of ModuleDTO into list of IntroOutForm
+     * Convert list of ModuleDTO into list of IntroOutForm.
      * 
      * @param dtoList list of entity Introduction
      * @return list of formatted Introduction data
@@ -69,10 +68,7 @@ public class DtoUtil {
     }
 
     public static TabForm dto2TabForm(ModuleDTO dto) {
-        TabForm form = new TabForm();
-
-        form.setName(dto.getName());
-        // form.setKey(String.valueOf(dto.getKey()));
+        openones.gate.form.setting.TabForm form = new TabForm(dto.getName());
 
         return form;
     }

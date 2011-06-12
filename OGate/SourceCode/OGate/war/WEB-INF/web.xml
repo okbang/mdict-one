@@ -169,7 +169,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     <servlet-name>SettingController</servlet-name>
     <url-pattern>/setting.mod</url-pattern>
   </servlet-mapping>
-  
+
+  <servlet-mapping>
+    <servlet-name>SettingController</servlet-name>
+    <url-pattern>/setting.part</url-pattern>
+  </servlet-mapping>
+    
   <servlet-mapping>
     <servlet-name>ServiceController</servlet-name>
     <url-pattern>/service.mod</url-pattern>

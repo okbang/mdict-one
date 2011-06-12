@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-Main screen: ${MainScreen}; eventId=${eventId}
+<input type="hidden" name="ogate_debug" value="ScreenId=${screenId}; Main screen: ${MainScreen}; eventId=${eventId}; tabId=${tabId}"/>
 <c:if test='${empty MainScreen}'>
   Welcome to Open-Ones Group
 </c:if>
@@ -45,7 +44,7 @@ Main screen: ${MainScreen}; eventId=${eventId}
     </c:if>
 
     <c:if test='${MainScreen == "TabSetting"}'>
-      <jsp:include page="/setting.mod" flush="true">
+      <jsp:include page="/setting.part" flush="true">
         <jsp:param name="screenId" value="${MainScreen}" />
         <jsp:param name="eventId" value="${eventId}" />
       </jsp:include>

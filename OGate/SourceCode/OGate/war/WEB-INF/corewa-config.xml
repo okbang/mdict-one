@@ -40,5 +40,8 @@
     <event id="ciAccSetting" procId="procCommonItem"/>
     <event id="ciLangSetting" procId="procCommonItem"/>
     
-  </screen>  
+    <!-- Common Item: Tab saving -->
+    <event id="ciT" procId="procCommonItem"/>
+  </screen>
+  
 </corewa>

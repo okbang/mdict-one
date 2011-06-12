@@ -19,7 +19,9 @@
 package openones.gate.store.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
@@ -32,7 +34,6 @@ import com.google.appengine.api.datastore.Text;
 
 /**
  * This entity is model of module which is displayed as tab in the web page.
- * 
  * @author Thach Le
  */
 @PersistenceCapable
@@ -56,7 +57,7 @@ public class ModuleDTO extends BaseDTO implements Serializable {
     private String name;
 
     /**
-     * Language code of the content. For each language, the content has coresponsive value. Examples value of lang: vn,
+     * Language code of the content. For each language, the content has a corresponsive value. Examples value of lang: vn,
      * en These values are the suffix of the property file name.
      */
     @Persistent
@@ -67,7 +68,14 @@ public class ModuleDTO extends BaseDTO implements Serializable {
     private Text content;
     
     @Persistent
-    private int order;
+    private List<String> managers;
+    
+    /** Kind of module: Tab, LeftMenu, Header, Footer, Advertise, HotNews,etc. */
+    @Persistent
+    private String type;
+    
+    @Persistent
+    private int orderNo;
 
     @Persistent
     private Date created;
@@ -91,6 +99,13 @@ public class ModuleDTO extends BaseDTO implements Serializable {
         this.name = name;
         this.content = introContent;
     }
+    
+    public ModuleDTO(String moduleId, String name, String introContent) {
+        this.id = moduleId;
+        this.name = name;
+        this.content = new Text(introContent);
+    }
+    
     /**
      * Get the key of object.
      * 
@@ -172,11 +187,11 @@ public class ModuleDTO extends BaseDTO implements Serializable {
         return content;
     }
 
-    public int getOrder() {
-        return order;
+    public int getOrderNo() {
+        return orderNo;
     }
-    public void setOrder(int order) {
-        this.order = order;
+    public void setOrderNo(int order) {
+        this.orderNo = order;
     }
     /**
      * Get the String format of content.
@@ -202,6 +217,29 @@ public class ModuleDTO extends BaseDTO implements Serializable {
      */
     public void setContent(String content) {
         this.content = new Text(content);
+    }
+
+    public List<String> getManagers() {
+        return managers;
+    }
+
+    public void setManagers(List<String> managers) {
+        this.managers = managers;
+    }
+    
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void addManager(String email) {
+        if (managers == null) {
+            managers = new ArrayList<String>();
+        }
+        managers.add(email);
     }
 
     /**
@@ -285,4 +323,16 @@ public class ModuleDTO extends BaseDTO implements Serializable {
         this.lastModifiedBy = lastModifiedBy;
     }
 
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj instanceof ModuleDTO) {
+//            ModuleDTO destModule = (ModuleDTO) obj;
+//            return this.key == destModule.key;
+//        } else if (obj instanceof Long) {
+//            Long destKey = (Long) obj;
+//            return this.key == destKey;
+//        } else {
+//            return false;
+//        }
+//    }
 }

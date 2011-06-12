@@ -18,7 +18,6 @@
  */
 package openones.gate.store;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -30,8 +29,6 @@ import openones.gaecore.PMF;
 import openones.gate.biz.SessionBiz;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
-
-import com.google.appengine.api.datastore.Text;
 
 /**
  * @author ThachLN
@@ -83,42 +80,51 @@ public class ModuleStore {
      * @return
      */
     public static List<ModuleDTO> getTabModules() {
-        List<ModuleDTO> moduleList = new ArrayList<ModuleDTO>();
+        PersistenceManager pm = PMF.get().getPersistenceManager();
         
-        ModuleDTO intro = new ModuleDTO("intro", "Intro", new Text("This is the content of Introduction tab"));
-        intro.setOrder(1);
+//        String query = "select from " + ModuleDTO.class.getName() + " order by order";
+//        List<ModuleDTO> moduleList = (List<ModuleDTO>) pm.newQuery(query).execute();
+        String[] filters = new String[] {"type == 'Tab'"};
+        String ordering = "orderNo asc";
+        List<ModuleDTO> modList = (List<ModuleDTO>) PMF.getObjects(ModuleDTO.class, filters, PMF.NO_IMPORT,
+                                                                   PMF.NO_PARAM, ordering , new Object[]{});
+
+        return modList;
         
-        ModuleDTO product = new ModuleDTO("product", "Product", new Text("This is the content of Product tab"));
-        product.setOrder(2);
-        
-        ModuleDTO service = new ModuleDTO("service", "Service", new Text("This is the content of service tab"));
-        service.setOrder(3);
-        
-        ModuleDTO member = new ModuleDTO("member", "Member", new Text("This is the content of member tab"));
-        member.setOrder(4);
-        
-        ModuleDTO forum = new ModuleDTO("forum", "Forum", new Text("This is the content of forum tab"));
-        forum.setOrder(5);
-        
-        ModuleDTO career = new ModuleDTO("career", "Career", new Text("This is the content of career tab"));
-        career.setOrder(6);
-        
-        ModuleDTO activity = new ModuleDTO("activity", "Activity", new Text("This is the content of activity tab"));
-        activity.setOrder(7);
-        
-        ModuleDTO project = new ModuleDTO("project", "Project", new Text("This is the content of project tab"));
-        project.setOrder(8);
-        
-        moduleList.add(intro);
-        moduleList.add(product);
-        moduleList.add(service);
-        moduleList.add(member);
-        moduleList.add(forum);
-        moduleList.add(career);
-        moduleList.add(activity);
-        moduleList.add(project);
-        
-        return moduleList;
+//        ModuleDTO intro = new ModuleDTO("intro", "Intro", new Text("This is the content of Introduction tab"));
+//        intro.setOrder(1);
+//        
+//        ModuleDTO product = new ModuleDTO("product", "Product", new Text("This is the content of Product tab"));
+//        product.setOrder(2);
+//        
+//        ModuleDTO service = new ModuleDTO("service", "Service", new Text("This is the content of service tab"));
+//        service.setOrder(3);
+//        
+//        ModuleDTO member = new ModuleDTO("member", "Member", new Text("This is the content of member tab"));
+//        member.setOrder(4);
+//        
+//        ModuleDTO forum = new ModuleDTO("forum", "Forum", new Text("This is the content of forum tab"));
+//        forum.setOrder(5);
+//        
+//        ModuleDTO career = new ModuleDTO("career", "Career", new Text("This is the content of career tab"));
+//        career.setOrder(6);
+//        
+//        ModuleDTO activity = new ModuleDTO("activity", "Activity", new Text("This is the content of activity tab"));
+//        activity.setOrder(7);
+//        
+//        ModuleDTO project = new ModuleDTO("project", "Project", new Text("This is the content of project tab"));
+//        project.setOrder(8);
+//        
+//        moduleList.add(intro);
+//        moduleList.add(product);
+//        moduleList.add(service);
+//        moduleList.add(member);
+//        moduleList.add(forum);
+//        moduleList.add(career);
+//        moduleList.add(activity);
+//        moduleList.add(project);
+//        
+//        return moduleList;
     }
     
     /**
@@ -127,9 +133,9 @@ public class ModuleStore {
      */
     public static List<ModuleDTO> getModules() {
         PersistenceManager pm = PMF.get().getPersistenceManager();
-        String query = "select from " + ModuleDTO.class.getName() + " order by created desc";
-
-        List<ModuleDTO> modList = (List<ModuleDTO>) pm.newQuery(query).execute();
+        String ordering = "orderNo asc";
+        List<ModuleDTO> modList = (List<ModuleDTO>) PMF.getObjects(ModuleDTO.class, PMF.NO_FILTER, PMF.NO_IMPORT,
+                                                                   PMF.NO_PARAM, ordering , PMF.NO_PARAMVALUE);
 
         return modList;
     }
@@ -206,5 +212,7 @@ public class ModuleStore {
         }
     }
 
-
+    public static boolean delete(ModuleDTO module) {
+        return PMF.delete(module.getKey(), ModuleDTO.class);
+    }
 }

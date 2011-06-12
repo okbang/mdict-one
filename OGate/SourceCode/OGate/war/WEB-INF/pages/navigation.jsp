@@ -9,7 +9,7 @@
 <c:set var="after_inactive_tab" value="after_inactive_tab"/>
 <c:forEach var="tab" items="${moduleTabs}">
     <c:if test="${MainScreen == tab.id}">
-        <c:set var="selectedTabIndex" value="${tab.order}"></c:set>
+        <c:set var="selectedTabIndex" value="${tab.orderNo}"></c:set>
     </c:if>
 </c:forEach>
 
@@ -115,7 +115,7 @@
                     <c:forEach var="tab2" items="${moduleTabs}">
                         <c:choose>
                             <%--Neu tab dc chon la intro --%>
-                            <c:when test="${selectedTabIndex==tab.order}">
+                            <c:when test="${selectedTabIndex==tab.orderNo}">
                                 <%--Hien thi tab intro voi after_selected_tab  --%>
                                 <%--code--%>
                                 <td class=uportal-background-shadow noWrap align=left height="1">
@@ -154,7 +154,7 @@
                             <c:otherwise>
                                 <c:choose>
                                     <%--Neu tab tiep theo tab nay la tab dc chon--%>              
-                                    <c:when test="${selectedTabIndex == tab2.order + 1}">
+                                    <c:when test="${selectedTabIndex == tab2.orderNo + 1}">
                                     <%--hien thi tab voi before_selected_tab--%>
                                         <%--code--%>
                                         <td class=uportal-background-shadow noWrap align=left height="1">
@@ -192,7 +192,7 @@
                                     <c:otherwise>
                                         <c:choose>
                                             <%--Neu tab nay la tab chon--%>
-                                            <c:when test="${selectedTabIndex == tab2.order}">
+                                            <c:when test="${selectedTabIndex == tab2.orderNo}">
                                             <%--Hien thi tab nay voi after_selected_tab --%>
                                                 <%--code --%>
                                                 <td class=uportal-background-shadow noWrap align=left height="1">

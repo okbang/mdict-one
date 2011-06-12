@@ -2,24 +2,16 @@
 <corewa>
   <home-screen>Setting</home-screen>
 
-  <screen id="Setting" control="openones.gate.control.IntroControl" input="/WEB-INF/pages/setting.jsp" >
-    <event id="edit" redirect="yes" nextScreen="/WEB-INF/pages/layout.jsp"/>
-    <event id="save" procId="save" nextScreen="/WEB-INF/pages/layout.jsp"/>
-    <event id="list" procId="list" nextScreen="/WEB-INF/pages/layout.jsp"/>
-    <event id="delete" procId="delete" nextScreen="/WEB-INF/pages/layout.jsp"/>
+  <screen id="Setting" control="openones.gate.control.setting.SettingControl" input="/WEB-INF/pages/setting/setting.jsp" >
   </screen>
-  
+
   <screen id="TabSetting" control="openones.gate.control.setting.TabControl" input="/WEB-INF/pages/setting/tab.jsp" >
-    <event id="edit" redirect="yes" nextScreen="/WEB-INF/pages/layout.jsp"/>
+    <!-- Common Item: Tab saving -->
     <event id="save" procId="save" nextScreen="/WEB-INF/pages/layout.jsp"/>
-    <event id="list" procId="list" nextScreen="/WEB-INF/pages/layout.jsp"/>
-    <event id="delete" procId="delete" nextScreen="/WEB-INF/pages/layout.jsp"/>
   </screen>
   
   <screen id="LangSetting" control="openones.gate.control.setting.LangControl" input="/WEB-INF/pages/setting/lang.jsp" >
-    <event id="edit" redirect="yes" nextScreen="/WEB-INF/pages/layout.jsp"/>
+    <!-- Common Item: Tab saving -->
     <event id="save" procId="save" nextScreen="/WEB-INF/pages/layout.jsp"/>
-    <event id="list" procId="list" nextScreen="/WEB-INF/pages/layout.jsp"/>
-    <event id="delete" procId="delete" nextScreen="/WEB-INF/pages/layout.jsp"/>
   </screen>
 </corewa>

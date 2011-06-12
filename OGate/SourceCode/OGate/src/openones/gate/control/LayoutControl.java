@@ -20,7 +20,6 @@ package openones.gate.control;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -29,7 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
-import openones.corewa.control.BaseControl;
 import openones.gae.users.OUser;
 import openones.gate.Cons;
 import openones.gate.biz.ModuleBiz;
@@ -39,15 +37,11 @@ import openones.gate.store.dto.ModuleDTO;
 /**
  * @author Thach Le
  */
-public class LayoutControl extends BaseControl {
-    /** . */
-    public static final String SK_MAINSCREEN = "MainScreen";
-    public static final String K_FORM = "form";
-    
-    private final Logger LOG = Logger.getLogger(this.getClass().getName());
+public class LayoutControl extends OGateBaseControl {
     private static int nmLogonUser = 0;
 
     public LayoutControl() {
+        super();
     }
 
     public LayoutControl(ServletConfig config) {
@@ -83,18 +77,5 @@ public class LayoutControl extends BaseControl {
         session.setAttribute(Cons.SK_NMLOGON_USER, nmLogonUser);
 
         return nmLogonUser;
-    }
-
-    /**
-     * Set screen identifier into the request/session with key "MainScreen".
-     * 
-     * @param screenId
-     */
-    public void setMainScreen(String screenId) {
-        outForm.putRequest(SK_MAINSCREEN, screenId);
-    }
-
-    public void setMainScreen(Cons.Screens screenId) {
-        outForm.putRequest(SK_MAINSCREEN, screenId);
     }
 }

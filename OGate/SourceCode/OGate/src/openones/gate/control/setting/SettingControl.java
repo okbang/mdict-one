@@ -16,19 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate.form.setting;
+package openones.gate.control.setting;
 
-import java.util.ArrayList;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import openones.corewa.BaseOutForm;
+import openones.gate.control.OGateBaseControl;
 
 /**
  * @author Thach Le
+ *
  */
-public class TabSettingOutForm extends TabSettingForm {
-    public void addTabForm(TabForm tabForm) {
-        if (tabFormList == null) {
-            tabFormList = new ArrayList<TabForm>();
-        }
+public class SettingControl extends OGateBaseControl {
 
-        tabFormList.add(tabForm);
+    @Override
+    public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        LOG.finest("procInit.ScreenId=" + req.getParameter("screenId"));
+
+        return super.procInit(req, resp);
     }
+
 }

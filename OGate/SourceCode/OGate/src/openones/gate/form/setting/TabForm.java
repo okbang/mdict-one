@@ -16,21 +16,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate.form;
+package openones.gate.form.setting;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author ThachLN
- *
+ * @author Thach Le
  */
-public class TabForm {
+public class TabForm implements Serializable {
     private String name;
-    
+
     /** List of email address can manage the tab. */
     private List<String> emailMangers = new ArrayList<String>();
-    
+
+    private Long key;
+
+    /**
+     * @param tabName
+     */
+    public TabForm(String tabName) {
+        this.name = tabName;
+    }
 
     public String getName() {
         return name;
@@ -42,6 +50,7 @@ public class TabForm {
 
     /**
      * [Give the description for method].
+     * 
      * @param emailAddr
      * @return true if the emailAddr has not existed in the list.
      */
@@ -53,12 +62,24 @@ public class TabForm {
             return true;
         }
     }
-    
+
     public List<String> getEmailMangers() {
         return emailMangers;
     }
 
     public void setEmailMangers(List<String> emailMangers) {
         this.emailMangers = emailMangers;
+    }
+
+    /**
+     * [Give the description for method].
+     * @param key
+     */
+    public void setKey(Long key) {
+        this.key = key;
+    }
+
+    public Long getKey() {
+        return key;
     }
 }

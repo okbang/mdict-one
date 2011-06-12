@@ -55,8 +55,8 @@ public class MainBody extends HttpServlet {
         resp.setContentType("text/html");
         
         String moduleId = "Get tabId";
-        ModuleDTO intro = ModuleStore.getLastModuleContent(moduleId );
-        String content = (intro != null ? intro.getStringContent() : Constant.BLANK);  
+        ModuleDTO modInfo = ModuleStore.getLastModuleContent(moduleId );
+        String content = (modInfo != null ? modInfo.getStringContent() : Constant.BLANK);  
         LOG.info("content=" + content);
         PrintWriter out = resp.getWriter();
         

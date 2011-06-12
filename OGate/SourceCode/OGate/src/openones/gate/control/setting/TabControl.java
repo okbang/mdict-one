@@ -19,46 +19,35 @@
 package openones.gate.control.setting;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.BaseOutForm;
-import openones.corewa.control.BaseControl;
-import openones.gate.Cons;
-import openones.gate.biz.ModuleBiz;
-import openones.gate.biz.SessionBiz;
-import openones.gate.intro.form.IntroListOutForm;
-import openones.gate.intro.form.IntroOutForm;
-import openones.gate.store.ModuleStore;
-import openones.gate.store.dto.ModuleDTO;
-import openones.gate.util.DtoUtil;
-
-import com.google.appengine.api.datastore.Text;
+import openones.corewa.ReqUtil;
+import openones.gate.biz.setting.TabBiz;
+import openones.gate.control.OGateBaseControl;
+import openones.gate.form.setting.TabSettingForm;
+import openones.gate.form.setting.TabSettingOutForm;
+import rocky.common.CommonUtil;
 
 /**
  * @author Thach Le
  *
  */
-public class TabControl extends BaseControl {
-    private final Logger LOG = Logger.getLogger(this.getClass().getName());
+public class TabControl extends OGateBaseControl {
 
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("procInit.START");
-//        IntroOutForm introOutForm = new IntroOutForm();
-//
-//        introOutForm.setContent(IntroStore.getLastContent());
-//        outForm.putRequest("introForm", introOutForm);
-//
-//        LOG.finest("procInit.END");
-        ModuleBiz biz = new ModuleBiz(SessionBiz.getLogonUser());
-        //List<ModuleDTO> moduleList = biz.getModules();
+        TabSettingOutForm tabOutForm = TabBiz.getTabs();
         
+        LOG.finest("Number of tabs:" + tabOutForm.getTabFormList().size());
+
+        outForm.putRequest("tabSettingForm", tabOutForm);
+
         return outForm;
     }
 
@@ -73,58 +62,22 @@ public class TabControl extends BaseControl {
      */
     public BaseOutForm save(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("save.START");
-        IntroOutForm introOutForm = new IntroOutForm();
+        TabSettingForm form = (TabSettingForm) ReqUtil.getData(reqMap, TabSettingForm.class);
+        String[] allTabs = req.getParameterValues("selectedTab");
+        LOG.finest("getSelectedTab=" + form.getSelectedTab() +
+                   ";getParameterValues(selectedTab)=" + CommonUtil.arrayToString(allTabs, ","));
+        
+        LOG.finest("Tab keys=" + form.getTabKeys());
 
-        LOG.info("content="  + reqMap.get("content"));
-        Text introContent = new Text((String) reqMap.get("content"));
-        ModuleDTO intro = new ModuleDTO("intro", "Intro", introContent);
-
-        if (ModuleStore.save(intro)) {
-            introOutForm.setSaveResult(Cons.ActResult.OK);
-            //introOutForm.setKey("IntroSaveOk");
+        form.setTabForms(allTabs);
+        if (TabBiz.save(form)) {
         } else {
-            introOutForm.setSaveResult(Cons.ActResult.FAIL);
-            //introOutForm.setKey("IntroSaveFail");
+            keepForm(form);
         }
 
-        // Keep the content in the out form
-        introOutForm.setContent(intro.getStringContent());
-
-        outForm.putRequest("introForm", introOutForm);
-
+        //setMainScreen(Cons.Screens.TabSetting.toString());
         LOG.finest("save.END");
         return outForm;
     }
     
-    public BaseOutForm list(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
-        LOG.finest("list.START");
-
-        List<ModuleDTO> moduleDTOList = ModuleStore.getModules();
-        LOG.info("moduleDTOList.size=" + moduleDTOList.size());
-        List<IntroOutForm> outFormList = DtoUtil.dto2IntroFormList(moduleDTOList);
-        LOG.info("outFormList.size=" + outFormList.size());
-        
-        IntroListOutForm introList = new IntroListOutForm();
-        introList.setIntroList(outFormList);
-        outForm.putRequest("intro_outForm", introList);
-
-        LOG.finest("list.END");
-        return outForm;
-    }
-
-    public BaseOutForm delete(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
-        LOG.finest("delete.START");
-        String contentId = (String) reqMap.get("contentId");
-        Long contentKey = Long.valueOf(contentId);
-        
-        if (ModuleStore.delete(contentKey)) {
-            outForm.putRequest("deleteResult", "OK");
-        } else {
-            outForm.putRequest("deleteResult", "FAIL");
-        }
-        LOG.finest("delete.END");
-        
-        // refresh the list
-        return list(req, reqMap, resp);
-    }
 }
