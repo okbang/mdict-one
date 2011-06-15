@@ -24,11 +24,12 @@ function submitAction(frmName, screenId, eventId) {
 }
 
 
-function submitMenu(frmName, screenId, eventId, menuId) {
+function submitMenu(frmName, screenId, eventId, menuId, tabKey) {
     var frm = document.forms[frmName];
     frm.screenId.value = screenId;
     frm.eventId.value = eventId;
     frm.menuId.value = menuId;
+    frm.tabKey.value = tabKey;
     frm.submit();
 }
 

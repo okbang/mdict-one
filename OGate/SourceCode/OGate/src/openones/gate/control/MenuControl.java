@@ -29,23 +29,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.BaseOutForm;
 import openones.gate.Cons;
+import openones.gate.store.ModuleStore;
+import openones.gate.store.dto.ModuleDTO;
 
 /**
- * Controller of part Header.
- * 
+ * Controller of part Menu.
  * @author Thach Le
  */
-public class MenuControl extends LayoutControl {
+public class MenuControl extends OGateBaseControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
 
     /** */
     public enum MenuItem {
         tabSetting, accSetting, langSetting
     }
-    /**
-     * Parameter name of Menu Item. Refer Jsp page leftmenu.jsp
-     */
-    final static String K_MENUID = "menuId";
 
     private MenuControl() {
     }
@@ -54,10 +51,28 @@ public class MenuControl extends LayoutControl {
         super(config);
     }
 
+    /**
+     * Processing select tab from menu of the Admin.
+     * @param req
+     * @param reqMap
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     public BaseOutForm procItem(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp)
             throws ServletException, IOException {
         LOG.finest("procItem.START");
+        // MenuId = selected tab module id
+        String menuId = (String) reqMap.get(K_MENUID);
+        String tabKey = (String) reqMap.get(K_TABKEY);
+
+        LOG.finest("Selected menuId=" + menuId + ";tabKey=" + tabKey);
         setMainScreen("EditModuleIntro");
+
+        outForm.putRequest(K_MENUID, menuId);
+        ModuleDTO tabModule = ModuleStore.getTabModuleByKey(Long.valueOf(tabKey));
+        outForm.putRequest(K_TABMODULE, tabModule);
 
         return outForm;
     }

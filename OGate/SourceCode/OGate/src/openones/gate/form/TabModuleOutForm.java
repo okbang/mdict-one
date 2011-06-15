@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate.intro.form;
+package openones.gate.form;
 
 import java.io.Serializable;
 
@@ -27,11 +27,13 @@ import rocky.common.Constant;
  * @author ThachLN
  *
  */
-public class IntroOutForm implements Serializable {
+public class TabModuleOutForm implements Serializable {
     private Cons.ActResult saveResult;
     
     /** IntroSaveFail | IntroSaveOk. */
     private String key;
+    
+    private String type;
     
     private String content = Constant.BLANK;
     
@@ -50,6 +52,12 @@ public class IntroOutForm implements Serializable {
         this.key = msgKey;
     }
 
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
     public String getContent() {
         return content;
     }

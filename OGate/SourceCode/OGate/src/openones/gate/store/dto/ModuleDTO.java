@@ -20,6 +20,7 @@ package openones.gate.store.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import rocky.common.CommonUtil;
 import rocky.common.Constant;
 
 import com.google.appengine.api.datastore.Text;
@@ -321,6 +323,18 @@ public class ModuleDTO extends BaseDTO implements Serializable {
     @Override
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
+    }
+
+    /**
+     * [Give the description for method].
+     * @param managerAtTab
+     */
+    public void setManagers(String emailManagers) {
+        if (CommonUtil.isNNandNB(emailManagers)) {
+            this.managers = Arrays.asList(emailManagers.split(",;\r"));
+        } else {
+            this.managers = null;
+        }
     }
 
 //    @Override

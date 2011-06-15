@@ -43,7 +43,7 @@ public class TabControl extends OGateBaseControl {
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("procInit.START");
         TabSettingOutForm tabOutForm = TabBiz.getTabs();
-        
+
         LOG.finest("Number of tabs:" + tabOutForm.getTabFormList().size());
 
         outForm.putRequest("tabSettingForm", tabOutForm);
@@ -66,7 +66,7 @@ public class TabControl extends OGateBaseControl {
         String[] allTabs = req.getParameterValues("selectedTab");
         LOG.finest("getSelectedTab=" + form.getSelectedTab() +
                    ";getParameterValues(selectedTab)=" + CommonUtil.arrayToString(allTabs, ","));
-        
+
         LOG.finest("Tab keys=" + form.getTabKeys());
 
         form.setTabForms(allTabs);
@@ -79,5 +79,5 @@ public class TabControl extends OGateBaseControl {
         LOG.finest("save.END");
         return outForm;
     }
-    
+
 }

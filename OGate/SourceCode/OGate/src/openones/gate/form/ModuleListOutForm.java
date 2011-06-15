@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.gate.intro.form;
+package openones.gate.form;
 
 import java.util.List;
 
@@ -24,15 +24,24 @@ import java.util.List;
  * @author Thach Le
  *
  */
-public class IntroListOutForm {
-    private List<IntroOutForm> introList;
+public class ModuleListOutForm {
+    private String moduleType;
+    private List<TabModuleOutForm> moduleList;
 
-    public List<IntroOutForm> getIntroList() {
-        return introList;
+    public List<TabModuleOutForm> getModuleList() {
+        return moduleList;
     }
 
-    public void setIntroList(List<IntroOutForm> introList) {
-        this.introList = introList;
+    public void setModuleList(List<TabModuleOutForm> moduleList) {
+        this.moduleList = moduleList;
     }
-    
+
+    public String getModuleType() {
+        return moduleType;
+    }
+
+    public void setModuleType(String moduleType) {
+        this.moduleType = moduleType;
+    }
+
 }

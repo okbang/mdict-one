@@ -34,20 +34,21 @@ import openones.gate.store.dto.ModuleDTO;
  */
 public class TabBiz {
     final static Logger LOG = Logger.getLogger("TabBiz");
+
     /**
-     * [Give the description for method].
-     * 
+     * Save the tab setting.
+     * For current tabs, update the order.
      * @param form
      * @return
      */
     public static boolean save(TabSettingForm form) {
         // Get all module of tab
         List<ModuleDTO> tabModules = ModuleStore.getTabModules();
-        
+
         // Convert string of key "N,N,..." into the list
         String[] tabKeys = form.getTabKeys().split(",");
         List<String> tabKeyList = Arrays.asList(tabKeys);
-        
+
      // If tab form the form is not existed in tabModules. It means the tab will be deleted.
         for (ModuleDTO tabModule : tabModules) {
             if (!tabKeyList.contains(tabModule.getKey().toString())) {
@@ -58,12 +59,20 @@ public class TabBiz {
         }
 
         boolean isNew;
+        ModuleDTO updateTabModule = null; 
         // Insert new tab
-        for (String tabKey : tabKeys) {
+        int len = (tabKeys != null? tabKeys.length: -1);
+        String tabKey;
+        for (int i = 0; i < len; i++) {
+            tabKey= tabKeys[i];
+        //for (String tabKey : tabKeys) {
             isNew = true;
             for (ModuleDTO tabModule : tabModules) {
                 LOG.finest("tabKey=" + tabKey + ";tabModule key=" + tabModule.getKey());
-                
+
+                // Keep the current tab to update if it existed.
+                updateTabModule = tabModule;
+
                 if (tabModule.getKey().toString().equals(tabKey)) {
                     isNew = false;
                     break;
@@ -71,11 +80,15 @@ public class TabBiz {
             }
 
             if (isNew) {
-                LOG.finest("tabKey=" + tabKey + " is new.");
-                // Add new tab form
-                ModuleDTO module = new ModuleDTO(tabKey, tabKey, "None");
-                module.setType("Tab");
-                ModuleStore.save(module);
+                LOG.finest("tabKey=" + tabKey + " is new." + ";managers=" + form.getManagerAtTab(i));
+                String tabName = tabKey;
+                saveTabModule(tabKey, tabName, form.getManagerAtTab(i));
+            } else { // Update
+                LOG.finest("Update tab '" + updateTabModule.getName() + "', key=" + updateTabModule.getKey()
+                        + " with orderNo=" + i + ";managers=" + form.getManagerAtTab(i));
+                updateTabModule.setOrderNo(i);
+                updateTabModule.setManagers(form.getManagerAtTab(i));
+                ModuleStore.update(updateTabModule);
             }
         }
         return true;
@@ -93,6 +106,19 @@ public class TabBiz {
 
     /**
      * [Give the description for method].
+     * @param tabKey
+     */
+    private static void saveTabModule(String key, String name, String emailManagers) {
+        // Add new tab form
+        ModuleDTO module = new ModuleDTO(key, name, "This is the context of the tab.");
+        module.setType("Tab");
+        module.setManagers(emailManagers);
+
+        ModuleStore.save(module);
+    }
+
+    /**
+     * [Give the description for method].
      * 
      * @return
      */
@@ -103,7 +129,7 @@ public class TabBiz {
         TabForm tabForm;
         for (ModuleDTO module : moduleList) {
             tabForm = new TabForm(module.getName());
-            tabForm.setEmailMangers(module.getManagers());
+            tabForm.setEmailManagers(module.getManagers());
             tabForm.setKey(module.getKey());
 
             tabFormList.add(tabForm);

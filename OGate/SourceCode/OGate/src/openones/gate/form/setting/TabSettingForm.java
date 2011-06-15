@@ -19,26 +19,31 @@
 package openones.gate.form.setting;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import openones.corewa.BaseInForm;
+import openones.gate.Cons;
+import rocky.common.Constant;
 
 /**
  * @author Thach Le
- *
  */
 public class TabSettingForm extends BaseInForm {
     private String selectedTab;
     /** List of email of editor. */
     private String emailManagers;
-    
+
     private String newTab;
-    private String newEmailManager;
 
     List<TabForm> tabFormList = null;
     private String tabKeys;
     
+    /** 
+     * managersOfTab contains all email mangers of all tabs.
+     * Ex:: m1@tab1;m2@tab1 : m1@tab2;m2@tab2
+     */
+    private String managersOfTab;
+
     public String getSelectedTab() {
         return selectedTab;
     }
@@ -57,13 +62,7 @@ public class TabSettingForm extends BaseInForm {
     public void setNewTab(String newTab) {
         this.newTab = newTab;
     }
-    public String getNewEmailManager() {
-        return newEmailManager;
-    }
-    public void setNewEmailManager(String newEmailManager) {
-        this.newEmailManager = newEmailManager;
-    }
-    
+
     public List<TabForm> getTabFormList() {
         return tabFormList;
     }
@@ -79,23 +78,45 @@ public class TabSettingForm extends BaseInForm {
         if (tabFormList == null) {
             tabFormList = new ArrayList<TabForm>();
         }
-        
+
         TabForm tabForm;
-        for (String tabName: allTabs) {
+        for (String tabName : allTabs) {
             tabForm = new TabForm(tabName);
             tabFormList.add(tabForm);
         }
     }
-    
+
     /**
      * List of tab key with delim is semi common.
+     * 
      * @return
      */
     public String getTabKeys() {
         return tabKeys;
     }
-    
+
     public void setTabKeys(String tabKeys) {
         this.tabKeys = tabKeys;
+    }
+    public String getManagersOfTab() {
+        return managersOfTab;
+    }
+    public void setManagersOfTab(String managersOfTab) {
+        this.managersOfTab = managersOfTab;
+    }
+
+    /**
+     * Get list of email managers of tab.
+     * @param tabIndex order no of the tab
+     * @return String of email with separator of comma or semi-comma 
+     */
+    public  String getManagerAtTab(int tabIndex) {
+        String[] managers = managersOfTab.split(Cons.TAB_MANAGER_SEPARATOR);
+
+        if (managers != null && (tabIndex < managers.length)) {
+            return managers[tabIndex];
+        } else {
+            return Constant.BLANK;
+        }
     }
 }

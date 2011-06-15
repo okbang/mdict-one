@@ -31,23 +31,23 @@ function submitDelete(frmName, screenId, eventId, contentId) {
 </table>
 <%-- Save contentId will be deleted --%>
 <input type="hidden" name="contentId"/>
-
+<b>Danh sách các modules:</b>
 <table border="1" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-    <td>No.</td><td>Key</td> <td>Date</td> <td>Content</td>
+    <td>No.</td><td>Type</td> <td>Date</td> <td>Content</td>
     <td>
-      <a href="#" title="Xóa tất cả" onclick='submitDelete("frmIntro","Intro", "delete", "-1")'><img border="0" src="pages/images/DeleteAll.gif" width="18" height="18"></a>
+      <a href="#" title="Xóa tất cả" onclick='submitDelete("frmModuleEdit","ModuleIntroEditor", "delete", "-1")'><img border="0" src="pages/images/DeleteAll.gif" width="18" height="18"></a>
     </td>
     
     </tr>
     <%-- intro: IntroOutForm --%>
-    <c:forEach var="intro" items="${intro_outForm.introList}">
+    <c:forEach var="module" items="${modules.moduleList}">
      <tr>
        <td>&nbsp;</td>
-       <td>${intro.key}</td>
-       <td>${intro.created}</td>
-       <td>${intro.content}</td>
-       <td><a href="#" onclick='submitDelete("frmIntro","Intro", "delete", "${intro.key}")'><img border="0" src="pages/images/delete.gif" width="16" height="16"></a></td>
+       <td>${modules.moduleType}</td>
+       <td>${module.created}</td>
+       <td>${module.content}</td>
+       <td><a href="#" onclick='submitDelete("frmModuleEdit","ModuleIntroEditor", "delete", "${module.key}")'><img border="0" src="pages/images/delete.gif" width="16" height="16"></a></td>
      </tr>
      </c:forEach>
 </table>

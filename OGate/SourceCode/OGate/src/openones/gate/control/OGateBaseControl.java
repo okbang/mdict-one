@@ -33,6 +33,16 @@ public class OGateBaseControl extends BaseControl {
     /** . */
     public static final String SK_MAINSCREEN = "MainScreen";
     public static final String K_FORM = "form";
+    /**
+     * Parameter name of Menu Item. Refer Jsp page leftmenu.jsp
+     */
+    final static String K_MENUID = "menuId";
+    final static String K_TABID = "tabId";
+    final static String K_TABKEY = "tabKey";
+    final static String K_TABMODULE = "tabModule";
+    final static String K_TABMODULEID = "tabModuleId";
+    final static String K_TABNAME = "tabName";
+    
     
     public final Logger LOG = Logger.getLogger(this.getClass().getName());
     

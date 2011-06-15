@@ -121,30 +121,21 @@
                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
-                                <td class=uportal-background-med rowSpan=4 width=22>
-                                <img alt="" src="pages/images/${after_selected_tab}.gif" width=22 height=23>
-                                </td>
+                                <td class=uportal-background-dark noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
+                                <td class=uportal-background-med rowSpan=4 width=22><img alt="" src="pages/images/${after_selected_tab}.gif" width=22 height=23></td>
                                 </tr>
                                 <tr>
                                 <td class=uportal-background-dark height=20 vAlign=center noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
+                                <img alt="" src="pages/images/transparent.gif" width=10 height=10>
                                 <a class=uportal-tab-text-selected href="#" 
                                 onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
-                                <img alt="" src="pages/images/transparent.gif" width=10 height=10>
-                                </td>
+                                <img alt="" src="pages/images/transparent.gif" width=10 height=10></td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <td class=uportal-background-dark noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <td class=uportal-background-dark noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 </table>
                                 </td>
@@ -161,29 +152,20 @@
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
                                 <td class=uportal-background-highlight noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
-                                <td class=uportal-background-med rowSpan=4 width=22>
-                                <img alt="" src="pages/images/${before_selected_tab}.gif" width=22 height=23>
-                                </td>
+                                <img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
+                                <td class=uportal-background-med rowSpan=4 width=22><img alt="" src="pages/images/${before_selected_tab}.gif" width=22 height=23></td>
                                 </tr>
                                 <tr>
                                 <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
-                                <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
-                                <img alt="" src="pages/images/transparent.gif" width=10 height=10>
-                                </td>
+                                <a class=uportal-tab-text-selected href="#" onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
+                                <img alt="" src="pages/images/transparent.gif" width=10 height=10></td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <td class=uportal-background-shadow noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-highlight noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <td class=uportal-background-highlight noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 </table>
                                 </td>
@@ -198,11 +180,8 @@
                                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
-                                <td class=uportal-background-med rowSpan=4 width=22>
-                                <img alt="" src="pages/images/${after_selected_tab}.gif" width=22 height=23>
+                                <td class=uportal-background-dark noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
+                                <td class=uportal-background-med rowSpan=4 width=22><img alt="" src="pages/images/${after_selected_tab}.gif" width=22 height=23>
                                 </td>
                                 </tr>
                                 <tr>
@@ -210,18 +189,13 @@
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
                                 onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
-                                <img alt="" src="pages/images/transparent.gif" width=10 height=10>
-                                </td>
+                                <img alt="" src="pages/images/transparent.gif" width=10 height=10></td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <td class=uportal-background-dark noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-dark noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <td class=uportal-background-dark noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 </table>
                                 </td>
@@ -235,8 +209,7 @@
                                 <table border=0 cellSpacing=0 cellPadding=0>
                                 <tr>
                                 <td class=uportal-background-highlight noWrap><%--tren cung --%>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 <td class=uportal-background-med rowSpan=4 width=22>
                                 <img alt="" src="pages/images/${after_inactive_tab}.gif" width=22 height=23>
                                 </td>
@@ -246,18 +219,14 @@
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
                                 <a class=uportal-tab-text-selected href="#" 
                                 onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
-                                <img alt="" src="pages/images/transparent.gif" width=10 height=10>
-                                </td>
+                                <img alt="" src="pages/images/transparent.gif" width=10 height=10></td>
                                 </tr>
                                 <tr>
-                                <td class=uportal-background-shadow noWrap>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <td class=uportal-background-shadow noWrap><img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 <tr>
                                 <td class=uportal-background-highlight noWrap><%--duoi cung --%>
-                                <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                </td>
+                                <img alt="" src="pages/images/transparent.gif" width=1 height=1></td>
                                 </tr>
                                 </table>
                                 </td>
@@ -274,255 +243,4 @@
         </td>
     </tr>
 </table>
-<%--sample
-                                            <td class=uportal-background-med noWrap align=left height="1">
-                                                <table border=0 cellSpacing=0 cellPadding=0>
-                                                    <tr>
-                                                        <td class=uportal-background-${nav_intro_med_highlight} noWrap>
-                                                            <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                                        </td>
-                                                        <td class=uportal-background-${nav_intro_dark_med} rowSpan=4 width=22>
-                                                            <img alt="" src="pages/images/.gif" width=22 height=23>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class=uportal-background-${tab.id}_bg height=20 vAlign=center noWrap>
-                                                            <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
-                                                            <a class=uportal-tab-text${nav_intro_selected} href="#" 
-                                                                onclick='submitAction("frmNavigation","Navigation", "click_${tab.id}")'>${tab.id}</a>
-                                                            <img alt="" src="pages/images/transparent.gif" width=10 height=10>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class=uportal-background-${nav_intro_dark_shadow} noWrap>
-                                                            <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class=uportal-background-${nav_intro_dark_highlight} noWrap>
-                                                            <img alt="" src="pages/images/transparent.gif" width=1 height=1>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
- --%>
-<%-------------------------------------------------------------------------------------%>
-<!-- <table border="0" width="100%" cellspacing="0" cellpadding="0"> -->
-<!--     <tr height="20" align="left" valign="top"> -->
-<!--       <td width="99%" colspan="3" class=uportal-background-dark noWrap -->
-<!--         align=left valign="top" height="1"> -->
-<!--         <table border=0 cellSpacing=0 cellPadding=0 height="1"> -->
-<!--           <tr> -->
-<!--             <td class=uportal-background-med noWrap align=left -->
-<!--               height="1"> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_intro_med_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD> -->
-<%--                   <TD class=uportal-background-${nav_intro_dark_med} rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_intro_active}_tab.gif" width=22 height=23></TD> --%>
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_intro_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 -->
-<%--                     height=10> <A class=uportal-tab-text${nav_intro_selected} href="#" onclick='submitAction("frmNavigation","Intro", "clickIntro")'>${applicationScope.Introduction}</A><IMG alt="" src="pages/images/transparent.gif" width=10 --%>
-<!--                     height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_intro_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_intro_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-
-<!--             <td class=uportal-background-med noWrap align=left> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_product_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1></TD> -->
-<%--                   <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_product_active}_tab.gif" width=22 height=23></TD> --%>
-<!--                 </TR> -->
-<!--                 <TR> -->
-<%--                   <TD class=uportal-background-${nav_product_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_product_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickProduct")'>${applicationScope.Product}</A> --%>
-<!--                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_product_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_product_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-<!--             <td> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1></TD> -->
-<%--                   <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_service_active}_tab.gif" width=22 height=23></TD> --%>
-<!--                 </TR> -->
-<!--                 <TR> -->
-<%--                   <TD class=uportal-background-${nav_service_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_service_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickService")'>${applicationScope.Service}</A> --%>
-<!--                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_service_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_service_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-<!--               <td> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_member_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1  height=1></TD> -->
-<%--                   <TD class=uportal-background-med rowSpan=4 width=22><IMG alt="" src="pages/images/${nav_member_active}_tab.gif" width=22 height=23></TD> --%>
-<!--                 </TR> -->
-<!--                 <TR> -->
-<%--                   <TD class=uportal-background-${nav_member_dark_med} height=20 vAlign=center noWrap><IMG alt="" src="pages/images/transparent.gif" width=10 height=10><A class=uportal-tab-text${nav_member_selected} href="#" onclick='submitAction("frmNavigation","Navigation", "clickMember")'>${applicationScope.Member}</A> --%>
-<!--                     <IMG alt="" src="pages/images/transparent.gif" width=10 height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_member_dark_shadow} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-${nav_member_dark_highlight} noWrap><IMG alt="" src="pages/images/transparent.gif" width=1 height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-<!--             <td> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                   <TD class=uportal-background-med rowSpan=4 width=22><IMG -->
-<!--                     alt="" src="pages/images/after_inactive_tab.gif" -->
-<!--                     width=22 height=23></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-med height=20 -->
-<!--                     vAlign=center noWrap><IMG alt="" -->
-<!--                     src="pages/images/transparent.gif" width=10 -->
-<%--                     height=10> <A class=uportal-tab-text href="#">${applicationScope.Forum}</A><IMG alt="" src="pages/images/transparent.gif" --%>
-<!--                     width=10 height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-shadow noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-<!--             <td> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                   <TD class=uportal-background-med rowSpan=4 width=22><IMG -->
-<!--                     alt="" src="pages/images/after_inactive_tab.gif" -->
-<!--                     width=22 height=23></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-med height=20 -->
-<!--                     vAlign=center noWrap><IMG alt="" -->
-<!--                     src="pages/images/transparent.gif" width=10 -->
-<%--                     height=10> <A class=uportal-tab-text href="#">${applicationScope.Career}</A><IMG alt="" src="pages/images/transparent.gif" --%>
-<!--                     width=10 height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-shadow noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-<!--             <td> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                   <TD class=uportal-background-med rowSpan=4 width=22><IMG -->
-<!--                     alt="" src="pages/images/after_inactive_tab.gif" -->
-<!--                     width=22 height=23></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-med height=20 -->
-<!--                     vAlign=center noWrap><IMG alt="" -->
-<!--                     src="pages/images/transparent.gif" width=10 -->
-<%--                     height=10> <A class=uportal-tab-text href="#">${applicationScope.Activity}</A><IMG alt="" src="pages/images/transparent.gif" --%>
-<!--                     width=10 height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-shadow noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-<!--             <td> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                   <TD class=uportal-background-med rowSpan=4 width=22><IMG -->
-<!--                     alt="" src="pages/images/after_inactive_tab.gif" -->
-<!--                     width=22 height=23></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-med height=20 -->
-<!--                     vAlign=center noWrap><IMG alt="" -->
-<!--                     src="pages/images/transparent.gif" width=10 -->
-<%--                     height=10> <A class=uportal-tab-text href="#">${applicationScope.Project}</A><IMG alt="" src="pages/images/transparent.gif" --%>
-<!--                     width=10 height=10></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-shadow noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></td> -->
-<!--             <TD class=uportal-background-med width="100%" noWrap -->
-<!--               align="right"> -->
-<!--               <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%"> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-channel-text height=20 vAlign=center -->
-<%--                     align="right" noWrap>${applicationScope.NumberOfMember}: 60</TD> --%>
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-shadow noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--                 <TR> -->
-<!--                   <TD class=uportal-background-highlight noWrap><IMG -->
-<!--                     alt="" src="pages/images/transparent.gif" width=1 -->
-<!--                     height=1></TD> -->
-<!--                 </TR> -->
-<!--               </TABLE></TD> -->
-<!--           </tr> -->
-<!--         </table></td> -->
-<!--     </tr> -->
-<!--     </table> -->
-    </form>
+</form>

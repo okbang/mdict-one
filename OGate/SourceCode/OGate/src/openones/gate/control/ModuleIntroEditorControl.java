@@ -28,11 +28,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.BaseOutForm;
-import openones.corewa.control.BaseControl;
 import openones.gate.Cons;
-import openones.gate.intro.form.IntroListOutForm;
-import openones.gate.intro.form.IntroOutForm;
+import openones.gate.form.ModuleListOutForm;
+import openones.gate.form.TabModuleOutForm;
 import openones.gate.store.ModuleStore;
+import openones.gate.store.dto.ModuleContentDTO;
 import openones.gate.store.dto.ModuleDTO;
 import openones.gate.util.DtoUtil;
 import rocky.common.Constant;
@@ -43,44 +43,70 @@ import com.google.appengine.api.datastore.Text;
  * @author Thach Le
  *
  */
-public class ModuleIntroEditorControl extends BaseControl {
+public class ModuleIntroEditorControl extends OGateBaseControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
 
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("procInit.START");
-        IntroOutForm introOutForm = new IntroOutForm();
+        TabModuleOutForm tabModuleOutForm = new TabModuleOutForm();
 
-        String moduleId = "Get tabId";
-        ModuleDTO intro = ModuleStore.getLastModuleContent(moduleId );
-        String content = (intro != null ? intro.getStringContent() : Constant.BLANK);  
+        String moduleId = req.getParameter(K_TABID);
+        String tabKey = req.getParameter(K_TABKEY);
+        
+        LOG.finest("moduleId=" + moduleId + ";tabKey=" + tabKey);
+        Text moduleContent = ModuleStore.getLastModuleContent(moduleId);
+        String content = (moduleContent != null ? moduleContent.getValue() : Constant.BLANK);  
 
-        introOutForm.setContent(content);
-        outForm.putRequest("introForm", introOutForm);
+        tabModuleOutForm.setContent(content);
+        outForm.putRequest(K_TABMODULE, tabModuleOutForm);
+        outForm.putRequest(K_TABKEY, tabKey);
+        
+        // Store the the tabKey in the session
+        req.getSession().setAttribute(K_TABKEY, Long.valueOf(tabKey));
 
         LOG.finest("procInit.END");
         return outForm;
     }
 
+    /**
+     * Process to display Edit screen of content of Tab.
+     * @param req
+     * @param reqMap
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     public BaseOutForm edit(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("edit.START");
-        IntroOutForm introOutForm = new IntroOutForm();
+        TabModuleOutForm tabModuleOutForm = new TabModuleOutForm();
+        outForm = new BaseOutForm();
 
-        String moduleId = "Get tabId";
-        ModuleDTO intro = ModuleStore.getLastModuleContent(moduleId );
-        String content = (intro != null ? intro.getStringContent() : Constant.BLANK);  
+        String menuId = req.getParameter(K_MENUID);
+        Long tabKey = (Long) req.getSession().getAttribute(K_TABKEY);
+        String moduleId = menuId;
+        LOG.finest("menuId=" + menuId + ";tabKey=" + tabKey);
+        ModuleDTO tabModule = ModuleStore.getModuleByKey(tabKey);
         
-        // Keep the content in the out form
-        introOutForm.setContent(content);
+        Text tabModuleContent = ModuleStore.getLastModuleContent(moduleId);
+        String content = (tabModuleContent != null ? tabModuleContent.getValue() : Constant.BLANK);  
 
-        outForm.putRequest("introForm", introOutForm);
+        // Keep the content in the out form
+        tabModuleOutForm.setContent(content);
+
+        //setMainScreen("EditModuleIntro");
+        outForm.putRequest(K_TABMODULE, tabModuleOutForm);
+        outForm.putRequest(K_MENUID, moduleId);
+        outForm.putRequest(K_TABNAME, tabModule.getName());
+        //outForm.putRequest(K_TABKEY, tabKey);
 
         LOG.finest("edit.END");
         return outForm;
     }
-    
+
     /**
-     * .
+     * Process to save the content of Tab.
      * @param req
      * @param reqMap
      * @param resp
@@ -90,24 +116,26 @@ public class ModuleIntroEditorControl extends BaseControl {
      */
     public BaseOutForm save(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("save.START");
-        IntroOutForm introOutForm = new IntroOutForm();
+        TabModuleOutForm tabModuleOutForm = new TabModuleOutForm();
+        String content = (String) reqMap.get("content");
+        Long tabKey = (Long) req.getSession().getAttribute(K_TABKEY);
+        
+        LOG.info("tabKey=" + tabKey + ";content="  + content);
+        String tabModuleId = (String) reqMap.get(K_TABMODULEID);
+        String tabModuleName = (String) reqMap.get("tabModuleName");
 
-        LOG.info("content="  + reqMap.get("content"));
-        Text introContent = new Text((String) reqMap.get("content"));
-        ModuleDTO intro = new ModuleDTO("intro", "Intro", introContent);
-
-        if (ModuleStore.save(intro)) {
-            introOutForm.setSaveResult(Cons.ActResult.OK);
+        if (ModuleStore.saveContent(tabKey, new Text(content))) {
+            tabModuleOutForm.setSaveResult(Cons.ActResult.OK);
             //introOutForm.setKey("IntroSaveOk");
         } else {
-            introOutForm.setSaveResult(Cons.ActResult.FAIL);
+            tabModuleOutForm.setSaveResult(Cons.ActResult.FAIL);
             //introOutForm.setKey("IntroSaveFail");
         }
 
         // Keep the content in the out form
-        introOutForm.setContent(intro.getStringContent());
+        tabModuleOutForm.setContent(content);
 
-        outForm.putRequest("introForm", introOutForm);
+        outForm.putRequest(K_TABMODULE, tabModuleOutForm);
 
         LOG.finest("save.END");
         return outForm;
@@ -116,31 +144,50 @@ public class ModuleIntroEditorControl extends BaseControl {
     public BaseOutForm list(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("list.START");
 
-        List<ModuleDTO> moduleDTOList = ModuleStore.getModules();
-        LOG.info("moduleDTOList.size=" + moduleDTOList.size());
-        List<IntroOutForm> outFormList = DtoUtil.dto2IntroFormList(moduleDTOList);
+        // Get tabKey from the session
+        Long tabKey = (Long) req.getSession().getAttribute(K_TABKEY);
+
+        ModuleDTO module = ModuleStore.getModuleByKey(tabKey);
+
+        String moduleId = module.getId();
+
+        List<ModuleContentDTO> moduleConentList = ModuleStore.getModuleContents(moduleId);
+
+        LOG.info("moduleConentList.size=" + moduleConentList.size());
+        List<TabModuleOutForm> outFormList = DtoUtil.dto2TabModuleFormList(moduleConentList);
         LOG.info("outFormList.size=" + outFormList.size());
+
+        ModuleListOutForm moduleList = new ModuleListOutForm();
+        moduleList.setModuleType(module.getType() + Cons.UNDER_SCORE + module.getName());
+        moduleList.setModuleList(outFormList);
         
-        IntroListOutForm introList = new IntroListOutForm();
-        introList.setIntroList(outFormList);
-        outForm.putRequest("intro_outForm", introList);
+        outForm.putRequest("modules", moduleList);
 
         LOG.finest("list.END");
         return outForm;
     }
 
+    /**
+     * Delete content of Tab Module.
+     * @param req
+     * @param reqMap
+     * @param resp
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     public BaseOutForm delete(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("delete.START");
         String contentId = (String) reqMap.get("contentId");
         Long contentKey = Long.valueOf(contentId);
-        
-        if (ModuleStore.delete(contentKey)) {
+
+        if (ModuleStore.deleteContent(contentKey)) {
             outForm.putRequest("deleteResult", "OK");
         } else {
             outForm.putRequest("deleteResult", "FAIL");
         }
         LOG.finest("delete.END");
-        
+
         // refresh the list
         return list(req, reqMap, resp);
     }

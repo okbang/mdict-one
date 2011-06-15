@@ -21,14 +21,16 @@ package openones.gate.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import openones.gate.form.TabModuleOutForm;
 import openones.gate.form.setting.TabForm;
-import openones.gate.intro.form.IntroOutForm;
+import openones.gate.store.dto.ModuleContentDTO;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
 import rocky.common.Constant;
 
 /**
  * This class provides utilities to manipulate the entities, forms.
+ * 
  * @author Thach Le
  */
 public class DtoUtil {
@@ -39,9 +41,10 @@ public class DtoUtil {
      * @param dto entity of Introduction
      * @return formatted data form
      */
-    public static IntroOutForm dto2IntroForm(ModuleDTO dto) {
-        IntroOutForm form = new IntroOutForm();
+    public static TabModuleOutForm dto2IntroForm(ModuleDTO dto) {
+        TabModuleOutForm form = new TabModuleOutForm();
 
+        form.setType(dto.getType());
         form.setContent(dto.getStringContent());
         form.setKey(String.valueOf(dto.getKey()));
         if (dto.getCreated() != null) {
@@ -57,8 +60,8 @@ public class DtoUtil {
      * @param dtoList list of entity Introduction
      * @return list of formatted Introduction data
      */
-    public static List<IntroOutForm> dto2IntroFormList(List<ModuleDTO> dtoList) {
-        List<IntroOutForm> formList = new ArrayList<IntroOutForm>();
+    public static List<TabModuleOutForm> dto2IntroFormList(List<ModuleDTO> dtoList) {
+        List<TabModuleOutForm> formList = new ArrayList<TabModuleOutForm>();
 
         for (ModuleDTO dto : dtoList) {
             formList.add(dto2IntroForm(dto));
@@ -68,7 +71,7 @@ public class DtoUtil {
     }
 
     public static TabForm dto2TabForm(ModuleDTO dto) {
-        openones.gate.form.setting.TabForm form = new TabForm(dto.getName());
+        TabForm form = new TabForm(dto.getName());
 
         return form;
     }
@@ -81,5 +84,37 @@ public class DtoUtil {
         }
 
         return formList;
+    }
+
+    /**
+     * [Give the description for method].
+     * @param moduleConentList
+     * @return
+     */
+    public static List<TabModuleOutForm> dto2TabModuleFormList(List<ModuleContentDTO> moduleConentList) {
+        List<TabModuleOutForm> formList = new ArrayList<TabModuleOutForm>();
+
+        for (ModuleContentDTO dto : moduleConentList) {
+            formList.add(dto2ModuleConentForm(dto));
+        }
+
+        return formList;
+    }
+
+    /**
+     * [Give the description for method].
+     * @param dto
+     * @return
+     */
+    private static TabModuleOutForm dto2ModuleConentForm(ModuleContentDTO dto) {
+        TabModuleOutForm form = new TabModuleOutForm();
+
+        form.setContent(dto.getContent().getValue());
+        form.setKey(String.valueOf(dto.getKey()));
+        if (dto.getCreated() != null) {
+            form.setCreated(CommonUtil.formatDate(dto.getCreated(), Constant.DEF_DATEFMT));
+        }
+
+        return form;
     }
 }

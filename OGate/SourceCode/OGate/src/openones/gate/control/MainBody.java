@@ -28,12 +28,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import openones.gate.store.ModuleStore;
-import openones.gate.store.dto.ModuleDTO;
 import rocky.common.Constant;
+
+import com.google.appengine.api.datastore.Text;
 
 /**
  * @author ThachLN
- *
  */
 public class MainBody extends HttpServlet {
     final static Logger LOG = Logger.getLogger("MainBody");
@@ -43,24 +43,24 @@ public class MainBody extends HttpServlet {
         String eventId = req.getParameter("eventId");
         String tabId = req.getParameter("tabId");
         LOG.info("screenId=" + screenId + ";eventId=" + eventId + ";tabId=" + tabId);
-        
+
         // Click on left menu
-//        if ("selectItem".equals(eventId)) {
-//            String menuId = req.getParameter("menuId");
-//            processMenu(screenId, menuId, req, resp);
-//        } else if ("tabId".equals(eventId)) {
-//            processTab(screenId, tabId, req, resp);
-//        }
-        
+        // if ("selectItem".equals(eventId)) {
+        // String menuId = req.getParameter("menuId");
+        // processMenu(screenId, menuId, req, resp);
+        // } else if ("tabId".equals(eventId)) {
+        // processTab(screenId, tabId, req, resp);
+        // }
+
         resp.setContentType("text/html");
-        
-        String moduleId = "Get tabId";
-        ModuleDTO modInfo = ModuleStore.getLastModuleContent(moduleId );
-        String content = (modInfo != null ? modInfo.getStringContent() : Constant.BLANK);  
+
+        String moduleId = tabId;
+        Text tabContent = ModuleStore.getLastModuleContent(moduleId);
+        String content = (tabContent != null) ? tabContent.getValue() : Constant.BLANK;
         LOG.info("content=" + content);
         PrintWriter out = resp.getWriter();
-        
+
         out.print(content);
     }
-    
+
 }

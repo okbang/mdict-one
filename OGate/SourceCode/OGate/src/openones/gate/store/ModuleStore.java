@@ -27,13 +27,18 @@ import javax.jdo.Query;
 
 import openones.gaecore.PMF;
 import openones.gate.biz.SessionBiz;
+import openones.gate.store.dto.ModuleContentDTO;
 import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
+
+import com.google.appengine.api.datastore.Text;
 
 /**
  * @author ThachLN
  */
 public class ModuleStore {
+    /**  . */
+    private static final int MAX_RECS = 5;
     final static Logger LOG = Logger.getLogger("ModuleStore");
     //final static String MOD_ID = "intro";
 
@@ -52,29 +57,83 @@ public class ModuleStore {
     }
 
     /**
+     * Save/Update the content of Tab Module.
+     * @param key
+     * @param tabContent
+     * @return
+     */
+    public static boolean saveContent(Long key, Text tabContent) {
+        // Get instance of Module. Module Id is used
+        ModuleDTO moduleDTO = (ModuleDTO) PMF.getObjectByKey(key, ModuleDTO.class);
+
+        ModuleContentDTO moduleContentDTO = new ModuleContentDTO();
+        moduleContentDTO.setModuleId(moduleDTO.getId());
+        moduleContentDTO.setContent(tabContent);
+
+        moduleContentDTO.setCreated(new Date()); // set current Date
+        if (SessionBiz.getLogonUser() != null) {
+            moduleContentDTO.setCreatedBy(SessionBiz.getLogonUser().getEmail());
+        }
+
+        PMF.save(moduleContentDTO);
+
+        return true;
+    }
+
+    /**
      * [Give the description for method].
      * 
      * @return
      */
-    public static ModuleDTO getLastModuleContent(String moduleId) {
+    public static Text getLastModuleContent(String moduleId) {
         PersistenceManager pm = PMF.get().getPersistenceManager();
 
         // Get top 5 newest contents
-        String query = "select from " + ModuleDTO.class.getName() + " order by created desc range 0,5";
+        //String query = "select from " + ModuleDTO.class.getName() + " order by created desc range 0,5";
+        
+        Query query =  pm.newQuery("select content from " + ModuleContentDTO.class.getName() );
+        query.setOrdering("created desc");
+        query.setRange(0, MAX_RECS);
+        query.declareParameters("String moduleIdParam");
+        query.setFilter("moduleId == moduleIdParam");
 
-        // Query query = pm.newQuery(ModuleDTO.class);
-        // query.setOrdering("created descending");
-        // List<ModuleDTO> introList = (List<ModuleDTO>) query.execute();
+        try {
+            List<Text> modContentList = (List<Text>) query.execute(moduleId);
 
-        List<ModuleDTO> modList = (List<ModuleDTO>) pm.newQuery(query).execute();
-
-//        if (CommonUtil.isNNandNB(modList)) {
-//            //System.out.println("content=" + modList.get(0).getContent());
-//        }
-        return (CommonUtil.isNNandNB(modList) ? modList.get(0) : null);
-        //return (CommonUtil.isNNandNB(modList) ? modList.get(0).getStringContent() : Constant.BLANK);
+            if (modContentList.isEmpty()) {
+                return null;
+            } else {
+                return modContentList.get(0);
+            }
+        } finally {
+            query.closeAll();
+        }
     }
 
+    public static List<Text> getModuleContent(String moduleId) {
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+
+        // Get top 5 newest contents
+        //String query = "select from " + ModuleDTO.class.getName() + " order by created desc range 0,5";
+        Query query =  pm.newQuery("select content from " + ModuleDTO.class.getName());
+        query.setFilter("type == 'Tab'");
+        query.setOrdering("order by created desc");
+        query.setRange(0, MAX_RECS);
+        query.declareParameters("String moduleIdParam");
+        query.setFilter("id == moduleIdParam");
+
+        try {
+            List<Text> modList = (List<Text>) query.execute(moduleId);
+
+           return modList;
+        } finally {
+            query.closeAll();
+        }
+    }
+
+    public static ModuleDTO getTabModuleByKey(Long key) {
+        return (ModuleDTO) PMF.getObjectByKey(key, ModuleDTO.class);
+    }
     /**
      * Get all modules of tab.
      * @return
@@ -90,43 +149,8 @@ public class ModuleStore {
                                                                    PMF.NO_PARAM, ordering , new Object[]{});
 
         return modList;
-        
-//        ModuleDTO intro = new ModuleDTO("intro", "Intro", new Text("This is the content of Introduction tab"));
-//        intro.setOrder(1);
-//        
-//        ModuleDTO product = new ModuleDTO("product", "Product", new Text("This is the content of Product tab"));
-//        product.setOrder(2);
-//        
-//        ModuleDTO service = new ModuleDTO("service", "Service", new Text("This is the content of service tab"));
-//        service.setOrder(3);
-//        
-//        ModuleDTO member = new ModuleDTO("member", "Member", new Text("This is the content of member tab"));
-//        member.setOrder(4);
-//        
-//        ModuleDTO forum = new ModuleDTO("forum", "Forum", new Text("This is the content of forum tab"));
-//        forum.setOrder(5);
-//        
-//        ModuleDTO career = new ModuleDTO("career", "Career", new Text("This is the content of career tab"));
-//        career.setOrder(6);
-//        
-//        ModuleDTO activity = new ModuleDTO("activity", "Activity", new Text("This is the content of activity tab"));
-//        activity.setOrder(7);
-//        
-//        ModuleDTO project = new ModuleDTO("project", "Project", new Text("This is the content of project tab"));
-//        project.setOrder(8);
-//        
-//        moduleList.add(intro);
-//        moduleList.add(product);
-//        moduleList.add(service);
-//        moduleList.add(member);
-//        moduleList.add(forum);
-//        moduleList.add(career);
-//        moduleList.add(activity);
-//        moduleList.add(project);
-//        
-//        return moduleList;
     }
-    
+
     /**
      * Get all modules.
      * @return
@@ -200,6 +224,13 @@ public class ModuleStore {
         return modList;
     }
 
+    public static boolean deleteContent(Long contentKey) {
+        if (contentKey == -1) { // Delete all
+            return PMF.deleteAll(ModuleContentDTO.class);
+        } else {
+            return PMF.delete(contentKey, ModuleContentDTO.class);
+        }
+    }
     /**
      * @param contentKey
      * @return
@@ -214,5 +245,59 @@ public class ModuleStore {
 
     public static boolean delete(ModuleDTO module) {
         return PMF.delete(module.getKey(), ModuleDTO.class);
+    }
+
+    /**
+     * Update information of ModuleDTO.
+     * Current support: update orderNo
+     * @param updateTabModule
+     */
+    public static void update(ModuleDTO updateTabModule) {
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+            ModuleDTO module = pm.getObjectById(ModuleDTO.class, updateTabModule.getKey());
+            
+            if (updateTabModule.getOrderNo() != module.getOrderNo()) {
+                module.setOrderNo(updateTabModule.getOrderNo());
+            }
+            
+            module.setManagers(updateTabModule.getManagers());
+        } finally {
+            pm.close();
+        }
+    }
+
+    /**
+     * [Give the description for method].
+     * @param tabKey
+     * @return
+     */
+    public static ModuleDTO getModuleByKey(Long key) {
+        return (ModuleDTO) PMF.getObjectByKey(key, ModuleDTO.class);
+    }
+
+    /**
+     * [Give the description for method].
+     * @param moduleId
+     * @return
+     */
+    public static List<ModuleContentDTO> getModuleContents(String moduleId) {
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+
+        // Get top 5 newest contents
+        //String query = "select from " + ModuleDTO.class.getName() + " order by created desc range 0,5";
+        Query query =  pm.newQuery(ModuleContentDTO.class);
+        query.setOrdering("created desc");
+        query.setRange(0, MAX_RECS);
+        query.declareParameters("String moduleIdParam");
+        query.setFilter("moduleId == moduleIdParam");
+
+        try {
+            List<ModuleContentDTO> modContentList = (List<ModuleContentDTO>) query.execute(moduleId);
+
+            return modContentList;
+        } finally {
+            query.closeAll();
+        }
     }
 }

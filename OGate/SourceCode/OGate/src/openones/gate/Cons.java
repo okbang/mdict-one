@@ -19,20 +19,27 @@
 package openones.gate;
 
 /**
- * @author ThachLN
- *
+ * @author Thach Le
  */
-public class Cons {
+public final class Cons {
     final static public String SK_USER = "user";
     final static public String SK_NMLOGON_USER = "nmLogonUser";
     public static final String SK_NEXTPAGE = "nextPage";
     public static final String SK_LANG = "lang";
-    
+
     public static enum ActResult {
         OK, FAIL
     };
-    
+
     public static enum Screens {
         TabSetting, AccSetting, LangSetting
+    }
+
+    public static final String TAB_MANAGER_SEPARATOR = ":";
+    public static final Object EMAIL_MANAGER_SEPARATOR = ";";
+    public static final String UNDER_SCORE = "_";
+    
+    public static enum ModuleType {
+        Tab
     }
 }

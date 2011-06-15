@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <form name="frmMenu" action="menu.do" method="post">
   <input type="hidden" name="screenId" value="Menu"/>
   <input type="hidden" name="eventId" value=""/>
   <input type="hidden" name="menuId" value=""/>
+  <input type="hidden" name="tabKey" value=""/>
 
 <DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 400px; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
 <DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west class=x-layout-active-content>
@@ -35,18 +38,17 @@
 <DIV id=accpanel>
 <DIV id=accpanel-header class=selected title=pages/images/package.gif>Nội dung tab</DIV>
  <DIV id=accpanel-content class="x-dock-panel-body x-dock-panel-body-expanded">
-  <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "selectItem", "intro")' title="Chọn">Giới thiệu</A>
-  <A class=linkitem href="res/service.htm">Dịch vụ</A>
-  <A class=linkitem href="res/activity.htm">Hoạt động</A>
-  <A class=linkitem href="res/member.htm">Thành viên</A> 
+  <c:forEach var="tab" items="${moduleTabs}">
+    <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "selectItem", "${tab.id}", "${tab.key}")' title="${tab.name}">${tab.name}</A>
+  </c:forEach>
  </DIV>
 </DIV>
 <DIV id=accpanel2>
  <DIV id=accpanel2-header title=pages/images/wrench.gif>Cấu hình chung</DIV>  
  <DIV id=accpanel2-content class="x-dock-panel-body x-dock-panel-body-expanded">
-   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciTabSetting", "tabSetting")' title="Cấu hình các thanh tab">Hệ thống tab</A>
-   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciAccSetting", "accSetting")' title="Thiết lập quyền để quản lý các module">Tài khoản quản trị</A>
-   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciLangSetting", "langSetting")' title="Cấu hình ngôn ngữ">Ngôn ngữ</A>
+   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciTabSetting", "tabSetting", "tabSetting")' title="Cấu hình các thanh tab">Hệ thống tab</A>
+   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciAccSetting", "accSetting", "tabSetting")' title="Thiết lập quyền để quản lý các module">Tài khoản quản trị</A>
+   <A class=linkitem href="/" onclick='submitMenu("frmMenu","Menu", "ciLangSetting", "langSetting", "tabSetting")' title="Cấu hình ngôn ngữ">Ngôn ngữ</A>
  </DIV>
 </DIV>
 <DIV id=accpanel3>

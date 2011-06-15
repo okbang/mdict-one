@@ -22,6 +22,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import openones.gate.Cons;
+import rocky.common.CommonUtil;
+
 /**
  * @author Thach Le
  */
@@ -29,7 +32,7 @@ public class TabForm implements Serializable {
     private String name;
 
     /** List of email address can manage the tab. */
-    private List<String> emailMangers = new ArrayList<String>();
+    private List<String> emailManagers = new ArrayList<String>();
 
     private Long key;
 
@@ -55,22 +58,38 @@ public class TabForm implements Serializable {
      * @return true if the emailAddr has not existed in the list.
      */
     public boolean addManager(String emailAddr) {
-        if (emailMangers.contains(emailAddr)) {
+        if (emailManagers.contains(emailAddr)) {
             return false;
         } else {
-            emailMangers.add(emailAddr);
+            emailManagers.add(emailAddr);
             return true;
         }
     }
 
-    public List<String> getEmailMangers() {
-        return emailMangers;
+    public List<String> getEmailManagers() {
+        return emailManagers;
     }
 
-    public void setEmailMangers(List<String> emailMangers) {
-        this.emailMangers = emailMangers;
+    public void setEmailManagers(List<String> emailManagers) {
+        this.emailManagers = emailManagers;
     }
 
+    public String getEmailManagersByString() {
+        StringBuffer buffer = null;
+        if (CommonUtil.isNNandNB(emailManagers)) {
+            for (String emailManager : emailManagers) {
+                if (buffer == null) {
+                    buffer = new StringBuffer(emailManager);
+                } else {
+                    buffer.append(Cons.EMAIL_MANAGER_SEPARATOR).append(emailManager);
+                }
+            }
+        } else {
+            buffer = new StringBuffer();
+        }
+
+        return buffer.toString();
+    }
     /**
      * [Give the description for method].
      * @param key

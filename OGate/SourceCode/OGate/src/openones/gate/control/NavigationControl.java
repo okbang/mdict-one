@@ -29,9 +29,8 @@ import openones.corewa.BaseOutForm;
 
 /**
  * @author Thach Le
- * 
  */
-public class NavigationControl extends LayoutControl {
+public class NavigationControl extends OGateBaseControl {
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         outForm = super.procInit(req, resp);
@@ -45,11 +44,12 @@ public class NavigationControl extends LayoutControl {
     public BaseOutForm selectTab(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String screenId = req.getParameter("screenId");
         String eventId = req.getParameter("eventId");
-        String tabId = req.getParameter("tabId");
-        
+        String tabId = req.getParameter(K_TABID);
+
         LOG.info("selectTab.START:screenId=" + screenId + ";eventId=" + eventId + ";tabId=" + tabId);
 
         setMainScreen(tabId);
+        outForm.putRequest(K_TABID, tabId);
         return outForm;
     }
     

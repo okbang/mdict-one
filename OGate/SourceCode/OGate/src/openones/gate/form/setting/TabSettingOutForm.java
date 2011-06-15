@@ -20,6 +20,8 @@ package openones.gate.form.setting;
 
 import java.util.ArrayList;
 
+import openones.gate.Cons;
+
 /**
  * @author Thach Le
  */
@@ -31,4 +33,25 @@ public class TabSettingOutForm extends TabSettingForm {
 
         tabFormList.add(tabForm);
     }
+
+    
+    /** 
+     * Build string of all email managers of all tabs.
+     * Ex: m1@tab1;m2@tab1 : m1@tab2;m2@tab2
+     * @return String of all email managers of all tabs. 
+     */
+    @Override
+    public String getManagersOfTab() {
+        StringBuffer buffer = null;
+        for (TabForm tabForm : this.tabFormList) {
+            if (buffer == null) {
+                buffer = new StringBuffer(tabForm.getEmailManagersByString());
+            } else {
+                buffer.append(Cons.TAB_MANAGER_SEPARATOR).append(tabForm.getEmailManagersByString());
+            }
+        }
+        
+        return buffer.toString();
+    }
+
 }
