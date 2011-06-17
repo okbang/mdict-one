@@ -1,3 +1,4 @@
+<%@page import="openones.gate.util.GUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%--set some common properties (new version)--%>
@@ -230,15 +231,39 @@
                                 </tr>
                                 </table>
                                 </td>
+               
                                                 <%--/code --%>
                                             </c:otherwise>
                                         </c:choose>
                                     </c:otherwise>
                                 </c:choose>
                             </c:otherwise>
-                        </c:choose>                                
-                    </c:forEach>                                                                                                       
-                </tr>      
+                        </c:choose>  
+                                                      
+                    </c:forEach>  
+              <TD class=uportal-background-med width="100%" noWrap align="right">
+              <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG
+                    alt="" src="pages/images/transparent.gif" width=1
+                    height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-channel-text height=20 vAlign=center
+                    align="right" noWrap>${applicationScope.NumberOfMember}: <%= GUtil.getNumOfMemeber("http://groups.google.com/group/open-ones") %></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-shadow noWrap><IMG
+                    alt="" src="pages/images/transparent.gif" width=1
+                    height=1></TD>
+                </TR>
+                <TR>
+                  <TD class=uportal-background-highlight noWrap><IMG
+                    alt="" src="pages/images/transparent.gif" width=1
+                    height=1></TD>
+                </TR>
+              </TABLE></TD>                                                                                                     
+                </tr> 
             </table>
         </td>
     </tr>

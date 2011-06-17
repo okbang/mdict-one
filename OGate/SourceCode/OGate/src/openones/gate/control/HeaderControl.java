@@ -30,7 +30,6 @@ import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
 import openones.corewa.ReqUtil;
-import openones.corewa.res.DefaultRes;
 import openones.gate.Cons;
 import openones.gate.header.form.HeaderInForm;
 import openones.gate.header.form.HeaderOutForm;
