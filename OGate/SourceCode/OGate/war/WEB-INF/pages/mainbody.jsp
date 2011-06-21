@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <input type="hidden" name="ogate_debug" value="ScreenId=${screenId}; Main screen: ${MainScreen}; eventId=${eventId}; tabKey=${tabKey}; tabId=${tabId}; menuId=${menuId}"/>
-<c:if test='${empty MainScreen}'>
+<c:if test='${(empty MainScreen) && (empty menuId)}'>
   <%-- Display the content of the tab by invoke the servlet url "/mainbody.mod" --%>
     <jsp:include page="/mainbody.mod" flush="true">
       <jsp:param name="tabId" value="Intro" />
