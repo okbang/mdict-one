@@ -97,4 +97,22 @@ public class MenuControl extends OGateBaseControl {
 
         return outForm;
     }
+    
+    public BaseOutForm changeLayoutItem(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp)
+            throws ServletException, IOException {
+        LOG.finest("procItem.START");
+        outForm = new BaseOutForm();
+        // MenuId = selected tab module id
+        String menuId = (String) reqMap.get(K_MENUID);
+        String moduleId = (String) reqMap.get(K_MODULEID);
+
+        LOG.finest("Selected menuId=" + menuId + ";moduleId=" + moduleId);
+        setMainScreen("ChangeLayoutContent");
+
+        outForm.putRequest(K_MENUID, menuId);
+        //List<Text> moduleContents = ModuleStore.getModuleContent(Cons.ModuleType.Layout.toString(), moduleId);
+        //outForm.putRequest(K_TABMODULE, tabModule);
+
+        return outForm;
+    }
 }

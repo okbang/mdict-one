@@ -38,8 +38,10 @@ public final class Cons {
     public static final String TAB_MANAGER_SEPARATOR = ":";
     public static final Object EMAIL_MANAGER_SEPARATOR = ";";
     public static final String UNDER_SCORE = "_";
+    public static final String DEF_LANGCD = "vn";
+    public static final String HYPHEN = "-";
     
     public static enum ModuleType {
-        Tab
+        Tab, Layout
     }
 }

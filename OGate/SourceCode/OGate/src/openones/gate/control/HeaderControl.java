@@ -93,48 +93,51 @@ public class HeaderControl extends LayoutControl {
     public BaseOutForm changeLanguage(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("changeLanguage.START");
         HeaderOutForm headerOutForm = new HeaderOutForm();
-        
-        for (Object key: reqMap.keySet()) {
+
+        for (Object key : reqMap.keySet()) {
             LOG.info(key + "=" + reqMap.get(key));
         }
         HeaderInForm headerInForm = (HeaderInForm) ReqUtil.getData(reqMap, HeaderInForm.class);
         String selectedLang = headerInForm.getLang();
-        
+
         // Keep the selected language
         headerOutForm.setSelectedLang(selectedLang);
-        
+
         LOG.info("Selected language:" + selectedLang);
         outForm.putRequest("outForm", headerOutForm);
-        
+
         // Keep language name into the session.
         outForm.putSession(Cons.SK_LANG, selectedLang);
-        
+
         LOG.info("Reload the resource of language code " + headerOutForm.getLangCd(selectedLang));
-        
+
         String langCd = headerOutForm.getLangCd(selectedLang);
         LOG.info("Loading resource for language " + langCd + ";" + selectedLang);
+
+        // Save the language code into the session
+        req.getSession().setAttribute(K_LANGCD, langCd);
         reloadResource(langCd);
-        
+
         return outForm;
     }
 
     
-    public BaseOutForm changeLanguage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        LOG.finest("changeLanguage.START");
-        HeaderOutForm headerOutForm = new HeaderOutForm();
-        
-        String selectedLang = req.getParameter("lang");
-        
-        headerOutForm.setSelectedLang(selectedLang);
-        
-        LOG.info("Selected language:" + selectedLang);
-        outForm.putRequest("outForm", headerOutForm);
-        
-        LOG.info("Reload the resource of language code " + headerOutForm.getLangCd(selectedLang));
-        reloadResource(headerOutForm.getLangCd(selectedLang));
-        
-        return outForm;
-    }   
+//    public BaseOutForm changeLanguage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        LOG.finest("changeLanguage.START");
+//        HeaderOutForm headerOutForm = new HeaderOutForm();
+//        
+//        String selectedLang = req.getParameter("lang");
+//        
+//        headerOutForm.setSelectedLang(selectedLang);
+//        
+//        LOG.info("Selected language:" + selectedLang);
+//        outForm.putRequest("outForm", headerOutForm);
+//        
+//        LOG.info("Reload the resource of language code " + headerOutForm.getLangCd(selectedLang));
+//        reloadResource(headerOutForm.getLangCd(selectedLang));
+//        
+//        return outForm;
+//    }   
 
     /**
      * Setting configuration for the application.

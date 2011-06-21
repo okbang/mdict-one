@@ -20,9 +20,12 @@ package openones.gate.biz.setting;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
+import openones.gate.Cons;
 import openones.gate.form.setting.TabForm;
 import openones.gate.form.setting.TabSettingForm;
 import openones.gate.form.setting.TabSettingOutForm;
@@ -41,16 +44,26 @@ public class TabBiz {
      * @param form
      * @return
      */
-    public static boolean save(TabSettingForm form) {
+    public static boolean save(TabSettingForm form, String langCd) {
         // Get all module of tab
-        List<ModuleDTO> tabModules = ModuleStore.getTabModules();
+        List<ModuleDTO> tabModules = ModuleStore.getModules(Cons.ModuleType.Tab.toString(), langCd);
 
         // Convert string of key "N,N,..." into the list
+        if (form.getTabKeys() == null) { // remove all tab
+            //ModuleStore.deleteAll(Cons.ModuleType.Tab.toString());
+            for (ModuleDTO tabModule : tabModules) {
+                LOG.finest("Delete Tab Module " + tabModule.getKey());
+                ModuleStore.delete(tabModule);
+            }
+            
+            return true;
+        }
         String[] tabKeys = form.getTabKeys().split(",");
         List<String> tabKeyList = Arrays.asList(tabKeys);
 
-     // If tab form the form is not existed in tabModules. It means the tab will be deleted.
+        // If tab form the form is not existed in tabModules. It means the tab will be deleted.
         for (ModuleDTO tabModule : tabModules) {
+            LOG.finest("Check tab key:" + tabModule.getKey().toString());
             if (!tabKeyList.contains(tabModule.getKey().toString())) {
                 LOG.finest("Delete Tab Module " + tabModule.getKey());
                 // Delete tabForm from the tabModules
@@ -63,6 +76,7 @@ public class TabBiz {
         // Insert new tab
         int len = (tabKeys != null? tabKeys.length: -1);
         String tabKey;
+        TabForm tab;
         for (int i = 0; i < len; i++) {
             tabKey= tabKeys[i];
         //for (String tabKey : tabKeys) {
@@ -82,7 +96,8 @@ public class TabBiz {
             if (isNew) {
                 LOG.finest("tabKey=" + tabKey + " is new." + ";managers=" + form.getManagerAtTab(i));
                 String tabName = tabKey;
-                saveTabModule(tabKey, tabName, form.getManagerAtTab(i));
+                tab = form.getTabByCode(tabKey);
+                saveTabModule(tabKey, tab.getName(), form.getManagerAtTab(i));
             } else { // Update
                 LOG.finest("Update tab '" + updateTabModule.getName() + "', key=" + updateTabModule.getKey()
                         + " with orderNo=" + i + ";managers=" + form.getManagerAtTab(i));
@@ -108,10 +123,10 @@ public class TabBiz {
      * [Give the description for method].
      * @param tabKey
      */
-    private static void saveTabModule(String key, String name, String emailManagers) {
+    private static void saveTabModule(String moduleId, String name, String emailManagers) {
         // Add new tab form
-        ModuleDTO module = new ModuleDTO(key, name, "This is the context of the tab.");
-        module.setType("Tab");
+        ModuleDTO module = new ModuleDTO(moduleId, name, "This is the context of the tab.");
+        module.setType(Cons.ModuleType.Tab.toString());
         module.setManagers(emailManagers);
 
         ModuleStore.save(module);
@@ -122,20 +137,20 @@ public class TabBiz {
      * 
      * @return
      */
-    public static TabSettingOutForm getTabs() {
-        List<ModuleDTO> moduleList = ModuleStore.getTabModules();
+    public static TabSettingOutForm getTabs(String langCd) {
+        List<ModuleDTO> moduleList = ModuleStore.getModules(Cons.ModuleType.Tab.toString(), langCd);
         TabSettingOutForm outForm = new TabSettingOutForm();
-        List<TabForm> tabFormList = new ArrayList<TabForm>();
+        Map<String, TabForm> tabFormMap = new HashMap<String, TabForm>();
         TabForm tabForm;
         for (ModuleDTO module : moduleList) {
-            tabForm = new TabForm(module.getName());
+            tabForm = new TabForm(module.getId(), module.getName());
             tabForm.setEmailManagers(module.getManagers());
             tabForm.setKey(module.getKey());
 
-            tabFormList.add(tabForm);
+            tabFormMap.put(tabForm.getCode(), tabForm);
         }
 
-        outForm.setTabFormList(tabFormList);
+        outForm.setTabFormMap(tabFormMap);
         return outForm;
     }
 

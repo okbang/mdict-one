@@ -43,7 +43,7 @@ Contains:
     <tr>
       <td width="10%" rowspan="3"><a href="/"><img border="0" src="pages/images/oog_logo.png" width="150" height="75"></a>
       </td>
-      <td width="38%" rowspan="2">${applicationScope.ShareAssociateDevelopIdea}
+      <td width="38%" rowspan="2"><H2>${applicationScope.ShareAssociateDevelopIdea}</H2>
       </td>
       <td width="38%" rowspan="2">${applicationScope.sponsorList}</td>
       <td class=uportal-channel-text width="14%" nowrap="nowrap" align=right>
@@ -76,7 +76,7 @@ Contains:
     </tr>
     <tr>
       <td colspan="3">
-        <!-- Hot news --> <marquee>Tin mới</marquee></td>
+        <!-- Hot news --> <marquee>Khóa học "Thực hành phát triển phần mềm"" kết thúc trong tháng 6/2011. Số lượng 30. Đối tượng: Giảng viên CNTT. Điểm phản hồi trung bình 4.3/5 - Tốt.</marquee></td>
     </tr>
   </table>
 </form>

@@ -6,6 +6,7 @@
   <input type="hidden" name="eventId" value=""/>
   <input type="hidden" name="menuId" value=""/>
   <input type="hidden" name="tabKey" value=""/>
+  <input type="hidden" name="moduleId" value=""/>
 
 <DIV style="POSITION: absolute; WIDTH: 208px; HEIGHT: 400px; TOP: 100px; LEFT: 0px" id=leftPanel class="x-layout-panel x-layout-panel-west x-layout-panel-body">
 <DIV style="WIDTH: 208px; HEIGHT: 100%; OVERFLOW: visible" id=west class=x-layout-active-content>
@@ -54,14 +55,14 @@
 <DIV id=accpanel3>
  <DIV id=accpanel3-header title=pages/images/layout.gif>Layout</DIV>  
  <DIV id=accpanel3-content class="x-dock-panel-body x-dock-panel-body-expanded">
-   <A class=linkitem href="res/logo.htm">Logo</A>
-   <A class=linkitem href="res/slogan.htm">Slogan</A>
-   <A class=linkitem href="res/sponsor.htm">Đơn vị tài trợ</A>
-   <A class=linkitem href="res/hotnews.htm">Tin nổi bật</A>
-   <A class=linkitem href="res/leftadv.htm">Quảng cáo bên trái</A>
-   <A class=linkitem href="res/link.htm">Liên kết</A>
-   <A class=linkitem href="res/rightadv.htm">Quảng cáo bên phải</A>
-   
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeLogo", "moduleLogo", "Logo")' title="Cấu hình logo">Logo</A>
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeSlogan", "moduleSlogan", "Sologan")' title="Cấu hình Slogan">Slogan</A>
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeSponsor", "moduleSponsor", "Sponsor")' title="Cập nhật đơn vị tài trợ">Đơn vị tài trợ</A>
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeHotNews", "moduleHotNews", "HostNew")' title="Cập nhật tin nổi bật">Tin nổi bật</A>
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeLeftAdv", "moduleLeftAdv", "LeftAdv")' title="Cập nhật quảng cáo bên trái">Quảng cáo bên trái</A>
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeLink", "moduleLink", "Link")' title="Cập nhật liên kết">Liên kết</A>
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeRightAdv", "moduleRightAdv", "RightAdv")' title="Cập nhật quảng cáo bên phải">Quảng cáo bên phải</A>
+   <A class=linkitem href="/" onclick='submitMenuLayout("frmMenu","PartEdit", "changeFooter", "moduleFooter", "Footer")' title="Cập nhật footer">Cập nhật footer</A>
  </DIV>
 </DIV>
 

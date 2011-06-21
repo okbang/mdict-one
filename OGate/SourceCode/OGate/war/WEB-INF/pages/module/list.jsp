@@ -31,10 +31,15 @@ function submitDelete(frmName, screenId, eventId, contentId) {
 </table>
 <%-- Save contentId will be deleted --%>
 <input type="hidden" name="contentId"/>
+Tab information:<br/>
+Module Type: ${modules.module.type}<br/>
+ModuleId (or Tab Code): ${modules.module.id}<br/>
+Tab Name: ${modules.module.name}<br/>
+
 <b>Danh sách các modules:</b>
 <table border="1" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-    <td>No.</td><td>Type</td> <td>Date</td> <td>Content</td>
+    <td width="10px" nowrap="nowrap">No.</td><td>Type</td> <td>Date</td> <td>Content</td><td>LangCode</td>
     <td>
       <a href="#" title="Xóa tất cả" onclick='submitDelete("frmModuleEdit","ModuleIntroEditor", "delete", "-1")'><img border="0" src="pages/images/DeleteAll.gif" width="18" height="18"></a>
     </td>
@@ -44,9 +49,10 @@ function submitDelete(frmName, screenId, eventId, contentId) {
     <c:forEach var="module" items="${modules.moduleList}">
      <tr>
        <td>&nbsp;</td>
-       <td>${modules.moduleType}</td>
+       <td>&nbsp;</td>
        <td>${module.created}</td>
        <td>${module.content}</td>
+       <td>${module.lang}</td>
        <td><a href="#" onclick='submitDelete("frmModuleEdit","ModuleIntroEditor", "delete", "${module.key}")'><img border="0" src="pages/images/delete.gif" width="16" height="16"></a></td>
      </tr>
      </c:forEach>

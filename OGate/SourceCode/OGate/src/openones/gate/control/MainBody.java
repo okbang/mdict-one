@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import openones.gate.biz.SessionBiz;
 import openones.gate.store.ModuleStore;
 import rocky.common.Constant;
 
@@ -42,7 +43,6 @@ public class MainBody extends HttpServlet {
         String screenId = req.getParameter("screenId");
         String eventId = req.getParameter("eventId");
         String tabId = req.getParameter("tabId");
-        LOG.info("screenId=" + screenId + ";eventId=" + eventId + ";tabId=" + tabId);
 
         // Click on left menu
         // if ("selectItem".equals(eventId)) {
@@ -55,7 +55,14 @@ public class MainBody extends HttpServlet {
         resp.setContentType("text/html");
 
         String moduleId = tabId;
-        Text tabContent = ModuleStore.getLastModuleContent(moduleId);
+        String langCd = (String) req.getSession().getAttribute("langCd");
+        if (langCd == null) {
+            // Get default language code
+            langCd = SessionBiz.getLangCd();
+        }
+        
+        LOG.info("screenId=" + screenId + ";eventId=" + eventId + ";tabId=" + tabId + ";langCd=" + langCd);
+        Text tabContent = ModuleStore.getLastModuleContent(moduleId, langCd);
         String content = (tabContent != null) ? tabContent.getValue() : Constant.BLANK;
         LOG.info("content=" + content);
         PrintWriter out = resp.getWriter();

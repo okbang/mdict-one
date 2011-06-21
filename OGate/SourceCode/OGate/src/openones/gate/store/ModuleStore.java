@@ -62,12 +62,13 @@ public class ModuleStore {
      * @param tabContent
      * @return
      */
-    public static boolean saveContent(Long key, Text tabContent) {
+    public static boolean saveContent(Long key, Text tabContent, String langCd) {
         // Get instance of Module. Module Id is used
         ModuleDTO moduleDTO = (ModuleDTO) PMF.getObjectByKey(key, ModuleDTO.class);
 
         ModuleContentDTO moduleContentDTO = new ModuleContentDTO();
         moduleContentDTO.setModuleId(moduleDTO.getId());
+        moduleContentDTO.setLang(langCd);
         moduleContentDTO.setContent(tabContent);
 
         moduleContentDTO.setCreated(new Date()); // set current Date
@@ -85,7 +86,7 @@ public class ModuleStore {
      * 
      * @return
      */
-    public static Text getLastModuleContent(String moduleId) {
+    public static Text getLastModuleContent(String moduleId, String langCd) {
         PersistenceManager pm = PMF.get().getPersistenceManager();
 
         // Get top 5 newest contents
@@ -94,11 +95,11 @@ public class ModuleStore {
         Query query =  pm.newQuery("select content from " + ModuleContentDTO.class.getName() );
         query.setOrdering("created desc");
         query.setRange(0, MAX_RECS);
-        query.declareParameters("String moduleIdParam");
-        query.setFilter("moduleId == moduleIdParam");
+        query.declareParameters("String moduleIdParam, String langParam");
+        query.setFilter("moduleId == moduleIdParam && lang == langParam");
 
         try {
-            List<Text> modContentList = (List<Text>) query.execute(moduleId);
+            List<Text> modContentList = (List<Text>) query.execute(moduleId, langCd);
 
             if (modContentList.isEmpty()) {
                 return null;
@@ -110,13 +111,19 @@ public class ModuleStore {
         }
     }
 
-    public static List<Text> getModuleContent(String moduleId) {
+    /**
+     * Get top 5 of content of module.
+     * @param type Kind of module. Ex Tab, Layout
+     * @param moduleId
+     * @return
+     */
+    public static List<Text> getModuleContent(String type, String moduleId) {
         PersistenceManager pm = PMF.get().getPersistenceManager();
 
         // Get top 5 newest contents
         //String query = "select from " + ModuleDTO.class.getName() + " order by created desc range 0,5";
         Query query =  pm.newQuery("select content from " + ModuleDTO.class.getName());
-        query.setFilter("type == 'Tab'");
+        query.setFilter("type == '" + type + "'");
         query.setOrdering("order by created desc");
         query.setRange(0, MAX_RECS);
         query.declareParameters("String moduleIdParam");
@@ -134,19 +141,21 @@ public class ModuleStore {
     public static ModuleDTO getTabModuleByKey(Long key) {
         return (ModuleDTO) PMF.getObjectByKey(key, ModuleDTO.class);
     }
+    
     /**
      * Get all modules of tab.
+     * @param type Kind of module. Ex: Tab, Layout
      * @return
      */
-    public static List<ModuleDTO> getTabModules() {
+    public static List<ModuleDTO> getModules(String type, String langCd) {
         PersistenceManager pm = PMF.get().getPersistenceManager();
         
 //        String query = "select from " + ModuleDTO.class.getName() + " order by order";
 //        List<ModuleDTO> moduleList = (List<ModuleDTO>) pm.newQuery(query).execute();
-        String[] filters = new String[] {"type == 'Tab'"};
+        String filters = "type == moduleTypeParam && lang == langParam";
         String ordering = "orderNo asc";
         List<ModuleDTO> modList = (List<ModuleDTO>) PMF.getObjects(ModuleDTO.class, filters, PMF.NO_IMPORT,
-                                                                   PMF.NO_PARAM, ordering , new Object[]{});
+                                                                   PMF.NO_PARAM, ordering , new Object[]{type, langCd});
 
         return modList;
     }

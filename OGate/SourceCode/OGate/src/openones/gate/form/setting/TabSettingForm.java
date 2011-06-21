@@ -18,8 +18,10 @@
  */
 package openones.gate.form.setting;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import openones.corewa.BaseInForm;
 import openones.gate.Cons;
@@ -35,7 +37,7 @@ public class TabSettingForm extends BaseInForm {
 
     private String newTab;
 
-    List<TabForm> tabFormList = null;
+    Map<String, TabForm> tabFormMap = null;
     private String tabKeys;
     
     /** 
@@ -63,26 +65,46 @@ public class TabSettingForm extends BaseInForm {
         this.newTab = newTab;
     }
 
-    public List<TabForm> getTabFormList() {
-        return tabFormList;
+    public Map<String, TabForm> getTabFormMap() {
+        return tabFormMap;
     }
+    
+    public Collection<TabForm> getTabFormList() {
+        return (tabFormMap != null) ? tabFormMap.values() : null;
+    }
+    
+    public TabForm getTabByCode(String tabCode) {
+        return (tabFormMap != null) ? tabFormMap.get(tabCode) : null;
+    }
+    
 
-    public void setTabFormList(List<TabForm> tabFormList) {
-        this.tabFormList = tabFormList;
+    public void setTabFormMap(Map<String, TabForm> tabFormMap) {
+        this.tabFormMap = tabFormMap;
     }
     /**
      * [Give the description for method].
-     * @param allTabs
+     * @param allTabs list of tab string. Tab string is fommated "<tab code>-<tab name>".
      */
     public void setTabForms(String[] allTabs) {
-        if (tabFormList == null) {
-            tabFormList = new ArrayList<TabForm>();
+        if (tabFormMap == null) {
+            tabFormMap = new HashMap<String, TabForm>();
         }
 
         TabForm tabForm;
-        for (String tabName : allTabs) {
-            tabForm = new TabForm(tabName);
-            tabFormList.add(tabForm);
+        String[] tabStrings;
+        if (allTabs != null) {
+            for (String tabName : allTabs) {
+                tabStrings = tabName.split(Cons.HYPHEN);
+                if (tabStrings.length == 2) { // Not new tab
+                    tabForm = new TabForm(tabStrings[0], tabStrings[1]);
+                    tabFormMap.put(tabForm.getCode(), tabForm);
+                } else { // Existed tab
+                    tabForm = new TabForm(Long.valueOf(tabName));
+                    tabFormMap.put(tabForm.getKey().toString(), tabForm);
+                }
+
+                
+            }
         }
     }
 

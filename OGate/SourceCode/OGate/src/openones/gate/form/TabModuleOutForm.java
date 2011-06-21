@@ -35,6 +35,7 @@ public class TabModuleOutForm implements Serializable {
     
     private String type;
     
+    private String lang;
     private String content = Constant.BLANK;
     
     private String created = Constant.BLANK;
@@ -63,6 +64,12 @@ public class TabModuleOutForm implements Serializable {
     }
     public void setContent(String content) {
         this.content = content;
+    }
+    public String getLang() {
+        return lang;
+    }
+    public void setLang(String lang) {
+        this.lang = lang;
     }
     public String getCreated() {
         return created;

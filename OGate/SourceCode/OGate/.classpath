@@ -13,8 +13,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/rocky-common-0.1.0-201105131111258.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl-1.1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.0.9-201105145011853.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.1.0-201105142104528.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/htmlunit-2.8.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/httpclient-4.0.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/sac-1.3.jar"/>
@@ -33,6 +31,8 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/xercesImpl-2.9.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/xml-apis-1.3.04.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/gae-core-0.0.5-201106168010650.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.1.1-201106172110603.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.1.0-201106172111230.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gae-core-0.0.6-201106172113500.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -20,14 +20,25 @@ package openones.gate.form;
 
 import java.util.List;
 
+import openones.gate.store.dto.ModuleDTO;
+
 /**
  * @author Thach Le
  *
  */
 public class ModuleListOutForm {
-    private String moduleType;
+    private ModuleDTO module;
     private List<TabModuleOutForm> moduleList;
 
+    public ModuleDTO getModule() {
+        return module;
+    }
+
+    public void setModule(ModuleDTO module) {
+        this.module = module;
+    }
+
+    
     public List<TabModuleOutForm> getModuleList() {
         return moduleList;
     }
@@ -36,12 +47,5 @@ public class ModuleListOutForm {
         this.moduleList = moduleList;
     }
 
-    public String getModuleType() {
-        return moduleType;
-    }
-
-    public void setModuleType(String moduleType) {
-        this.moduleType = moduleType;
-    }
 
 }

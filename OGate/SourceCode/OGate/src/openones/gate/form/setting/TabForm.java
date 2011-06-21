@@ -29,6 +29,7 @@ import rocky.common.CommonUtil;
  * @author Thach Le
  */
 public class TabForm implements Serializable {
+    private String code;
     private String name;
 
     /** List of email address can manage the tab. */
@@ -37,9 +38,18 @@ public class TabForm implements Serializable {
     private Long key;
 
     /**
+     * @param key
+     */
+    public TabForm(Long key) {
+        super();
+        this.key = key;
+    }
+
+    /**
      * @param tabName
      */
-    public TabForm(String tabName) {
+    public TabForm(String code, String tabName) {
+        this.code = code;
         this.name = tabName;
     }
 
@@ -49,6 +59,22 @@ public class TabForm implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    /**
+     * Get displayed title of the tab.
+     * @return <code>-<name>
+     */
+    public String getTitle() {
+        return code + "-" + name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     /**

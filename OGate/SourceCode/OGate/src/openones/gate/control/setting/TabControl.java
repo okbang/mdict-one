@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.BaseOutForm;
 import openones.corewa.ReqUtil;
+import openones.gate.biz.SessionBiz;
 import openones.gate.biz.setting.TabBiz;
 import openones.gate.control.OGateBaseControl;
 import openones.gate.form.setting.TabSettingForm;
@@ -42,9 +43,9 @@ public class TabControl extends OGateBaseControl {
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("procInit.START");
-        TabSettingOutForm tabOutForm = TabBiz.getTabs();
+        TabSettingOutForm tabOutForm = TabBiz.getTabs(getLangCd(req));
 
-        LOG.finest("Number of tabs:" + tabOutForm.getTabFormList().size());
+        LOG.finest("Number of tabs:" + ((tabOutForm.getTabFormMap() != null) ? tabOutForm.getTabFormMap().size():0));
 
         outForm.putRequest("tabSettingForm", tabOutForm);
 
@@ -70,10 +71,12 @@ public class TabControl extends OGateBaseControl {
         LOG.finest("Tab keys=" + form.getTabKeys());
 
         form.setTabForms(allTabs);
-        if (TabBiz.save(form)) {
+        if (TabBiz.save(form, getLangCd(req))) {
         } else {
             keepForm(form);
         }
+        outForm.removeFromSession(K_MODULETABS);
+        outForm.removeFromSession(K_MINTAB_ORDERNO);
 
         //setMainScreen(Cons.Screens.TabSetting.toString());
         LOG.finest("save.END");

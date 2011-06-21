@@ -21,9 +21,13 @@ package openones.gate.biz;
 import java.util.List;
 
 import openones.gae.users.OUser;
-import openones.gate.store.FilterCond;
+import openones.gate.Cons;
+import openones.gate.Cons.ModuleType;
 import openones.gate.store.ModuleStore;
 import openones.gate.store.dto.ModuleDTO;
+import rocky.common.Constant;
+
+import com.google.appengine.api.datastore.Text;
 
 /**
  * @author ThachLN
@@ -31,21 +35,29 @@ import openones.gate.store.dto.ModuleDTO;
  */
 public class ModuleBiz {
     private OUser loginUser;
+    private String langCd;
     /**
      * @param logonUser
      */
-    public ModuleBiz(OUser logonUser) {
+    public ModuleBiz(OUser logonUser, String langCd) {
         this.loginUser = loginUser;
+        this.langCd = langCd;
     }
 
     /**
      * Get list of module from persistence layer.
      * @return
      */
-    public List<ModuleDTO> getModules(String langCd) {
-        return ModuleStore.getTabModules();
+    public List<ModuleDTO> getModules(ModuleType moduleType, String langCd) {
+        return ModuleStore.getModules(moduleType.toString(), langCd);
 //        FilterCond filterCond = new FilterCond(ModuleDTO.class, langCd);
 //        return ModuleStore.getModules(filterCond, null);
     }
 
+    public String getModuleConentById(String moduleId) {
+        Text tabModuleContent = ModuleStore.getLastModuleContent(moduleId, langCd);
+        String content = (tabModuleContent != null ? tabModuleContent.getValue() : Constant.BLANK);
+
+        return content;
+    }
 }

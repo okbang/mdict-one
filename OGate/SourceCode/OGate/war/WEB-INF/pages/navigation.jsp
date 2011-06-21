@@ -8,6 +8,9 @@
 <c:set var="before_selected_tab" value="before_active_tab"/>
 <c:set var="after_selected_tab" value="after_active_tab"/>
 <c:set var="after_inactive_tab" value="after_inactive_tab"/>
+<%-- Default: Set default tab is the left most one --%>
+<c:set var="selectedTabIndex" value="${minTabOrderNo}"/>
+
 <c:forEach var="tab" items="${moduleTabs}">
     <c:if test="${MainScreen == tab.id}">
         <c:set var="selectedTabIndex" value="${tab.orderNo}"></c:set>

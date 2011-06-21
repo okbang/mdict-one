@@ -69,7 +69,7 @@ public class SessionBiz {
     }
 
     /**
-     * [Give the description for method].
+     * Get default language code.
      * @return
      */
     public static String getLangCd() {

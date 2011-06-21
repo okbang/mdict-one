@@ -4,7 +4,7 @@
 <%--
 <script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
  --%>
-<form name="frmModuleEdit" action="/moduleintroeditor.mod" method="post">
+<form name="frmPartEdit" action="/moduleintroeditor.mod" method="post">
   <input type="hidden" name="screenId" value="ModuleIntroEditor"/>
   <%-- Default event: save --%>
   <input type="hidden" name="eventId" value="save"/>
@@ -16,8 +16,8 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr><td align="right">
       <c:if test="${(not empty user) && (user.isAdmin)}">
-       <a href="#" onclick='submitMenu("frmModuleEdit","ModuleIntroEditor", "edit", "${menuId}", "")'><img border="0" src="pages/images/editContent.gif" width="16" height="16"></a>
-       <a href="#" onclick='submitMenu("frmModuleEdit","ModuleIntroEditor", "list", "${menuId}", "")'><img border="0" src="pages/images/ed_list_num.gif" width="16" height="16"></a>
+       <a href="#" onclick='submitMenu("frmPartEdit","ModuleIntroEditor", "edit", "${menuId}", "")'><img border="0" src="pages/images/editContent.gif" width="16" height="16"></a>
+       <a href="#" onclick='submitMenu("frmPartEdit","ModuleIntroEditor", "list", "${menuId}", "")'><img border="0" src="pages/images/ed_list_num.gif" width="16" height="16"></a>
       </c:if>
     
   </td>
@@ -32,7 +32,7 @@
          <jsp:include page="/WEB-INF/pages/module/list.jsp"></jsp:include>
         </c:when>
       <c:when test='${(eventId == "edit") || (eventId == "save")}'>
-      <b>Cập nhật nội dung cho cho tab ${tabName}</b>
+      <b>Cập nhật nội dung cho cho part ${tabName}</b>
         <FCK:editor instanceName="content" height="500">
           <jsp:attribute name="value">${tabModule.content}</jsp:attribute>
         </FCK:editor>
@@ -40,11 +40,11 @@
   
       <c:otherwise>
       <h3>Quản trị nội dung tab "${menuId}"</h3><br/>
-        <a href="#" onclick='submitAction("frmModuleEdit","ModuleIntroEditor", "edit", "${menuId}", "")'><img border="0" src="pages/images/editContent.gif" width="16" height="16">
+        <a href="#" onclick='submitAction("frmPartEdit","ModuleIntroEditor", "edit", "${menuId}", "")'><img border="0" src="pages/images/editContent.gif" width="16" height="16">
           Cập nhật nội dung cho tab
         </a><br/>
-       <a href="#" onclick='submitAction("frmModuleEdit","ModuleIntroEditor", "list",  "${menuId}", "")'><img border="0" src="pages/images/ed_list_num.gif" width="16" height="16">
-         Xem danh sách 5 nội dung mới nhất của tab
+       <a href="#" onclick='submitAction("frmPartEdit","ModuleIntroEditor", "list",  "${menuId}", "")'><img border="0" src="pages/images/ed_list_num.gif" width="16" height="16">
+         Xem danh sách 5 nội dung mới nhất của Part
        </a>
       </c:otherwise>
     </c:choose>

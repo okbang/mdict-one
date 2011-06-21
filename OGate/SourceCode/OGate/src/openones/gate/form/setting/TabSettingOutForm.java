@@ -18,7 +18,7 @@
  */
 package openones.gate.form.setting;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import openones.gate.Cons;
 
@@ -27,11 +27,11 @@ import openones.gate.Cons;
  */
 public class TabSettingOutForm extends TabSettingForm {
     public void addTabForm(TabForm tabForm) {
-        if (tabFormList == null) {
-            tabFormList = new ArrayList<TabForm>();
+        if (tabFormMap == null) {
+            tabFormMap = new HashMap<String, TabForm>();
         }
 
-        tabFormList.add(tabForm);
+        tabFormMap.put(tabForm.getCode(), tabForm);
     }
 
     
@@ -42,15 +42,15 @@ public class TabSettingOutForm extends TabSettingForm {
      */
     @Override
     public String getManagersOfTab() {
-        StringBuffer buffer = null;
-        for (TabForm tabForm : this.tabFormList) {
+        StringBuffer buffer = new StringBuffer();
+        for (TabForm tabForm : this.tabFormMap.values()) {
             if (buffer == null) {
-                buffer = new StringBuffer(tabForm.getEmailManagersByString());
+                buffer.append(tabForm.getEmailManagersByString());
             } else {
                 buffer.append(Cons.TAB_MANAGER_SEPARATOR).append(tabForm.getEmailManagersByString());
             }
         }
-        
+
         return buffer.toString();
     }
 

@@ -71,7 +71,7 @@ public class DtoUtil {
     }
 
     public static TabForm dto2TabForm(ModuleDTO dto) {
-        TabForm form = new TabForm(dto.getName());
+        TabForm form = new TabForm(dto.getId(), dto.getName());
 
         return form;
     }
@@ -110,6 +110,7 @@ public class DtoUtil {
         TabModuleOutForm form = new TabModuleOutForm();
 
         form.setContent(dto.getContent().getValue());
+        form.setLang(dto.getLang());
         form.setKey(String.valueOf(dto.getKey()));
         if (dto.getCreated() != null) {
             form.setCreated(CommonUtil.formatDate(dto.getCreated(), Constant.DEF_DATEFMT));

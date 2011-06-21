@@ -30,6 +30,7 @@ import javax.servlet.http.HttpSession;
 import openones.corewa.BaseOutForm;
 import openones.gae.users.OUser;
 import openones.gate.Cons;
+import openones.gate.Cons.ModuleType;
 import openones.gate.biz.ModuleBiz;
 import openones.gate.biz.SessionBiz;
 import openones.gate.store.dto.ModuleDTO;
@@ -52,12 +53,20 @@ public class LayoutControl extends OGateBaseControl {
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         outForm.putRequest(SK_MAINSCREEN, "intro");
         OUser logonUser = SessionBiz.getLogonUser();
-        ModuleBiz moduleBiz = new ModuleBiz(logonUser );
+        ModuleBiz moduleBiz = new ModuleBiz(logonUser, getLangCd(req));
         // Get list of tab and it's content
-        List<ModuleDTO> moduleTasList = moduleBiz.getModules(SessionBiz.getLangCd());
+        List<ModuleDTO> moduleTasList = moduleBiz.getModules(ModuleType.Tab, SessionBiz.getLangCd());
         
+        // Get the lowest order tab
+        int minOrderTabNo = Integer.MAX_VALUE;
+        for (ModuleDTO moduleTab : moduleTasList) {
+            if (moduleTab.getOrderNo() > minOrderTabNo) {
+                minOrderTabNo = moduleTab.getOrderNo(); 
+            }
+        }
         LOG.info("Number of tabs:" + moduleTasList.size());
-        outForm.putSession("moduleTabs", moduleTasList);
+        outForm.putSession(K_MODULETABS, moduleTasList);
+        outForm.putSession(K_MINTAB_ORDERNO, minOrderTabNo);
         
         return outForm;
     }

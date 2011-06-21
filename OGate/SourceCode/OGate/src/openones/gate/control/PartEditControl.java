@@ -29,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.BaseOutForm;
 import openones.gate.Cons;
+import openones.gate.biz.ModuleBiz;
+import openones.gate.biz.SessionBiz;
 import openones.gate.form.ModuleListOutForm;
 import openones.gate.form.TabModuleOutForm;
 import openones.gate.store.ModuleStore;
@@ -43,35 +45,21 @@ import com.google.appengine.api.datastore.Text;
  * @author Thach Le
  *
  */
-public class ModuleIntroEditorControl extends OGateBaseControl {
+public class PartEditControl extends OGateBaseControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
 
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("procInit.START");
-        TabModuleOutForm tabModuleOutForm = new TabModuleOutForm();
-        outForm = new BaseOutForm();
-
-        String moduleId = req.getParameter(K_TABID);
-        String tabKey = req.getParameter(K_TABKEY);
-        
-        LOG.finest("moduleId=" + moduleId + ";tabKey=" + tabKey);
-        Text moduleContent = ModuleStore.getLastModuleContent(moduleId, getLangCd(req));
-        String content = (moduleContent != null ? moduleContent.getValue() : Constant.BLANK);  
-
-        tabModuleOutForm.setContent(content);
-        outForm.putRequest(K_TABMODULE, tabModuleOutForm);
-        outForm.putRequest(K_TABKEY, tabKey);
-        
-        // Store the the tabKey in the session
-        req.getSession().setAttribute(K_TABKEY, Long.valueOf(tabKey));
-
         LOG.finest("procInit.END");
         return outForm;
     }
 
+    public BaseOutForm changeLayoutItem(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
+        return null;
+    }
     /**
-     * Process to display Edit screen of content of Tab.
+     * Process to display Edit screen of content of Part.
      * @param req
      * @param reqMap
      * @param resp
@@ -85,10 +73,10 @@ public class ModuleIntroEditorControl extends OGateBaseControl {
         outForm = new BaseOutForm();
 
         String menuId = req.getParameter(K_MENUID);
-        Long tabKey = (Long) req.getSession().getAttribute(K_TABKEY);
-        String moduleId = menuId;
-        LOG.finest("menuId=" + menuId + ";tabKey=" + tabKey);
-        ModuleDTO tabModule = ModuleStore.getModuleByKey(tabKey);
+        String moduleId = req.getParameter(K_MODULEID);
+        LOG.finest("menuId=" + menuId + ";moduleId=" + moduleId
+                 + ";logonUser=" + SessionBiz.getLogonUser() + ";langCd=" + getLangCd(req));
+        ModuleBiz biz = new ModuleBiz(SessionBiz.getLogonUser(), getLangCd(req));
         
         Text tabModuleContent = ModuleStore.getLastModuleContent(moduleId, getLangCd(req));
         String content = (tabModuleContent != null ? tabModuleContent.getValue() : Constant.BLANK);  
@@ -99,7 +87,6 @@ public class ModuleIntroEditorControl extends OGateBaseControl {
         //setMainScreen("EditModuleIntro");
         outForm.putRequest(K_TABMODULE, tabModuleOutForm);
         outForm.putRequest(K_MENUID, moduleId);
-        outForm.putRequest(K_TABNAME, tabModule.getName());
         //outForm.putRequest(K_TABKEY, tabKey);
 
         LOG.finest("edit.END");
@@ -121,11 +108,10 @@ public class ModuleIntroEditorControl extends OGateBaseControl {
         String content = (String) reqMap.get("content");
         String menuId = (String) reqMap.get(K_MENUID);
         String moduleId = menuId;
-        Long tabKey = (Long) req.getSession().getAttribute(K_TABKEY);
 
-        LOG.info("menuId=" + menuId + ";tabKey=" + tabKey + ";content="  + content);
+        LOG.info("menuId=" + menuId + ";content="  + content);
 
-        if (ModuleStore.saveContent(tabKey, new Text(content), getLangCd(req))) {
+        if (ModuleStore.saveContent(null, new Text(content), getLangCd(req))) {
             tabModuleOutForm.setSaveResult(Cons.ActResult.OK);
             //introOutForm.setKey("IntroSaveOk");
         } else {
@@ -141,6 +127,7 @@ public class ModuleIntroEditorControl extends OGateBaseControl {
         LOG.finest("save.END");
         return outForm;
     }
+    
 
     public BaseOutForm list(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         LOG.finest("list.START");
@@ -161,7 +148,6 @@ public class ModuleIntroEditorControl extends OGateBaseControl {
 
         ModuleListOutForm moduleList = new ModuleListOutForm();
         moduleList.setModule(module);
-        
         moduleList.setModuleList(outFormList);
 
         outForm.putRequest(K_MENUID, menuId);

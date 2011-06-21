@@ -69,13 +69,23 @@
   function addTab(frmName) {
     var frm = document.forms[frmName];
     var theSel = frm.selectedTab;
-    var newValue = frm.newTab.value;
-    var newText = frm.newTab.value;
+    
+    var tabCode = frm.newTabCode.value;
+    var tabName = frm.newTabName.value;
+
+    if ((tabCode == "") || (tabName == "")) {
+        alert("Phải nhập đầy đủ Code và Name.");
+        return;
+    }
+    var newValue = tabCode + "-" + tabName;
+    var newText = newValue;
     
     if (theSel.length == 0) {
       var newOpt1 = new Option(newText, newValue);
       theSel.options[0] = newOpt1;
       theSel.selectedIndex = 0;
+      
+      return;
     }
     
     if (theSel.selectedIndex == -1) {
@@ -194,12 +204,14 @@
   function selectAllTab(frmName, delim) {
     var frm = document.forms[frmName];
     var theSel = frm.selectedTab;
+    var tabCode;
     for (var i = 0; i< theSel.length; i++) {
         theSel[i].selected = true;
-        
+        tabCode = theSel[i].value.split("-")[0];
+        //alert("tabCode=" + tabCode);
         // Save the tab key
-        frm.tabKeys.value = (frm.tabKeys.value == '') ? theSel[i].value : 
-                                                        frm.tabKeys.value + delim + theSel[i].value;
+        frm.tabKeys.value = (frm.tabKeys.value == '') ? tabCode : 
+                                                        frm.tabKeys.value + delim + tabCode;
         
         // 
         frm.managersOfTab.value = managerArray.join(TAB_MANAGER_SEPARATOR);
@@ -211,7 +223,9 @@
 <form name="frmTabSetting" action="setting.mod" method="post">
   <input type="hidden" name="screenId" value="TabSetting"/>
   <input type="hidden" name="eventId" value=""/>
-  <%-- Store list of tab key with. Separator by a comma --%>
+  <%-- Store list of tab key with. Separator by a comma.
+     In case tab is created newly, the tab key is code
+   --%>
   <input type="hidden" name="tabKeys" value=""/>
   
   <%-- String of 2x array of managers of tab.
@@ -230,9 +244,9 @@
     </tr>
         <tr align=left>
           <td width="132" rowspan="7">
-            <select size="12" name="selectedTab" style="width: 120px" multiple="multiple" onclick='changeTab("frmTabSetting")'>
+            <select size="12" name="selectedTab" style="width: 180px" multiple="multiple" onclick='changeTab("frmTabSetting")'>
             <c:forEach var="tab" items="${tabSettingForm.tabFormList}">
-                <option value="${tab.key}">${tab.name}</option>
+                <option value="${tab.key}">${tab.title}</option>
             </c:forEach>
            </select>
           </td>
@@ -271,7 +285,15 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td colspan=2><input type="text" name="newTab" size="20"><input type="button" value="Add Tab" name="Add" onclick='addTab("frmTabSetting")'></td>
+            <td colspan=2>
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tr><td>Code</td><td>Name</td></tr>
+                <tr><td nowrap="nowrap"><input type="text" name="newTabCode" size="5">-</td><td><input type="text" name="newTabName" size="20"></td></tr>
+                
+                <tr><td colspan="2" align="right"><input type="button" value="Add Tab" name="Add" onclick='addTab("frmTabSetting")'></td></tr>
+              </table>
+            
+            </td>
             <td colspan=2><input type="button" value="Update" name="Update" onclick='updateManager("frmTabSetting")'></td>
         </tr>
     </table>
