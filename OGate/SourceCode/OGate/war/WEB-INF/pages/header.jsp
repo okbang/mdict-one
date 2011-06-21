@@ -76,7 +76,7 @@ Contains:
     </tr>
     <tr>
       <td colspan="3">
-        <!-- Hot news --> <marquee>Khóa học "Thực hành phát triển phần mềm"" kết thúc trong tháng 6/2011. Số lượng 30. Đối tượng: Giảng viên CNTT. Điểm phản hồi trung bình 4.3/5 - Tốt.</marquee></td>
+        <!-- Hot news --> <marquee>Khóa học "Thực hành phát triển phần mềm"" kết thúc trong tháng 6/2011. Đối tượng: Giảng viên CNTT. Số lượng học viên: 30. Điểm phản hồi trung bình <b><font color="blue">4.3</font></b>/5 - Tốt.</marquee></td>
     </tr>
   </table>
 </form>

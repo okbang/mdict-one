@@ -4,7 +4,7 @@
 <c:if test='${(empty MainScreen) && (empty menuId)}'>
   <%-- Display the content of the tab by invoke the servlet url "/mainbody.mod" --%>
     <jsp:include page="/mainbody.mod" flush="true">
-      <jsp:param name="tabId" value="Intro" />
+      <jsp:param name="tabId" value="${leftMostTabId}" />
     </jsp:include>
 </c:if>
 

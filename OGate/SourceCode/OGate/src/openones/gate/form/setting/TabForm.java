@@ -36,6 +36,7 @@ public class TabForm implements Serializable {
     private List<String> emailManagers = new ArrayList<String>();
 
     private Long key;
+    private int orderNo;
 
     /**
      * @param key
@@ -75,6 +76,14 @@ public class TabForm implements Serializable {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
     }
 
     /**

@@ -18,7 +18,6 @@
  */
 package openones.gate.biz.setting;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -97,7 +96,7 @@ public class TabBiz {
                 LOG.finest("tabKey=" + tabKey + " is new." + ";managers=" + form.getManagerAtTab(i));
                 String tabName = tabKey;
                 tab = form.getTabByCode(tabKey);
-                saveTabModule(tabKey, tab.getName(), form.getManagerAtTab(i));
+                saveTabModule(tabKey, tab.getName(), form.getManagerAtTab(i), i, langCd);
             } else { // Update
                 LOG.finest("Update tab '" + updateTabModule.getName() + "', key=" + updateTabModule.getKey()
                         + " with orderNo=" + i + ";managers=" + form.getManagerAtTab(i));
@@ -123,13 +122,15 @@ public class TabBiz {
      * [Give the description for method].
      * @param tabKey
      */
-    private static void saveTabModule(String moduleId, String name, String emailManagers) {
+    private static void saveTabModule(String moduleId, String name, String emailManagers, int orderNo, String langCd) {
         // Add new tab form
         ModuleDTO module = new ModuleDTO(moduleId, name, "This is the context of the tab.");
         module.setType(Cons.ModuleType.Tab.toString());
         module.setManagers(emailManagers);
-
+        module.setOrderNo(orderNo);
+        module.setLang(langCd);
         ModuleStore.save(module);
+        
     }
 
     /**
@@ -146,6 +147,7 @@ public class TabBiz {
             tabForm = new TabForm(module.getId(), module.getName());
             tabForm.setEmailManagers(module.getManagers());
             tabForm.setKey(module.getKey());
+            tabForm.setOrderNo(module.getOrderNo());
 
             tabFormMap.put(tabForm.getCode(), tabForm);
         }

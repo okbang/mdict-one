@@ -20,8 +20,8 @@ package openones.gate.form.setting;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import openones.corewa.BaseInForm;
 import openones.gate.Cons;
@@ -39,10 +39,9 @@ public class TabSettingForm extends BaseInForm {
 
     Map<String, TabForm> tabFormMap = null;
     private String tabKeys;
-    
-    /** 
-     * managersOfTab contains all email mangers of all tabs.
-     * Ex:: m1@tab1;m2@tab1 : m1@tab2;m2@tab2
+
+    /**
+     * managersOfTab contains all email mangers of all tabs. Ex:: m1@tab1;m2@tab1 : m1@tab2;m2@tab2
      */
     private String managersOfTab;
 
@@ -68,21 +67,33 @@ public class TabSettingForm extends BaseInForm {
     public Map<String, TabForm> getTabFormMap() {
         return tabFormMap;
     }
-    
+
+    /**
+     * Get list of tab with order by "orderNo".
+     * @return
+     */
     public Collection<TabForm> getTabFormList() {
-        return (tabFormMap != null) ? tabFormMap.values() : null;
+        Map<Integer, TabForm> sortTabMap = new TreeMap<Integer, TabForm>();
+
+        if (tabFormMap != null) {
+            for (TabForm tab : tabFormMap.values()) {
+                sortTabMap.put(tab.getOrderNo(), tab);
+            }
+        }
+
+        return sortTabMap.values();
     }
-    
+
     public TabForm getTabByCode(String tabCode) {
         return (tabFormMap != null) ? tabFormMap.get(tabCode) : null;
     }
-    
 
     public void setTabFormMap(Map<String, TabForm> tabFormMap) {
         this.tabFormMap = tabFormMap;
     }
     /**
      * [Give the description for method].
+     * 
      * @param allTabs list of tab string. Tab string is fommated "<tab code>-<tab name>".
      */
     public void setTabForms(String[] allTabs) {
@@ -92,20 +103,23 @@ public class TabSettingForm extends BaseInForm {
 
         TabForm tabForm;
         String[] tabStrings;
-        if (allTabs != null) {
-            for (String tabName : allTabs) {
-                tabStrings = tabName.split(Cons.HYPHEN);
-                if (tabStrings.length == 2) { // Not new tab
-                    tabForm = new TabForm(tabStrings[0], tabStrings[1]);
-                    tabFormMap.put(tabForm.getCode(), tabForm);
-                } else { // Existed tab
-                    tabForm = new TabForm(Long.valueOf(tabName));
-                    tabFormMap.put(tabForm.getKey().toString(), tabForm);
-                }
-
-                
+        int len = (allTabs != null) ? allTabs.length: 0;
+        String tabName;
+        for (int i = 0; i < len; i++) {
+            tabName = allTabs[i];
+            tabStrings = tabName.split(Cons.HYPHEN);
+            if (tabStrings.length == 2) { // Not new tab
+                tabForm = new TabForm(tabStrings[0], tabStrings[1]);
+                tabForm.setOrderNo(i);
+                tabFormMap.put(tabForm.getCode(), tabForm);
+            } else { // Existed tab
+                tabForm = new TabForm(Long.valueOf(tabName));
+                tabForm.setOrderNo(i);
+                tabFormMap.put(tabForm.getKey().toString(), tabForm);
             }
-        }
+
+         }
+
     }
 
     /**
@@ -129,10 +143,11 @@ public class TabSettingForm extends BaseInForm {
 
     /**
      * Get list of email managers of tab.
+     * 
      * @param tabIndex order no of the tab
-     * @return String of email with separator of comma or semi-comma 
+     * @return String of email with separator of comma or semi-comma
      */
-    public  String getManagerAtTab(int tabIndex) {
+    public String getManagerAtTab(int tabIndex) {
         String[] managers = managersOfTab.split(Cons.TAB_MANAGER_SEPARATOR);
 
         if (managers != null && (tabIndex < managers.length)) {

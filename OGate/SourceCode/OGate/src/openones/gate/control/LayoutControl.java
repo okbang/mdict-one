@@ -19,7 +19,6 @@
 package openones.gate.control;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -28,12 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import openones.corewa.BaseOutForm;
-import openones.gae.users.OUser;
 import openones.gate.Cons;
-import openones.gate.Cons.ModuleType;
-import openones.gate.biz.ModuleBiz;
-import openones.gate.biz.SessionBiz;
-import openones.gate.store.dto.ModuleDTO;
 
 /**
  * @author Thach Le
@@ -51,28 +45,14 @@ public class LayoutControl extends OGateBaseControl {
 
     @Override
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        outForm.putRequest(SK_MAINSCREEN, "intro");
-        OUser logonUser = SessionBiz.getLogonUser();
-        ModuleBiz moduleBiz = new ModuleBiz(logonUser, getLangCd(req));
-        // Get list of tab and it's content
-        List<ModuleDTO> moduleTasList = moduleBiz.getModules(ModuleType.Tab, SessionBiz.getLangCd());
-        
-        // Get the lowest order tab
-        int minOrderTabNo = Integer.MAX_VALUE;
-        String tabId = null;
-        for (ModuleDTO moduleTab : moduleTasList) {
-            if (moduleTab.getOrderNo() > minOrderTabNo) {
-                minOrderTabNo = moduleTab.getOrderNo();
-                tabId = moduleTab.getId();
-            }
+        String tabId = loadNavigationTab(req, outForm);
+        LOG.finest("tabId=" + tabId);
+        if (tabId != null) {
+            outForm.putSession("leftMostTabId", tabId);
         }
-        LOG.info("Number of tabs:" + moduleTasList.size());
-        outForm.putSession(K_MODULETABS, moduleTasList);
-        outForm.putSession(K_MINTAB_ORDERNO, minOrderTabNo);
         
-        LOG.finest(";tabId=" + tabId);
         setMainScreen(tabId);
-        outForm.putRequest(K_TABID, tabId);
+
         return outForm;
     }
 

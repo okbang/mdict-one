@@ -19,6 +19,8 @@
 package openones.gate.control;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -26,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.BaseOutForm;
+import openones.gate.store.dto.ModuleDTO;
 
 /**
  * @author Thach Le
@@ -41,14 +44,21 @@ public class NavigationControl extends OGateBaseControl {
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     // private static int nmLogonUser = 0;
 
-    public BaseOutForm selectTab(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public BaseOutForm selectTab(HttpServletRequest req, Map<String, Object> reqMap, HttpServletResponse resp) throws ServletException, IOException {
         String screenId = req.getParameter("screenId");
         String eventId = req.getParameter("eventId");
         String tabId = req.getParameter(K_TABID);
 
         LOG.info("selectTab.START:screenId=" + screenId + ";eventId=" + eventId + ";tabId=" + tabId);
 
+        //List<ModuleDTO> moduleTasList = (List<ModuleDTO>) req.getSession().getAttribute(K_MODULETABS);
+        //LOG.finest("moduleTasList.size=)" + moduleTasList.size());
+        // [Todo] Issue: For appspot.com the list in the session is lost. So, list of tab module is reloaded again.   
+        
+        loadNavigationTab(req, outForm);
         setMainScreen(tabId);
+        
+        
         outForm.putRequest(K_TABID, tabId);
         return outForm;
     }

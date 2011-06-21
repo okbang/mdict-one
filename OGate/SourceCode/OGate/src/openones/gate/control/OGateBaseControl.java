@@ -18,13 +18,20 @@
  */
 package openones.gate.control;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
 
+import openones.corewa.BaseOutForm;
 import openones.corewa.control.BaseControl;
+import openones.gae.users.OUser;
 import openones.gate.Cons;
+import openones.gate.Cons.ModuleType;
+import openones.gate.biz.ModuleBiz;
+import openones.gate.biz.SessionBiz;
+import openones.gate.store.dto.ModuleDTO;
 import rocky.common.CommonUtil;
 
 /**
@@ -89,5 +96,35 @@ public class OGateBaseControl extends BaseControl {
         String langCd = (String) req.getSession().getAttribute(K_LANGCD);
 
         return (CommonUtil.isNNandNB(langCd) ? langCd : Cons.DEF_LANGCD);
+    }
+    
+    /**
+     * [Give the description for method].
+     * @param req
+     * @param outForm
+     * @return tab code of the left most one.
+     */
+    String loadNavigationTab(HttpServletRequest req, BaseOutForm outForm) {
+        OUser logonUser = SessionBiz.getLogonUser();
+        ModuleBiz moduleBiz = new ModuleBiz(logonUser, getLangCd(req));
+        // Get list of tab and it's content
+        List<ModuleDTO> moduleTasList = moduleBiz.getModules(ModuleType.Tab, SessionBiz.getLangCd());
+
+        // Get the lowest order tab
+        int minOrderTabNo = Integer.MAX_VALUE;
+        String tabId = null;
+        for (ModuleDTO moduleTab : moduleTasList) {
+            if (moduleTab.getOrderNo() < minOrderTabNo) {
+                minOrderTabNo = moduleTab.getOrderNo();
+                tabId = moduleTab.getId();
+            }
+        }
+        LOG.info("Number of tabs:" + moduleTasList.size());
+        outForm.putSession(K_MODULETABS, moduleTasList);
+        outForm.putSession(K_MINTAB_ORDERNO, minOrderTabNo);
+        outForm.putRequest(K_TABID, tabId);
+        
+        
+        return tabId;
     }
 }
