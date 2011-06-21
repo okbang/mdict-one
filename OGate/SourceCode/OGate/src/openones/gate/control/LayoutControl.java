@@ -59,15 +59,20 @@ public class LayoutControl extends OGateBaseControl {
         
         // Get the lowest order tab
         int minOrderTabNo = Integer.MAX_VALUE;
+        String tabId = null;
         for (ModuleDTO moduleTab : moduleTasList) {
             if (moduleTab.getOrderNo() > minOrderTabNo) {
-                minOrderTabNo = moduleTab.getOrderNo(); 
+                minOrderTabNo = moduleTab.getOrderNo();
+                tabId = moduleTab.getId();
             }
         }
         LOG.info("Number of tabs:" + moduleTasList.size());
         outForm.putSession(K_MODULETABS, moduleTasList);
         outForm.putSession(K_MINTAB_ORDERNO, minOrderTabNo);
         
+        LOG.finest(";tabId=" + tabId);
+        setMainScreen(tabId);
+        outForm.putRequest(K_TABID, tabId);
         return outForm;
     }
 

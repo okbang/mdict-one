@@ -17,92 +17,14 @@
     </c:if>
 </c:forEach>
 
-<%-- For intro tab --%>
-<c:set var="nav_intro_med_highlight" value="highlight"/>
-<c:set var="nav_intro_dark_highlight" value="highlight"/>
-<c:set var="nav_intro_dark_med" value="med"/>
-<c:set var="nav_intro_dark_shadow" value="shadow"/>
-<c:set var="nav_intro_active" value="after_inactive"/>
-<c:set var="nav_intro_selected" value=""/>
-<c:set var="nav_intro_inactive" value="inactive"/>
 <%--new version --%>
 <c:set var="intro_bg" value="med"/>
 <c:set var="intro_aTab" value="after_inactive_tab"/>
 
-<%-- For service tab --%>
-<c:set var="nav_service_dark_highlight" value="highlight"/>
-<c:set var="nav_service_dark_med" value="med"/>
-<c:set var="nav_service_dark_shadow" value="shadow"/>
-<c:set var="nav_service_active" value="after_inactive"/>
-<c:set var="nav_service_selected" value=""/>
-<%--new version --%>
-<c:set var="service_bg" value="med"/>
-<c:set var="service_bTab" value="${intro_aTab}"/>
-<c:set var="service_aTab" value="after_inactive_tab"/>
-
-<%-- For member tab --%>
-<c:set var="nav_member_dark_highlight" value="highlight"/>
-<c:set var="nav_member_dark_med" value="med"/>
-<c:set var="nav_member_dark_shadow" value="shadow"/>
-<c:set var="nav_member_active" value="after_inactive"/>
-<c:set var="nav_member_selected" value=""/>
-<%--new version --%>
-<c:set var="member_bg" value="med"/>
-<c:set var="member_bTab" value="${service_aTab}"/>
-<c:set var="member_aTab" value="after_inactive_tab"/>
-
-<%-- For product tab --%>
-<c:set var="nav_product_dark_highlight" value="highlight"/>
-<c:set var="nav_product_dark_med" value="med"/>
-<c:set var="nav_product_dark_shadow" value="shadow"/>
-<c:set var="nav_product_active" value="after_inactive"/>
-<c:set var="nav_product_selected" value=""/>
-<%--new version --%>
-<c:set var="product_bg" value="med"/>
-<c:set var="product_bTab" value="${member_aTab}"/>
-<c:set var="product_aTab" value="after_inactive_tab"/>
 
 <%--which is active tab (new version)--%>
 <%--insert code here --%>
 
-
-<%--older version --%>
-<c:if test='${MainScreen == "service"}'>
-  <c:set var="nav_service_dark_highlight" value="dark" />
-  <c:set var="nav_service_dark_med" value="dark" />
-  <c:set var="nav_service_dark_shadow" value="dark" />
-  <c:set var="nav_service_active" value="after_active" />
-  <c:set var="nav_service_selected" value="-selected" />
-  <c:set var="nav_product_active" value="before_active" />
-</c:if>
-
-<c:if test='${MainScreen == "intro"}'>
-  <c:set var="nav_intro_med_highlight" value="med"/>
-  <c:set var="nav_intro_dark_highlight" value="dark" />
-  <c:set var="nav_intro_dark_med" value="dark" />
-  <c:set var="nav_intro_dark_shadow" value="dark" />
-  <c:set var="nav_intro_active" value="after_active" />
-  <c:set var="nav_intro_selected" value="-selected" />
-  <c:set var="nav_intro_inactive" value="active"/>
-</c:if>
-
-<c:if test='${MainScreen == "member"}'>
-  <c:set var="nav_member_dark_highlight" value="dark" />
-  <c:set var="nav_member_dark_med" value="dark" />
-  <c:set var="nav_member_dark_shadow" value="dark" />
-  <c:set var="nav_member_active" value="after_active" />
-  <c:set var="nav_member_selected" value="-selected" />
-  <c:set var="nav_service_active" value="before_active" />
-</c:if>
-
-<c:if test='${MainScreen == "product"}'>
-  <c:set var="nav_product_dark_highlight" value="dark" />
-  <c:set var="nav_product_dark_med" value="dark" />
-  <c:set var="nav_product_dark_shadow" value="dark" />
-  <c:set var="nav_product_active" value="after_active" />
-  <c:set var="nav_product_selected" value="-selected" />
-  <c:set var="nav_intro_active" value="before_active" />
-</c:if>
 
 <form name="frmNavigation" action="main.do" method="post">
       <input type="hidden" name="screenId" value="Navigation" />
@@ -162,7 +84,7 @@
                                 <tr>
                                 <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
-                                <a class=uportal-tab-text-selected href="#" onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
+                                <a class=uportal-tab-text href="#" onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10></td>
                                 </tr>
                                 <tr>
@@ -191,8 +113,7 @@
                                 <tr>
                                 <td class=uportal-background-dark height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
-                                <a class=uportal-tab-text-selected href="#" 
-                                onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
+                                <a class=uportal-tab-text-selected href="#" onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10></td>
                                 </tr>
                                 <tr>
@@ -221,7 +142,7 @@
                                 <tr>
                                 <td class=uportal-background-med height=20 vAlign=center noWrap>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10> 
-                                <a class=uportal-tab-text-selected href="#" 
+                                <a class=uportal-tab-text href="#" 
                                 onclick='submitNav("frmNavigation","Navigation", "clickTab", "${tab2.id}")'>${tab2.name}</a>
                                 <img alt="" src="pages/images/transparent.gif" width=10 height=10></td>
                                 </tr>

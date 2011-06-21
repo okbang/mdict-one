@@ -42,6 +42,7 @@ public class NavigationControl extends OGateBaseControl {
     // private static int nmLogonUser = 0;
 
     public BaseOutForm selectTab(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        outForm = new BaseOutForm();
         String screenId = req.getParameter("screenId");
         String eventId = req.getParameter("eventId");
         String tabId = req.getParameter(K_TABID);

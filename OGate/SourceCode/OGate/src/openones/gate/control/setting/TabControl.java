@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import openones.corewa.BaseOutForm;
 import openones.corewa.ReqUtil;
-import openones.gate.biz.SessionBiz;
 import openones.gate.biz.setting.TabBiz;
 import openones.gate.control.OGateBaseControl;
 import openones.gate.form.setting.TabSettingForm;
@@ -75,8 +74,8 @@ public class TabControl extends OGateBaseControl {
         } else {
             keepForm(form);
         }
-        outForm.removeFromSession(K_MODULETABS);
-        outForm.removeFromSession(K_MINTAB_ORDERNO);
+//        outForm.removeFromSession(K_MODULETABS);
+//        outForm.removeFromSession(K_MINTAB_ORDERNO);
 
         //setMainScreen(Cons.Screens.TabSetting.toString());
         LOG.finest("save.END");
