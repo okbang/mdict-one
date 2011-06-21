@@ -1,4 +1,7 @@
-﻿Version 0.0.3 [Todo]:
+﻿How to configure the Administrative account of the Gate:
+- Modify configuration file "resources/conf.properties": Change the value of property "AdminEmail" to to email which is the Administrative.
+
+Version 0.0.3 [Todo]:
 - Allow an email to manage the OGate. This email is the Admin.
 - The Admin can define dynamically tabs, assign one or manage email to manage the content of tab (Tab Manager)
 - Tab Manager can update the content of the tab.
