@@ -18,15 +18,15 @@
  */
 package openones.gate.form;
 
+import java.io.Serializable;
 import java.util.List;
 
 import openones.gate.store.dto.ModuleDTO;
 
 /**
  * @author Thach Le
- *
  */
-public class ModuleListOutForm {
+public class ModuleListOutForm implements Serializable {
     private ModuleDTO module;
     private List<TabModuleOutForm> moduleList;
 
@@ -38,7 +38,6 @@ public class ModuleListOutForm {
         this.module = module;
     }
 
-    
     public List<TabModuleOutForm> getModuleList() {
         return moduleList;
     }
@@ -46,6 +45,5 @@ public class ModuleListOutForm {
     public void setModuleList(List<TabModuleOutForm> moduleList) {
         this.moduleList = moduleList;
     }
-
 
 }

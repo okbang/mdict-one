@@ -33,6 +33,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-conf-0.1.1-201106172110603.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/corewa-0.1.0-201106172111230.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/gae-core-0.0.6-201106172113500.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gae-core-0.0.7-201106175081148.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
