@@ -21,6 +21,7 @@ package openones.corewa;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,11 +41,17 @@ import openones.corewa.config.CoreWa;
 import openones.corewa.config.Event;
 import openones.corewa.config.Screen;
 import openones.corewa.control.BaseControl;
+import openones.corewa.res.DefaultRes;
 import rocky.common.CommonUtil;
 import rocky.common.Constant;
 
-@SuppressWarnings("serial")
 public class CentralConntroller extends HttpServlet {
+    /**  . */
+    private static final String SK_LANG = "lang";
+    /**      */
+    private static final String K_EVENT_ID = "eventId";
+    /**      */
+    private static final String K_SCREEN_ID = "screenId";
     private final Logger LOG = Logger.getLogger(this.getClass().getName());
     private final static String DEF_EVENTID = "init";
     private final static String DEF_PROCID = "procInit";
@@ -53,20 +60,42 @@ public class CentralConntroller extends HttpServlet {
     private BaseOutForm resultForm;
 
     static Map<String, Object> cacheControl = new HashMap<String, Object>();
+    
+    /** Previous value of language code. */
+    private String preLang;
+    
+    /** Value language code of current request. */  
+    private String lang;
 
+    public final static String KEY_RESOURCE = "KEY_RESOURCE_CONF";
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         String confFile = config.getInitParameter("conf-file");
         String realPath = config.getServletContext().getRealPath("WEB-INF/" + confFile);
-        LOG.log(Level.INFO, "real path of confFile=" + confFile);
+        LOG.finest("real path of confFile=" + confFile);
         try {
             conf = ConfigUtil.parse(new FileInputStream(realPath));
         } catch (FileNotFoundException fnfex) {
             LOG.log(Level.CONFIG, "init", fnfex);
             throw new ServletException(fnfex);
         }
+        
+        // Load resource
+        String langCd = (String) config.getServletContext().getAttribute(SK_LANG);
+        
+        DefaultRes resource = DefaultRes.getInstance(new String[]{langCd, DefaultRes.DEF_LANG});
+        if (resource != null) {
+            for (Object key : resource.getKey()) {
+                this.getServletContext().setAttribute(key.toString(), resource.get(key.toString()));
+            }
+            
+            // Update the previous, current language code
+            preLang = resource.getLang();
+            lang = preLang;
+        }
     }
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Screen screen;
@@ -80,10 +109,13 @@ public class CentralConntroller extends HttpServlet {
             req.setCharacterEncoding(Constant.DEF_ENCODE);
             resp.setCharacterEncoding(Constant.DEF_ENCODE);
 
-            String screenId = req.getParameter("screenId");
-            String eventId = req.getParameter("eventId");
+            String screenId = req.getParameter(K_SCREEN_ID);
+            String eventId = req.getParameter(K_EVENT_ID);
             String servletPath = req.getServletPath().substring(1); // servlet path without forward character /
 
+            // Get the language code from the request
+            lang = req.getParameter(SK_LANG);
+            
             LOG.log(Level.INFO, "servlet path=" + servletPath);
             LOG.log(Level.INFO, "home screen id=" + conf.getHomeScreenId());
 //            if ((conf.getLayout() != null) && (conf.getLayout().getPart(servletPath) != null) && (screenId == null)) {
@@ -126,7 +158,18 @@ public class CentralConntroller extends HttpServlet {
                 if (cacheControl.containsKey(ctrlClassName)) { // The control is already created
                     controlClass = cacheControl.get(ctrlClassName);
                 } else { // Create new the instance of the control. The put it into the cache
-                    controlClass = Class.forName(ctrlClassName).newInstance();
+                    try {
+                        Class ctrlClazz = Class.forName(ctrlClassName);
+                        // Get constructor with parameter ServletConfig
+                        Constructor<Object> ctrlCtor = ctrlClazz.getConstructor(ServletConfig.class);
+                        controlClass = ctrlCtor.newInstance(this.getServletConfig());
+                    } catch (Exception noMethodOrSecurityEx) {
+                        // call default constructor
+                        LOG.warning("Could not new instance of the control with parameter ServletConfig."
+                                    + noMethodOrSecurityEx.getMessage());
+                        controlClass = Class.forName(ctrlClassName).newInstance();  
+                    }
+                    // Save the control class into Cache
                     cacheControl.put(ctrlClassName, controlClass);
                 }
             }
@@ -136,17 +179,24 @@ public class CentralConntroller extends HttpServlet {
                // ScreenForm screenForm = (ScreenForm) BaseControl.getData(request, ScreenForm.class);
                 Map<String, Object> mapReq = BaseControl.getMapData(req);
                 
+                if (!CommonUtil.isNNandNB(lang)) { // get the language code from the request
+                    lang = (String) mapReq.get(SK_LANG);
+                }
+                
                 LOG.log(Level.FINE, "Invoke method '" + procId + "' of class '" + screen.getCtrlClass() + "'");
                 
                 try {
                     method = controlClass.getClass().getMethod(procId, HttpServletRequest.class, Map.class,
                             HttpServletResponse.class);
                     resultForm = (BaseOutForm) method.invoke(controlClass, req, mapReq, resp);
-                } catch (Exception ex) {
-                    LOG.warning("Could not invoke method " + controlClass + "." + procId + "(Request, Map, Respone)");
+                } catch (NoSuchMethodException nsmEx) {
+                    LOG.warning("Could not invoke method " + controlClass + "." + procId + "(Request, Map, Respone)"
+                              + "Try to invoke older method (Request, Response)");
                     // @deprecated
                     method = controlClass.getClass().getMethod(procId, HttpServletRequest.class, HttpServletResponse.class);
                     resultForm = (BaseOutForm) method.invoke(controlClass, req, resp);
+                } catch (Exception ex) {
+                    LOG.log(Level.WARNING, "Error in invoke method " + controlClass + "." + procId + "(Request, Map, Respone)", ex);
                 }
             } else if (controlClass != null) { // Initial screen
                 method = controlClass.getClass().getMethod(DEF_PROCID, HttpServletRequest.class, HttpServletResponse.class);
@@ -182,11 +232,24 @@ public class CentralConntroller extends HttpServlet {
                 }
             }
             
-            LOG.info("nextScrId=" + nextScrId + ";distType");
+            LOG.info("nextScrId=" + nextScrId + ";distType" + ";preLang=" + preLang + ";lang" + lang);
+            
+            // Check to reload the resource of language code
+//            if (!CommonUtil.isNNandNB(lang)) {
+//                // get the language code from the session
+//                lang = (String) req.getSession().getAttribute(SK_LANG);
+//                if (CommonUtil.isNNandNB(lang) && (!lang.equals(preLang))) {
+//                    processLang(req);
+//                    preLang = lang;
+//                }
+//            }
+            
             
             // Process transition screen
             RequestDispatcher dispatcher = req.getRequestDispatcher(nextScrId);
-            
+            // Keep the screenId and eventId in the request
+            req.setAttribute(K_SCREEN_ID, screenId);
+            req.setAttribute(K_EVENT_ID, eventId);
             if (distType == Event.DispType.FORWARD) {
                 dispatcher.forward(req, resp);
             } else if (distType == Event.DispType.INCLUDE) {
@@ -201,6 +264,28 @@ public class CentralConntroller extends HttpServlet {
         }
     }
     
+    /**
+     * [Give the description for method].
+     * @param req
+     */
+    private void processLang(HttpServletRequest req) {
+        LOG.finest("processLang.START;lang=" + lang);
+        DefaultRes resource = DefaultRes.getInstance(lang);
+        if (resource != null) {
+            LOG.warning("Loading the resource of language code '" + lang + "'");
+            for (Object key : resource.getKey()) {
+                this.getServletContext().setAttribute(key.toString(), resource.get(key.toString()));
+            }
+            
+            // Update the previous, current language code
+            preLang = resource.getLang();
+            lang = preLang;
+        } else {
+            LOG.warning("Could not load the resource of language code '" + lang + "'");
+        }
+        LOG.finest("processLang.END;");
+    }
+
     /**
      * 
      * @param request
@@ -220,12 +305,26 @@ public class CentralConntroller extends HttpServlet {
                 }
             }
 
-            // Scan object in reqest map to put into the request
+            // Scan object in request map to put into the request
             Map<String, Object> requestMap = resultForm.getRequestMap();
             if (requestMap.keySet() != null) {
                 for (String key : requestMap.keySet()) {
                     LOG.log(Level.FINEST,"Set request attribute: key = " + key);
                     request.setAttribute(key, requestMap.get(key));
+                }
+            }
+            
+            // Scan key to remove from the request
+            if (resultForm.getRemoveRequestKeys() != null) {
+                for (String key : resultForm.getRemoveRequestKeys()) {
+                    request.removeAttribute(key);
+                }
+            }
+            
+            // Scan key to remove from the session
+            if (resultForm.getRemoveSessionKeys() != null) {
+                for (String key : resultForm.getRemoveSessionKeys()) {
+                    request.removeAttribute(key);
                 }
             }
         }

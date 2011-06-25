@@ -8,6 +8,8 @@
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 </head>
 <body>
+Language ${applicationScope.Language}
+<br/>
 Tôi yêu tiếng nước tôi!
 Index layout. Welcome <%= session.getAttribute("user") %>
     <table border="1" width="100%" cellspacing="0" cellpadding="0">

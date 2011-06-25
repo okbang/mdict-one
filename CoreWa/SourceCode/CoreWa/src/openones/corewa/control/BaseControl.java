@@ -28,12 +28,14 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import openones.corewa.BaseForm;
 import openones.corewa.BaseOutForm;
-import openones.corewa.form.BaseForm;
+import openones.corewa.res.DefaultRes;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -45,8 +47,19 @@ import rocky.common.BeanUtil;
 
 public class BaseControl {
     final static Logger LOG = Logger.getLogger("BaseControl");
-
+    protected BaseOutForm outForm = new BaseOutForm();
+    protected ServletConfig config;
     
+    /** Default resource file ApplicationResource.properties is use for default language code .*/
+    protected String defaulLangCd = "vn";
+
+    public BaseControl() {
+    }
+
+    public BaseControl(ServletConfig config) {
+        this.config = config;
+    }
+
     public BaseOutForm procInit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOG.log(Level.INFO, "procInit.START");
         LOG.log(Level.INFO, "procInit.END");
@@ -57,10 +70,12 @@ public class BaseControl {
 
     /**
      * Get data from web request to form bean.
+     * @deprecated Use openones.corewa.ReqUtil.getData.
      * @param req
      * @param clazz
      * @return
      */
+    @Deprecated
     protected BaseForm getData(HttpServletRequest req, Class clazz) {
         LOG.fine("getData.START");
         Object bean = null;
@@ -139,6 +154,16 @@ public class BaseControl {
         LOG.log(Level.FINEST, "getMapData.END");
 
         return result;
+    }
+    
+    public void reloadResource(String langCd) {
+        // Load resource
+        DefaultRes resource = DefaultRes.getInstance(langCd);
+        if (resource != null) {
+            for (Object key : resource.getKey()) {
+                config.getServletContext().setAttribute(key.toString(), resource.get(key.toString()));
+            }
+        }
     }
 
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	XSD to validate coreWA.xml in coreWA framework
+	Author: TanLV
+	facebook.com/betancothep
+
+Element Structure (sequence constraint):
+[corewa]
+	[layout] - one and only one tag, empty tag
+			+id: string, require
+		[home-screen] - one and only one tag, string
+		[screen] - at least one tag, empty tag
+				+id: string, require
+				+control: string, option
+				+input: string, option
+			[event] - unlimited quantity , empty tag
+					+id: string, require
+					+procId: string, option
+					+redirect: yes|no|true|false
+					+nextScreen: string, option 
+				[result] - unlimited quantity , empty tag
+						+id: string, require
+						+nextScreen: string, option
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="corewa" type="corewaData"/>
+	<!--root element-->
+	<xs:complexType name="corewaData">
+		<xs:sequence>
+			<xs:element name="layout" type="layoutData"/>
+			<xs:element name="home-screen" type="xs:string"/>
+			<xs:element name="screen" type="screenData" maxOccurs="unbounded"/>
+			<!--allow one or multi 'screen' tag-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="layoutData">
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<!--this attribute is been require in tag-->
+	</xs:complexType>
+	<xs:complexType name="screenData">
+		<xs:sequence>
+			<xs:element name="event" type="eventData" minOccurs="0" maxOccurs="unbounded"/>
+			<!--allow zero or multi-->
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="control" type="xs:string"/>
+		<xs:attribute name="input" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="eventData">
+		<xs:sequence>
+			<xs:element name="result" type="resultData" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="procId" type="xs:string"/>
+		<xs:attribute name="redirect" type="redirectData"/>
+		<xs:attribute name="nextScreen" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="resultData">
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="nextScreen" type="xs:string"/>
+	</xs:complexType>
+	<xs:simpleType name="redirectData">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(yes{1}|no{1}|true{1}|false{1})"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
