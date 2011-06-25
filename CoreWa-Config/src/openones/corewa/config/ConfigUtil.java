@@ -164,6 +164,7 @@ public class ConfigUtil {
             int len = (screenNodeList != null)? screenNodeList.getLength():0;
             Node screenNode;
             Screen screenInfo;
+            String dispType;
             for (int i = 0; i < len; i++) {
                 screenNode = screenNodeList.item(i);
                 
@@ -172,6 +173,11 @@ public class ConfigUtil {
                 screenInfo.setCtrlClass(xp.evaluate("@control", screenNode));
                 screenInfo.setInputPage(xp.evaluate("@input", screenNode));
                 screenInfo.setFormId(xp.evaluate("@form", screenNode));
+                dispType = xp.evaluate("@disp-type", screenNode);
+                if (CommonUtil.isNNandNB(dispType)) {
+                    screenInfo.setDispType(dispType);
+                }
+                
                 screenInfo.setEvents(parseEvent(screenNode));
                 
                 screenMap.put(screenInfo.getId(), screenInfo);

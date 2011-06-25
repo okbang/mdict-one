@@ -1,17 +1,20 @@
 package openones.corewa;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import openones.corewa.config.Event;
-import openones.corewa.validate.config.ErrorField;
 
 public class BaseOutForm implements Serializable {
     private Map<String, Object> requestMap = new HashMap<String, Object>();
     private Map<String, Object> sessionMap = new HashMap<String, Object>();
+    
+    private List<String> removeRequestKeys = new ArrayList<String>();
+    private List<String> removeSessionKeys = new ArrayList<String>();
+    
     private BaseInForm inForm;
     
     /** Support specified next jsp page. */
@@ -50,6 +53,22 @@ public class BaseOutForm implements Serializable {
         sessionMap.put(key, value);
     }
 
+    public List<String> getRemoveRequestKeys() {
+        return removeRequestKeys;
+    }
+
+    public List<String> getRemoveSessionKeys() {
+        return removeSessionKeys;
+    }
+
+    public void removeFromRequest(String key) {
+        removeRequestKeys.add(key);
+    }
+    
+    public void removeFromSession(String key) {
+        removeSessionKeys.add(key);
+    }
+    
     public Map<String, Object> getRequestMap() {
         return requestMap;
     }

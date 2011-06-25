@@ -21,6 +21,8 @@ package openones.corewa.config;
 import java.util.HashMap;
 import java.util.Map;
 
+import openones.corewa.config.Event.DispType;
+
 /**
  * This class presents the bean of tag screen in configuration file. 
  * @author Thach Le
@@ -31,6 +33,8 @@ public class Screen {
     private String id;
     private String ctrlClass;
     private String inputPage;
+    /** Type display of input page. */
+    private DispType dispType = DispType.INCLUDE;
     private String formId;
     private Map<String, Event> events = new HashMap<String, Event>();
 
@@ -90,5 +94,17 @@ public class Screen {
 
     public void setFormId(String formId) {
         this.formId = formId;
+    }
+
+    public DispType getDispType() {
+        return dispType;
+    }
+
+    public void setDispType(DispType dispType) {
+        this.dispType = dispType;
+    }
+    
+    public void setDispType(String dispType) {
+        this.dispType = DispType.valueOf(dispType);
     }
 }

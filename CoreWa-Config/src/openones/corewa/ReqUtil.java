@@ -34,10 +34,10 @@ import org.apache.log4j.Logger;
 import rocky.common.BeanUtil;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  */
 public class ReqUtil {
-    final public static Logger LOG = Logger.getLogger("ReqUtil");
+    final static Logger LOG = Logger.getLogger("ReqUtil");
 
     /**
      * Parse data from request map into form bean.
@@ -47,7 +47,7 @@ public class ReqUtil {
      * @param validationConf contain the data validation configuration
      * @return form bean
      */
-    public static BaseInForm getData(Map<String, Object> reqMap, Class clazz, ValidationConf validationConf) {
+    public static Object getData(Map<String, Object> reqMap, Class clazz, ValidationConf validationConf) {
         LOG.debug("getData.START:clazz=" + clazz + ";validationConf=" + validationConf);
         Object bean = null;
 
@@ -106,7 +106,7 @@ public class ReqUtil {
         }
         LOG.debug("getData.END");
 
-        return (BaseInForm) bean;
+        return bean;
 
     }
 
@@ -117,7 +117,7 @@ public class ReqUtil {
      * @param clazz class of form bean
      * @return form bean
      */
-    public static BaseInForm getData(Map<String, Object> reqMap, Class clazz) {
+    public static Object getData(Map<String, Object> reqMap, Class clazz) {
         LOG.debug("getData.START:clazz=" + clazz);
         return getData(reqMap, clazz, null);
     }

@@ -29,17 +29,18 @@ import rocky.common.Constant;
 import rocky.common.PropertiesManager;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
 public class DefaultRes {
     final public static Logger LOG = Logger.getLogger("DefaultRes");
-    final static String DEF_LANG = "en";
+    final static public String DEF_LANG = "vn";
+    final static public String BASE_NAME = "ApplicationResources";
     
-    private String lang;
+    private String lang = DEF_LANG;
     
-    /** Default resourse "/ApplicationResources" */
-    private String baseName = "ApplicationResources";
+    /** Default resource "/ApplicationResources" */
+    //private String baseName = BASE_NAME;
     
     private Properties props = null;
     
@@ -47,62 +48,90 @@ public class DefaultRes {
      * Create instance of Resource with order left to right of language codes.
      * @param langs array of language codes
      */
-    public DefaultRes(String[] langs) {
+    public static DefaultRes getInstance(String[] langs) {
         PropertiesManager propsManager = null;
         String resourceFile;
-        for (String lang: langs) {
+        Properties props = null;
+        for (String langCd: langs) {
             try {
-                if (CommonUtil.isNNandNB(lang)) {
-                    resourceFile = "/" + baseName + "_" + lang + ".properties";
+                if (CommonUtil.isNNandNB(langCd)) {
+                    resourceFile = "/" + BASE_NAME + "_" + langCd + ".properties";
                     
                 } else {
-                    resourceFile = "/" + baseName + ".properties";
+                    resourceFile = "/" + BASE_NAME + ".properties";
                 }
                 propsManager = new PropertiesManager(resourceFile);
                 props = propsManager.getProperties();
+                
                 if (props != null) {
-                    break;    
+                    return new DefaultRes(props, langCd);
                 }
             } catch (Exception ex) {
-                LOG.warn("Could not load resource /" + baseName + "_" + lang + ".properties");
+                LOG.warn("Could not load resource /" + BASE_NAME + "_" + langCd + ".properties");
             }
         }
+        return null;
     }
     /**
      * 
      * @param lang en | vn
      * Default value
      */
-    public DefaultRes(String langCode) {
-        if (CommonUtil.isNNandNB(lang)) {
-            this.lang = langCode; 
-        } else {
-            this.lang = DEF_LANG;
-        }
-        
-        // Load file properties
-        loadResource(baseName);
-        
+//    public DefaultRes(String langCode) {
+//        if (CommonUtil.isNNandNB(langCode)) {
+//            this.lang = langCode; 
+//        } else {
+//            this.lang = DEF_LANG;
+//        }
+//        
+//        // Load file properties
+//        loadResource(baseName, langCode);
+//        
+//    }
+    
+//    public DefaultRes(String langCd, String baseName) {
+//        if (CommonUtil.isNNandNB(lang)) {
+//            this.lang = langCd; 
+//        } else {
+//            this.lang = DEF_LANG;
+//        }
+//        
+//        // Load file properties
+//        loadResource(baseName, langCd);
+//        
+//    }
+    
+    /**
+     * @param props
+     */
+    private DefaultRes(Properties props) {
+        this.props = props;
+    }
+
+    private DefaultRes(Properties props, String langCd) {
+        this.props = props;
+        this.lang = langCd;
     }
     
-    public DefaultRes(String langCode, String baseName) {
-        if (CommonUtil.isNNandNB(lang)) {
-            this.lang = langCode; 
-        } else {
-            this.lang = DEF_LANG;
-        }
-        
+    public static DefaultRes getInstance(String langCd) {
         // Load file properties
-        loadResource(baseName);
-        
+        Properties props = loadResource(BASE_NAME, langCd);
+
+        if (props != null) {
+            return new DefaultRes(props, langCd);
+        } else {
+            return null;
+        }
     }
     
-    private void loadResource(String baseName) {
+    private static Properties loadResource(String baseName, String langCd) {
+        Properties props = null;
         try {
-            props = PropertiesManager.newInstanceFromProps("/" + baseName + "_" + lang + ".properties");
+            props = PropertiesManager.newInstanceFromProps("/" + baseName + "_" + langCd + ".properties");
         } catch (IOException ex) {
-            LOG.error("Load resource file " + "/" + baseName + "_" + lang + ".properties", ex);
+            LOG.error("Load resource file " + "/" + baseName + "_" + langCd + ".properties", ex);
         }
+        return props;
     }
     
     public String get(String key) {
@@ -111,5 +140,9 @@ public class DefaultRes {
     
     public Set<Object> getKey() {
         return props.keySet();
+    }
+    
+    public String getLang() {
+        return lang;
     }
 }

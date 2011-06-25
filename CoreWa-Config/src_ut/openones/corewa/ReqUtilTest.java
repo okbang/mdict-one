@@ -37,7 +37,7 @@ public class ReqUtilTest extends TestCase {
     @Test
     public void testGetData0001() {
         Map<String, Object> reqMap = new HashMap<String, Object>();
-        BaseInForm form = ReqUtil.getData(reqMap, BaseInForm.class, null);
+        Object form = ReqUtil.getData(reqMap, BaseInForm.class, null);
         
         assertNotNull(form);
     }
