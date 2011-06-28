@@ -17,15 +17,6 @@
     </c:if>
 </c:forEach>
 
-<%--new version --%>
-<c:set var="intro_bg" value="med"/>
-<c:set var="intro_aTab" value="after_inactive_tab"/>
-
-
-<%--which is active tab (new version)--%>
-<%--insert code here --%>
-
-
 <form name="frmNavigation" action="main.do" method="post">
       <input type="hidden" name="screenId" value="Navigation" />
       <input type="hidden" name="eventId" value="" />
@@ -40,9 +31,9 @@
                     <%-- tab: instance of ModuleDTO --%>
                     <c:forEach var="tab2" items="${moduleTabs}">
                         <c:choose>
-                            <%--Neu tab dc chon la intro --%>
+                            <%--If selected tab is the left most one(first tab) --%>
                             <c:when test="${selectedTabIndex==tab.orderNo}">
-                                <%--Hien thi tab intro voi after_selected_tab  --%>
+                                <%--Display first tab by after_selected_tab  --%>
                                 <%--code--%>
                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
@@ -70,9 +61,9 @@
                             </c:when> 
                             <c:otherwise>
                                 <c:choose>
-                                    <%--Neu tab tiep theo tab nay la tab dc chon--%>              
+                                    <%--if the next tab is selected tab--%>              
                                     <c:when test="${selectedTabIndex == tab2.orderNo + 1}">
-                                    <%--hien thi tab voi before_selected_tab--%>
+                                    <%--display tab by before_selected_tab--%>
                                         <%--code--%>
                                         <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
@@ -99,9 +90,9 @@
                                     </c:when>
                                     <c:otherwise>
                                         <c:choose>
-                                            <%--Neu tab nay la tab chon--%>
+                                            <%--if this tab is selected tab--%>
                                             <c:when test="${selectedTabIndex == tab2.orderNo}">
-                                            <%--Hien thi tab nay voi after_selected_tab --%>
+                                            <%--display tab by after_selected_tab --%>
                                                 <%--code --%>
                                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
@@ -127,8 +118,8 @@
                                                 <%--/code --%>    
                                             </c:when>
                                             <c:otherwise>
-                                            <%--Neu day la tab binh thuong --%>
-                                            <%--Hien thi tab nay voi after_inactive_tab--%>
+                                            <%--if this tab is inselected tab --%>
+                                            <%--display tab by after_inactive_tab--%>
                                                 <%--code --%>
                                                 <td class=uportal-background-shadow noWrap align=left height="1">
                                 <table border=0 cellSpacing=0 cellPadding=0>
