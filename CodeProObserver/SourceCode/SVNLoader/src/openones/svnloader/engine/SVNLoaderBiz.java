@@ -631,7 +631,6 @@ public class SVNLoaderBiz {
                     svnVersion.setSVNAction(entryPath.getType());
                     svnVersion.setRevision(revision);
                     svnVersion.setNMComment(BigInteger.valueOf(0));
-                    svnVersion.setNmloc(BigInteger.valueOf(0));
                     svnVersionManager.createVersion(svnVersion);
                 }
             } else if (entryPath.getKind() == SVNNodeKind.UNKNOWN){
@@ -663,7 +662,6 @@ public class SVNLoaderBiz {
             }
         } catch (UnsupportedFileType e) {
             version.setNMComment(BigInteger.valueOf(0));
-            version.setNmloc(BigInteger.valueOf(0));
         }
 
     }

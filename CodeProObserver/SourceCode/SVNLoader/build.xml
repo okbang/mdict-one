@@ -2,11 +2,13 @@
   <description>
       Build file for SVNLoader project
   </description>
-
+  <!-- Load user property definition overrides -->
+  <property file="build.properties"/>
+  
   <!-- set global properties for this build
     web.content: Folder contain web content of application
   -->  
-  <property name="dist.home"  location="dist"/>
+  <property name="dist.home"  location="dist/${app.name}-${app.version}"/>
   <property name="build.home"  location="build"/>
   <property name="lib.compile" value="lib"/>
   
@@ -21,8 +23,7 @@
   <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" />
   -->
 
-  <!-- Load user property definition overrides -->
-  <property file="build.properties"/>
+
 <!--
 
   These properties control option settings on the Javac compiler when it
@@ -86,39 +87,18 @@
 		<fileset dir="lib" />
 	</copy>
 	
-	<!--copy SVN2RDB.bat from src & SVN2RDB-ProgNews.bat from src_ut to ${dist.home}/bin-->
-	<copy file="src/SVN2RDB.bat" todir="${dist.home}/bin" preservelastmodified="true">
+	<!--copy resource-->
+	<copy todir="${dist.home}/resources" preservelastmodified="true">
+	  <fileset dir="resources" includes="*.properties, *.xml, **/*.xml" excludes=".svn,**/.svn"/>
 	</copy>	
-	<copy file="src/SVN2RDB.sh" todir="${dist.home}/bin" preservelastmodified="true">
-	</copy>
-	<copy file="src/OpenOnes Checks_v1.0.xml" todir="${dist.home}/bin" preservelastmodified="true">
-	</copy>		
-	<copy file="src_ut/SVN2RDB-ProgNews.bat" todir="${dist.home}/bin" preservelastmodified="true">
-	</copy>
-	<copy file="src_ut/SVN2RDB-ProgNews.sh" todir="${dist.home}/bin" preservelastmodified="true">
-	</copy>
-	
-	<!--copy META-INF from src to conf-->
-	<copy todir="${dist.home}/bin/META-INF" preservelastmodified="true">
-		<fileset dir="src/META-INF"/>
-	</copy>	
-	
+  	<!--copy resource-->
+  	<copy todir="${dist.home}/bin" preservelastmodified="true">
+  	  <fileset dir="resources" includes="*.bat, *.sh" excludes=".svn,**/.svn"/>
+  	</copy>
+  	
 	<!--copy folder hsqldb-8.1 to ${dist.home}/ -->
 	<copy todir="${dist.home}/hsqldb-8.1/" preservelastmodified="true">
-	    <fileset dir="hsqldb-8.1" />
-	</copy>
-	
-	<!--copy log4j.properties from src to ${dist.home}/lib-->
-	<copy file="src/log4j.properties" todir="${dist.home}/bin" preservelastmodified="true">
-	</copy>
-	
-	<!--copy start-hsql.bat from src_ut to ${dist.home}/lib-->
-	<copy file="src_ut/start-hsql.bat" todir="${dist.home}/bin" preservelastmodified="true">
-	</copy>
-	<copy file="src_ut/start-hsql.sh" todir="${dist.home}/bin" preservelastmodified="true">
-	</copy>
-	
-	<copy file="src/conf.properties" todir="${dist.home}/bin" preservelastmodified="true">
+	    <fileset dir="hsqldb-8.1"/>
 	</copy>
 	
 	<jar jarfile="${dist.home}/lib/${app.name}-${app.version}-${today}.jar" basedir="${build.home}"/>

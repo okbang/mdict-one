@@ -28,7 +28,6 @@ import javax.persistence.Table;
     @NamedQuery(name = "SVNVersion.findByDirID", query = "SELECT s FROM SVNVersion s WHERE s.sVNVersionPK.dirID = :dirID"),
     @NamedQuery(name = "SVNVersion.findByFileName", query = "SELECT s FROM SVNVersion s WHERE s.sVNVersionPK.fileName = :fileName"),
     @NamedQuery(name = "SVNVersion.findBySVNAction", query = "SELECT s FROM SVNVersion s WHERE s.sVNAction = :sVNAction"),
-    @NamedQuery(name = "SVNVersion.findByNmloc", query = "SELECT s FROM SVNVersion s WHERE s.nmloc = :nmloc"),
     @NamedQuery(name = "SVNVersion.findByNMComment", query = "SELECT s FROM SVNVersion s WHERE s.nMComment = :nMComment"),
     @NamedQuery(name = "SVNVersion.findByRevisionID", query = "SELECT s FROM SVNVersion s WHERE s.sVNVersionPK.revisionID = :revisionID"),
     @NamedQuery(name = "SVNVersion.findByCopyFromPath", query = "SELECT s FROM SVNVersion s WHERE s.copyFromPath = :copyFromPath"),
@@ -43,9 +42,6 @@ public class SVNVersion implements Serializable {
     @Basic(optional = false)
     @Column(name = "SVNAction")
     private char sVNAction;
-    
-    @Column(name = "NMLOC")
-    private BigInteger nmloc;
     
     @Column(name = "Size")
     private BigInteger size;
@@ -116,14 +112,6 @@ public class SVNVersion implements Serializable {
 
     public void setSVNAction(char sVNAction) {
         this.sVNAction = sVNAction;
-    }
-
-    public BigInteger getNmloc() {
-        return nmloc;
-    }
-
-    public void setNmloc(BigInteger nmloc) {
-        this.nmloc = nmloc;
     }
 
     public BigInteger getNMComment() {

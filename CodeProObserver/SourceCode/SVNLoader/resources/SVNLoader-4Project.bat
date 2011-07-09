@@ -3,7 +3,7 @@ REM Get the current date with format YYYYMMDD
 for /f "tokens=1,2,3,4 delims=/ " %%a in ('date /t') do set YYYYMMDD=%%d%%c%%b
 set LOG=Log_%YYYYMMDD%.txt
 SET TEMPATH=%TEMP%/SVNLoader
-SET CLASSPATH=%CLASSSPATH%;../conf
+SET CLASSPATH=%CLASSSPATH%;../resources
 
 SET URL=
 SET USERNAME=
