@@ -1,0 +1,41 @@
+id: 1-4.0.r4/0
+type: file
+count: 0
+text: 2 0 251 234 31f28f30763f3ee4ad4f257fd5c61436 cd2059e55a377b69b0122547a1bfe4238c403928 3-3/_3
+cpath: /TestDeleteFile/README.txt
+copyroot: 0 /
+
+PLAIN
+K 10
+README.txt
+V 15
+file 1-4.0.r4/0
+END
+ENDREP
+id: 0-1.0.r4/237
+type: dir
+pred: 0-1.0.r3/17
+count: 3
+text: 4 183 41 41 6896f932ade1efd600c5689b8247a9ac
+cpath: /TestDeleteFile
+copyroot: 0 /
+
+PLAIN
+K 14
+TestDeleteFile
+V 16
+dir 0-1.0.r4/237
+END
+ENDREP
+id: 0.0.r4/439
+type: dir
+pred: 0.0.r3/214
+count: 4
+text: 4 380 46 46 09e454e7cc30d078238693ade6bc8b40
+cpath: /
+copyroot: 0 /
+
+_1.0.t3-3 add-file true false /TestDeleteFile/README.txt
+
+
+439 565

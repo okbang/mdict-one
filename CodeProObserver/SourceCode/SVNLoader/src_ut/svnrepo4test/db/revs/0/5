@@ -1,0 +1,44 @@
+id: 1-5.0.r5/0
+type: dir
+count: 0
+cpath: /TestDeleteFile/WillBeDelete
+copyroot: 0 /
+
+PLAIN
+K 10
+README.txt
+V 15
+file 1-4.0.r4/0
+K 12
+WillBeDelete
+V 14
+dir 1-5.0.r5/0
+END
+ENDREP
+id: 0-1.0.r5/177
+type: dir
+pred: 0-1.0.r4/237
+count: 4
+text: 5 85 79 79 1c50e3da96e2a8d08d0f2d75b7dc1e92
+cpath: /TestDeleteFile
+copyroot: 0 /
+
+PLAIN
+K 14
+TestDeleteFile
+V 16
+dir 0-1.0.r5/177
+END
+ENDREP
+id: 0.0.r5/379
+type: dir
+pred: 0.0.r4/439
+count: 5
+text: 5 320 46 46 e147b1f3f4a23124b83c670d91c2f6d0
+cpath: /
+copyroot: 0 /
+
+_1.0.t4-4 add-dir false false /TestDeleteFile/WillBeDelete
+
+
+379 505

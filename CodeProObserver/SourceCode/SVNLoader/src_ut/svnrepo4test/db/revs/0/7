@@ -1,0 +1,34 @@
+PLAIN
+K 10
+README.txt
+V 15
+file 1-4.0.r4/0
+END
+ENDREP
+id: 0-1.0.r7/54
+type: dir
+pred: 0-1.0.r6/526
+count: 6
+text: 7 0 41 41 6896f932ade1efd600c5689b8247a9ac
+cpath: /TestDeleteFile
+copyroot: 0 /
+
+PLAIN
+K 14
+TestDeleteFile
+V 15
+dir 0-1.0.r7/54
+END
+ENDREP
+id: 0.0.r7/253
+type: dir
+pred: 0.0.r6/729
+count: 7
+text: 7 195 45 45 46c69057576f8966db5e4c6e57f3d0ce
+cpath: /
+copyroot: 0 /
+
+1-5.0.r6/277 delete-dir false false /TestDeleteFile/WillBeDelete
+
+
+253 379

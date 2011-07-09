@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="src_ut"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="lib/eclipselink.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/jPackages/eclipselink-javadocs"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/javax.persistence_2.0.1.v201006031150.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/jPackages/eclipselink-javadocs"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/svnkit.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="lib/juniversalchardet-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/stepcounter_2.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.14-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="lib/checkstyle-5.3-all.jar"/>
+	<classpathentry kind="lib" path="lib/CodeChecker-0.0.2-201104117034704.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="lib/locc_5.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/poi-examples-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/poi-scratchpad-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="lib/xbean.jar"/>
+	<classpathentry kind="lib" path="lib/rocky-common-0.1.2-201106180123816.jar"/>
+	<classpathentry kind="lib" path="lib/sizecounter-2.1.2-201107186075246.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

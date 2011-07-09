@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="SVNLoaderEntityPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>openones.svnloader.daoimpl.entity.SVNFile</class>
+    <class>openones.svnloader.daoimpl.entity.SVNVersion</class>
+    <class>openones.svnloader.daoimpl.entity.SVNFilePK</class>
+    <class>openones.svnloader.daoimpl.entity.SVNVersionPK</class>
+    <class>openones.svnloader.daoimpl.entity.Dir</class>
+    <class>openones.svnloader.daoimpl.entity.Revision</class>
+    <class>openones.svnloader.daoimpl.entity.SVNRepo</class>
+    
+    <!--
+    Values of property: eclipselink.ddl-generation
+     + create-tables 
+     + drop-and-create-tables
+     -->
+    
+    <!--  For MSSQL
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=ProgNews_Test"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.password" value="sa12345"/>
+	  <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+    </properties>
+
+    -->
+
+    <!--  For HSQL --> 
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/svnreport"/>
+      <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+	  <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>      
+    </properties>
+    
+    <!-- 
+	<properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/HAInfo"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="admin"/>
+      <property name="javax.persistence.jdbc.password" value="admin"/>
+	  <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>      
+    </properties>
+     --> 
+  </persistence-unit>
+</persistence>
+

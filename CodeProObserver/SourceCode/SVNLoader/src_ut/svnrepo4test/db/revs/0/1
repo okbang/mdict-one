@@ -1,0 +1,25 @@
+id: 0-1.0.r1/0
+type: dir
+count: 0
+cpath: /TestDeleteFile
+copyroot: 0 /
+
+PLAIN
+K 14
+TestDeleteFile
+V 14
+dir 0-1.0.r1/0
+END
+ENDREP
+id: 0.0.r1/129
+type: dir
+pred: 0.0.r0/17
+count: 1
+text: 1 72 44 44 79bb71b1f149aa501ade89a8c68b31f8
+cpath: /
+copyroot: 0 /
+
+_0.0.t0-0 add-dir false false /TestDeleteFile
+
+
+129 253
