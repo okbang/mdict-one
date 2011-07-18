@@ -64,7 +64,7 @@
   <target name="compile" depends="init" description="Compile all Java sources">
 
     <!-- Compile Java classes as necessary -->
-	<echo message="Complie sourse folder 'src'"/>
+	<echo message="Compile sourse folder 'src'"/>
     <javac srcdir="src"
           destdir="${build.home}"
             debug="${compile.debug}"
@@ -76,6 +76,35 @@
       <classpath refid="compile.classpath"/>
     </javac>
     
+  </target>
+  
+  <target name="compile-idao" depends="init" description="Compile Dao Interface sources">
+    <!-- Compile Java sources of Dao Interface layer -->
+    <echo message="Compile Java sources of Dao Interface layer"/>
+    <copy todir="${build.home}/openones/svnloader/dao">
+      <fileset dir="src/openones/svnloader/dao"></fileset>
+    </copy>
+    
+    <!-- Compile Java classes as necessary -->
+    <echo message="Complie sourse folder 'src'"/>
+    <javac srcdir="${build.home}"
+          destdir="${build.home}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+          target="1.6"
+          source="1.6"
+          encoding="UTF-8"
+         optimize="${compile.optimize}">
+      <classpath refid="compile.classpath"/>
+    </javac>
+  </target>
+
+  <target name="dist-idao" depends="compile-idao" description="generate the distribution of Dao Interface" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist.home}/lib"/>
+        
+    <jar jarfile="${dist.home}/lib/${app.name}-idao-${app.version}.jar" basedir="${build.home}"/>
+    <echo message="View the result within folder ${dist.home}"/>
   </target>
 
   <target name="dist" depends="compile" description="generate the distribution" >
@@ -108,8 +137,10 @@
   <target name="clean" description="clean up the build folder" >
     <!-- Delete the ${build.home} and ${dist.home} directory trees -->
 	<echo message="Delete the and '${dist.home}' directory trees "/>
+    <delete dir="${build.home}"/>
 	<delete dir="${dist.home}"/>
 	<delete dir="bin"/>
+  
   </target>
 
 </project>

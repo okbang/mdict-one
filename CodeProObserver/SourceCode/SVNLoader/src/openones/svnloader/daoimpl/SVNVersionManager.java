@@ -19,7 +19,10 @@
 package openones.svnloader.daoimpl;
 
 import openones.svnloader.dao.ISVNVersionManager;
+import openones.svnloader.dao.entity.ISVNVersion;
+import openones.svnloader.dao.entity.ISVNVersionPK;
 import openones.svnloader.daoimpl.entity.SVNVersion;
+import openones.svnloader.daoimpl.entity.SVNVersionPK;
 import openones.svnloader.daoimpl.store.SVNVersionJpaController;
 
 public class SVNVersionManager implements ISVNVersionManager {
@@ -36,11 +39,23 @@ public class SVNVersionManager implements ISVNVersionManager {
      * @see openones.svnloader.engine.manager.ISVNVersionManager#createVersion(openones.svnloader.daoimpl.entity.SVNVersion)
      */
     @Override
-    public void createVersion(SVNVersion svnVersion) throws Exception {
+    public void createVersion(Object svnVersion) throws Exception {
         try {
-            jpaController.create(svnVersion);
+            jpaController.create((SVNVersion) svnVersion);
         } catch (Exception ex) {
             throw ex;
         }
+    }
+
+    /**
+     * [Explain the description for this method here].
+     * @param svnVersionPK
+     * @return
+     * @see openones.svnloader.dao.ISVNVersionManager#newSVNVersionInst(openones.svnloader.dao.entity.ISVNVersionPK)
+     */
+    @Override
+    public ISVNVersion newSVNVersionInst(ISVNVersionPK svnVersionPK) {
+        SVNVersion svnVersion = new SVNVersion((SVNVersionPK) svnVersionPK);
+        return svnVersion;
     }
 }

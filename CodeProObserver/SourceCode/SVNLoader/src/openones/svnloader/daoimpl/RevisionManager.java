@@ -19,6 +19,7 @@
 package openones.svnloader.daoimpl;
 
 import openones.svnloader.dao.IRevisionManager;
+import openones.svnloader.dao.entity.IRevision;
 import openones.svnloader.daoimpl.entity.Revision;
 import openones.svnloader.daoimpl.store.RevisionJpaController;
 import openones.svnloader.daoimpl.store.exceptions.PreexistingEntityException;
@@ -31,7 +32,8 @@ public class RevisionManager implements IRevisionManager {
     }
 
     @Override
-    public void createRevision(Revision revision) throws Exception {
+    public void createRevision(Object revisionObj) throws Exception {
+        Revision revision = (Revision) revisionObj;
         long nextID = jpaController.getNextId();
         revision.setRevisionID(nextID);
         jpaController.create(revision);
@@ -46,5 +48,15 @@ public class RevisionManager implements IRevisionManager {
     @Override
     public Revision findRevision(long id) {
         return jpaController.findRevision(id);
+    }
+
+    /**
+     * [Explain the description for this method here].
+     * @return
+     * @see openones.svnloader.dao.IRevisionManager#newRevisionInst()
+     */
+    @Override
+    public IRevision newRevisionInst() {
+        return new Revision();
     }
 }

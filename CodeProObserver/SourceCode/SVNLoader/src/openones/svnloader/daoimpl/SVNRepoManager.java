@@ -4,9 +4,9 @@ import java.math.BigInteger;
 import java.util.List;
 
 import openones.svnloader.dao.ISVNRepoManager;
+import openones.svnloader.dao.entity.ISVNRepo;
 import openones.svnloader.daoimpl.entity.SVNRepo;
 import openones.svnloader.daoimpl.store.SVNRepoJpaController;
-import openones.svnloader.daoimpl.store.exceptions.PreexistingEntityException;
 
 
 public class SVNRepoManager implements ISVNRepoManager {
@@ -25,7 +25,7 @@ public class SVNRepoManager implements ISVNRepoManager {
      * @see openones.svnloader.engine.manager.ISVNRepoManager#createSVNRepo(java.lang.String, long)
      */
     @Override
-    public SVNRepo createSVNRepo(String url, long revisionID) throws Exception {
+    public ISVNRepo createSVNRepo(String url, long revisionID) throws Exception {
         int id = jpaController.getNextId();
         SVNRepo repo;
         try {
@@ -47,7 +47,7 @@ public class SVNRepoManager implements ISVNRepoManager {
      * @see openones.svnloader.engine.manager.ISVNRepoManager#createSVNRepo(java.lang.String)
      */
     @Override
-    public SVNRepo createSVNRepo(String url) throws Exception {
+    public ISVNRepo createSVNRepo(String url) throws Exception {
         int id = jpaController.getNextId();
         SVNRepo repo;
         try {
@@ -69,7 +69,7 @@ public class SVNRepoManager implements ISVNRepoManager {
      * @see openones.svnloader.engine.manager.ISVNRepoManager#createSVNRepo(java.lang.String, java.lang.String)
      */
     @Override
-    public SVNRepo createSVNRepo(String url, String projectCode) throws Exception {
+    public ISVNRepo createSVNRepo(String url, String projectCode) throws Exception {
         int id = jpaController.getNextId();
         SVNRepo repo;
         try {
@@ -83,8 +83,8 @@ public class SVNRepoManager implements ISVNRepoManager {
         return repo;
     }
     @Override
-    public void updateSVNRepo(SVNRepo repo) throws PreexistingEntityException, Exception {
-        jpaController.edit(repo);
+    public void updateSVNRepo(Object repo) throws Exception {
+        jpaController.edit((SVNRepo) repo);
     }
 
     /**
@@ -94,8 +94,8 @@ public class SVNRepoManager implements ISVNRepoManager {
      * @see openones.svnloader.engine.manager.ISVNRepoManager#findRepoByURL(java.lang.String)
      */
     @Override
-    public SVNRepo findRepoByURL(String URL) {
-        SVNRepo target = null;
+    public ISVNRepo findRepoByURL(String URL) {
+        ISVNRepo target = null;
         List<SVNRepo> listRepo = jpaController.findSVNRepoEntities();
         for (SVNRepo svnRepo : listRepo) {
             if (svnRepo.getUrl().equals(URL)) {

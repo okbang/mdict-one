@@ -18,37 +18,39 @@
  */
 package openones.svnloader.daoimpl;
 
-import openones.svnloader.dao.ISVNFileManager;
-import openones.svnloader.dao.entity.ISVNFile;
-import openones.svnloader.daoimpl.entity.SVNFile;
-import openones.svnloader.daoimpl.store.SVNFileJpaController;
+import openones.svnloader.dao.ISVNFilePKManager;
+import openones.svnloader.dao.entity.ISVNFilePK;
 
-public class SVNFileManager implements ISVNFileManager {
-    private SVNFileJpaController jpaController;
-
-    public SVNFileManager() {
-        jpaController = new SVNFileJpaController();
-    }
+/**
+ * @author ThachLN
+ *
+ */
+public class SVNFilePKManager implements ISVNFilePKManager {
 
     /**
      * [Explain the description for this method here].
      * @param svnFile
      * @throws Exception
-     * @see openones.svnloader.engine.manager.ISVNFileManager#createFile(openones.svnloader.daoimpl.entity.SVNFile)
+     * @see openones.svnloader.dao.ISVNFilePKManager#createFile(java.lang.Object)
      */
     @Override
-    public void createFile(Object svnFile) throws Exception {        
-        jpaController.create((SVNFile) svnFile);
-       
+    public void createFile(Object svnFile) throws Exception {
+        // TODO Auto-generated method stub
+
     }
 
     /**
      * [Explain the description for this method here].
+     * @param dirID
+     * @param name
+     * @param revisionID
      * @return
-     * @see openones.svnloader.dao.ISVNFileManager#newSVNFileInst()
+     * @see openones.svnloader.dao.ISVNFilePKManager#newSVNFilePKInst(java.lang.Integer, java.lang.String, long)
      */
     @Override
-    public ISVNFile newSVNFileInst() {
-        return new SVNFile();
+    public ISVNFilePK newSVNFilePKInst(Integer dirID, String name, long revisionID) {
+        // TODO Auto-generated method stub
+        return null;
     }
+
 }

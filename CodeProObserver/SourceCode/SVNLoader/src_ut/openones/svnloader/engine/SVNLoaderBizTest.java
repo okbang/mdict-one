@@ -25,15 +25,31 @@ import org.junit.Test;
 
 public class SVNLoaderBizTest {
 
-
     @Test
     public void testTransfer0001() {
         try {
             String username = "";
             String password = "";
-            String url = "file:///Z:/SVNRepository/trunk/CodeProObserver";
+            String url = "file:///I:/Projects/LunarCal/Wip/Source/LunarCal";
             String path = "D:/Temp/News";
-            SVNLoaderBiz svn2DBBiz = new SVNLoaderBiz(url, username, password, path, "CodeProObserver", -1);
+            SVNLoaderBiz svn2DBBiz = new SVNLoaderBiz(url, username, password, path, "LunarCal", -1);
+            svn2DBBiz.transfer();
+
+            assertTrue("Check the result in the database!", true);
+        } catch (Throwable th) {
+            th.printStackTrace();
+            fail(th.getMessage());
+        }
+    }
+
+    @Test
+    public void testTransfer0002_ProjectList() {
+        try {
+            String username = "";
+            String password = "";
+            String url = "https://open-ones.googlecode.com/svn/trunk/ProjectList";
+            String path = "D:/Temp/News/ProjectList";
+            SVNLoaderBiz svn2DBBiz = new SVNLoaderBiz(url, username, password, path, "ProjectList", -1);
             svn2DBBiz.transfer();
 
             assertTrue("Check the result in the database!", true);
@@ -59,4 +75,3 @@ public class SVNLoaderBizTest {
         }
     }
 }
-

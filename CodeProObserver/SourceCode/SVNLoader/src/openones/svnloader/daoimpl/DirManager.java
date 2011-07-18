@@ -21,6 +21,7 @@ package openones.svnloader.daoimpl;
 import java.util.List;
 
 import openones.svnloader.dao.IDirManager;
+import openones.svnloader.dao.entity.IDir;
 import openones.svnloader.daoimpl.entity.Dir;
 import openones.svnloader.daoimpl.entity.SVNRepo;
 import openones.svnloader.daoimpl.store.DirJpaController;
@@ -41,16 +42,16 @@ public class DirManager implements IDirManager {
 
     /**
      * [Explain the description for this method here].
-     * @param dir
+     * @param dirObj
      * @throws Exception
      * @see openones.svnloader.engine.manager.IDirManager#createDir(openones.svnloader.daoimpl.entity.Dir)
      */
     @Override
-    public void createDir(Dir dir) throws Exception {
+    public void createDir(IDir dir) throws Exception {
         try {
             dir.setStatus(Status.Added.ordinal());
             dir.setDirID(jpaController.getNextId());
-            jpaController.create(dir);
+            jpaController.create((Dir) dir);
         } catch (Exception ex) {
             throw ex;
         }
@@ -58,16 +59,17 @@ public class DirManager implements IDirManager {
 
     /**
      * [Explain the description for this method here].
-     * @param svnRepo
+     * @param svnRepoObj
      * @param path
      * @return
      * @see openones.svnloader.engine.manager.IDirManager#findDir(openones.svnloader.daoimpl.entity.SVNRepo, java.lang.String)
      */
     @Override
-    public Dir findDir(SVNRepo svnRepo, String path) {
+    public Dir findDir(Object svnRepoObj, String path) {
         if (path == null) {
             return null;
         }
+        SVNRepo svnRepo = (SVNRepo) svnRepoObj;
         
         Dir targetDir = null;
         String[] listPaths = path.split("/");
@@ -99,12 +101,13 @@ public class DirManager implements IDirManager {
 
     /**
      * [Explain the description for this method here].
-     * @param svnRepo
+     * @param svnRepoObj
      * @return
      * @see openones.svnloader.engine.manager.IDirManager#findDirRoot(openones.svnloader.daoimpl.entity.SVNRepo)
      */
     @Override
-    public Dir findDirRoot(SVNRepo svnRepo) {
+    public Dir findDirRoot(Object svnRepoObj) {
+        SVNRepo svnRepo = (SVNRepo) svnRepoObj;
         Dir targetDir = null;
 
         List<Dir> listDir = svnRepo.getDirList();
@@ -119,12 +122,13 @@ public class DirManager implements IDirManager {
 
     /**
      * [Explain the description for this method here].
-     * @param svnRepo
+     * @param svnRepoObj
      * @return
      * @see openones.svnloader.engine.manager.IDirManager#findRoot(openones.svnloader.daoimpl.entity.SVNRepo)
      */
     @Override
-    public Dir findRoot(SVNRepo svnRepo) {
+    public Dir findRoot(Object svnRepoObj) {
+        SVNRepo svnRepo = (SVNRepo) svnRepoObj;
         Dir targetDir = null;
         List<Dir> listDir = jpaController.findRoot(AppConstant.ROOTNAME);
         if (listDir.size() == 0) {
@@ -146,19 +150,32 @@ public class DirManager implements IDirManager {
      * @throws Exception 
      */
     @Override
-    public void updateDir(Dir dir) throws Exception {
-        jpaController.edit(dir);
+    public void updateDir(IDir dir) throws Exception {
+        jpaController.edit((Dir) dir);
     }
 
     /**
      * [Explain the description for this method here].
-     * @param parentDir
+     * @param parentDirObj
      * @return
      * @see openones.svnloader.engine.manager.IDirManager#getDirs(openones.svnloader.daoimpl.entity.Dir)
      */
     @Override
-    public List<Dir> getDirs(Dir parentDir) {        
-        return jpaController.findDirEntities(parentDir.getDirID());       
+    public List getDirs(IDir parentDirObj) {    
+        Dir parentDir = (Dir) parentDirObj;
+        List<Dir> dirList = jpaController.findDirEntities(parentDir.getDirID());
+        
+        return dirList;
+    }
+
+    /**
+     * [Explain the description for this method here].
+     * @return
+     * @see openones.svnloader.dao.IDirManager#newDirInst()
+     */
+    @Override
+    public IDir newDirInst() {
+        return new Dir();
     }
 
 }

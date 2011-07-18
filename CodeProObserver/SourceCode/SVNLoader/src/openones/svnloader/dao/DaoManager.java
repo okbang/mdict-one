@@ -83,6 +83,14 @@ public abstract class DaoManager {
     public abstract IDirManager newDirManagerInst();
     public abstract IRevisionManager newRevisionManagerInst();
     public abstract ISVNFileManager newSVNFileManagerInst();
+    public abstract ISVNFilePKManager newSVNFilePKManagerInst();
     public abstract ISVNRepoManager newSVNRepoManagerInst();
     public abstract  ISVNVersionManager newSVNVersionManagerInst();
+
+
+    /**
+     * [Give the description for method].
+     * @return
+     */
+    public abstract ISVNVersionPKManager newSVNVersionPKManagerInst();
 }

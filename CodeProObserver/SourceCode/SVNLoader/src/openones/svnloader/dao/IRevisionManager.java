@@ -18,7 +18,7 @@
  */
 package openones.svnloader.dao;
 
-import openones.svnloader.daoimpl.entity.Revision;
+import openones.svnloader.dao.entity.IRevision;
 
 /**
  * @author ThachLN
@@ -26,8 +26,14 @@ import openones.svnloader.daoimpl.entity.Revision;
  */
 public interface IRevisionManager {
 
-    public abstract void createRevision(Revision revision) throws Exception;
+    public abstract void createRevision(Object revision) throws Exception;
 
-    public abstract Revision findRevision(long id);
+    public abstract IRevision findRevision(long id);
+
+    /**
+     * [Give the description for method].
+     * @return
+     */
+    public abstract IRevision newRevisionInst();
 
 }

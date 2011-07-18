@@ -16,57 +16,68 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.svnloader.dao;
+package openones.svnloader.dao.entity;
 
-import openones.svnloader.dao.entity.ISVNRepo;
+import java.math.BigInteger;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
-public interface ISVNRepoManager {
+public interface ISVNVersion {
 
     /**
-     * 
      * [Give the description for method].
-     * @param url
-     * @param revisionID
-     * @return SVNRepo
-     * @throws Exception
+     * @param parentDir
      */
-    public abstract ISVNRepo createSVNRepo(String url, long revisionID) throws Exception;
+    void setDir(IDir parentDir);
 
     /**
-     * 
      * [Give the description for method].
-     * @param url
-     * @return SVNRepo
-     * @throws Exception
+     * @param added
      */
-    public abstract ISVNRepo createSVNRepo(String url) throws Exception;
+    void setSVNAction(char added);
 
     /**
-     * create a SVN Repo with URL and project code params
-     * @param url: URl source code in SVN server
-     * @param projectCode: Name of project
-     * @return SVNRepo
-     */
-    public abstract ISVNRepo createSVNRepo(String url, String projectCode) throws Exception;
-
-    /**
-     * 
      * [Give the description for method].
-     * @param repo SVNRepo
-     * @throws Exception
+     * @param revision
      */
-    public abstract void updateSVNRepo(Object repo) throws Exception;
+    void setRevision(IRevision revision);
 
     /**
-     * 
      * [Give the description for method].
-     * @param URL
-     * @return SVNRepo
+     * @param valueOf
      */
-    public abstract ISVNRepo findRepoByURL(String URL);
+    void setSize(BigInteger valueOf);
+
+    /**
+     * [Give the description for method].
+     * @param valueOf
+     */
+    void setNMComment(BigInteger valueOf);
+
+    /**
+     * [Give the description for method].
+     * @param string
+     */
+    void setUnit(String string);
+
+    /**
+     * [Give the description for method].
+     * @param copyPath
+     */
+    void setCopyFromPath(String copyPath);
+
+    /**
+     * [Give the description for method].
+     * @param valueOf
+     */
+    void setCopyRevision(BigInteger valueOf);
+
+    /**
+     * [Give the description for method].
+     * @param valueOf
+     */
+    void setNmStaticBug(BigInteger valueOf);
 
 }

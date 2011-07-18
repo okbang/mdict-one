@@ -18,6 +18,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import openones.svnloader.dao.entity.IDir;
+import openones.svnloader.dao.entity.IRevision;
+import openones.svnloader.dao.entity.ISVNVersion;
+
 /**
  *
  */
@@ -35,7 +39,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "SVNVersion.findByNmStaticBug", query = "SELECT s FROM SVNVersion s WHERE s.nmStaticBug = :nmStaticBug"),
     @NamedQuery(name = "SVNVersion.findByNmUTBug", query = "SELECT s FROM SVNVersion s WHERE s.nmUTBug = :nmUTBug"),
     @NamedQuery(name = "SVNVersion.findByEffort", query = "SELECT s FROM SVNVersion s WHERE s.effort = :effort")})
-public class SVNVersion implements Serializable {
+public class SVNVersion implements ISVNVersion, Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected SVNVersionPK sVNVersionPK;
@@ -146,16 +150,16 @@ public class SVNVersion implements Serializable {
         return revision;
     }
 
-    public void setRevision(Revision revision) {
-        this.revision = revision;
+    public void setRevision(IRevision revision) {
+        this.revision = (Revision) revision;
     }
 
     public Dir getDir() {
         return dir;
     }
 
-    public void setDir(Dir dir) {
-        this.dir = dir;
+    public void setDir(IDir dir) {
+        this.dir = (Dir) dir;
     }
 
     public BigInteger getnMComment() {

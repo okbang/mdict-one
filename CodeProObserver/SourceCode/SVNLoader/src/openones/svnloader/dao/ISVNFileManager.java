@@ -18,7 +18,8 @@
  */
 package openones.svnloader.dao;
 
-import openones.svnloader.daoimpl.entity.SVNFile;
+import openones.svnloader.dao.entity.ISVNFile;
+
 
 /**
  * @author ThachLN
@@ -26,6 +27,12 @@ import openones.svnloader.daoimpl.entity.SVNFile;
  */
 public interface ISVNFileManager {
 
-    public abstract void createFile(SVNFile svnFile) throws Exception;
+    public abstract void createFile(Object svnFile) throws Exception;
+
+    /**
+     * [Give the description for method].
+     * @return
+     */
+    public abstract ISVNFile newSVNFileInst();
 
 }

@@ -20,6 +20,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import openones.svnloader.dao.entity.IDir;
+import openones.svnloader.dao.entity.IRevision;
+import openones.svnloader.dao.entity.ISVNRepo;
+
 /**
  *
  */
@@ -37,7 +41,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Dir.findByCopyRevision", query = "SELECT d FROM Dir d WHERE d.copyRevision = :copyRevision"),
     @NamedQuery(name = "Dir.findByParentPathAndName", query = "SELECT d FROM Dir d WHERE d.dirName = :dirName AND d.parentPath = :parentPath AND d.deletedRevisionID IS NULL "),
     @NamedQuery(name = "Dir.findByDeletedRevisionID", query = "SELECT d FROM Dir d WHERE d.deletedRevisionID = :deletedRevisionID")})
-public class Dir implements Serializable {
+public class Dir implements IDir, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -151,16 +155,17 @@ public class Dir implements Serializable {
         return sVNRepo;
     }
 
-    public void setSVNRepo(SVNRepo sVNRepo) {
-        this.sVNRepo = sVNRepo;
+    @Override
+    public void setSVNRepo(ISVNRepo sVNRepo) {
+        this.sVNRepo = (SVNRepo) sVNRepo;
     }
 
     public Revision getRevision() {
         return revision;
     }
 
-    public void setRevision(Revision revision) {
-        this.revision = revision;
+    public void setRevision(IRevision revision) {
+        this.revision = (Revision) revision;
     }
 
     public List<SVNFile> getSVNFileList() {

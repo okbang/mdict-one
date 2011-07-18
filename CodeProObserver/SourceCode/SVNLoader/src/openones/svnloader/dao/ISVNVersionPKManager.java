@@ -18,22 +18,21 @@
  */
 package openones.svnloader.dao;
 
-import openones.svnloader.dao.entity.ISVNVersion;
 import openones.svnloader.dao.entity.ISVNVersionPK;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
-public interface ISVNVersionManager {
-
-    public abstract void createVersion(Object svnVersion) throws Exception;
+public interface ISVNVersionPKManager {
 
     /**
      * [Give the description for method].
-     * @param svnVersionPK
+     * @param dirID
+     * @param name
+     * @param revision
      * @return
      */
-    public abstract ISVNVersion newSVNVersionInst(ISVNVersionPK svnVersionPK);
+    ISVNVersionPK newSVNVersionPKInst(Integer dirID, String name, long revision);
 
 }

@@ -14,6 +14,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import openones.svnloader.dao.entity.IDir;
+import openones.svnloader.dao.entity.ISVNFile;
+import openones.svnloader.dao.entity.ISVNFilePK;
+
 /**
  *
  */
@@ -24,7 +28,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "SVNFile.findByDirID", query = "SELECT s FROM SVNFile s WHERE s.sVNFilePK.dirID = :dirID"),
     @NamedQuery(name = "SVNFile.findByFileName", query = "SELECT s FROM SVNFile s WHERE s.sVNFilePK.fileName = :fileName"),
     @NamedQuery(name = "SVNFile.findByCreateRevision", query = "SELECT s FROM SVNFile s WHERE s.sVNFilePK.createRevision = :createRevision")})
-public class SVNFile implements Serializable {
+public class SVNFile implements ISVNFile, Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected SVNFilePK sVNFilePK;
@@ -47,16 +51,16 @@ public class SVNFile implements Serializable {
         return sVNFilePK;
     }
 
-    public void setSVNFilePK(SVNFilePK sVNFilePK) {
-        this.sVNFilePK = sVNFilePK;
+    public void setSVNFilePK(ISVNFilePK sVNFilePK) {
+        this.sVNFilePK = (SVNFilePK) sVNFilePK;
     }
 
     public Dir getDir() {
         return dir;
     }
 
-    public void setDir(Dir dir) {
-        this.dir = dir;
+    public void setDir(IDir dir) {
+        this.dir = (Dir) dir;
     }
 
     @Override

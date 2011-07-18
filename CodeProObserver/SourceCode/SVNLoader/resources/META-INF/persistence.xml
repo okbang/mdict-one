@@ -33,7 +33,7 @@
       <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
       <property name="javax.persistence.jdbc.password" value=""/>
-	  <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>      
+	  <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> 
     </properties>
     
     <!-- 

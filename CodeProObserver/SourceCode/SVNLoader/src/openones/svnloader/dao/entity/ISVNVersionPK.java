@@ -16,24 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.svnloader.dao;
-
-import openones.svnloader.dao.entity.ISVNVersion;
-import openones.svnloader.dao.entity.ISVNVersionPK;
+package openones.svnloader.dao.entity;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
-public interface ISVNVersionManager {
-
-    public abstract void createVersion(Object svnVersion) throws Exception;
-
-    /**
-     * [Give the description for method].
-     * @param svnVersionPK
-     * @return
-     */
-    public abstract ISVNVersion newSVNVersionInst(ISVNVersionPK svnVersionPK);
+public interface ISVNVersionPK {
 
 }

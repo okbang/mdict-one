@@ -20,29 +20,30 @@ package openones.svnloader.dao;
 
 import java.util.List;
 
-import openones.svnloader.daoimpl.entity.Dir;
-import openones.svnloader.daoimpl.entity.SVNRepo;
+import openones.svnloader.dao.entity.IDir;
+
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
 public interface IDirManager {
 
-    public abstract void createDir(Dir dir) throws Exception;
+    public IDir newDirInst();
+    public abstract void createDir(IDir dir) throws Exception;
 
-    public abstract Dir findDir(SVNRepo svnRepo, String path);
+    public abstract IDir findDir(Object svnRepo, String path);
 
-    public abstract Dir findDirRoot(SVNRepo svnRepo);
+    public abstract IDir findDirRoot(Object svnRepo);
 
-    public abstract Dir findRoot(SVNRepo svnRepo);
+    public abstract IDir findRoot(Object svnRepo);
 
     /**
      * Update information in a dir
      * @exception Exception
      * @param dir
      */
-    public abstract void updateDir(Dir dir) throws Exception;
+    public abstract void updateDir(IDir dir) throws Exception;
 
     /**
      * get List Dir has the same ParentDirID
@@ -51,6 +52,6 @@ public interface IDirManager {
      *            :parent of dir You want to find out
      * @return Set of Dir
      */
-    public abstract List<Dir> getDirs(Dir parentDir);
+    public abstract List getDirs(IDir parentDir);
 
 }

@@ -10,11 +10,13 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import openones.svnloader.dao.entity.ISVNFilePK;
+
 /**
  *
  */
 @Embeddable
-public class SVNFilePK implements Serializable {
+public class SVNFilePK implements ISVNFilePK, Serializable {
     @Basic(optional = false)
     @Column(name = "DirID")
     private int dirID;

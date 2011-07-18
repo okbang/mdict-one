@@ -18,6 +18,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import openones.svnloader.dao.entity.ISVNRepo;
+
 /**
  *
  */
@@ -30,7 +32,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "SVNRepo.findByUrl", query = "SELECT s FROM SVNRepo s WHERE s.url = :url"),
     @NamedQuery(name = "SVNRepo.findByLastestRevisionID", query = "SELECT s FROM SVNRepo s WHERE s.lastestRevisionID = :lastestRevisionID"),
     @NamedQuery(name = "SVNRepo.findByProjectCode", query = "SELECT s FROM SVNRepo s WHERE s.projectCode = :projectCode")})
-public class SVNRepo implements Serializable {
+public class SVNRepo implements ISVNRepo, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)

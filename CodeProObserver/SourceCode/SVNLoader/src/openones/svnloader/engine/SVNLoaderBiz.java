@@ -37,13 +37,13 @@ import openones.svnloader.dao.IRevisionManager;
 import openones.svnloader.dao.ISVNFileManager;
 import openones.svnloader.dao.ISVNRepoManager;
 import openones.svnloader.dao.ISVNVersionManager;
-import openones.svnloader.daoimpl.entity.Dir;
-import openones.svnloader.daoimpl.entity.Revision;
-import openones.svnloader.daoimpl.entity.SVNFile;
-import openones.svnloader.daoimpl.entity.SVNFilePK;
-import openones.svnloader.daoimpl.entity.SVNRepo;
-import openones.svnloader.daoimpl.entity.SVNVersion;
-import openones.svnloader.daoimpl.entity.SVNVersionPK;
+import openones.svnloader.dao.entity.IDir;
+import openones.svnloader.dao.entity.IRevision;
+import openones.svnloader.dao.entity.ISVNFile;
+import openones.svnloader.dao.entity.ISVNFilePK;
+import openones.svnloader.dao.entity.ISVNRepo;
+import openones.svnloader.dao.entity.ISVNVersion;
+import openones.svnloader.dao.entity.ISVNVersionPK;
 import openones.svnloader.tools.CodeCheckerUtil;
 
 import org.apache.log4j.Logger;
@@ -91,12 +91,16 @@ public class SVNLoaderBiz {
     private ISVNVersionManager svnVersionManager = daoManager.newSVNVersionManagerInst();
     private IRevisionManager revisionManager = daoManager.newRevisionManagerInst();
     
+    /** SVNRepository. */
     private SVNRepository repository;
     /** Temporary path. */
     private String tempPath;
 
-    private SVNRepo svnRepoRoot;
-    private Dir dirRoot;
+    /** SVNRepo. */
+    private ISVNRepo svnRepoRoot;
+    
+    /** Dir. */
+    private IDir dirRoot;
     ISizeCounter counter = SizeCounterFactory.getDefaultInstance();
 
     public SVNLoaderBiz(String svnUrl, String svnUsername, String svnPassword, String workingCopyPath, String projectCode,
@@ -226,12 +230,13 @@ public class SVNLoaderBiz {
             LOGGER.info("Transfer for URL: " + this.svnUrl);
             // check if url is exist in database
             // get latest revision for continue update at latest revision updated
-            SVNRepo repoItem = svnRepoManager.findRepoByURL(this.svnUrl);
+            // SVNRepo 
+            ISVNRepo repoItem = svnRepoManager.findRepoByURL(this.svnUrl);
             if (repoItem != null) {
                 svnRepoRoot = repoItem;
                 dirRoot = dirManager.findDirRoot(svnRepoRoot);
                 long revsionID = svnRepoRoot.getLastestRevisionID().longValue();
-                Revision itemRe = revisionManager.findRevision(revsionID);
+                IRevision itemRe = revisionManager.findRevision(revsionID);
 
                 // if this database has latest Revision, not update form SVN
                 long latestSVNRevision = repository.getLatestRevision();
@@ -279,7 +284,7 @@ public class SVNLoaderBiz {
     }
 
     private void processForFirstRevision(SVNLogEntry logEntry) throws Exception {
-        Revision currentRevision = null;
+        IRevision currentRevision = null;
         LOGGER.info("Process at revision: " + logEntry.getRevision() + " for url: " + this.svnUrl);
 //        EntityManager em = PersistentManager.getEntityManager();
 //        em.getTransaction().begin();
@@ -295,7 +300,7 @@ public class SVNLoaderBiz {
             }
             currentRevision = createRevisionByLogEntry(logEntry);
 
-            dirRoot = new Dir();
+            dirRoot = DaoManager.getInstance().newDirManagerInst().newDirInst();
             dirRoot.setSVNRepo(svnRepoRoot);
             dirRoot.setDirName(AppConstant.ROOTNAME);
             dirRoot.setRevision(currentRevision);
@@ -329,12 +334,12 @@ public class SVNLoaderBiz {
      * @param revision
      * @throws Exception
      */
-    private void buildDirFileFromRoot(SVNRepository repository, SVNRepo svnRepo, Revision revision) throws Exception {
+    private void buildDirFileFromRoot(SVNRepository repository, ISVNRepo svnRepo, IRevision revision) throws Exception {
         buildDirAndFileToDB(repository, svnRepo, dirRoot, "", revision);
     }
 
-    private void buildDirAndFileToDB(SVNRepository repository, SVNRepo svnRepo, Dir parentDir, String path,
-            Revision revision) throws Exception {
+    private void buildDirAndFileToDB(SVNRepository repository, ISVNRepo svnRepo, IDir parentDir, String path,
+            IRevision revision) throws Exception {
         try {
             Collection entries = repository.getDir(path, revision.getRevisionNum(), null, (Collection) null);
 
@@ -343,7 +348,7 @@ public class SVNLoaderBiz {
                 SVNDirEntry entry = (SVNDirEntry) iterator.next();
 
                 if (entry.getKind() == SVNNodeKind.DIR) {
-                    Dir currentDir = new Dir();
+                    IDir currentDir = DaoManager.getInstance().newDirManagerInst().newDirInst();
                     currentDir.setSVNRepo(svnRepo);
                     String parentPath = parentDir.getParentPath();
                     if (parentPath == null) {
@@ -358,16 +363,22 @@ public class SVNLoaderBiz {
                     buildDirAndFileToDB(repository, svnRepo, currentDir, path.equals("") ? entry.getName() : (path
                             + "/" + entry.getName()), revision);
                 } else if (entry.getKind() == SVNNodeKind.FILE) {
-                    SVNFilePK svnFilePK = new SVNFilePK(parentDir.getDirID(), entry.getName(), revision.getRevisionID());
-                    SVNFile currentFile = new SVNFile();
+                    //ISVNFilePK svnFilePK = new SVNFilePK(parentDir.getDirID(), entry.getName(), revision.getRevisionID());
+                    ISVNFilePK svnFilePK = DaoManager.getInstance().newSVNFilePKManagerInst()
+                                                     .newSVNFilePKInst(parentDir.getDirID(),
+                                                                       entry.getName(),
+                                                                       revision.getRevisionID());
+                    ISVNFile currentFile = DaoManager.getInstance().newSVNFileManagerInst().newSVNFileInst();
                     currentFile.setSVNFilePK(svnFilePK);
                     currentFile.setDir(parentDir);
                     svnFileManager.createFile(currentFile);
                     // create a version into DB
 
-                    SVNVersionPK svnVersionPK = new SVNVersionPK(parentDir.getDirID(), entry.getName(),
-                            entry.getRevision());
-                    SVNVersion currentVersion = new SVNVersion(svnVersionPK);
+                    //SVNVersionPK svnVersionPK = new SVNVersionPK(parentDir.getDirID(), entry.getName(),
+                    //        entry.getRevision());
+                    ISVNVersionPK svnVersionPK = DaoManager.getInstance().newSVNVersionPKManagerInst().newSVNVersionPKInst(parentDir.getDirID(), entry.getName(),
+                                    entry.getRevision());
+                    ISVNVersion currentVersion = DaoManager.getInstance().newSVNVersionManagerInst().newSVNVersionInst(svnVersionPK);
                     currentVersion.setDir(parentDir);
                     currentVersion.setSVNAction(AppConstant.ADDED);
                     currentVersion.setRevision(revision);
@@ -392,7 +403,7 @@ public class SVNLoaderBiz {
         //em.getTransaction().begin();
         DaoManager.getInstance().beginTransaction();
         try {
-            Revision revision = createRevisionByLogEntry(logEntry);            
+            IRevision revision = createRevisionByLogEntry(logEntry);            
             // update revision
             svnRepoRoot.setLastestRevisionID(BigInteger.valueOf(revision.getRevisionID()));            
             svnRepoManager.updateSVNRepo(svnRepoRoot);               
@@ -431,6 +442,7 @@ public class SVNLoaderBiz {
             DaoManager.getInstance().commitTransaction();
             //em.clear();            
         } catch (Exception ex) {
+            LOGGER.error("Loading SVN entry", ex);
             //em.getTransaction().rollback();
             DaoManager.getInstance().rollbackTransaction();
             //throw ex;
@@ -441,10 +453,10 @@ public class SVNLoaderBiz {
 
     }
 
-    private Revision createRevisionByLogEntry(SVNLogEntry logEntry) throws Exception {
-        Revision currentRevision = null;
+    private IRevision createRevisionByLogEntry(SVNLogEntry logEntry) throws Exception {
+        IRevision currentRevision = null;
         long revisionNum = logEntry.getRevision();        
-        currentRevision = new Revision();        
+        currentRevision = DaoManager.getInstance().newRevisionManagerInst().newRevisionInst();        
         
         currentRevision.setAuthor(logEntry.getAuthor());         
         currentRevision.setComment(logEntry.getMessage());
@@ -456,7 +468,7 @@ public class SVNLoaderBiz {
         return currentRevision;
     }
 
-    private void proccessRepoForAddMod(String path, Dir parentDir, Revision revision,
+    private void proccessRepoForAddMod(String path, IDir parentDir, IRevision revision,
             Hashtable<String, SVNLogEntryPath> listAddModifyPath) throws Exception {
         Collection entries = repository.getDir(path, revision.getRevisionNum(), null, (Collection) null);
         
@@ -475,11 +487,11 @@ public class SVNLoaderBiz {
             parentPath = (parentPath.equals("") ? "" : parentPath + "/") + parentDir.getDirName();
             key = parentPath + "/" + entry.getName();// key has $. EX: "$/P"
             if (entry.getKind() == SVNNodeKind.DIR) {
-                Dir currentDir;
+                IDir currentDir;
                 boolean isCopyPath = false;
                 if (listAddModifyPath.containsKey(key)) {
                     SVNLogEntryPath entryPath = listAddModifyPath.get(key);
-                    currentDir = new Dir();
+                    currentDir = DaoManager.getInstance().newDirManagerInst().newDirInst();
 
                     currentDir.setParentDirID(parentDir.getDirID());
                     currentDir.setParentPath(parentPath);
@@ -538,16 +550,22 @@ public class SVNLoaderBiz {
                 SVNLogEntryPath entryPath = listAddModifyPath.get(key); // key sample: '$/P/F1.txt'
 
                 if (entryPath.getType() == AppConstant.ADDED) {
-                    SVNFilePK svnFilePK = new SVNFilePK(parentDir.getDirID(), entry.getName(), revision.getRevisionID());
-                    SVNFile currentFile = new SVNFile();
+                    //SVNFilePK svnFilePK = new SVNFilePK(parentDir.getDirID(), entry.getName(), revision.getRevisionID());
+                    ISVNFilePK svnFilePK = DaoManager.getInstance().newSVNFilePKManagerInst()
+                                           .newSVNFilePKInst(parentDir.getDirID(), entry.getName(),
+                                                             revision.getRevisionID());
+                    ISVNFile currentFile = DaoManager.getInstance().newSVNFileManagerInst().newSVNFileInst();
                     currentFile.setSVNFilePK(svnFilePK);
                     currentFile.setDir(parentDir);
                     svnFileManager.createFile(currentFile);
                 }
                 // create a version into DB
 
-                SVNVersionPK svnVersionPK = new SVNVersionPK(parentDir.getDirID(), entry.getName(), entry.getRevision());
-                SVNVersion currentVersion = new SVNVersion(svnVersionPK);
+                //SVNVersionPK svnVersionPK = new SVNVersionPK(parentDir.getDirID(), entry.getName(), entry.getRevision());
+                ISVNVersionPK svnVersionPK = DaoManager.getInstance().newSVNVersionPKManagerInst()
+                                             .newSVNVersionPKInst(parentDir.getDirID(), entry.getName(),
+                                                                  entry.getRevision());
+                ISVNVersion currentVersion = DaoManager.getInstance().newSVNVersionManagerInst().newSVNVersionInst(svnVersionPK);
                 currentVersion.setCopyFromPath(entryPath.getCopyPath());
                 currentVersion.setCopyRevision(BigInteger.valueOf(entryPath.getCopyRevision()));
                 currentVersion.setDir(parentDir);
@@ -582,13 +600,13 @@ public class SVNLoaderBiz {
         }
     }
 
-    private void proccessDeleteDirFile(Hashtable<String, SVNLogEntryPath> listDeletePath, Revision revision)
+    private void proccessDeleteDirFile(Hashtable<String, SVNLogEntryPath> listDeletePath, IRevision revision)
             throws Exception {
         Enumeration<SVNLogEntryPath> en = listDeletePath.elements();
 
         while (en.hasMoreElements()) {
             SVNLogEntryPath entryPath = en.nextElement();
-            Dir currentDir;
+            IDir currentDir;
             if (entryPath.getKind() == SVNNodeKind.DIR) {
                 String currentPath = SVNUtility.changeToRelativePath(repository, entryPath.getPath());
 
@@ -610,8 +628,8 @@ public class SVNLoaderBiz {
                 // Update status for Dir and subDir to deleted
                 deleteDirRecursive(currentDir, revision);
             } else if (entryPath.getKind() == SVNNodeKind.FILE) {
-                SVNVersion svnVersion;
-                SVNVersionPK svnVersionPK;
+                ISVNVersion svnVersion;
+                ISVNVersionPK svnVersionPK;
                 String currentPath = SVNUtility.changeToRelativePath(repository, entryPath.getPath());
                 String[] listPaths = currentPath.split("/");
                 String fileName = listPaths[listPaths.length - 1];
@@ -623,8 +641,10 @@ public class SVNLoaderBiz {
                 if ((currentDir == null) || (revision == null)) {
                     LOGGER.debug("currentDir=" + currentDir + ";revision+" + revision);
                 } else {
-                    svnVersionPK = new SVNVersionPK(currentDir.getDirID(), fileName, revision.getRevisionID());
-                    svnVersion = new SVNVersion(svnVersionPK);
+                    //svnVersionPK = new SVNVersionPK(currentDir.getDirID(), fileName, revision.getRevisionID());
+                    svnVersionPK = DaoManager.getInstance().newSVNVersionPKManagerInst().newSVNVersionPKInst(currentDir.getDirID(), fileName, revision.getRevisionID());
+                    //svnVersion = new SVNVersion(svnVersionPK);
+                    svnVersion = DaoManager.getInstance().newSVNVersionManagerInst().newSVNVersionInst(svnVersionPK);
                     svnVersion.setCopyFromPath(entryPath.getCopyPath());
                     svnVersion.setCopyRevision(BigInteger.valueOf(entryPath.getCopyRevision()));
                     svnVersion.setDir(currentDir);
@@ -648,7 +668,7 @@ public class SVNLoaderBiz {
      * @param version in/out
      * @param pathLocal
      */
-    private void countContentFile(SVNVersion version, String pathLocal) {
+    private void countContentFile(ISVNVersion version, String pathLocal) {
         // code count line of code and comment here
         ISizeCounter counter = SizeCounterFactory.getDefaultInstance();
         SizeMetaData sizeMd;
@@ -771,12 +791,12 @@ public class SVNLoaderBiz {
      * @param revision
      * @throws Exception 
      */
-    private void deleteDirRecursive(Dir dir, Revision revision) throws Exception {
+    private void deleteDirRecursive(IDir dir, IRevision revision) throws Exception {
         dir.setStatus(Status.Deleted.ordinal());
         dir.setDeletedRevisionID(BigInteger.valueOf(revision.getRevisionNum()));
         dirManager.updateDir(dir);
-        List<Dir> subDirs = dirManager.getDirs(dir);
-        for (Dir subDir : subDirs) {
+        List<IDir> subDirs = dirManager.getDirs(dir);
+        for (IDir subDir : subDirs) {
             deleteDirRecursive(subDir, revision);
         }
     }

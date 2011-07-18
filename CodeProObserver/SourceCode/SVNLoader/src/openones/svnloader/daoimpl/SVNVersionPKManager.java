@@ -16,24 +16,29 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.svnloader.dao;
+package openones.svnloader.daoimpl;
 
-import openones.svnloader.dao.entity.ISVNVersion;
+import openones.svnloader.dao.ISVNVersionPKManager;
 import openones.svnloader.dao.entity.ISVNVersionPK;
 
 /**
  * @author ThachLN
  *
  */
-public interface ISVNVersionManager {
-
-    public abstract void createVersion(Object svnVersion) throws Exception;
+public class SVNVersionPKManager implements ISVNVersionPKManager {
 
     /**
-     * [Give the description for method].
-     * @param svnVersionPK
+     * [Explain the description for this method here].
+     * @param dirID
+     * @param name
+     * @param revision
      * @return
+     * @see openones.svnloader.dao.ISVNVersionPKManager#newSVNVersionPKInst(java.lang.Integer, java.lang.String, long)
      */
-    public abstract ISVNVersion newSVNVersionInst(ISVNVersionPK svnVersionPK);
+    @Override
+    public ISVNVersionPK newSVNVersionPKInst(Integer dirID, String name, long revision) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

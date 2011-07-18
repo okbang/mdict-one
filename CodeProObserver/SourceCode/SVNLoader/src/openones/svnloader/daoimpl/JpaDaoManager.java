@@ -24,8 +24,10 @@ import openones.svnloader.dao.DaoManager;
 import openones.svnloader.dao.IDirManager;
 import openones.svnloader.dao.IRevisionManager;
 import openones.svnloader.dao.ISVNFileManager;
+import openones.svnloader.dao.ISVNFilePKManager;
 import openones.svnloader.dao.ISVNRepoManager;
 import openones.svnloader.dao.ISVNVersionManager;
+import openones.svnloader.dao.ISVNVersionPKManager;
 import openones.svnloader.daoimpl.store.PersistentManager;
 
 /**
@@ -119,5 +121,25 @@ public class JpaDaoManager extends DaoManager {
     @Override
     public ISVNVersionManager newSVNVersionManagerInst() {
         return new SVNVersionManager();
+    }
+
+    /**
+     * [Explain the description for this method here].
+     * @return
+     * @see openones.svnloader.dao.DaoManager#newSVNFilePKManagerInst()
+     */
+    @Override
+    public ISVNFilePKManager newSVNFilePKManagerInst() {
+        return new SVNFilePKManager();
+    }
+
+    /**
+     * [Explain the description for this method here].
+     * @return
+     * @see openones.svnloader.dao.DaoManager#newSVNVersionPKManagerInst()
+     */
+    @Override
+    public ISVNVersionPKManager newSVNVersionPKManagerInst() {
+        return new SVNVersionPKManager();
     }
 }

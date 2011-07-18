@@ -22,6 +22,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import openones.svnloader.dao.entity.IRevision;
+import openones.svnloader.dao.entity.ISVNRepo;
+
 /**
  *
  */
@@ -35,7 +38,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Revision.findByAuthor", query = "SELECT r FROM Revision r WHERE r.author = :author"),
     @NamedQuery(name = "Revision.findByDateLog", query = "SELECT r FROM Revision r WHERE r.dateLog = :dateLog"),
     @NamedQuery(name = "Revision.findByComment", query = "SELECT r FROM Revision r WHERE r.comment = :comment")})
-public class Revision implements Serializable {
+public class Revision implements IRevision, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -99,6 +102,7 @@ public class Revision implements Serializable {
         return dateLog;
     }
 
+    @Override
     public void setDateLog(Date dateLog) {
         this.dateLog = dateLog;
     }
@@ -131,8 +135,9 @@ public class Revision implements Serializable {
         return sVNRepo;
     }
 
-    public void setSVNRepo(SVNRepo sVNRepo) {
-        this.sVNRepo = sVNRepo;
+    @Override
+    public void setSVNRepo(ISVNRepo sVNRepo) {
+        this.sVNRepo = (SVNRepo) sVNRepo;
     }
 
     @Override

@@ -16,57 +16,57 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package openones.svnloader.dao;
+package openones.svnloader.dao.entity;
 
-import openones.svnloader.dao.entity.ISVNRepo;
+import java.math.BigInteger;
+import java.util.Date;
 
 /**
- * @author ThachLN
+ * @author Thach Le
  *
  */
-public interface ISVNRepoManager {
+public interface IRevision {
 
     /**
-     * 
      * [Give the description for method].
-     * @param url
-     * @param revisionID
-     * @return SVNRepo
-     * @throws Exception
+     * @return
      */
-    public abstract ISVNRepo createSVNRepo(String url, long revisionID) throws Exception;
+    long getRevisionNum();
 
     /**
-     * 
      * [Give the description for method].
-     * @param url
-     * @return SVNRepo
-     * @throws Exception
+     * @param author
      */
-    public abstract ISVNRepo createSVNRepo(String url) throws Exception;
+    void setAuthor(String author);
 
     /**
-     * create a SVN Repo with URL and project code params
-     * @param url: URl source code in SVN server
-     * @param projectCode: Name of project
-     * @return SVNRepo
-     */
-    public abstract ISVNRepo createSVNRepo(String url, String projectCode) throws Exception;
-
-    /**
-     * 
      * [Give the description for method].
-     * @param repo SVNRepo
-     * @throws Exception
+     * @param message
      */
-    public abstract void updateSVNRepo(Object repo) throws Exception;
+    void setComment(String message);
 
     /**
-     * 
      * [Give the description for method].
-     * @param URL
-     * @return SVNRepo
+     * @param revisionNum
      */
-    public abstract ISVNRepo findRepoByURL(String URL);
+    void setRevisionNum(long revisionNum);
+
+    /**
+     * [Give the description for method].
+     * @param date
+     */
+    void setDateLog(Date date);
+
+    /**
+     * [Give the description for method].
+     * @param svnRepoRoot
+     */
+    void setSVNRepo(ISVNRepo svnRepoRoot);
+
+    /**
+     * [Give the description for method].
+     * @return
+     */
+    Long getRevisionID();
 
 }
