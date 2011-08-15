@@ -22,7 +22,6 @@ import openones.svnloader.dao.IRevisionManager;
 import openones.svnloader.dao.entity.IRevision;
 import openones.svnloader.daoimpl.entity.Revision;
 import openones.svnloader.daoimpl.store.RevisionJpaController;
-import openones.svnloader.daoimpl.store.exceptions.PreexistingEntityException;
 
 public class RevisionManager implements IRevisionManager {
     private RevisionJpaController jpaController;

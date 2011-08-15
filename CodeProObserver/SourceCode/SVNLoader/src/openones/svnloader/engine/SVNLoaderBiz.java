@@ -550,13 +550,17 @@ public class SVNLoaderBiz {
                 SVNLogEntryPath entryPath = listAddModifyPath.get(key); // key sample: '$/P/F1.txt'
 
                 if (entryPath.getType() == AppConstant.ADDED) {
+                    LOGGER.debug("parentDir.getDirID()=" + parentDir.getDirID() + "Entry name=" + entry.getName() + " revisionId=" + revision.getRevisionID());
                     //SVNFilePK svnFilePK = new SVNFilePK(parentDir.getDirID(), entry.getName(), revision.getRevisionID());
                     ISVNFilePK svnFilePK = DaoManager.getInstance().newSVNFilePKManagerInst()
                                            .newSVNFilePKInst(parentDir.getDirID(), entry.getName(),
                                                              revision.getRevisionID());
+                    LOGGER.debug("svnFilePK=" + svnFilePK);
                     ISVNFile currentFile = DaoManager.getInstance().newSVNFileManagerInst().newSVNFileInst();
                     currentFile.setSVNFilePK(svnFilePK);
                     currentFile.setDir(parentDir);
+
+                    LOGGER.debug("Create file ...");
                     svnFileManager.createFile(currentFile);
                 }
                 // create a version into DB

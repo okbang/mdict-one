@@ -20,6 +20,7 @@ package openones.svnloader.daoimpl;
 
 import openones.svnloader.dao.ISVNVersionPKManager;
 import openones.svnloader.dao.entity.ISVNVersionPK;
+import openones.svnloader.daoimpl.entity.SVNVersionPK;
 
 /**
  * @author ThachLN
@@ -38,7 +39,7 @@ public class SVNVersionPKManager implements ISVNVersionPKManager {
     @Override
     public ISVNVersionPK newSVNVersionPKInst(Integer dirID, String name, long revision) {
         // TODO Auto-generated method stub
-        return null;
+        return new SVNVersionPK(dirID, name, revision);
     }
 
 }

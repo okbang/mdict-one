@@ -14,6 +14,8 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.apache.log4j.Logger;
+
 import openones.svnloader.daoimpl.entity.Dir;
 import openones.svnloader.daoimpl.entity.Revision;
 import openones.svnloader.daoimpl.entity.SVNFile;
@@ -27,7 +29,7 @@ import openones.svnloader.daoimpl.store.exceptions.PreexistingEntityException;
  * 
  */
 public class DirJpaController {
-
+    final static Logger LOG = Logger.getLogger("DirJpaController");
     public EntityManager getEntityManager() {
         return PersistentManager.getEntityManager();
     }
@@ -333,6 +335,12 @@ public class DirJpaController {
         }
     }
 
+    /**
+     * [Give the description for method].
+     * @param dirName
+     * @param parentPath
+     * @return
+     */
     public List<Dir> findByParentPathAndName(String dirName, String parentPath) {
         EntityManager em = getEntityManager();
         try {
@@ -342,6 +350,7 @@ public class DirJpaController {
 
             return q.getResultList();
         } catch (Exception ex) {
+            LOG.error("dirName=" + dirName + ",parentPath=" + parentPath, ex);
             return null;
         } finally {
             // em.close();

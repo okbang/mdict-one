@@ -25,8 +25,6 @@ import openones.svnloader.dao.entity.IDir;
 import openones.svnloader.daoimpl.entity.Dir;
 import openones.svnloader.daoimpl.entity.SVNRepo;
 import openones.svnloader.daoimpl.store.DirJpaController;
-import openones.svnloader.daoimpl.store.exceptions.IllegalOrphanException;
-import openones.svnloader.daoimpl.store.exceptions.NonexistentEntityException;
 import openones.svnloader.engine.AppConstant;
 import openones.svnloader.engine.SVNUtility;
 import openones.svnloader.engine.Status;

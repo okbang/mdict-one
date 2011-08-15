@@ -20,6 +20,7 @@ package openones.svnloader.daoimpl;
 
 import openones.svnloader.dao.ISVNFilePKManager;
 import openones.svnloader.dao.entity.ISVNFilePK;
+import openones.svnloader.daoimpl.entity.SVNFilePK;
 
 /**
  * @author ThachLN
@@ -33,11 +34,11 @@ public class SVNFilePKManager implements ISVNFilePKManager {
      * @throws Exception
      * @see openones.svnloader.dao.ISVNFilePKManager#createFile(java.lang.Object)
      */
-    @Override
-    public void createFile(Object svnFile) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
+//    @Override
+//    public void createFile(Object svnFile) throws Exception {
+//        // TODO Auto-generated method stub
+//
+//    }
 
     /**
      * [Explain the description for this method here].
@@ -50,7 +51,7 @@ public class SVNFilePKManager implements ISVNFilePKManager {
     @Override
     public ISVNFilePK newSVNFilePKInst(Integer dirID, String name, long revisionID) {
         // TODO Auto-generated method stub
-        return null;
+        return new SVNFilePK(dirID, name, revisionID);
     }
 
 }

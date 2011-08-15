@@ -9,7 +9,6 @@ import openones.svnloader.daoimpl.store.DirJpaController;
 
 import org.junit.Test;
 
-
 public class DirJpaControllerTest {
 
     @Test
@@ -60,52 +59,56 @@ public class DirJpaControllerTest {
     @Test
     public void testGetNextId() {
         DirJpaController jpa = new DirJpaController();
-        try
-        {
-            int nextId=jpa.getNextId();
+        try {
+            int nextId = jpa.getNextId();
             assertEquals(1, nextId);
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             fail();
         }
     }
-    
+
     @Test
-    public void testFindByParentPathAndName()
-    {
+    public void testFindByParentPathAndName() {
         DirJpaController jpa = new DirJpaController();
-        try
-        {
-            List<Dir> target = jpa.findByParentPathAndName("$","");
+        try {
+            List<Dir> target = jpa.findByParentPathAndName("$", null);
             System.out.println("List of dir:");
             for (Dir dir : target) {
                 System.out.println(dir.getDirID());
             }
             assertNotNull(target);
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             fail();
         }
     }
     
     @Test
-    public void testFindDirEntities1()
-    {
+    public void testFindByParentPathAndName02() {
         DirJpaController jpa = new DirJpaController();
-        try
-        {
+        try {
+            List<Dir> target = jpa.findByParentPathAndName("Project01", "$");
+            System.out.println("List of dir:");
+            for (Dir dir : target) {
+                System.out.println(dir.getDirID() + "," + dir.getDirName());
+            }
+            assertNotNull(target);
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testFindDirEntities1() {
+        DirJpaController jpa = new DirJpaController();
+        try {
             List<Dir> target = jpa.findDirEntities(1);
             System.out.println("List of dir:");
             for (Dir dir : target) {
-                System.out.println(dir.getDirID() + " Path: "+dir.getParentPath()+"/"+dir.getDirName()+
-                        " -SVNID: "+ dir.getSVNRepo().getSvnid());
+                System.out.println(dir.getDirID() + " Path: " + dir.getParentPath() + "/" + dir.getDirName()
+                        + " -SVNID: " + dir.getSVNRepo().getSvnid());
             }
             assertNotNull(target);
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             fail();
         }
     }
