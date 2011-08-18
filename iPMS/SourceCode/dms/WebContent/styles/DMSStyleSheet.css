@@ -1,0 +1,448 @@
+BODY
+{
+	BACKGROUND-COLOR: #F7F7E6
+}
+table
+{
+	BACKGROUND-COLOR: #00000;
+	font-size:Verdana, 'Arial Black';
+	font-weight: normal;
+	font-family: Verdana;
+	font-size: xx-small;
+	BORDER-COLOR:Black;
+
+}
+A:link 
+{
+	COLOR: #0000FF; FONT-WEIGHT: normal; TEXT-DECORATION: none;
+	font-size : 11px;
+	font-family : verdana,sans-serif;
+	FONT-WEIGHT: bold;
+}
+A:visited 
+{
+	COLOR: #0000FF; FONT-WEIGHT: normal; TEXT-DECORATION: none;
+	font-size : 11px;
+	font-family : verdana,sans-serif;
+	FONT-WEIGHT: bold;
+}
+A:hover 
+{
+	COLOR: #848684; FONT-WEIGHT: normal; TEXT-DECORATION: none;
+	font-size : 11px;
+	font-family : verdana,sans-serif;
+	FONT-WEIGHT: bold;
+}
+input
+{
+	height:20px;
+	font-family:  Arial,Verdana, Helvetica, Courier;
+	font-size: 8pt;
+	FONT-WEIGHT: normal;
+}
+select
+{
+	height:20px;
+	font-family:  Arial,Verdana, Helvetica, Courier;
+	font-size: xx-small;
+	font-weight: normal;
+}
+
+textarea
+{
+	font-family: Verdana, 'Arial Black';
+	font-size: xx-small;
+	font-weight: normal;
+
+}
+
+.Textbox1
+{
+
+	BACKGROUND-COLOR:#ded0c3;
+	BORDER-BOTTOM-STYLE: none;
+	BORDER-LEFT-STYLE: none;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-TOP-STYLE: none;
+	COLOR: black
+	FONT-FAMILY: Verdana, 'Arial Black';
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal;
+	HEIGHT: 14px
+}
+
+.Textbox2
+{
+
+	BACKGROUND-COLOR: #ddd6ef;
+	BORDER-BOTTOM-STYLE: none;
+	BORDER-LEFT-STYLE: none;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-TOP-STYLE: none;
+	COLOR: black
+	FONT-FAMILY: Verdana, 'Arial Black';
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal;
+	HEIGHT: 14px
+}
+
+.Textbox3
+{
+
+	BACKGROUND-COLOR:#ded0c3;
+	COLOR: black
+	FONT-FAMILY: Verdana, 'Arial Black';
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal
+}
+
+
+.Row0
+{
+	BACKGROUND-COLOR: #848684;
+	COLOR: white;
+	FONT-FAMILY: Verdana, 'Arial Black';
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: bold;
+}
+
+.Row1
+{
+	BACKGROUND-COLOR: #E7E7CE;
+	COLOR: black;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal;
+}
+
+.Row2
+{
+	BACKGROUND-COLOR: #EFEFE7;
+	COLOR: black;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal;
+}
+.Row3
+{
+	BACKGROUND-COLOR: #EFEFE7;
+	COLOR: red;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal;
+}
+.TblIn
+{
+	COLOR: black;
+	FONT-FAMILY: Verdana, 'Arial Black';
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal
+}
+
+.TblOut
+{
+
+	Color : #ded0c3;
+	BORDER-BOTTOM: 0px;
+	BORDER-LEFT: 0px;
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px;
+}
+
+.Line1
+{
+	COLOR: black;
+	HEIGHT: 1px;
+	WIDTH: 100%
+}
+
+.Line2
+{
+	COLOR: indianred;
+	HEIGHT: 1px;
+	WIDTH: 100%
+}
+
+.Line3
+{
+   	COLOR: brown;
+	HEIGHT: 3px;
+	WIDTH: 100%
+}
+
+.ContentFont
+{
+	COLOR: black;
+	FONT-FAMILY: Verdana, 'Arial Black';
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal
+}
+
+.Title
+{
+	COLOR: blue;
+	FONT-FAMILY: Verdana, Arial;
+	FONT-SIZE: x-small;
+	FONT-WEIGHT: bold
+}
+
+.RowA
+{
+	BACKGROUND-COLOR: #d8c0b7;
+	COLOR: black;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 9px
+}
+
+.RowB
+{
+	BACKGROUND-COLOR: #faf3e4;
+	COLOR: black;
+	FONT-SIZE: 9px
+}
+
+.CellA
+{
+	BACKGROUND-COLOR: #d8c0b7;
+	COLOR: black;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 9px
+}
+
+.CellB
+{
+	BACKGROUND-COLOR: #faf3e4;
+	COLOR: black;
+	FONT-SIZE: 9px
+}
+
+.TblOut2
+{
+	BACKGROUND-COLOR: #EFEFE7;
+	cellspacing=1px;
+	BORDER-BOTTOM: solid 1px;
+	BORDER-LEFT: solid 1px;
+	BORDER-RIGHT: solid 1px;
+	BORDER-TOP: solid 1px;
+	BORDER-COLOR:Black;
+	COLOR: #000080;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal;
+
+}
+
+.TblOut3
+{
+	BACKGROUND-COLOR: #a5ab76;
+	BORDER-BOTTOM: lightyellow ridge 1px;
+	BORDER-LEFT: lightyellow ridge 1px;
+	BORDER-RIGHT: lightyellow ridge 1px;
+	BORDER-TOP: lightyellow ridge 1px;
+	COLOR: black;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 9px;
+	HEIGHT: 20px;
+}
+
+.TblOut4
+{
+	BACKGROUND-COLOR: #ddd6ef;
+	COLOR: black;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: xx-small;
+	FONT-WEIGHT: normal;
+}
+
+.TblLabel
+{
+   	BACKGROUND-COLOR:#ded0c3;
+	BORDER-BOTTOM: black thin solid
+	BORDER-LEFT: black thin solid
+	BORDER-RIGHT: black thin solid
+	BORDER-TOP: black thin solid
+	BORDER-WIDTH: 1px
+	COLOR: black;
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 9px;
+	HEIGHT: 22px;
+	WIDTH: 100%
+}
+
+.Box
+{
+	BORDER-BOTTOM-COLOR: #000000;
+	BORDER-BOTTOM-WIDTH: 1px;
+	BORDER-LEFT-COLOR: #000000;
+	BORDER-LEFT-WIDTH: 1px;
+	BORDER-RIGHT-COLOR: #000000;
+	BORDER-RIGHT-WIDTH: 1px;
+	BORDER-TOP-COLOR: #000000;
+	BORDER-TOP-WIDTH: 1px
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 8px
+}
+
+.Rollover
+{
+	BEHAVIOR: url(../../../../inc/Styles/imageRollover_js.htc);
+	CURSOR: hand
+}
+
+INPUT.OvalButton
+{
+	BACKGROUND-COLOR: transparent;
+	BACKGROUND-IMAGE: url(Image/button/button.gif);
+	BORDER-BOTTOM: white 1px;
+	BORDER-LEFT: white 1px;
+	BORDER-RIGHT: white 1px;
+	BORDER-TOP: white 1px;
+	COLOR: #442716;
+	CURSOR: hand;
+	FONT-FAMILY: Arial, Verdana, Helvetica, Courier;
+	FONT-SIZE: 8pt;
+	FONT-WEIGHT: bold;
+	HEIGHT: 21pt;
+	TEXT-ALIGN: center;
+	VERTICAL-ALIGN: middle;
+	WIDTH: 42pt
+}
+
+INPUT.BigDateBox
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 100pt
+}
+
+INPUT.DateBox
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 70pt
+}
+
+INPUT.LongBox
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 312pt
+}
+
+INPUT.MidBox
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 150pt
+}
+
+INPUT.SmallBox
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 122pt
+}
+
+INPUT.NumBox
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	TEXT-ALIGN: right;
+	WIDTH: 30pt
+}
+
+INPUT.PageBox
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 9pt;
+	HEIGHT: 16pt;
+	TEXT-ALIGN: center;
+	WIDTH: 20pt
+}
+
+SELECT.LongCombo
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 200pt
+}
+
+SELECT.MidCombo
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 150pt
+}
+
+SELECT.SmallCombo
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 122pt
+}
+
+SELECT.SmallerCombo
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 80pt
+}
+
+SELECT.VerySmallCombo
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	WIDTH: 70pt
+}
+
+TEXTAREA.LargeTextArea
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	HEIGHT: 50pt;
+	WIDTH: 312pt
+}
+
+TEXTAREA.SmallTextarea
+{
+	FONT-FAMILY: Arial;
+	FONT-SIZE: 8pt;
+	HEIGHT: 30pt;
+	WIDTH: 150pt
+}
+
+.Href
+{
+	FONT-SIZE: 10pt;
+	FONT-FAMILY: Arial
+}
+
+.TblOut5
+{
+	BACKGROUND-COLOR: beige;
+	BORDER-BOTTOM: 0px;
+	BORDER-LEFT: 0px;
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px;
+	WIDTH: 55%
+}
+
+.Button
+{
+	height:25px;
+	font-family:  Arial,Verdana, Helvetica, Courier;
+	font-size: 10pt;
+	FONT-WEIGHT: normal;
+}
+
+.menuItem {
+	BACKGROUND: #99aabb; BORDER-BOTTOM: #ffffff 2px groove; BORDER-LEFT: #ffffff 2px groove; BORDER-RIGHT: #ffffff 2px groove; BORDER-TOP: #ffffff 0px groove; FONT-FAMILY: arial; FONT-SIZE: 10pt; PADDING-BOTTOM: 0px; PADDING-LEFT: 12px; PADDING-RIGHT: 12px; PADDING-TOP: 0px
+}
+
+.menuLink {
+	FONT-FAMILY: arial; FONT-SIZE: 10pt
+}

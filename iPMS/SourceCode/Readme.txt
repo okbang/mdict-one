@@ -1,0 +1,3 @@
+- Run the eclipse 3.4 or higher, create a workspace then Import projects from "src" folder.
+- Build all projects
+- Export Timesheet project to Timesheet.ear, DMS project to dms.war, FsoftInsight project to FsoftInsight.war, Dashboard project to Dashboard.ear, NCMS project to NCMS.ear

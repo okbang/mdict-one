@@ -1,0 +1,15 @@
+<HTML>
+<HEAD>
+<TITLE>Timesheet System</TITLE>
+<SCRIPT language="javascript">
+function checkLanguageCountry() {
+    document.frmHome.submit();
+}
+</SCRIPT>
+</HEAD>
+<BODY onLoad="checkLanguageCountry()">
+<FORM method="POST" name="frmHome" action="TimesheetServlet">
+<INPUT type="hidden" name="hidAction" value="TimesheetHomepage">
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,176 @@
+BODY
+{
+    BACKGROUND-COLOR: #CCCCFF;
+    COLOR: #003399;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+INPUT
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+INPUT.DateBox
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 8pt;
+    WIDTH: 80pt
+}
+INPUT.button
+{
+    BACKGROUND-COLOR: #CCCCCC;
+    COLOR: #990000;
+}
+SELECT
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+SELECT.SmallCombo
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 8pt;
+    WIDTH: 122pt
+}
+
+SELECT.SmallerCombo
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 8pt;
+    WIDTH: 80pt
+}
+TEXTAREA
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+.td
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+TABLE
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+BUTTON
+{
+    BACKGROUND-COLOR: papayawhip
+}
+.menu
+{
+    BACKGROUND-COLOR: slategray;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+        TEXT-DECORATION: none
+}
+.menuitem
+{
+    BACKGROUND-COLOR: slategray;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+.label1
+{
+    FONT-FAMILY: tahoma,sans-serif;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+}
+.label2
+{
+    FONT-FAMILY: tahoma,sans-serif;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+    COLOR: #ccffcc
+}
+.header
+{
+    BACKGROUND-COLOR: silver;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    b59c84;a58463: white
+}
+.row1
+{
+    BACKGROUND-COLOR: ghostwhite;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    HEIGHT: 22px
+}
+.row2
+{
+    BACKGROUND-COLOR: lavenderblush;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    HEIGHT: 22px
+}
+.title
+{
+    BACKGROUND-COLOR: #ceefff;
+    BORDER-BOTTOM: black 1px solid;
+    BORDER-LEFT: black 1px solid;
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    FONT-SIZE: x-small;
+    FONT-WEIGHT: bold;
+    HEIGHT: 22px;
+    MARGIN-RIGHT: 0px
+}
+.alert
+{
+    COLOR: #5279ad;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: x-small;
+    FONT-WEIGHT: bold
+}
+.bgrColor
+{
+    BACKGROUND-COLOR: #666666
+}
+INPUT.userName
+{
+    BACKGROUND-COLOR: #eef1f5;
+    BORDER-BOTTOM: thin;
+    BORDER-LEFT: medium none;
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-FAMILY: Verdana;
+        FONT-SIZE: xx-small;
+    FONT-WEIGHT: bold;
+    WIDTH: 120px
+}
+.InfoPane
+{
+    BACKGROUND-COLOR: #183853;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: x-small
+}
+.borderedTable
+{
+    BORDER-BOTTOM: #666666 1px solid;
+    BORDER-LEFT: #666666 1px solid;
+    BORDER-RIGHT: #666666 1px solid;
+    BORDER-TOP: #666666 1px solid;
+    MARGIN-TOP: 0pt
+}

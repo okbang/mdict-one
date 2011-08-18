@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+<ejb-jar id="ejb-jar_ID">
+	<display-name>Timesheet2JAR</display-name>
+	<enterprise-beans>
+		<session id="LoginEJB">
+			<display-name>LoginEJB</display-name>
+			<ejb-name>LoginEJB</ejb-name>
+			<home>fpt.timesheet.LoginTran.ejb.LoginHome</home>
+			<remote>fpt.timesheet.LoginTran.ejb.Login</remote>
+			<local-home>fpt.timesheet.LoginTran.ejb.LoginEJBLocalHome</local-home>
+			<local>fpt.timesheet.LoginTran.ejb.LoginEJBLocal</local>
+			<ejb-class>fpt.timesheet.LoginTran.ejb.LoginEJB</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+			<resource-ref id="ResourceRef_1">
+				<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+			</resource-ref>
+		</session>
+		<session id="ProjectComboEJB">
+			<display-name>ProjectComboEJB</display-name>
+			<ejb-name>ProjectComboEJB</ejb-name>
+			<home>fpt.timesheet.ApproveTran.ejb.common.ProjectComboHome</home>
+			<remote>fpt.timesheet.ApproveTran.ejb.common.ProjectComboRemote</remote>
+			<local-home>fpt.timesheet.ApproveTran.ejb.common.ProjectComboEJBLocalHome</local-home>
+			<local>fpt.timesheet.ApproveTran.ejb.common.ProjectComboEJBLocal</local>
+			<ejb-class>fpt.timesheet.ApproveTran.ejb.common.ProjectComboEJB</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+			<resource-ref id="ResourceRef_2">
+				<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+			</resource-ref>
+		</session>
+		<session id="CommonListEJB">
+			<display-name>CommonListEJB</display-name>
+			<ejb-name>CommonListEJB</ejb-name>
+			<home>fpt.timesheet.ApproveTran.ejb.common.CommonListHome</home>
+			<remote>fpt.timesheet.ApproveTran.ejb.common.CommonListRemote</remote>
+			<local-home>fpt.timesheet.ApproveTran.ejb.common.CommonListEJBLocalHome</local-home>
+			<local>fpt.timesheet.ApproveTran.ejb.common.CommonListEJBLocal</local>
+			<ejb-class>fpt.timesheet.ApproveTran.ejb.common.CommonListEJB</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+			<resource-ref id="ResourceRef_3">
+				<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+			</resource-ref>
+		</session>
+		<session id="InputEJB">
+			<display-name>InputEJB</display-name>
+			<ejb-name>InputEJB</ejb-name>
+			<home>fpt.timesheet.InputTran.ejb.InputHome</home>
+			<remote>fpt.timesheet.InputTran.ejb.Input</remote>
+			<local-home>fpt.timesheet.InputTran.ejb.InputEJBLocalHome</local-home>
+			<local>fpt.timesheet.InputTran.ejb.InputEJBLocal</local>
+			<ejb-class>fpt.timesheet.InputTran.ejb.InputEJB</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+			<resource-ref id="ResourceRef_4">
+				<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+			</resource-ref>
+		</session>
+		<session id="ApproveEJB">
+			<display-name>ApproveEJB</display-name>
+			<ejb-name>ApproveEJB</ejb-name>
+			<home>fpt.timesheet.ApproveTran.ejb.approve.ApproveHome</home>
+			<remote>fpt.timesheet.ApproveTran.ejb.approve.ApproveRemote</remote>
+			<local-home>fpt.timesheet.ApproveTran.ejb.approve.ApproveEJBLocalHome</local-home>
+			<local>fpt.timesheet.ApproveTran.ejb.approve.ApproveEJBLocal</local>
+			<ejb-class>fpt.timesheet.ApproveTran.ejb.approve.ApproveEJB</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+			<resource-ref id="ResourceRef_5">
+				<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+			</resource-ref>
+		</session>
+		<session id="InquiryEJB">
+			<display-name>InquiryEJB</display-name>
+			<ejb-name>InquiryEJB</ejb-name>
+			<home>fpt.timesheet.ApproveTran.ejb.report.InquiryHome</home>
+			<remote>fpt.timesheet.ApproveTran.ejb.report.InquiryRemote</remote>
+			<local-home>fpt.timesheet.ApproveTran.ejb.report.InquiryEJBLocalHome</local-home>
+			<local>fpt.timesheet.ApproveTran.ejb.report.InquiryEJBLocal</local>
+			<ejb-class>fpt.timesheet.ApproveTran.ejb.report.InquiryEJB</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+			<resource-ref id="ResourceRef_6">
+				<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+			</resource-ref>
+		</session>
+		<session id="ExemptionEJB">
+			<ejb-name>ExemptionEJB</ejb-name>
+			<home>fpt.timesheet.Exemption.ejb.ExemptionHome</home>
+			<remote>fpt.timesheet.Exemption.ejb.Exemption</remote>
+			<local-home>fpt.timesheet.Exemption.ejb.ExemptionEJBLocalHome</local-home>
+			<local>fpt.timesheet.Exemption.ejb.ExemptionEJBLocal</local>
+			<ejb-class>fpt.timesheet.Exemption.ejb.ExemptionEJB</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+			<resource-ref id="ResourceRef_7">
+				<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+				<res-type>javax.sql.DataSource</res-type>
+				<res-auth>Container</res-auth>
+			</resource-ref>
+		</session>
+	</enterprise-beans>
+</ejb-jar>

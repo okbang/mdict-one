@@ -1,0 +1,279 @@
+BODY
+{
+    SCROLLBAR-FACE-COLOR: #ffffff;
+    SCROLLBAR-HIGHLIGHT-COLOR: #9aadba;
+    SCROLLBAR-SHADOW-COLOR: #9aadba;
+    SCROLLBAR-3DLIGHT-COLOR: #ffffff;
+    SCROLLBAR-ARROW-COLOR: #9aadba;
+    SCROLLBAR-TRACK-COLOR: #f7f7ef;
+    SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+    SCROLLBAR-BASE-COLOR: #9aadba
+}
+H1
+{
+    COLOR: #8B4513;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+    FONT-SIZE: 14pt;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: left
+}
+.labelMessage
+{
+    COLOR: blue;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+
+}
+.labelRMessage
+{
+    COLOR: #00FF00;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+    FONT-SIZE: 13px;
+    FONT-WEIGHT: bold;
+
+}
+.label1
+{
+    FONT-FAMILY: tahoma,sans-serif;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+}
+.label2
+{
+    FONT-FAMILY: tahoma,sans-serif;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+    COLOR: #ccffcc
+}
+.label3
+{
+    FONT-FAMILY: tahoma,sans-serif;
+    FONT-SIZE: 15px;
+    FONT-WEIGHT: bold;
+    COLOR: #ccffcc
+}
+.labelDate
+{
+    FONT-FAMILY: tahoma,sans-serif;
+    FONT-SIZE: 11px;
+
+}
+.TableHeader1
+{
+    BACKGROUND: #104a7b;
+    BORDER-LEFT: #D1D6E9 1px solid;
+    BORDER-TOP: #D1D6E9 1px solid;
+    COLOR: #ffce00;
+    HEIGHT : 25px;
+    FONT-FAMILY: Tahoma,sans-serif;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+    PADDING-LEFT: 1px;
+        TEXT-ALIGN: center;
+}
+.Row1
+{
+    BACKGROUND: #d6e7ef;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 1px;
+    PADDING-RIGHT: 1px;
+    PADDING-TOP: 1px;
+    BORDER-LEFT: #336699 1px solid;
+    BORDER-BOTTOM: #336699 1px solid;
+    HEIGHT : 23px;
+    FONT-FAMILY: Verdana,sans-serif;
+    FONT-SIZE: 11px
+}
+.Row2
+{
+    BACKGROUND: #fff7e5;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 1px;
+    PADDING-RIGHT: 1px;
+    PADDING-TOP: 1px;
+    BORDER-LEFT: #336699 1px solid;
+    BORDER-BOTTOM: #336699 1px solid;    
+    HEIGHT : 23px;
+    FONT-FAMILY: Verdana,sans-serif;
+    FONT-SIZE: 11px;
+}
+INPUT.VeryBigTextbox
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: tahoma,san-serif;
+    FONT-SIZE: 11px;
+    WIDTH: 130pt
+}
+INPUT.BigTextbox
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: tahoma,san-serif;
+    FONT-SIZE: 11px;
+    WIDTH: 130pt
+}
+INPUT.SmallTextbox
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 11px;
+    WIDTH: 60pt;
+    BORDER-TOP: #104a7b 1px solid;
+    BORDER-LEFT: #104a7b 1px solid;
+    BORDER-BOTTOM: #afc4d5 1px solid;
+    BORDER-RIGHT: #afc4d5 1px solid;
+    HEIGHT: 20px
+}
+INPUT.VerySmallTextbox
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: tahoma,san-serif;
+    FONT-SIZE: 11px;
+    WIDTH: 40pt;
+    BORDER-TOP: #104a7b 1px solid;
+    BORDER-LEFT: #104a7b 1px solid;
+    BORDER-BOTTOM: #afc4d5 1px solid;
+    BORDER-RIGHT: #afc4d5 1px solid;
+    HEIGHT: 20px
+}
+INPUT.SmallestTextbox
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: tahoma,san-serif;
+    FONT-SIZE: 11px;
+    WIDTH: 25pt
+}
+INPUT.flatTextbox
+{
+    BACKGROUND-COLOR: #d6e7ef; COLOR: #000066;
+    BORDER-TOP: #104a7b 1px solid;
+    BORDER-LEFT: #104a7b 1px solid;
+    BORDER-BOTTOM: #afc4d5 1px solid;
+    BORDER-RIGHT: #afc4d5 1px solid;
+    FONT-FAMILY: verdana,san-serif; FONT-SIZE: 11px;
+    HEIGHT: 20px
+}
+SELECT.BigCombo
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 11px;
+    WIDTH: 130pt
+}
+SELECT.SmallCombo
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 11px;
+    WIDTH: 100pt
+}
+SELECT.VerySmallCombo
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 8pt;
+    WIDTH: 60pt
+}
+SELECT.SmallestCombo
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 8pt;
+    WIDTH: 30pt
+}
+.Button
+{
+    BACKGROUND-COLOR: #93BEE2;
+    BORDER-TOP: #D8E8F5 thin solid;
+    BORDER-LEFT: #D8E8F5 thin solid;
+    BORDER-BOTTOM: #28527A thin solid;
+    BORDER-RIGHT: #28527A thin solid;
+    COLOR: black;
+    CURSOR: hand;
+    FONT-FAMILY: Verdana,sans-serif;
+    FONT-SIZE: 11px;
+    HEIGHT: 22px
+}
+.menuborder
+{
+    BACKGROUND: #0080FF;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    COLOR: black;
+    FONT-FAMILY: Tahoma,sans-serif;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold;
+    PADDING-LEFT: 0px
+}
+INPUT.FlatCheckbox
+{
+    BACKGROUND-COLOR: #d6e7ef;
+    COLOR: #000066;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 11px;
+    WIDTH: 15pt;
+    HEIGHT: 15pt;
+    BORDER-TOP: #104a7b 1px solid;
+    BORDER-LEFT: #104a7b 1px solid;
+    BORDER-BOTTOM: #afc4d5 1px solid;
+    BORDER-RIGHT: #afc4d5 1px solid;
+}
+A.HeaderMenu:link {
+    COLOR: #ffffff;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    font-size: 11px;
+    font-family: tahoma, sans-serif;
+    FONT-WEIGHT: bold;
+}
+A.HeaderMenu:visited {
+    COLOR: #ffffff;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    font-size: 11px;
+    font-family: tahoma, sans-serif;
+    FONT-WEIGHT: bold;
+}
+A.HeaderMenu:hover {
+    COLOR: #ff0000;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    font-size: 11px;
+    font-family: tahoma, sans-serif;
+    FONT-WEIGHT: bold;
+}
+A.grayLink:link {
+    COLOR: #a5a2a5;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    font-size: 11px;
+    font-family: tahoma, sans-serif;
+    FONT-WEIGHT: bold;
+}
+A.grayLink:visited {
+    COLOR: #a5a2a5;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    font-size: 11px;
+    font-family: tahoma, sans-serif;
+    FONT-WEIGHT: bold;
+}
+A.grayLink:hover {
+    COLOR: #ff0000;
+    FONT-WEIGHT: normal;
+    TEXT-DECORATION: none;
+    font-size: 11px;
+    font-family: tahoma, sans-serif;
+    FONT-WEIGHT: bold;
+}

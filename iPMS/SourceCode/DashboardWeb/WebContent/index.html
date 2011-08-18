@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<TITLE>Dashboard System</TITLE>
+<SCRIPT language = "javascript">
+function checkLanguageCountry() {
+    document.frmHome.submit();
+}
+</SCRIPT>
+</HEAD>
+<BODY onload="checkLanguageCountry()">
+<FORM method="POST" name="frmHome" action="DashboardServlet">
+<INPUT type="hidden" name="hidAction" value="DashboardLogin">
+</FORM>
+<!--  Or using: href = "../../DashboardServlet?hidAction=Lookup&hidActionDetail=viewmsg"  -->
+</BODY>
+</HTML>

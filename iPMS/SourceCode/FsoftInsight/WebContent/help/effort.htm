@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Effort</title>
+<link rel="stylesheet" type="text/css" href="fms.css">
+</head>
+
+<body>
+<p>[<a href="index.htm"> Home </a>] [<a href="project_home.htm"> Up </a>]</p>
+<p class="TITLE">Effort </p>
+<p class="TableCaption">Effort by process</p>
+<p>The actual values come from Timesheet. <b> Only effort approved by QA is
+counted</b>.</p>
+<p>The detailed clarification of effort by process and TOW is defined in <b>Effort
+Classification Guideline</b> in FSOFT QMS.</p>
+<p >The actual effort calculation for each process is simple 
+except for 2 special process (which are KPA of process project management):</p>
+<p >- <span lang="FR">Project Planning&nbsp;: effort spent &nbsp;for 
+process <i>project management </i>and </span>KPA <span lang="FR">&nbsp;project 
+planning</span></p>
+<p >- <span lang="FR">Project monitoring&nbsp;: effort spent &nbsp;for 
+process <i>project management</i></span> <span lang="FR">and all </span>KPA<span lang="FR"> except
+<i>project planning</i></span></p>
+
+<p class="TableCaption"><A name="ppm">PPM Effort</A></p>
+<p >The model is used for project managers to forecast and plan project effort.
+It has been developed for the <b> full life cycle development project based on linear forecasting model</b>.</p>
+<p >- The effort and RCR distributions are planned using Fsoft norms based on lastest Fsoft PCB and Fsoft business objectives that is available at the planning time</p>
+<p >- Engineering effort (EE) = f(Requirement Completion Rate (RCR)) for each requirement status. Therefore the formula for predicted engineering effor is
+Forecasted EE = (1-Average(EE deviation/RCR deviation))*Planned EE + Average(EE deviation/RCR deviation)*Planned EE/Planned RCR*Re-planned RCR</p>
+<p >- Management effort (ME)/Engineering effort is constant. Therefore the formula for predicted management effort is
+Forecasted ME= Planned ME/Planned EE*Forecasted EE</p>
+<p >- The CR impacts to a process in the appropriated stage of the process, like to Requirement in Definition, Design in Solution, Coding in Construction, Deployement in Transition and Support in the Termination. In cases when the main products of a stage is done the next stage will be impacted</p>
+<p >- In the case a stage is not belong the standard list the mapping the stage with the standard one has to be done. The norm of the associated stage will be use for the stage</p>
+<p >- For maintenance projects: Change the name of stages as appropriately. Change the Norm values.</p>
+<p class="TableCaption">Plan and forecast your project effort</p>
+<p >- Planning and forecasting is an continuous process, PPM
+Effort in FI is designed to use <b>plan/actual data of closed stages as mandatory
+inputs for the next stage</b>. So you must plan all stages up to your current
+running stage.</p>
+<p >- If you already closed some stages without RCR, Effort
+planning then you must do as followed:</p>
+<p >&nbsp;&nbsp;&nbsp; 1) Re-open closed stages by removing
+actual end date</p>
+<p >&nbsp;&nbsp;&nbsp; 2) Do planning RCR, Effort</p>
+<p >&nbsp;&nbsp;&nbsp; 3) Close stage (by inputting actual end
+date again)</p>
+<p >&nbsp;&nbsp;&nbsp; 4) Replan RCR, Effort for next stage,
+repeat step 2) and 3)</p>
+<p >- There is a very important note about requirement status
+here: <b>you must input dates of requirement status precisely</b>. An disordered
+requirement status means an wrong RCR which will lead to incorrect forecasting
+since is RCR is an parameter to calculate predicted effort.</p>
+<p >- After you start project, input metrics in WO and define
+your stages, please plan and forecast effort with following steps:</p>
+<p >&nbsp;&nbsp;&nbsp; 1) Open requirement - Stage and process
+RCR page</p>
+<p >&nbsp;&nbsp;&nbsp; 2) Plan RCR by process</p>
+<p >&nbsp;&nbsp;&nbsp; 3) Make a detail plan for RCR by process</p>
+<p >&nbsp;&nbsp;&nbsp; 4) Open Effort - Stage &amp; process</p>
+<p >&nbsp;&nbsp;&nbsp; 5) Make a detail estimate plan</p>
+<p >&nbsp;&nbsp;&nbsp; 6) Use forecast values for your
+managment</p>
+<p >- After you close the first stage and be ready for the
+next, please re-plan effort following steps:</p>
+<p >&nbsp;&nbsp;&nbsp; 1) Open requirement - Stage and process
+RCR page</p>
+<p >&nbsp;&nbsp;&nbsp; 2) Replan RCR by process</p>
+<p >&nbsp;&nbsp;&nbsp; 3) Replan Process effort</p>
+
+</body>
+
+</html>

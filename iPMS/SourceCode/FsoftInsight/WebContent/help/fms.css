@@ -1,0 +1,245 @@
+ .BGR{
+    BACKGROUND-COLOR: #F7F7F7;HEIGHT: 100%px; WIDTH: 100%px;
+    font : normal 13px Verdana, Geneva, Arial, Helvetica, sans-serif; color: White;
+    Font-Weight: Bold
+}
+ .ColumnLabel{
+    BACKGROUND-COLOR: #31659C;HEIGHT: 100%px; WIDTH: 100%px;
+    font : normal 11px Verdana, Geneva, Arial, Helvetica, sans-serif; color: White;
+    Font-Weight: Bold
+}
+.Content{
+	COLOR: #151515; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; FONT-SIZE: 10px;
+	text-align : justify;
+}
+.Contentitalic{
+	COLOR: #151515; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; FONT-SIZE: 10px;
+	text-align : justify;
+	font-style : italic;
+}
+.Header{
+    BACKGROUND-COLOR: #FFFFFF;HEIGHT: 100%px; WIDTH: 100%px;
+    font : normal 13px Verdana, Geneva, Arial, Helvetica, sans-serif; color: White;
+    Font-Weight: Bold
+}
+.TableLeft{
+    BACKGROUND-COLOR: #A5BEE7;
+    font : normal 13px Verdana, Geneva, Arial, Helvetica, sans-serif; color: White;
+    Font-Weight: Bold
+}
+.CellBGR3{
+    BACKGROUND-COLOR: #E2E2E2; WIDTH: 100%px;
+	color: #00006f;
+	font-style: normal;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px
+}
+.RED {
+	background-color:red;
+	width: 100%px;
+	color: white;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.BLACK {
+	background-color:black;
+	width: 100%px;
+	color: white;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.YELLOW {
+	background-color:yellow;
+	width: 100%px;
+	color: black;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.CellBGRnews{
+    BACKGROUND-COLOR: #F7F7F7; HEIGHT: 20px; WIDTH: 80%px;
+	color: #00006f;
+	font-style: normal;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px
+}
+.CellAqua	{
+	BACKGROUND-COLOR: #80ffff;
+	height: 20px;
+	width: 80%px;
+	color: 00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px
+}
+.Table{
+    BACKGROUND-COLOR: white;
+    font : normal 9px Verdana, Geneva, Arial, Helvetica, sans-serif; color: black;
+    Font-Weight: Nomal;
+    bordercolor:black;
+    border-collapse: collapse;
+	}
+.TitleM	{
+	COLOR: #593070; FONT-WEIGHT: bold; TEXT-DECORATION: none; FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif;
+	margin-left: 50px
+}
+.TitleB {
+	COLOR: #666666; FONT-WEIGHT: nomal; TEXT-DECORATION: none; FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+.TitleBigest{
+	COLOR: #31659C; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; FONT-SIZE: 18;
+	text-align : left;
+	font-weight : bold;
+}
+.TableCaption{
+	COLOR: #572277; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; FONT-SIZE: 13;
+	text-align : left;
+	font-weight : bold;
+}
+.TextTitle2{
+	COLOR: #555555; FONT-FAMILY: Arial, Verdana, Geneva,  Helvetica, sans-serif; FONT-SIZE: 14;
+	text-align : left;
+	font-weight : bold;
+}
+A:link {
+	COLOR: #003399; FONT-WEIGHT: none;TEXT-DECORATION: none;FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+A:visited {
+	COLOR: #003399; FONT-WEIGHT: nomal; TEXT-DECORATION: none;FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+A:hover {
+	COLOR: #C6161A; FONT-WEIGHT:none; TEXT-DECORATION: none;FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+A.submenu:link {
+	COLOR: #FFD700; FONT-WEIGHT: normal; TEXT-DECORATION: none; FONT-SIZE : 10px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+A.submenu:visited{
+	COLOR: #31659C; FONT-WEIGHT: normal; TEXT-DECORATION: none; FONT-SIZE : 10px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+A.submenu:hover {
+	COLOR:#31659C; FONT-WEIGHT: normal; TEXT-DECORATION: none; FONT-SIZE : 10px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+BODY {
+	BACKGROUND-COLOR: #FFFFFF; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif; FONT-SIZE: 11px; FONT-WEIGHT: normal; MARGIN: 20px
+}
+FORM {
+	MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px
+}
+TEXTAREA {
+	COLOR: #606060; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; FONT-SIZE: 11px
+}
+
+A.subnavlink:link {
+	COLOR: #BFD0DC; FONT-WEIGHT: bold;TEXT-DECORATION: none;FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+A.subnavlink:visited {
+	COLOR: #BFD0DC; FONT-WEIGHT: bold; TEXT-DECORATION: none;FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+A.subnavlink:hover {
+	COLOR: #FFFFFF; FONT-WEIGHT: bold; TEXT-DECORATION: none;FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+.TableCation{
+	COLOR: #3358A5; FONT-WEIGHT: bold; TEXT-DECORATION: none; FONT-SIZE : 13px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+.titleGreys {
+	COLOR: #232323; FONT-WEIGHT: bold; TEXT-DECORATION: none; FONT-SIZE : 12px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif
+}
+.TableBgrDark {
+ BACKGROUND-COLOR: #EEF3F6;HEIGHT: 18px; WIDTH: 100%px; 
+ font : normal 10px Verdana, Geneva, Arial, Helvetica, sans-serif; color: Black;
+}
+.TableBgrWhite {
+ BACKGROUND-COLOR: #F0F4F7;HEIGHT: 18px; WIDTH: 100%px; 
+ font : normal 10px Verdana, Geneva, Arial, Helvetica, sans-serif; color: black;
+}
+TEXTAREA {
+	COLOR: #000000; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; FONT-SIZE: 11px
+}
+Button {
+	<input type="reset valueReset nameB2 styleborder1px solid #003366"; color:#FFFFFF; background-color:#5AA6DE; font-family:Verdana; font-weight:bold; font-size:8pt>
+}
+HR {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000; FONT-SIZE : 13px; FONT-FAMILY : Tahoma, Verdana, Arial, Helvetica, sans-serif
+}
+SELECT {
+	COLOR: #666666; FONT-SIZE : 11px; FONT-FAMILY : Verdana,  Arial, Helvetica, sans-serif;
+}
+
+.ERROR {
+	color: red;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: Tahoma, Verdana;
+	margin-left: 0px
+}
+
+.TITLE {
+	color: navy;
+	font-family: Tahoma, Arial, Verdana, sans-serif, Georgia;
+	font-size: 14pt;
+	margin-left: 0px;
+	margin-top: 20px
+}
+
+TD {
+	margin-left: 2px;
+	font-family: Tahoma, Verdana
+}
+
+TABLE {
+	padding: 0px;
+	font-family: Tahoma, Verdana, sans-serif;
+	font-size: 11px
+}
+
+.Message {
+	color: navy;
+	font-family: Verdana, sans-serif, Tahoma, Arial;
+	font-size: 10pt
+}
+
+.WELCOME {
+	color: #6c0c74;
+	font-family: Tahoma, sans-serif, Verdana;
+	text-align: center;
+	font-size: 14pt
+}
+
+.BUTTON {
+	color: white;
+	background-color: #5a75ad;
+	height: 25px;
+	width: 68px;
+	font-family: Tahoma, Verdana, Arial, sans-serif
+}
+
+.COMBO {
+	color: black;
+	font-family: Verdana, sans-serif, Tahoma;
+	font-size: 11px;
+	width: 150px          
+}
+
+INPUT {
+	font-family: Verdana, Tahoma, sans-serif;
+	font-size: 11px;
+	color: black
+}
+
+.HDR {
+	color: navy;
+	font-family: Tahoma, Verdana, sans-serif, serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold
+}
+
+.BD {
+	margin-left: 50px
+}
+
+.numberTextBox {
+	text-align: right
+}

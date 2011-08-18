@@ -1,0 +1,124 @@
+BODY
+{
+    BACKGROUND-COLOR: #e3e3ea;
+    BORDER-BOTTOM: medium none;
+    BORDER-LEFT: medium none;
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    LEFT: 0pt;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px;
+    TOP: 0pt
+}
+TABLE
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+INPUT
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+SELECT
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+TEXTAREA
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+TABLE TR
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    WIDTH: 100%
+}
+TABLE TR TD
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small
+}
+TR.table_header
+{
+    BACKGROUND-COLOR: #006699;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: bolder;
+    HEIGHT: 20pt;
+    TEXT-ALIGN: center
+}
+TR.row1
+{
+    BACKGROUND-COLOR: #b1b9cd;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    HEIGHT: 20px
+}
+TR.row2
+{
+    BACKGROUND-COLOR: #c0c7d6;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    HEIGHT: 20px
+}
+TD.pcell
+{
+    BACKGROUND-COLOR: #FFFFCC;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    FONT-SIZE: 9px;
+    TEXT-ALIGN: center
+}
+TD.pcell1
+{
+    BACKGROUND-COLOR: #5151A2;
+    COLOR: white;
+    FONT-FAMILY: Tahoma;
+    FONT-SIZE: 9px;
+    TEXT-ALIGN: center
+}
+TD.pcell2
+{
+    BACKGROUND-COLOR: #0077B0;
+    COLOR: white;
+    FONT-FAMILY: Tahoma;
+    FONT-SIZE: 9px;
+    TEXT-ALIGN: center
+}
+P#title
+{
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: large;
+    FONT-WEIGHT: bolder
+}
+TR.page_header
+{
+    COLOR: #003f5f
+}
+TR.summary
+{
+    BACKGROUND-COLOR: #b1b9cd;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10px;
+}

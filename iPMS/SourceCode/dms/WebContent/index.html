@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<TITLE>DMS Home Page</TITLE>
+<SCRIPT language="JavaScript" src="scripts/fncCookie.js"></SCRIPT>
+<SCRIPT language = "javascript">
+function checkLanguageCountry() {
+    document.frmHome.submit();
+}
+</SCRIPT>
+</HEAD>
+<BODY onload="checkLanguageCountry()">
+<FORM method="POST" name="frmHome" action="DMSServlet">
+<INPUT type="hidden" name="hidAction" value="DMSHomePage">
+</FORM>
+<!--  Or using: href = "../../DMSServlet?hidAction=Lookup&hidActionDetail=viewmsg"  -->
+</BODY>
+</HTML>

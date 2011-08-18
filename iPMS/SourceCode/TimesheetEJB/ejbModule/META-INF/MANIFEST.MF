@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: Timesheet2JAR.jar 
+ log4j-1.2.6.jar
+

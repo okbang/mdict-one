@@ -1,0 +1,372 @@
+<html>
+<head>
+	<title>Explanation of exmplmenu_var.js file.</title>
+
+    <style>
+body {background-color:lightblue; color:black; font-size:12pt}
+
+.normtxt,.boldblack{font-size:12pt;color:black;font-weight:normal}
+
+.redtxt,.bigred,.notsobigred{color:red}
+
+.bluetxt,.bigblue,.bluewhite,.notsobigblue,.VeryBigBlue{color:blue}
+
+.bigtxt,.menutxt{font-size:20pt}
+
+.VeryBigTxt,.VeryBigBlue{font-size:36pt}
+
+.notsobig,.notsobigred,.notsobigblue{font-size:15pt}
+
+.bigblue,.bigred{font-size:18pt}
+
+.menutxt{background-color:yellow}
+
+.noline{text-decoration:none}
+
+.boldtxt,.boldblack,.redtxt,.bluetxt{font-weight:bold}
+
+.bluewhite{background-color:white}
+</style>
+</head>
+<body bgcolor='lightblue'>
+
+<p class='notsobigred'>Explanation of <span class='notsobigblue'>exmplmenu_var.js file</span>.</p>
+<p class="boldtxt">At first a description of the general layout of the file,
+followed by a more detailed description of every <a href="#vars">variable</a>
+and the <a href="#mt">array structure</a>.</p>
+The <span class="redtxt">red</span> colored items belong the the Javascript
+syntax and are <b>case sensitive</b> and <b>critical</b>. <span class="redtxt">Var</span>
+will generate an error, so will <span class="redtxt">VAR</span>.<br>
+The quotation marks are also needed, even when a text variable is left blank the
+quotation marks are needed. (An empty text string is not the same as no string)<br>
+The <b>black colored </b>items belong to the menu script and must <b>not</b> be
+changed or deleted.<br>
+The <span class="bluetxt">blue </span>items can be changed and control the
+behavior and appearance of the menus.<br>
+
+<table><tr><td rowspan='47' width='70'></td>
+	<td class='boldtxt'><span class='redtxt'>var</span> NoOffFirstLineMenus<span class='redtxt'>=<span class='bluetxt'>5</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> LowBgColor<span class='redtxt'>="<span class='bluetxt'>red</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> HighBgColor<span class='redtxt'>="<span class='bluetxt'>lightblue</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FontLowColor<span class='redtxt'>="<span class='bluetxt'>yellow</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FontHighColor<span class='redtxt'>="<span class='bluetxt'>blue</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> BorderColor<span class='redtxt'>="<span class='bluetxt'>yellow</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> BorderWidth<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> BorderBtwnElmnts<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FontFamily<span class='redtxt'>="<span class='bluetxt'>comic sans ms,technical,arial</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FontSize<span class='redtxt'>=<span class='bluetxt'>9</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FontBold<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FontItalic<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> MenuTextCentered<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> MenuCentered<span class='redtxt'>="<span class='bluetxt'>center</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> MenuVerticalCentered<span class='redtxt'>="<span class='bluetxt'>center</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> ChildOverlap<span class='redtxt'>=<span class='bluetxt'>.1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> ChildVerticalOverlap<span class='redtxt'>=<span class='bluetxt'>.1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> LeftPadding<span class='redtxt'>=<span class='bluetxt'>2</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> TopPadding<span class='redtxt'>=<span class='bluetxt'>2</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> StartTop<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> StartLeft<span class='redtxt'>=<span class='bluetxt'>200</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> VerCorrect<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> HorCorrect<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FirstLineHorizontal<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> MenuFramesVertical<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> DissapearDelay<span class='redtxt'>=<span class='bluetxt'>1000</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> TakeOverBgColor<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> FirstLineFrame<span class='redtxt'>="<span class='bluetxt'>MyFrameOne</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> SecLineFrame<span class='redtxt'>="<span class='bluetxt'>MyFrameTwo</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> DocTargetFrame<span class='redtxt'>="<span class='bluetxt'>MyFrameTwo</span>";</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> HideTop<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> TargetLoc<span class='redtxt'>=<span class='bluetxt'>""</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> MenuWrap<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> RightToLeft<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> UnfoldsOnClick<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> WebMasterCheck<span class='redtxt'>=<span class='bluetxt'>0</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> ShowArrow<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> KeepHilite<span class='redtxt'>=<span class='bluetxt'>1</span>;</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>var</span> Arrws<span class='redtxt'>=["<span class='bluetxt'>tri.gif</span>",<span class='bluetxt'>5</span>,<span class='bluetxt'>10</span>,"<span class='bluetxt'>tridown.gif</span>",<span class='bluetxt'>10</span>,<span class='bluetxt'>5</span>,"<span class='bluetxt'>trileft.gif</span>",<span class='bluetxt'>5</span>,<span class='bluetxt'>10</span>];</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>function</span> BeforeStart<span class='redtxt'>(){<span class='bluetxt'>;</span>}</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>function</span> AfterBuild<span class='redtxt'>(){<span class='bluetxt'>;</span>}</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>function</span> BeforeFirstOpen<span class='redtxt'>(){<span class='bluetxt'>;</span>}</span></td></tr>
+	<tr><td class='boldtxt'><span class='redtxt'>function</span> AfterCloseAll<span class='redtxt'>(){<span class='bluetxt'>;</span>}</span></td></tr>
+</table>
+
+<pre class='boldtxt'>
+	Menu1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>1</span>,<span class='bluetxt'>20</span>,<span class='bluetxt'>85</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+		Menu1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 1.1</span>&quot;,&quot;&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>20</span>,<span class='bluetxt'>120</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+	Menu2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>2</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+		Menu2_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>3</span>,<span class='bluetxt'>20</span>,<span class='bluetxt'>190</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>	
+			Menu2_1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.1.1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>1</span>,<span class='bluetxt'>20</span>,<span class='bluetxt'>,200</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+				Menu2_1_1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>&lt;img src='busts.jpg'&gt;</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>128</span>,<span class='bluetxt'>128</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_1_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.1.2</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_1_3<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.1.3</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+		Menu2_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>8</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>20</span>,<span class='bluetxt'>200</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.2</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_3<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.3</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_4<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.4</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_5<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.5</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>1</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+				Menu2_2_5_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.5.1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>1</span>,<span class='bluetxt'>32</span>,<span class='bluetxt'>150</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+					Menu2_2_5_1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.5.1.1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>1</span>,<span class='bluetxt'>20</span>,<span class='bluetxt'>90</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+						Menu2_2_5_1_1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.5.1.1.1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>22</span>,<span class='bluetxt'>400</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_6<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.6</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_7<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.7</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+			Menu2_2_8<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 2.2.8</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+	Menu3<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 3</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+	Menu4<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 4</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+	Menu5<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 5</span>&quot;,&quot;<span class='bluetxt'>javascript:top.location.href='file.htm'</span>&quot;,&quot;&quot;,<span class='bluetxt'>2</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+		Menu5_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 5.1</span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>20</span>,<span class='bluetxt'>140</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+		Menu5_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>Example 5.2 </span>&quot;,&quot;<span class='bluetxt'>file.htm</span>&quot;,&quot;&quot;,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,<span class='bluetxt'>0</span>,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span>
+</pre>
+
+<a name='vars'></a>
+<p class='notsobig' align='center'>The variables</p>
+
+<dl>
+	<dt><a name='noflm'></a><b>NoOffFirstLineMenus</b>
+		<dd><b>number-</b> The number of elements in the first row or colom of your menu.<br>&nbsp;
+	<dt><a name='lbc'></a><b>LowBgColor</b>
+		<dd><b>Text string-</b> Background color of the elements when the mouse is not over the element. 
+				<br>Can be a supported color name like red or blue or a RGB string like #ff552a.<br>
+				Can be over ruled by the variable in the menu tree<br>&nbsp;
+	<dt><b><a name='hbc'></a>HighBgColor</b>
+		<dd><b>Text string-</b> Background color of the elements when the mouse is over the element. 
+				<br>Can be a supported color name like red or blue or a RGB string like #ff552a.<br>
+				Can be over ruled by the variable in the menu tree<br>&nbsp;
+	<dt><b><a name='flc'></a>FontLowColor</b>
+		<dd><b>Text string-</b> Font color when the mouse is not over the element. 
+				<br>Can be a supported color name like red or blue or a RGB string like #ff552a.<br>
+				Can be over ruled by the variable in the menu tree<br>&nbsp;
+	<dt><b><a name='fhc'></a>FontHighColor</b>
+		<dd><b>Text string-</b> Font color when the mouse is over the element. 
+				<br>Can be a supported color name like red or blue or a RGB string like #ff552a.<br>
+				Can be over ruled by the variable in the menu tree<br>&nbsp;
+	<dt><b><a name='bc'></a>BorderColor</b>
+		<dd><b>Text string-</b> Border color. 
+				<br>Can be a supported color name like red or blue or a RGB string like #ff552a.<br>
+				Can be over ruled by the variable in the menu tree<br>&nbsp;
+	<dt><b><a name='bw'></a>BorderWidth</b>
+		<dd><b>Number-</b> Thickness of the border around the elements in pixels. <br>&nbsp;
+	<dt><b><a name='bb'></a>BorderBtwnElmnts</b>
+		<dd><b>Number 1 or 0-</b> Controls if there is a border between the elements. 0 is no border between the elements.<br>&nbsp;
+	<dt><b><a name='ff'></a>FontFamily</b>
+		<dd><b>Text string-</b> More than one font can be declared seperated with a comma. 
+		<br>Example: arial, times new roman, ms comic sans. The browser will use the first font found on the users system.<br>&nbsp;
+	<dt><b><a name='fs'></a>FontSize</b>
+		<dd><b>Number-</b> Size of the font in pt. <br>&nbsp;
+	<dt><b><a name='fb'></a>FontBold</b>
+		<dd><b>Number 1 or 0-</b> 1 makes the font weight bold; 0 makes the font weight normal. <br>&nbsp;
+	<dt><b><a name='fi'></a>FontItalic</b>
+		<dd><b>Number 1 or 0-</b> 1 makes the font italic; 0 makes the font normal. <br>&nbsp;
+	<dt><b><a name='mtc'></a>MenuTextCentered</b>
+		<dd><b>Text string-</b> Can be 'left', 'center' or 'right'. <br>&nbsp;
+	<dt><b><a name='mc'></a>MenuCentered</b>
+		<dd><b>Text string-</b> Can be 'left', 'center', 'right', justify or ''. <b>StartLeft</b> is added to the calculated position. '' is the same as 'left'.<br>&nbsp;
+	<dt><b><a name='mvc'></a>MenuVerticalCentered</b>
+		<dd><b>Text string-</b> Can be 'top', 'middle', 'bottom' or ''. <b>StartTop</b> is added to the calculated position. '' is the same as 'top'.<br>&nbsp;
+	<dt><b><a name='co'></a>ChildOverlap</b>
+		<dd><b>Number between 0 and 1-</b> Controls what part of a level is covered with it's sublevel.<br>
+		With a value of .25 a level will covered be for 25% by it's sublevel. Negative values are possible, but not very usefull. <br>&nbsp;
+	<dt><b><a name='cvo'></a>ChildVerticalOverlap</b>
+		<dd><b>Number between 0 and 1-</b> Controls the vertical offset of a sublevel from it's parent level.<br>
+		With a value of .25 a sublevel will start 25% of the parents level height lower. Negative values will make the start higher.
+		<center></center>
+	<dt><b><a name='lp'></a>LeftPadding</b>
+		<dd><b>Number-</b> Defines the distance between the left side of the menu text and the border of the element.<br>&nbsp;
+	<dt><b><a name='tp'></a>TopPadding</b>
+		<dd><b>Number-</b> Defines the distance between the top side of the menu text and the border of the element.<br>&nbsp;
+	<dt><b><a name='st'></a>StartTop</b>
+		<dd><b>Number-</b> Defines the vertical position of the menu in the document.<br>
+		Is ignored when<b>MenuVerticalCentered</b> is 1. Is also ignored when the menu is across frames and the frames are orientated in rows. The menu is in that case placed at the bottom of the frame <b>FirstLineFrame.</b><br>&nbsp;
+	<dt><b><a name='sl'></a>StartLeft</b>
+		<dd><b>Number-</b> Defines the horizontal position of the menu in the document.<br>
+		Is ignored when<b>MenuCentered</b> is 1. Is also ignored when the menu is across frames and the frames are orientated in coloms. The menu is in that case placed at the far right position the frame <b>FirstLineFrame.</b><br>&nbsp;
+	<dt><b><a name='vc'></a>VerCorrect</b>
+		<dd><b>Number-</b> Defines the vertical correction of the seconde line of the menu in the document.<br>
+		Can be usefull in situations with nested frames<br>&nbsp;
+	<dt><b><a name='hc'></a>HorCorrect</b>
+		<dd><b>Number-</b> Defines the horizontal correction of the second line of the menu in the document.<br>
+		Can be usefull in situations with nested frames<br>&nbsp;
+	<dt><b><a name='flh'></a>FirstLineHorizontal</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 the elements of the first level are placed horizontal next to each other.<br>
+		When set to 0 these elements are placed vertical below each other.<br>&nbsp;
+	<dt><b><a name='mfv'></a>MenuFramesVertical</b>
+		<dd><b>Number 1 or 0-</b> Set this variable to 1 when your frameset is laid out in coloms.<br>
+		set to 0 when your frameset is in rows. Irrelevant when the menu is on a single page or frame, but must be 0 or1<br>&nbsp;
+	<dt><b><a name='dd'></a>DissapearDelay</b>
+		<dd><b>Number-</b> The time in milliseconds the menu's sublevels stay visible after the mouse is no longer over the menu.<br>&nbsp;
+	<dt><b><a name='tobc'></a>TakeOverBgColor</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 the background color of the frame where the menu's first line is in will become the same as the frame where the sublevels are in. 
+		<br> Irrelevant when the menu is on a single page or frame, but must be 0 or1<br>&nbsp;
+	<dt><b><a name='flf'></a>FirstLineFrame</b>
+		<dd><b>Text string-</b> When the menus are used in a frameset this is the name of the frame where the first line of your menu is located. .
+		<br>When the menu is used in a single page, this must be 'self'<br>&nbsp;
+	<dt><b><a name='slf'></a>SecLineFrame</b>
+		<dd><b>Text string-</b> When the menus are used in a frameset this is the name of the frame where the sub levels of your menu are located.
+		<br> It is allowed to have <b>SecLineFrame</b> equal to <b>FirstLineFrame</b><br>When the menu is used in a single page, this must be 'self'<br>&nbsp;
+	<dt><b><a name='dtf'></a>DocTargetFrame</b>
+		<dd><b>Text string-</b> When the menus are used in a frameset this is the name of the frame where the documents are loaded. 
+		<br> Normally this will be equal to <b>SecLineFrame</b>
+		<br>When the menu is used in a single page, this must be 'self'<br>&nbsp;
+	<dt><b><a name='ht'></a>HideTop</b>
+		<dd><b>Number 1 or 0-</b> Only relevant when the menu is used in a frameset. When set to 1 the top level items are hidden when a new document is loaded into the target frame until the menu is built again.<br>&nbsp;
+	<dt><b><a name='wp'></a>MenuWrap</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 unfolding items are wrapped when the menu doesn't fit on the window.<br>&nbsp;
+	<dt><b><a name='rl'></a>RightToLeft</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 the menu unfolds from left to right.<br>&nbsp;
+	<dt><b><a name='tl'></a>TargetLoc</b>
+		<dd><b>Text string-</b> Enables relative positioning of the menu.
+			<br>1- In the HTML-file where the menu shows you need a named div:
+			<br>&lt;div id='MenuPos' style='position:relative'&gt;&lt;/div&gt;
+			<br>2- Set TargetLoc to 'MenuPos'
+			<br>3 - Set MenuCentered to 'left', MenuVerticalCentered to 'top' and StartTop and StartLeft to 0
+			<br>4 - StartTop, StartLeft and the Menu center variables can still be used to get an offset from the &lt;div&gt;.
+			<br>&nbsp;<br><span class='redtxt'>Remarks:</span><span class='bluetxt'> the different ways browsers interpret the pageX and pageY offset makes this feature difficult. I got the best results by putting the div inside a table, give the div the same dimensions as the first level menu, put an transparent image inside the div with again the same dimensions as the first level menu</span>
+			<br><span class='bluewhite'>&lt;table&gt;
+			<br>&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id='MenuPos' style='position:relative; width:102; height:102;'&gt;&lt;img src='transparent.gif' width='102' height='102'&gt;&lt;/div&gt;
+			<br>&nbsp;&nbsp;&lt;/td&gt;&lt;/tr&gt;
+			<br>&lt;/table&gt;</span><br>&nbsp;
+	<dt><b><a name='uoc'></a>UnfoldsOnClick</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 the menu unfolds onclick, when set to 0 the menu unfolds on mouse over.<br>&nbsp;
+	<dt><b><a name='wmc'></a>WebMasterCheck</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 the script performs a check on the frame names and the menu tree. When your menu is running this should be set to 0.<br>&nbsp;
+	<dt><b><a name='sa'></a>ShowArrow</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 the arrow gifs show.<br>&nbsp;
+	<dt><b><a name='kh'></a>KeepHilite</b>
+		<dd><b>Number 1 or 0-</b> When set to 1 the selected path stays highligthed.<br>&nbsp;
+	<dt><b><a name='arws'></a>Arrws</b>
+		<dd><b>array-</b> Describes the three images used as arrows.<br>
+		Format: source, width, height<br>&nbsp;
+	<dt><b><a name='bst'></a>BeforeStart</b>
+		<dd><b>function-</b> Is called just before the menu is build. Is by default empty. Can be used by user.<br>&nbsp;
+	<dt><b><a name='ab'></a>AfterBuild</b>
+		<dd><b>function-</b> Is called just after the menu is build. Is by default empty. Can be used by user.<br>&nbsp;
+	<dt><b><a name='bfo'></a>BeforeFirstOpen</b>
+		<dd><b>function-</b> Is called when the mouse enters a main menu item that has children. Is by default empty. Can be used by user.<br>&nbsp;
+	<dt><b><a name='aca'></a>AfterCloseAll</b>
+		<dd><b>function-</b> Is called when the mouse leaves the menu. Is by default empty. Can be used by user.<br>&nbsp;
+</dl>
+
+<a name='mt'></a>
+
+<p align='center' class='bigtxt'>The menu tree</p>
+
+<p class='boldtxt'>All element names start with Menu</p>
+The first element on the first level is called <b>Menu1</b>.<br>
+The second element on the first level is called <b>Menu2</b>.<br>
+The third element on the first level is called <b>Menu3</b> ,etc.<br>
+If <b>Menu1</b> has sub elements, the first of those is called <b>Menu1_1</b>, the second <b>Menu1_2</b>, etc.<br>
+If <b>Menu1_2</b>has sub elements, the first of those is called <b>Menu1_2_1</b>, the second <b>Menu1_2_2</b>, etc.
+
+<p class='boldtxt'>The menu tree will look something like:</p>
+
+
+<pre>
+<b>Menu1</b> 					the first element of the first level
+	<b>Menu1_1</b>				the first sub element of Menu1
+	<b>Menu1_2</b>				the second sub element of Menu1
+		<b>Menu1_2_1</b>			the first sub element of Menu1_2
+		<b>Menu1_2_2</b>			the second sub element of Menu1_2
+	<b>Menu1_3</b>				the third sub element of Menu1
+		<b>Menu1_3_1</b>			the first sub element of Menu1_3
+			<b>Menu1_3_1_1</b>	the first sub element of Menu1_3_1
+			<b>Menu1_3_1_2</b>	the second sub element of Menu1_3_1
+<b>Menu2</b>					the second element of the first level
+<b>Menu3</b>					the third element of the first level
+	<b>Menu3_1</b>				the first sub element of Menu3
+		<b>Menu3_1_1</b>			the first sub element of Menu3_1
+	<b>Menu3_2</b>				the third sub element of Menu3
+</pre>
+
+There can be as much elements and sublevels as you need.<br>
+The order nor the layout of the menu tree is important. You could also build a tree like this:
+
+<p class='boldtxt'>
+	Menu1_3_1_2<br>
+	Menu3<br>
+	Menu1<br>
+	Menu2<br>
+	Menu1_3_1_1<br>
+	Menu1_1<br>
+	Menu3_1_1<br>
+	Menu1_2<br>
+	Menu1_2_1<br>
+	Menu1_2_2<br>
+	Menu1_3<br>
+	Menu1_3_1<br>
+	Menu3_1<br>
+	Menu3_2
+<p class='boldtxt'>The variables of the menu tree</p>
+
+<pre class='boldtxt'>
+Menu1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+    Menu1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+    Menu1_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+        Menu1_2_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+        Menu1_2_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+    Menu1_3<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+        Menu1_3_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+            Menu1_3_1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+            Menu1_3_1_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+Menu2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+Menu3<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+    Menu3_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+        Menu3_1_1<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+    Menu3_2<span class='redtxt'>=new Array(&quot;<span class='bluetxt'>TextToShow</span>&quot;,&quot;<span class='bluetxt'>Link</span>&quot;,&quot;<span class='bluetxt'>BgImage</span>&quot;,<span class='bluetxt'>NoOfSubs</span>,<span class='bluetxt'>Height</span>,<span class='bluetxt'>Width</span>,<span class='bluetxt'>BgColor</span>,<span class='bluetxt'>BgHiColor</span>,<span class='bluetxt'>FontColor</span>,<span class='bluetxt'>FontHiColor</span>,<span class='bluetxt'>BorderColor</span>);</span>
+</pre>
+
+<dl>
+	<dt><b>TextToShow</b>
+		<dd><b>Text string-</b> What you want to show in the element. It can be text, an image or html<br>
+		To show an image it must look like <b><span class='redtxt'>"</span>&lt;img src='MyImage'&gt;<span class='redtxt'>"</span></b><br>
+		To use roll over images use <b><span class='redtxt'>"</span>rollover:MyImage1:MyImage2<span class='redtxt'>"</span></b><br>
+		To leave this field blank use <span class='redtxt'>""</span><br>&nbsp;
+	<dt><b>Link</b>
+		<dd><b>Text string-</b> Where you want to go when you click the element.<br>Looks like <span class='redtxt'>"</span><b>MyLink</b><span class='redtxt'>"</span>
+		<br>Can also be used to execute javascript statements. For instance when you want the link to open in the top window use <span class='redtxt'>"</span><b>javascript:top.document.location.href='Link.htm';</b><span class='redtxt'>"</span><br>
+		You can in fact start a whole script when the element is clicked with the help of <b>javascript:</b>.<span class='redtxt'> "</span><b>javascript:{your script; another function;}</b><span class='redtxt'>"</span><br>&nbsp;
+	<dt><b>BgImage</b>
+		<dd><b>Text string-</b> background image for the element. <span class='redtxt'>Is not supported for NS4 when the menu is across frames.</span>
+		<br>I had to disable this for NS4 in frame setup because I could not get it to work properly. (Everybody who wants to try and find a solution for this is very welcom. Enable in menu_com.js)<br>&nbsp;
+	<dt></a><b>NoOfSubs</b>
+		<dd><b>Number-</b> The number of sub elements of this element in the next level.<br>&nbsp;
+	<dt></a><b>Height</b>
+		<dd><b>Number-</b> The pixelheight of the element.<br>
+		Must have a value for each element that ends with 1 (Menu1, Menu5_3_1) In all other elements this may be 0.<br>
+		Elements in a vertical column may have different heights, all elements in a horizontal row get the height of the first element in that row<br>
+		&nbsp;
+	<dt></a><b>Width</b>
+		<dd><b>Number-</b> The pixelwidth of the element.<br>
+		Must have a value for each element that ends with 1 (Menu1, Menu5_3_1) In all other elements this may be 0.<br>
+		Elements in a horizontal row may have different widths, all elements in a vertical column get the width of the first element in that column<br>
+		&nbsp;
+	<dt></a><b>BgColor</b>
+		<dd><b>Text string-</b> Background color of this element when the mouse is not over the element.<br>
+		When used it over rules the global variable LowBgColor<br>
+		When not used it must be "".
+		Can be a supported color name like red or blue or a RGB string like #ff552a.<br>&nbsp;
+	<dt></a><b>BgHiColor</b>
+		<dd><b>Text string-</b> Background color of this element when the mouse is over the element.<br>
+		When used it over rules the global variable HighBgColor<br>
+		When not used it must be "".
+		Can be a supported color name like red or blue or a RGB string like #ff552a.<br>&nbsp;
+	<dt></a><b>FontColor</b>
+		<dd><b>Text string-</b> Font color of this element when the mouse is not over the element.<br>
+		When used it over rules the global variable LowFontColor<br>
+		When not used it must be "".
+		Can be a supported color name like red or blue or a RGB string like #ff552a.<br>&nbsp;
+	<dt></a><b>FontHiColor</b>
+		<dd><b>Text string-</b> Font color of this element when the mouse is over the element.<br>
+		When used it over rules the global variable HighFontColor<br>
+		When not used it must be "".
+		Can be a supported color name like red or blue or a RGB string like #ff552a.<br>&nbsp;
+	<dt></a><b>BorderColor</b>
+		<dd><b>Text string-</b> Border color of this group of elements.<br>
+		Only the color of elements ending on 1 are used.<br>
+		When used it over rules the global variable BorderColor<br>
+		When not used it must be "".
+		Can be a supported color name like red or blue or a RGB string like #ff552a.<br>&nbsp;
+
+
+</body>
+</html>

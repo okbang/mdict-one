@@ -1,0 +1,80 @@
+BODY
+{
+    BACKGROUND-COLOR: #FDFDFD
+}
+TABLE
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    WIDTH: 100%
+}
+INPUT
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px
+}
+SELECT
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px
+}
+TEXTAREA
+{
+    FONT-FAMILY: Verdana, 'Arial Black';
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal
+}
+.BgColor
+{
+    BACKGROUND-COLOR: #eef1f5
+}
+.Menu0
+{
+    BACKGROUND-COLOR: #013064;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: bold;
+    HEIGHT: 19px
+}
+.Row0
+{
+    BACKGROUND-COLOR: #0061a6;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px
+}
+.Footer
+{
+    BACKGROUND-COLOR: #bdbdbd;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px
+}
+.Row1
+{
+    BACKGROUND-COLOR: #ebebeb;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px
+}
+.Row2
+{
+    BACKGROUND-COLOR: #f9f9f9;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: xx-small;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px
+}

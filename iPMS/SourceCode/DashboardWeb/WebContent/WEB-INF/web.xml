@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+   <web-app id="WebApp">
+      <display-name>Dashboard2WAR</display-name>
+      <servlet id="Servlet_1">
+         <servlet-name>DashboardServlet</servlet-name>
+         <display-name>DashboardServlet</display-name>
+         <servlet-class>fpt.dashboard.servlet.DashboardServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_2">
+         <servlet-name>StaffManagementServlet</servlet-name>
+         <display-name>StaffManagementServlet</display-name>
+         <servlet-class>fpt.dashboard.servlet.StaffManagementServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_3">
+         <servlet-name>ResourceManagementServlet</servlet-name>
+         <display-name>ResourceManagementServlet</display-name>
+         <servlet-class>fpt.dashboard.servlet.ResourceManagementServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_4">
+         <servlet-name>ProjectManagementServlet</servlet-name>
+         <display-name>ProjectManagementServlet</display-name>
+         <servlet-class>fpt.dashboard.servlet.ProjectManagementServlet</servlet-class>
+      </servlet>
+      <servlet-mapping id="ServletMapping_1">
+         <servlet-name>DashboardServlet</servlet-name>
+         <url-pattern>DashboardServlet</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_2">
+         <servlet-name>StaffManagementServlet</servlet-name>
+         <url-pattern>StaffManagementServlet</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_3">
+         <servlet-name>ResourceManagementServlet</servlet-name>
+         <url-pattern>ResourceManagementServlet</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_4">
+         <servlet-name>ProjectManagementServlet</servlet-name>
+         <url-pattern>ProjectManagementServlet</url-pattern>
+      </servlet-mapping>
+      <welcome-file-list id="WelcomeFileList_1">
+         <welcome-file>index.html</welcome-file>
+         <welcome-file>index.htm</welcome-file>
+         <welcome-file>index.jsp</welcome-file>
+         <welcome-file>default.html</welcome-file>
+         <welcome-file>default.htm</welcome-file>
+         <welcome-file>default.jsp</welcome-file>
+      </welcome-file-list>
+      
+      <!--<resource-ref id="ResourceRef_1195107297828">
+      	<res-ref-name>jdbc/DashBoardDB</res-ref-name>
+      	<res-type>javax.sql.DataSource</res-type>
+      	<res-auth>Container</res-auth>
+      	<res-sharing-scope>Shareable</res-sharing-scope>
+      </resource-ref> -->
+      <ejb-local-ref id="EJBLocalRef_1195113163578">
+      	<ejb-ref-name>ejb/DashboardLogin</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.Login.DashboardLoginEJBLocalHome</local-home>
+      	<local>fpt.dashboard.Login.DashboardLoginEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#DashboardLoginEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845671">
+      	<ejb-ref-name>ejb/Assignment</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.ProjectManagementTran.ejb.AssignEJBLocalHome</local-home>
+      	<local>fpt.dashboard.ProjectManagementTran.ejb.AssignEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#AssignEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845672">
+      	<ejb-ref-name>ejb/AssignmentDetail</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.ProjectManagementTran.ejb.AssignmentEJBLocalHome</local-home>
+      	<local>fpt.dashboard.ProjectManagementTran.ejb.AssignmentEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#AssignmentEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845673">
+      	<ejb-ref-name>ejb/ConstantCombo</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.combo.ConstantComboEJBLocalHome</local-home>
+      	<local>fpt.dashboard.combo.ConstantComboEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#ConstantComboEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845674">
+      	<ejb-ref-name>ejb/Developer</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.DeveloperManagementTran.ejb.DeveloperEJBLocalHome</local-home>
+      	<local>fpt.dashboard.DeveloperManagementTran.ejb.DeveloperEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#DeveloperEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845675">
+      	<ejb-ref-name>ejb/MileStone</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.ProjectManagementTran.ejb.MilestoneEJBLocalHome</local-home>
+      	<local>fpt.dashboard.ProjectManagementTran.ejb.MilestoneEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#MilestoneEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845687">
+      	<ejb-ref-name>ejb/OtherAssignment</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.ProjectManagementTran.ejb.OtherAssignmentEJBLocalHome</local-home>
+      	<local>fpt.dashboard.ProjectManagementTran.ejb.OtherAssignmentEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#OtherAssignmentEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845688">
+      	<ejb-ref-name>ejb/ProjectDashboard</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.ProjectManagementTran.ejb.ProjectDashboardEJBLocalHome</local-home>
+      	<local>fpt.dashboard.ProjectManagementTran.ejb.ProjectDashboardEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#ProjectDashboardEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845689">
+      	<ejb-ref-name>ejb/ProjectDetail</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.ProjectManagementTran.ejb.ProjectDetailEJBLocalHome</local-home>
+      	<local>fpt.dashboard.ProjectManagementTran.ejb.ProjectDetailEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#ProjectDetailEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1195115845690">
+      	<ejb-ref-name>ejb/Summary</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.dashboard.ProjectManagementTran.ejb.SummaryEJBLocalHome</local-home>
+      	<local>fpt.dashboard.ProjectManagementTran.ejb.SummaryEJBLocal</local>
+      	<ejb-link>DashboardEJB.jar#SummaryEJB</ejb-link>
+      </ejb-local-ref>
+   </web-app>

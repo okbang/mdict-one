@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+<title>User Profiles</title>
+<link rel="stylesheet" type="text/css" href="fms.css">
+</head>
+
+<body>
+<p>[<a href="index.htm"> Home </a>] [<a href="administration.htm"> Up </a>]</p>
+<p class="TITLE">User Profiles</p>
+<p>&nbsp;</p>
+<p>A user profile is used to identify each user of the application. It includes
+2 types of information, one is <a href="#Creating a User Profile" target="_self"> about the user</a> (Name, password, description), the
+other is about the <a href="#Granting rights to a user" target="_self">rights on Work units</a> granted to the user . User profiles can be accessed for update from the admin area or by clicking on the name of the use logged in in the header of each page.</p>
+<p class="TableCaption"><a name="Creating a User Profile">Creating a User Profile</a></p>
+<p>For example : a new customer called &quot;Hung Ushuld&quot; wants to use the
+application. In order to let him use the application we need to create his/her
+account.</p>
+<p>First, we need to login the application using an existing account with
+administration rights, then we will click on the tab <i>Admin</i> and click on <i>User
+Profiles</i> icon on the left menu.<br>
+On the bottom of the list of current application users, click on <i>Add new, </i>then
+input :</p>
+<p>-<i> </i><i>User ID</i>: This should be a short and easy to remember version
+of the user name,&nbsp;<br>
+in out example let's input &quot;Hungu&quot;. The&nbsp; <i>User ID </i>is used
+in the logon screen in the field <i>User ID.</i></p>
+<p><i>- </i><i>Password </i>: Please input the chosen password for the user, the
+password is used in the logon screen in the field <i>password. </i>Be careful,
+the password is case sensitive.</p>
+<p>- <i>User name</i>: The user name is the full name of the user, in the
+example :&quot;Hung Ushuld&quot;</p>
+<p>- <i>Designation</i>: Some free text for you to describe Mr Ushuld</p>
+<p>- <i>Status</i>: The status is used for compatibility with dashboard, please
+choose the most appropriate value corresponding to the user's job (ex: <i>External
+viewer</i> for Mr Ushuld).</p>
+<p>Then we need to grant rights to Mr Ushuld (see below).</p>
+<p class="TableCaption"><a name="Granting rights to a user">Granting rights to a user</a></p>
+<p>Please login the application using an existing account with administration
+rights, then click on the tab <i>Admin</i> and click on <i>User Profiles</i>
+icon on the left menu. In the list of users, we must choose the user we need to
+grant rights to.</p>
+<p>Rights are granted on specific <i>projects/groups/organizations </i>only. In
+our example, Mr Ushuld is the customer of project X, so his rights only apply to
+project X and nothing else.</p>
+<p>In order to express this, in the rightmost column entitles <i>Roles</i>, we
+will select a suitable <i>role</i> for the user (for more info see <a href="roles.htm#Creating a role" target="_blank">Creating a
+role</a>), and, in the leftmost column called <i>work units,</i> we will
+select&nbsp; the &quot;project X&quot; (for more info see <a href="work_units.htm#Creating a project" target="_blank">Creating a project</a>).</p>
+<p>Up to 5 different <i>roles</i> on 5 different <i>work units </i>
+can be defined<i>,</i>
+the <i>Role</i> will only apply to the <i>work unit </i>in the same row
+(exception : see the <u><a href="#Note about rights inheritance" target="_self">Note about rights inheritance</a></u>).</p>
+<p class="TableCaption"><a name="Administration rights">Administration rights</a></p>
+<p>In order to grant Administration rights to a user you must choose a <i>work
+unit </i>(which work unit is not important) and assign a <i><a href="roles.htm" target="_self">role</a></i>
+to it. This role must have <i>management right </i>on <i>admin home </i>page and
+sub-pages.</p>
+<p>In case a <i>user profile</i> is assigned several <i>roles/Work units</i>;
+when the user browses the<i> admin home </i>page and sub-pages, the role with
+the highest right on <i>admin home </i>page will apply.</p>
+<p>&nbsp;</p>
+
+<p><u><a name="Note about rights inheritance">Note about rights inheritance :</a></u> Since <i>projects</i> are part of <i>groups</i>
+which are part of <i>organizations</i>( see <a href="work_units.htm" target="_blank">work units</a>), for example
+project x belongs to profit center G3 which belongs to company&nbsp; YellowSoft;
+the rights granted to a user on an <i>organization</i> will also apply to the <i>groups
+</i>of the <i>organization, </i>the rights defined for a <i>group </i>will also
+apply to <i>projects </i>belonging to the group.<br>
+<br>
+For example, if we give the <i>role </i>Customer to Mr Ushuld on the <i>organization
+</i>YellowSoft, he will be able to access all groups and all projects of
+YellowSoft.<br>
+<br>
+If a user has 2 conflicting rights, for example <i>role </i>Customer on the <i>organization
+</i>YellowSoft, and <i>role </i>partner on <i>project </i>project X, the lowest
+level of work unit will override the others, which means that&nbsp; Mr Ushuld&nbsp;
+will be able to access all groups and all projects of YellowSoft with the&nbsp; <i>role
+</i>Customer, except for the project X where the <i>role </i>partner will apply.</p>
+
+</body>
+
+</html>

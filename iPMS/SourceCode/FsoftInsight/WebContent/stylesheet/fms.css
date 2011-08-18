@@ -1,0 +1,338 @@
+INPUT {
+	font-family: verdana, tahoma, sans-serif;
+	font-size: 11px;
+	color: black
+}
+
+BODY {
+	background-color: #ffffff;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0px
+}
+
+FORM {
+	margin-bottom: 0px;
+	margin-top: 0px
+}
+TEXTAREA {
+	color: black;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px
+}
+
+.ColumnLabel {
+	background-color: #31659c;
+	height: 100%px;
+	width: 100%px;
+	font: normal 11px verdana, geneva, arial, helvetica, sans-serif;
+	color: white;
+	font-weight: bold
+}
+.lableDate{
+	background-color: white;
+    FONT-FAMILY: tahoma,sans-serif;
+    FONT-SIZE: 11px;
+    color: blue
+}
+
+.SimpleColumn {
+	height: 100%px;
+	width: 100%px;
+	font: normal 11px verdana, geneva, arial, helvetica, sans-serif;
+	color: black;
+	font-weight: bold
+}
+
+.TableLeft {
+	background-color: #a5bee7;
+	font: normal 13px verdana, geneva, arial, helvetica, sans-serif;
+	color: white;
+	font-weight: bold
+}
+
+.CellBGR3 {
+	background-color: #EDEDED;
+	width: 100%px;
+	color: #00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.LAMNT3 {
+	background-color:white;
+	width: 100%px;
+	color: white;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.CellBGR3Long {
+	background-color: #EDEDED;	
+	color: #00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.RED {
+	background-color:red;
+	width: 100%px;
+	color: white;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.BLACK {
+	background-color:black;
+	width: 100%px;
+	color: white;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.YELLOW {
+	background-color:yellow;
+	width: 100%px;
+	color: black;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+.CellBGRnews {
+	background-color: #f7f7f7;
+	height: 20px;
+	width: 80%px;
+	color: #00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px
+}
+.CellAqua {
+	BACKGROUND-COLOR: #80ffff;
+	height: 20px;
+	width: 80%px;
+	color: 00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px
+}
+.CellBGRdark {
+	background-color: #EAEAEA;
+	height: 20px;
+	width: 80%px;
+	color: #00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px
+}
+.CellBGROLIVE {
+	background-color: #808000;
+	height: 20px;
+	width: 80%px;
+	color: #00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px
+}
+.CellBGRLongnews {
+	background-color: #f7f7f7;
+	height: 20px;	
+	color: #00006f;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px
+}
+.BlankTable {
+	height: 20px;
+	width: 80%px;
+	color: black;
+	font-style: normal;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold           
+}
+
+.Table {
+	background-color: #bdd3de;
+	font: normal 9px verdana, geneva, arial, helvetica, sans-serif;
+	color: #2c3a49;
+	font-weight: nomal;
+	border-collapse:collapse;
+}
+
+.Note {
+	font: normal 9px verdana, geneva, arial, helvetica, sans-serif;
+	color: #2c3a49;
+	font-weight: nomal;
+	border-collapse:collapse;
+}
+
+.TableCaption {
+	color: #572277;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 13;
+	text-align: left;
+	font-weight: bold;
+}
+.LargeText{
+	color: #572277;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 13;
+	font-weight: bold;
+}
+.NormalText{
+	color: #572277;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 11;
+}
+A:link {
+	color: #003399;
+	font-weight: none;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A:visited {
+	color: #003399;
+	font-weight: nomal;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A:hover {
+	color: #c6161a;
+	font-weight: none;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A.submenu:link {
+	color: #ffd700;
+	font-weight: normal;
+	text-decoration: none;
+	font-size: 10px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A.submenu:visited {
+	color: #31659c;
+	font-weight: normal;
+	text-decoration: none;
+	font-size: 10px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A.submenu:hover {
+	color: #31659c;
+	font-weight: normal;
+	text-decoration: none;
+	font-size: 10px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A.subnavlink:link {
+	color: #bfd0dc;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A.subnavlink:visited {
+	color: #bfd0dc;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+A.subnavlink:hover {
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 11px;
+	font-family: verdana, arial, helvetica, sans-serif
+}
+
+.WelcomeName {
+	color: #3358a5;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	vertical-align: top
+}
+
+.ERROR {
+	color: red;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: tahoma, verdana;
+	margin-left: 0px
+}
+
+.TITLE {
+	color: navy;
+	font-weight: bold;
+	font-family: tahoma, arial, verdana, sans-serif, georgia;
+	font-size: 14pt;
+	margin-left: 0px;
+	margin-top: 10px
+}
+
+.WELCOME {
+	color: #6c0c74;
+	font-family: tahoma, sans-serif, verdana;
+	text-align: center;
+	font-size: 14pt
+}
+.BUTTON {
+	color: white;
+	background-color: #5a75ad;
+	height: 25px;
+	width: 68px;
+	font-family: tahoma, verdana, arial, sans-serif
+}
+.BUTTONWIDTH {
+	color: white;
+	background-color: #5a75ad;
+	height: 25px;
+	width: 120px;
+	font-family: tahoma, verdana, arial, sans-serif
+}
+.COMBO {
+	color: black;
+	font-family: verdana, sans-serif, tahoma;
+	font-size: 11px;
+}
+
+.HDR {
+	color: navy;
+	font-family: tahoma, verdana, sans-serif, serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold
+}
+
+.BD {
+	margin-left: 25px
+}
+.BDPOPUP {
+	margin-left: 20px
+}
+.TB {
+	margin-top: 3px; margin-left: 3px
+}
+
+.numberTextBox {
+	text-align: right
+}
+
+P {
+	margin-bottom: 3px;
+	margin-top: 3px;
+}

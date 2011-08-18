@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Defects</title>
+
+
+<link rel="stylesheet" type="text/css" href="fms.css">
+<meta name="Microsoft Theme" content="none, default">
+</head>
+
+<body>
+
+<p>[<a href="index.htm"> Home </a>] [<a href="project_home.htm"> Up </a>]</p>
+<p class="TITLE">Defects</p>
+
+<p class="TableCaption"><a name="Defect page">Defects information page</a></p>
+<p>The header of defect page display information about <i>actual</i> defects
+metrics.</p>
+
+<p>On the rest of the page are displayed two charts <i>Defect Deviation Tracking</i> and <i>Product Defect Deviation Tracking</i> with data you planned in PPM Defect</p>
+
+<p>Project started before <b>15-Oct-2005</b> will use <b>old defect planning</b> described below, after that it will use <b>PPM Defect</b>.</p>
+
+<p>On the rest of the page are displayed planned and actual data for <i>Weighted
+review/test defects by process. </i>The planning information can be updated (<i>button
+update </i>) provided that you have update rights.</p>
+<p>Note 1 about the <i>defect rate </i>formula:<br>
+If there is at least one <i>product</i> &nbsp;of <i>workproduct</i> “software
+package” released before the date considered and the actual project size is 1
+UCP at least,&nbsp; the formula will be:<br>
+&nbsp;&nbsp;&nbsp; Total number of weighed defects/actual project size<span lang="FR"><br>
+If not&nbsp;:<br>
+</span>&nbsp;&nbsp;&nbsp; Total number of weighed defects/planned (or re-planned
+id defined) project size</p>
+<p>Note 2: The values for <i>planned</i> and <i>re-planned defects</i> for the
+project are calculated based on the information of <i>Weighted review/test
+defects by process.</i></p>
+<p class="TableCaption">Detail <a name="Planned defects listing">planned defects
+listing</a></p>
+<p>This screen lets you plan in detail, by process, weighted defects planned to
+be found.<br>
+Defects can be planned for <i>Work products </i>or for <i>
+<a href="modules_and_size.htm">products</a>.</i><br>
+For a more convenient use, the organization of this screen is rather different
+than the rest of the application:</p>
+<p>-To add/update defect planning data please select EITHER a <i>work product</i>
+OR a <i>product </i>in one of the corresponding combo box.<br>
+If you choose a <i>work product</i> then you will plan defect for <i>work
+product</i>, if you choose a <i>product </i>&nbsp;then you will plan defect for
+<i>product.</i> <br>
+If defects are already planned for the <i>work product/module </i>selected, then
+the existing data will appear in text boxes for update.<br>
+The numbers displayed between parentheses are the maximum values for the fields.
+The maximum values for <i>work product </i>come from the planned/re-planned
+defects in the <a href="#Defect page">defect page</a> (see above). The maximum
+values for <i>products</i> come from the values planned for the parent <i>work
+product.</i></p>
+<p>-to delete defect planning data simply click on the 'D' (for delete) in the
+leftmost column.</p>
+<p class="TableCaption">Defect progress chart</p>
+<p>This chart helps monitor the fixed versus found defects status, the more the
+space between the lines is big, the more defects need to be fixed.</p>
+<p class="TableCaption"><a name="DPlog">Defect prevention log (DP log)</a></p>
+<p>Track in this section all the activities planned to be carried in order to
+prevent common defects from occuring</p>
+<p class="TableCaption">Common defects</p>
+<p>List in this section the common defects likely to occur in the the project.
+It is recommended that Defect prevention activities (see above) are created to
+mitigate each common defect. The mapping between the common defects and the DP
+Log can be tracked using&nbsp; the DP Code column.</p>
+<p class="TableCaption"><a name="ppm defect">PPM Defect</a></p>
+<p>The models are used for project managers to forecast and plan project defects.</p>
+<p>Any tailoring/deviation of the models has to be approved by the Head of SEPG.</p>
+<p>These models have been developed for the full life cycle development project based on linear forecasting model.</p>
+<p>There are two models: Stage Defect Planning and Product Defect Planning.</p>
+<p class="TableCaption">Stage Defect Planning</p>
+<p>Defect Distribution and Defect Removal Efficiency are planned using Fsoft norms based on lastest Fsoft PCB and Fsoft business objectives that is available at the planning time</p>
+<p>Defect Distribution and Defect Removal Efficiency are constant in project progress</p>
+<p>Committed Leakage is constant in project progress. Interim objectives are Planned Defect found after each stage</p>
+<p>QC productivity (Review effectiveness, test effectiveness) is constant</p>
+<p>Replanned Defect Rate = Previous planned defect rate * (1+ Average project defect found deviation)</p>
+<p>For maintenance projects: Change the name of stages as appropriately. Change the Norm values.</p>
+<p>Plan defect with following steps:</p>
+<p>- Plan Defect Removal Efficiency by QC Activities by Stages. After you planned, you click <i>Plan Defect</i> to view defect plan by stage.</p>
+<p>- Replan after each stage, please note that this time you plan by WD, not by Defect Removal Efficiency.</p>
+<p>- Defect rate and Leakage pages will help you to track Defect rate and Possible Leakage for each stage.</p>
+
+<p class="TableCaption">Product Defect Planning</p>
+<p>Defect Rate and Defect Removal Efficiency are planned using the Fsoft norms based on lastest Fsoft PCB and Fsoft business objectives that is available at the planning time</p>
+<p>Defect Removal Efficiency are constant for a product in project progress</p>
+<p>Committed Leakage is constant for a product in project progress. Interim objectives are Defect found Deviation after each product release</p>
+<p>QC productivity is constant</p>
+<p>Replanned Defect Rate = Previous planned defect rate * (1+ Average defect found deviation)</p>
+<p>Apply the model at least for all deriverables in projects</p>
+<p>Plan defect for products with following steps:</p>
+<p>- Plan defect for products by QC activities.</p>
+<p>- After project release at least one product in the plan, replan defect for other product.</p>
+<p>- Defect rate will help you to track Defect rate for each product in the plan.</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

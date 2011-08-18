@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+<title>Roles</title>
+<link rel="stylesheet" type="text/css" href="fms.css">
+<base target="_self">
+
+</head>
+
+<body>
+
+<p>[<a href="index.htm"> Home </a>] [<a href="administration.htm"> Up </a>]</p>
+
+<p class="TITLE">Roles</p>
+<p>Roles are entities that define the access rights for sections of the
+application.<br>
+Roles names can be for example : administrator, group leader, programmer,
+project leader, tester ...<br>
+Roles only apply after they are associated with a Work unit in the <a href="user_profiles.htm#Granting rights to a user" target="_self">User
+profile section</a>.</p>
+<p class="TableCaption"><a name="Creating a role">Creating a role</a></p>
+<p>The easiest way to understand the role concept is to take an example, let's
+say that the customer of project x wants to have access to the project x data,
+we need to create a role called &quot;customer&quot;.</p>
+<p>First we will login the application using an account with administrator
+rights, then we will click on the <i>Admin </i>tab, and click on&nbsp; <i>Roles</i>
+icon in
+the left menu. A page will appear with the current list of <i>Roles</i> defined.
+On the bottom of the list, please click on <i>Add New</i> button. A new page
+will appear where we will define the new Role :</p>
+<p>- <i>Role name</i>: Input here the chosen role name, in our example &quot;Customer&quot;.
+Note: this name must be unique in the role list</p>
+<p>- <i>Description </i>: Input here some short description of your choice</p>
+<p>- <i>Dashboard
+      Role</i>: This field is used by Dashboard application, if Dashboard is required, please&nbsp;
+refer to Dashboard documentation, otherwise, the value doesn't matter.</p>
+<p>- Below the previous fields, there is a list of items divided in 2 columns,
+in the right columns are listed the application sections' names&nbsp; (or <i>Pages</i>),
+the left column is the right that will be granted to the Customer on these
+sections. There are 3 types of rights :</p>
+<p>&nbsp;&nbsp;&nbsp; * <i>No right</i> (column 1) means that the Customer will
+not be able to view the contents of the section</p>
+<p>&nbsp;&nbsp;&nbsp; * <i> View only right</i> (column 2) means that the
+Customer will be able to view the contents of the section, but will not be
+allowed to change the data of this section.</p>
+<p>&nbsp;&nbsp;&nbsp; * <i> Manager right</i> (column 3) means that the Customer
+will be able to view the contents of the section and allowed to change the data
+of this section.</p>
+<p>In our example, the Customer doesn't need to change any data, and just needs
+to view the data of his project X. So, we will grant the Customer <i>role&nbsp; </i>the<i>
+View only right</i> on all <i>project</i> related sections (all sub-sections
+under the section <i>Project home</i>), we will check <i>No right </i>on all
+other sections. </p>
+
+<p>- Click <i>Ok </i>button in order to validate the Customer <i>Role</i>
+creation. </p>
+
+<p>- If we want to finish the example, the next steps are : <a href="user_profiles.htm#Creating a User Profile" target="_self">Create User
+profile</a> for the Customer and then <a href="user_profiles.htm#Granting rights to a user" target="_self">grant him rights
+</a>. </p>
+
+<p>&nbsp; </p>
+
+</body>
+
+</html>

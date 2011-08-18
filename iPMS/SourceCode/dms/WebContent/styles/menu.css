@@ -1,0 +1,20 @@
+#dropmenudiv{
+position:absolute;
+border:1px solid black;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+}
+
+#dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+font-weight: normal;
+color: #000000
+}
+
+#dropmenudiv a:hover{ /*hover background color*/
+background-color: white;
+color: #FF0000;
+}

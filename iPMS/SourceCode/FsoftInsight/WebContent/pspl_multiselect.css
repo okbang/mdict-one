@@ -1,0 +1,395 @@
+/***************************
+PSPL Multi Select Box,
+
+A Linkware by
+Possible Solutions Pvt. Ltd.
+If you are using PSPL Multi Select Box on your pages,
+you must place a back link to one of our sites, link codes are as below
+<a href="http://possible.in">Possible Solutions, Web Development and design company</a>
+<a href="http://multi-select-box.possible.in">PSPL Multi Select Box, Select without pressing ALT</a>
+
+This linkware can not be used on sites meant for making profit or revenue.
+For such sites You can buy the commercial version or extended use version.
+You can purchase licence on http://multi-select-box.possible.in/purchase
+****************************/
+
+
+.msel{ /* don't change*/
+position:static;
+
+}
+/***************** box style 1 *********************/
+.optionTextBox1{
+padding:0px;
+margin:0px;
+overflow:hidden; 
+vertical-align:middle;
+/* you can change the properties below */
+height:18px;
+width:100px;
+font-size:13px;
+color:#000000;
+background-color:#ffffff;
+border:1px solid #8E2C65; 
+border-right:1px solid #ffffff; 
+}
+
+.arrow1{
+padding:0px;
+margin:0px;
+vertical-align:middle;
+/* you can change the properties below */
+width:20px;
+}
+.optionDiv1{
+position:absolute;
+left:-2000px;
+top:-2000px; 
+display:none;
+z-index:90;
+width:auto;
+/* you can change the properties below */
+background-color:#FFFFFF;
+border:1px solid #8E2C65;
+}
+.selBox1{
+overflow:hidden;
+display:inline;
+float:inherit;
+white-space:nowrap;
+position:static;
+/* you can change the properties below */
+height:20px;
+width:120px; 
+}
+.cell1{
+font-size:13px;
+text-align:left;
+background-color:#ffffff;
+}
+.cellHover1{
+font-size:13px;
+background-color:#CD95C6;
+text-align:left;
+}
+.cellSelected1{
+font-size:13px;
+background-color:#F3E5F0;
+text-align:left;
+}
+
+
+/***************** box style 2 *********************/
+.optionTextBox2{
+padding:0px;
+margin:0px;
+overflow:hidden;
+vertical-align:middle;
+/* you can change the properties below */
+height:18px;
+width:100px;
+font-size:13px;
+color:#000000;
+background-color:#ffffff;
+border:1px solid #006699; 
+}
+
+.arrow2{
+padding:0px;
+margin:0px;
+vertical-align:middle;
+/* you can change the properties below */
+width:20px;
+}
+.optionDiv2{
+position:absolute;
+left:-2000px;
+top:-2000px;
+display:none;
+z-index:91;
+width:auto;
+/* you can change the properties below */
+border:1px solid #006699;
+background-color:#FFFFFF;
+}
+.selBox2{
+position:static;
+overflow:hidden;
+display:inline;
+float:inherit;
+white-space:nowrap;
+/* you can change the properties below */
+height:20px; 
+width:120px; 
+
+}
+.cell2{
+font-size:13px;
+text-align:left;
+background-color:#ffffff;
+}
+.cellHover2{
+font-size:13px;
+background-color:#006699;
+text-align:left;
+}
+.cellSelected2{
+font-size:13px;
+background-color:#008AAF;
+text-align:left;
+}
+
+
+/***************** box style 3 *********************/
+.optionTextBox3{
+padding:0px;
+margin:0px;
+overflow:hidden;
+vertical-align:middle;
+/* you can change the styles below */
+height:18px;
+width:100px;
+font-size:13px;
+color:#000000;
+background-color:#FCF7CD;
+border:1px solid #F29E0C; 
+}
+
+.arrow3{
+vertical-align:middle;
+padding:0px;
+margin:0px;
+/* you can change the properties below */
+width:40px;
+}
+.optionDiv3{
+position:absolute;
+left:-2000px;
+top:-2000px;
+display:none;
+z-index:92;
+width:auto;
+/* you can change the properties below */
+border:1px solid #F29E0C;
+background-color:#FCF7CD;
+}
+.selBox3{
+position:static;
+overflow:hidden;
+display:inline;
+float:inherit;
+white-space:nowrap;
+/* you can change the properties below */
+height:40px;
+width:140px; 
+}
+.cell3{
+font-size:13px;
+text-align:left;
+background-color:#FCF7CD;
+}
+.cellHover3{
+font-size:13px;
+background-color:#F6BD45;
+text-align:left;
+}
+.cellSelected3{
+font-size:13px;
+background-color:#FCE791;
+text-align:left;
+}
+
+
+/***************** box style 3 *********************/
+.optionTextBox4{
+padding:0px;
+margin:0px;
+overflow:hidden;
+vertical-align:middle;
+/* you can change the properties below */
+height:18px;
+width:100px;
+font-size:13px;
+color:#000000;
+background-color:#DBDEC9;
+border:1px solid #949D76; 
+
+}
+
+.arrow4{
+padding:0px;
+margin:0px;
+vertical-align:middle;
+/* you can change the properties below */
+width:40px;
+}
+.optionDiv4{
+position:absolute;
+left:-2000px;
+top:-2000px;
+display:none;
+z-index:93;
+width:auto;
+/* you can change the properties below */
+border:1px solid #949D76;
+background-color:#DBDEC9;
+}
+.selBox4{
+position:static;
+overflow:hidden;
+display:inline;
+float:inherit;
+white-space:nowrap;
+/* you can change the properties below */
+height:40px;
+width:140px; 
+
+}
+.cell4{
+font-size:13px;
+text-align:left;
+background-color:#DBDEC9;
+}
+.cellHover4{
+font-size:13px;
+background-color:#949D76;
+text-align:left;
+}
+.cellSelected4{
+font-size:13px;
+background-color:#BFC7A7;
+text-align:left;
+}
+
+
+/***************** box style 3 *********************/
+.optionTextBox5{
+padding:0px;
+margin:0px;
+overflow:hidden;
+vertical-align:middle;
+/* you can change the properties below */
+height:18px;
+width:100px;
+font-size:13px;
+color:#000000;
+background-color:#ffffff;
+border:1px solid #3D433E; 
+
+}
+
+.arrow5{
+padding:0px;
+margin:0px;
+vertical-align:middle;
+/* you can change the properties below */
+width:20px;
+}
+.optionDiv5{
+position:absolute;
+left:-2000px;
+top:-2000px;
+display:none;
+z-index:94;
+width:auto;
+/* you can change the properties below */
+border:1px solid #3D433E;
+background-color:#ffffff;
+}
+.selBox5{
+position:static;
+overflow:hidden;
+display:inline;
+float:inherit;
+white-space:nowrap;
+/* you can change the properties below */
+height:20px; 
+width:130px; 
+}
+.cell5{
+font-size:13px;
+text-align:left;
+background-color:#ffffff;
+}
+.cellHover5{
+font-size:13px;
+background-color:#F4BD22;
+text-align:left;
+}
+.cellSelected5{
+font-size:13px;
+background-color:#D42609;
+text-align:left;
+}
+
+
+
+/***************** box style 6 *********************/
+.optionTextBox6{
+padding:0px; 
+margin:0px;
+overflow:hidden; 
+vertical-align:middle;
+/* you can change the properties below */
+height:15px; 
+width:220px;
+font-size:11px;
+color:#000000;
+background-color:#ffffff;
+border:1px solid #336699; 
+
+}
+
+.arrow6{
+padding:-10px;
+margin-bottom:-1px;
+margin-left:-17px;
+margin-right:-17px;
+margin-top:-1px;
+vertical-align:middle;
+/* you can change the properties below */
+width:15px;
+height: 15px;
+}
+.optionDiv6{
+position:absolute;
+margin-bottom:-20px;
+margin-left:-25px;
+margin-right:-25px;
+margin-top:0px;
+left:-2000px;
+top:-2000px;
+display:none;
+z-index:95;
+overflow:scroll;
+width:200px;
+/* you can change the properties below */
+border:1px solid #336699;
+background-color:#FFFFFF;
+}
+.selBox6{
+position:static;
+overflow:hidden;
+display:inline;
+float:inherit;
+white-space:nowrap;
+/* you can change the properties below */
+height:20px; 
+width:130px; 
+}
+.cell6{
+font-size:11px;
+text-align:left;
+background-color:#ffffff;
+}
+.cellHover6{
+font-size:11px;
+background-color:#CCE7F4;
+text-align:left;
+}
+.cellSelected6{
+padding:2px;
+font-size:11px;
+background-color:#336699;
+text-align:left;
+}

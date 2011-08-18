@@ -1,0 +1,53 @@
+DIV#tbl-container {
+	OVERFLOW: auto;
+	scrollbar-base-color: #ffeaff;
+	HEIGHT: 500px;
+	WIDTH: 95%;
+}
+DIV#tbl-container TABLE TH {
+	WIDTH: 100px
+}
+THEAD TH {
+	BACKGROUND: #104a7b;
+	BORDER-LEFT: #D1D6E9 1px solid;
+	BORDER-TOP: #D1D6E9 2px solid;
+	COLOR: #ffce00;
+	HEIGHT : 25px;
+	FONT-FAMILY: Tahoma,sans-serif;
+	FONT-SIZE: 11px;
+	FONT-WEIGHT: bold;
+	PADDING-LEFT: 1px;
+	TEXT-ALIGN: center;
+
+	CURSOR: default;
+	POSITION: relative;
+	TOP: expression(document.getElementById("tbl-container").scrollTop-2);
+	Z-INDEX: 20
+}
+THEAD TH.locked {
+	BACKGROUND-COLOR: navy;
+	BORDER-RIGHT: silver 1px solid;
+	COLOR: white;
+	CURSOR: default;
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: bold;
+	POSITION: relative;
+	TEXT-ALIGN: center;
+	Z-INDEX: 30
+}
+TD.locked {
+	BACKGROUND-COLOR: #ffeaff;
+	BORDER-RIGHT: silver 1px solid;
+	FONT-WEIGHT: bold;
+	LEFT: expression(parentNode.parentNode.parentNode.parentNode.scrollLeft);
+	POSITION: relative;
+	Z-INDEX: 10
+}
+TH.locked {
+	BACKGROUND-COLOR: #ffeaff;
+	BORDER-RIGHT: silver 1px solid;
+	FONT-WEIGHT: bold;
+	LEFT: expression(parentNode.parentNode.parentNode.parentNode.scrollLeft);
+	POSITION: relative;
+	Z-INDEX: 10
+}

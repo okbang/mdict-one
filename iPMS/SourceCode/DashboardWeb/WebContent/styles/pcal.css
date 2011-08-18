@@ -1,0 +1,53 @@
+/* Top level table (calendar window) */
+TABLE.pcalTbl {
+    BACKGROUND-COLOR: #f0f0f0; BORDER-BOTTOM: #a0a0a0 1px solid; BORDER-LEFT: #a0a0a0 1px solid; BORDER-RIGHT: #a0a0a0 1px solid; BORDER-TOP: #a0a0a0 1px solid; FONT-FAMILY: Arial; FONT-SIZE: 11px
+}
+/* Listing table (for select year, month) */
+TABLE.pcalTblList {
+    BACKGROUND-COLOR: #f0f0f0; font-family:Arial;font-size:11px;border:1px solid #a0a0a0;
+}
+/* Content table (for select date) */
+TABLE.pcalTblContent {
+    BACKGROUND-COLOR: #ffffff; FONT-FAMILY: verdana; FONT-SIZE: 10px
+}
+/* A cell to select month or year from list */
+TD.pcalList {
+    CURSOR: hand; color: #000066;
+}
+TD.pcalCaption {
+    padding:2px;font-family:Arial;font-size:11px;
+}
+SPAN.pcalSelBtn {
+    border:1px solid #36f; cursor:hand;
+}
+
+/* Link of heading (month, year) */
+A.pcalHead:hover {
+    CURSOR: hand;BORDER-BOTTOM: #36f 1px solid; BORDER-LEFT: #36f 1px solid; BORDER-RIGHT: #36f 1px solid; BORDER-TOP: #36f 1px solid
+}
+/* Link to select date */
+A.pcalDate:link {
+    CURSOR: hand; BACKGROUND-COLOR: #ffffff; COLOR: black; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.pcalDate:visited {
+    CURSOR: hand; BACKGROUND-COLOR: #ffffff; COLOR: black; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.pcalDate:hover {
+    CURSOR: hand; BACKGROUND-COLOR: #FFFF66; COLOR: white; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.pcalDate:active {
+    CURSOR: hand; BACKGROUND-COLOR: #ffffff; COLOR: black; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+/* Link of non-selectable dates */
+A.pcalNDate:link {
+    COLOR: #999999; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.pcalNDate:visited {
+    COLOR: #999999; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.pcalNDate:hover {
+    COLOR: #999999; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.pcalNDate:active {
+    COLOR: #999999; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+   <web-app id="WebApp">
+      <display-name>Timesheet2WAR</display-name>
+      <servlet id="Servlet_1">
+         <servlet-name>TimesheetServlet</servlet-name>
+         <display-name>TimesheetServlet</display-name>
+         <servlet-class>fpt.timesheet.servlet.TimesheetServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_2">
+         <servlet-name>ApprovalServlet</servlet-name>
+         <display-name>ApprovalServlet</display-name>
+         <servlet-class>fpt.timesheet.servlet.ApprovalServlet</servlet-class>
+      </servlet>
+      <servlet id="Servlet_3">
+         <servlet-name>ReportServlet</servlet-name>
+         <display-name>ReportServlet</display-name>
+         <servlet-class>fpt.timesheet.servlet.ReportServlet</servlet-class>
+      </servlet>
+      <servlet-mapping id="ServletMapping_1">
+         <servlet-name>TimesheetServlet</servlet-name>
+         <url-pattern>TimesheetServlet</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_2">
+         <servlet-name>ApprovalServlet</servlet-name>
+         <url-pattern>ApprovalServlet</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping id="ServletMapping_3">
+         <servlet-name>ReportServlet</servlet-name>
+         <url-pattern>ReportServlet</url-pattern>
+      </servlet-mapping>
+      <welcome-file-list id="WelcomeFileList_1">
+         <welcome-file>index.html</welcome-file>
+         <welcome-file>index.htm</welcome-file>
+         <welcome-file>index.jsp</welcome-file>
+         <welcome-file>default.html</welcome-file>
+         <welcome-file>default.htm</welcome-file>
+         <welcome-file>default.jsp</welcome-file>
+      </welcome-file-list>
+      <!--<resource-ref id="ResourceRef_1186468457468">
+      	<res-ref-name>jdbc/TimesheetDB</res-ref-name>
+      	<res-type>java.lang.Object</res-type>
+      	<res-auth>Container</res-auth>
+      	<res-sharing-scope>Shareable</res-sharing-scope>
+      </resource-ref>
+      -->
+      <ejb-local-ref id="EJBLocalRef_1186369408765">
+      	<ejb-ref-name>ejb/Login</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.timesheet.LoginTran.ejb.LoginEJBLocalHome</local-home>
+      	<local>fpt.timesheet.LoginTran.ejb.LoginEJBLocal</local>
+      	<ejb-link>Timesheet2JAR.jar#LoginEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1186369408781">
+      	<ejb-ref-name>ejb/ProjectCombo</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.timesheet.ApproveTran.ejb.common.ProjectComboEJBLocalHome</local-home>
+      	<local>fpt.timesheet.ApproveTran.ejb.common.ProjectComboEJBLocal</local>
+      	<ejb-link>Timesheet2JAR.jar#ProjectComboEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1186369408796">
+      	<ejb-ref-name>ejb/CommonList</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.timesheet.ApproveTran.ejb.common.CommonListEJBLocalHome</local-home>
+      	<local>fpt.timesheet.ApproveTran.ejb.common.CommonListEJBLocal</local>
+      	<ejb-link>Timesheet2JAR.jar#CommonListEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1186369408797">
+      	<ejb-ref-name>ejb/Input</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.timesheet.InputTran.ejb.InputEJBLocalHome</local-home>
+      	<local>fpt.timesheet.InputTran.ejb.InputEJBLocal</local>
+      	<ejb-link>Timesheet2JAR.jar#InputEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1186369408798">
+      	<ejb-ref-name>ejb/Approve</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.timesheet.ApproveTran.ejb.approve.ApproveEJBLocalHome</local-home>
+      	<local>fpt.timesheet.ApproveTran.ejb.approve.ApproveEJBLocal</local>
+      	<ejb-link>Timesheet2JAR.jar#ApproveEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1186481432796">
+      	<ejb-ref-name>ejb/Inquiry</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.timesheet.ApproveTran.ejb.report.InquiryEJBLocalHome</local-home>
+      	<local>fpt.timesheet.ApproveTran.ejb.report.InquiryEJBLocal</local>
+      	<ejb-link>Timesheet2JAR.jar#InquiryEJB</ejb-link>
+      </ejb-local-ref>
+      <ejb-local-ref id="EJBLocalRef_1186797989147">
+      	<ejb-ref-name>ejb/Exemption</ejb-ref-name>
+      	<ejb-ref-type>Session</ejb-ref-type>
+      	<local-home>fpt.timesheet.Exemption.ejb.ExemptionEJBLocalHome</local-home>
+      	<local>fpt.timesheet.Exemption.ejb.ExemptionEJBLocal</local>
+      	<ejb-link>Timesheet2JAR.jar#ExemptionEJB</ejb-link>
+      </ejb-local-ref>
+   </web-app>
