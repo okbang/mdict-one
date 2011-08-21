@@ -1,6 +1,6 @@
 SVNLoader loads statistical data from the Subversion (SVN) repository to the relational database.
 
-Current version: 0.0.1
+Current version: 0.1.0
 
 How to make the binary package and run the demo from the source code?
 =========================================

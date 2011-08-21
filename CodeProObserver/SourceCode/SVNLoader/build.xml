@@ -8,7 +8,7 @@
   <!-- set global properties for this build
     web.content: Folder contain web content of application
   -->  
-  <property name="dist.home"  location="dist/${app.name}-${app.version}"/>
+  <property name="dist.home"  location="dist/${app.name}"/>
   <property name="build.home"  location="build"/>
   <property name="lib.compile" value="lib"/>
   
@@ -130,15 +130,15 @@
 	    <fileset dir="hsqldb-8.1"/>
 	</copy>
 	
-	<jar jarfile="${dist.home}/lib/${app.name}-${app.version}-${today}.jar" basedir="${build.home}"/>
+	<jar jarfile="${dist.home}/lib/${app.pkg}-${app.version}-${today}.jar" basedir="${build.home}"/>
 	<echo message="View the result within folder ${dist.home}"/>
   </target>
  
   <target name="clean" description="clean up the build folder" >
     <!-- Delete the ${build.home} and ${dist.home} directory trees -->
-	<echo message="Delete the and '${dist.home}' directory trees "/>
+	<echo message="Delete the '${build.home}' and '${dist.home}' directory trees "/>
     <delete dir="${build.home}"/>
-	<delete dir="${dist.home}"/>
+	<delete dir="dist"/>
 	<delete dir="bin"/>
   
   </target>

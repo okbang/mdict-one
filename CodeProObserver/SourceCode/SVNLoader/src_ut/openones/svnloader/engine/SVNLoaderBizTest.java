@@ -30,8 +30,8 @@ public class SVNLoaderBizTest {
         try {
             String username = "";
             String password = "";
-            //String url = "file:///I:/Projects/LunarCal/Wip/Source/LunarCal";
-            String url = "file:///I:/Projects/Open-Ones Group/GoogleCode/trunk/CodeProObserver/SourceCode/SVNLoader/testdata/svnrepo01";
+            String url = "file:///I:/Projects/LunarCal/Wip/Source/LunarCal";
+            //String url = "file:///I:/Projects/Open-Ones Group/GoogleCode/trunk/CodeProObserver/SourceCode/SVNLoader/testdata/svnrepo01";
             String path = "D:/Temp/News";
             SVNLoaderBiz svn2DBBiz = new SVNLoaderBiz(url, username, password, path, "Project01", -1);
             svn2DBBiz.transfer();
