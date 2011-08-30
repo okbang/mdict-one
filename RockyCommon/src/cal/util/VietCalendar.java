@@ -2,7 +2,7 @@ package cal.util;
 
 /**
  * @author duc
- * 
+ * @author Thach Le: give the comment
  */
 public class VietCalendar {
     public static final double PI = Math.PI;

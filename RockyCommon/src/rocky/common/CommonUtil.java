@@ -3,14 +3,7 @@
  */
 package rocky.common;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -462,13 +456,16 @@ public class CommonUtil {
         int len;
         StringBuffer sb = new StringBuffer();
         try {
-            fis = Util.class.getResourceAsStream(resourcePath);
+            fis = CommonUtil.loadResource(resourcePath);
             isReader = new InputStreamReader(fis, encoding);
             buffReader = new BufferedReader(isReader);
             while ((len = buffReader.read(buff)) != -1) {
                 sb.append(buff, 0, len);
             }
-        } finally {
+        } catch (Exception e){
+            //e.printStackTrace();
+        }
+        finally {
                 if (buffReader != null) {
                     buffReader.close();
                 }
@@ -564,5 +561,17 @@ public class CommonUtil {
     public static String formatDate(Date dte, String dteFormat) {
         return new SimpleDateFormat(dteFormat).format(dte);
     }
-
+    
+    public static void SaveFile(String pathFile, String Content) {
+        Writer output = null;
+        File file = new File(pathFile);
+        try {
+            output = new BufferedWriter(new FileWriter(file));
+            output.write(Content);
+            output.close();
+        } catch (IOException ex) {
+            // TODO Auto-generated catch block
+            ex.printStackTrace();
+        }
+    }
 }

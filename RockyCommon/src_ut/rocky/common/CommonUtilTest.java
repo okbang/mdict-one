@@ -1,5 +1,6 @@
 package rocky.common;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,5 +72,17 @@ public class CommonUtilTest extends TestCase {
         
         assertEquals("localhost:1234", strValue);
     }
-
+    
+    public void testGetContent1() {
+        String resourcePath = "/build.properties";
+        String encoding = "utf-8";
+        String strValue = "";
+        try {
+            strValue = CommonUtil.getContent(resourcePath, encoding);
+        } catch (IOException ex) {
+            // TODO Auto-generated catch block
+            ex.printStackTrace();
+        }
+        System.out.println(strValue);
+    }    
 }
