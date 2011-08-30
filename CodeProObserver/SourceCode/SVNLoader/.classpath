@@ -31,14 +31,13 @@
 	<classpathentry kind="lib" path="lib/jsr173_1.0_api.jar"/>
 	<classpathentry kind="lib" path="lib/locc_5.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/poi-3.7-20101029.jar"/>
-	<classpathentry kind="lib" path="lib/poi-examples-3.7-20101029.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-3.7-20101029.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.7-20101029.jar"/>
 	<classpathentry kind="lib" path="lib/poi-scratchpad-3.7-20101029.jar"/>
 	<classpathentry kind="lib" path="lib/xbean.jar"/>
-	<classpathentry kind="lib" path="lib/rocky-common-0.1.2-201106180123816.jar"/>
 	<classpathentry kind="lib" path="lib/CodeChecker-0.0.2-201104117034704.jar"/>
-	<classpathentry kind="lib" path="lib/sizecounter-2.1.2-201107186075246.jar"/>
 	<classpathentry kind="lib" path="lib/stepcounter_2.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/rocky-common-0.1.2-201105149102007.jar"/>
+	<classpathentry kind="lib" path="lib/sizecounter-2.1.2-201106163113431.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

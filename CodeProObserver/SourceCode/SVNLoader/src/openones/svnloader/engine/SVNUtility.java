@@ -65,8 +65,12 @@ public class SVNUtility {
         SVNRepository repository = null;
         try {
             repository = SVNRepositoryFactory.create(SVNURL.parseURIDecoded(url));
-            ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager(username, password);
+            //ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager(username, password);
+            File configFile = new File(".svnloader");
+            ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager(configFile, username, password);
+
             repository.setAuthenticationManager(authManager);
+            
         } catch (SVNException svnex) {
             throw svnex;
         }

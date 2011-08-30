@@ -159,11 +159,11 @@ public class SVNLoaderBiz {
                 SVNLogEntry logEntry = (SVNLogEntry) entries.next();
                 listRevision.add(logEntry.getRevision());
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
             StringBuilder builder = new StringBuilder();
             builder.append("Error when get all revision");
-            builder.append(e.getMessage() + "\n");
-            StackTraceElement[] listError = e.getStackTrace();
+            builder.append(ex.getMessage() + "\n");
+            StackTraceElement[] listError = ex.getStackTrace();
             for (StackTraceElement stackTraceElement : listError) {
                 builder.append(stackTraceElement.toString() + "\n");
             }
@@ -555,12 +555,10 @@ public class SVNLoaderBiz {
                     ISVNFilePK svnFilePK = DaoManager.getInstance().newSVNFilePKManagerInst()
                                            .newSVNFilePKInst(parentDir.getDirID(), entry.getName(),
                                                              revision.getRevisionID());
-                    LOGGER.debug("svnFilePK=" + svnFilePK);
                     ISVNFile currentFile = DaoManager.getInstance().newSVNFileManagerInst().newSVNFileInst();
                     currentFile.setSVNFilePK(svnFilePK);
                     currentFile.setDir(parentDir);
 
-                    LOGGER.debug("Create file ...");
                     svnFileManager.createFile(currentFile);
                 }
                 // create a version into DB
@@ -720,7 +718,7 @@ public class SVNLoaderBiz {
             FileOutputStream f2 = new FileOutputStream(pathLocal);
             byteArrayOutputStream.writeTo(f2);
             f2.close();
-        } catch (Exception e) {
+        } catch (Exception ex) {
             Exception er = new Exception("Can not export file:" + filePathInSVN + " at revision:"
                     + String.valueOf(revisionNum));
             throw er;
