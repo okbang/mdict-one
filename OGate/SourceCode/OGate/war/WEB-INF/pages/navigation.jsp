@@ -17,7 +17,7 @@
     </c:if>
 </c:forEach>
 
-<form name="frmNavigation" action="main.do" method="post">
+<form name="frmNavigation" action="main.do">
       <input type="hidden" name="screenId" value="Navigation" />
       <input type="hidden" name="eventId" value="" />
       <input type="hidden" name="tabId" value="" />

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
-<form name="frmMenu" action="menu.do" method="post">
+<form name="frmMenu" action="menu.do">
   <input type="hidden" name="screenId" value="Menu"/>
   <input type="hidden" name="eventId" value=""/>
   <input type="hidden" name="menuId" value=""/>
