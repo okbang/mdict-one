@@ -32,6 +32,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Cộng đồng lập trình" />
+<meta name="keywords" content="open-ones.com, thuc tap he, lap trinh vien, lien ket y tuong, nang cao ky nang, bo sung ky nang, hoc qui trinh phan mem, luyện kỹ năng lập trình, làm việc nhóm, tăng cường kỹ năng mềm, mã nguồn mở, liên kết ý tưởng, thực tập CNTT, phát triển phần mềm, lập trình viên chất lượng cao" />
+<meta name="robots" content="INDEX,FOLLOW" />
+
 <title>${applicationScope.HomePage}</title>
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 <SCRIPT type=text/javascript src='pages/scripts/layout.js'></SCRIPT>

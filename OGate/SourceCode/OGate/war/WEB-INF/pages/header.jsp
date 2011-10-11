@@ -76,7 +76,7 @@ Contains:
     </tr>
     <tr>
       <td colspan="3">
-        <!-- Hot news --> <marquee>Khóa học "Thực hành phát triển phần mềm"" kết thúc trong tháng 6/2011. Đối tượng: Giảng viên CNTT. Số lượng học viên: 30. Điểm phản hồi trung bình <b><font color="blue">4.3</font></b>/5 - Tốt.</marquee></td>
+        <!-- Hot news --> <marquee onmouseover="this.stop();" onmouseout="this.start();"><a href="https://docs.google.com/viewer?a=v&pid=explorer&chrome=true&srcid=0B4vjYnf6j5_4M2MxMjc5ODktNWI5MS00YzEyLTgyODUtZGNlNDM0MThiNDg1&hl=en" target="_blank">Dịch vụ mới - SDSI: Tăng cường kỹ năng lập trình cho sinh viên</a> | Khóa học "Thực hành phát triển phần mềm"" kết thúc trong tháng 6/2011. Điểm phản hồi trung bình <b><font color="blue">4.3</font></b>/5 - Tốt.</marquee></td>
     </tr>
   </table>
 </form>
