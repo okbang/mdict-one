@@ -49,8 +49,19 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
+
+<!-- Add+1 button -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'vi'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 <SCRIPT type=text/javascript src='pages/scripts/layout.js'></SCRIPT>
 <link rel=stylesheet type=text/css href="pages/css/interface.css">

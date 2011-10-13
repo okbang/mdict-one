@@ -47,6 +47,8 @@ Contains:
       </td>
       <td width="38%" rowspan="2">${applicationScope.sponsorList}</td>
       <td class=uportal-channel-text width="14%" nowrap="nowrap" align=right>
+        <!-- Display Add+1 button -->
+        <g:plusone size="small" annotation="inline"></g:plusone>
         ${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
             <c:forEach var="langItem" items="${outForm.langList}">
               <c:if test='${langItem.name == lang}'>
