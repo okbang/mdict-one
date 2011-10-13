@@ -37,6 +37,20 @@
 <meta name="robots" content="INDEX,FOLLOW" />
 
 <title>${applicationScope.HomePage}</title>
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26308540-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 <script type="text/javascript" src='pages/scripts/common.js'></script>
 <SCRIPT type=text/javascript src='pages/scripts/layout.js'></SCRIPT>
 <link rel=stylesheet type=text/css href="pages/css/interface.css">
