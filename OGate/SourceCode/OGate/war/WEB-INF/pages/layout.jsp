@@ -28,13 +28,17 @@
 
 
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!-- Update your html tag to include the itemscope and itemtype attributes -->
+<html itemscope itemtype="http://schema.org/Organization">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="description" content="Cộng đồng lập trình" />
 <meta name="keywords" content="open-ones.com, thuc tap he, lap trinh vien, lien ket y tuong, nang cao ky nang, bo sung ky nang, hoc qui trinh phan mem, luyện kỹ năng lập trình, làm việc nhóm, tăng cường kỹ năng mềm, mã nguồn mở, liên kết ý tưởng, thực tập CNTT, phát triển phần mềm, lập trình viên chất lượng cao" />
 <meta name="robots" content="INDEX,FOLLOW" />
+<meta itemprop="name" content="Cong dong lap trinh">
+<meta itemprop="description" content="ky nang lap trinh, kỹ năng lập trình, ky nang mem CNTT, kỹ năng mềm CNTT, lap trinh vien chuyen nghiep, LTV chuyên nghiệp, phat trien phan mem, phát triển dự án phần mềm, hoc quy trinh phan mem, học quy trình phần mềm, ket noi CNTT, kết nối CNTT">
+<meta itemprop="image" content="https://lh5.googleusercontent.com/-gBWSooHZBY0/AAAAAAAAAAI/AAAAAAAAAA0/8cLLSwzvkq8/photo.jpg?sz=200">
+
 
 <title>${applicationScope.HomePage}</title>
 <!-- Google Analytics -->

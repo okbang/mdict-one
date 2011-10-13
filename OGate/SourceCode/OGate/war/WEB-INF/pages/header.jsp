@@ -41,14 +41,14 @@ Contains:
   <!-- Header -->
   <table border="0" width="100%" cellspacing="0" cellpadding="0">
     <tr>
-      <td width="10%" rowspan="3"><a href="/"><img border="0" src="pages/images/oog_logo.png" width="150" height="75"></a>
+      <td width="10%" rowspan="3" valign="top"><a href="/"><img border="0" src="pages/images/oog_logo.png" width="150" height="75"></a>
       </td>
-      <td width="38%" rowspan="2"><H2>${applicationScope.ShareAssociateDevelopIdea}</H2>
+      <td width="48%" rowspan="2"><H2>${applicationScope.ShareAssociateDevelopIdea}</H2>
       </td>
-      <td width="38%" rowspan="2">${applicationScope.sponsorList}</td>
+      <td width="35%" rowspan="2">${applicationScope.sponsorList}</td>
+      <!-- Display Add+1 button -->
+      <td width="5%" rowspan="2" nowrap="nowrap" align="right" valign="baseline"><g:plusone size="medium" annotation="inline" width="120"></g:plusone></td>
       <td class=uportal-channel-text width="14%" nowrap="nowrap" align=right>
-        <!-- Display Add+1 button -->
-        <g:plusone size="small" annotation="inline"></g:plusone>
         ${applicationScope.Language}: <select size="1" name="lang" onchange='submitAction("frmHeader","Header", "changeLanguage")'>
             <c:forEach var="langItem" items="${outForm.langList}">
               <c:if test='${langItem.name == lang}'>
@@ -77,7 +77,7 @@ Contains:
       </td>
     </tr>
     <tr>
-      <td colspan="3">
+      <td colspan="4">
         <!-- Hot news --> <marquee onmouseover="this.stop();" onmouseout="this.start();"><a href="https://docs.google.com/viewer?a=v&pid=explorer&chrome=true&srcid=0B4vjYnf6j5_4M2MxMjc5ODktNWI5MS00YzEyLTgyODUtZGNlNDM0MThiNDg1&hl=en" target="_blank">Dịch vụ mới - SDSI: Tăng cường kỹ năng lập trình cho sinh viên</a> | Khóa học "Thực hành phát triển phần mềm"" kết thúc trong tháng 6/2011. Điểm phản hồi trung bình <b><font color="blue">4.3</font></b>/5 - Tốt.</marquee></td>
     </tr>
   </table>
