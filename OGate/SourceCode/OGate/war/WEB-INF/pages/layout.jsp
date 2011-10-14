@@ -17,7 +17,7 @@
  * limitations under the License.
  */
  --%>
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="openones.gate.util.ConfManager"%>
 <%@page import="openones.gae.users.OUser"%>
 <%@page import="openones.gate.Cons"%>
@@ -28,7 +28,7 @@
 
 
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<!-- Update your html tag to include the itemscope and itemtype attributes -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html itemscope itemtype="http://schema.org/Organization">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,10 +37,13 @@
 <meta name="robots" content="INDEX,FOLLOW" />
 <meta itemprop="name" content="Cong dong lap trinh">
 <meta itemprop="description" content="ky nang lap trinh, kỹ năng lập trình, ky nang mem CNTT, kỹ năng mềm CNTT, lap trinh vien chuyen nghiep, LTV chuyên nghiệp, phat trien phan mem, phát triển dự án phần mềm, hoc quy trinh phan mem, học quy trình phần mềm, ket noi CNTT, kết nối CNTT">
-<meta itemprop="image" content="https://lh5.googleusercontent.com/-gBWSooHZBY0/AAAAAAAAAAI/AAAAAAAAAA0/8cLLSwzvkq8/photo.jpg?sz=200">
-
+<meta itemprop="image" content="http://lh5.googleusercontent.com/-gBWSooHZBY0/AAAAAAAAAAI/AAAAAAAAAA0/8cLLSwzvkq8/photo.jpg?sz=200">
 
 <title>${applicationScope.HomePage}</title>
+<script type="text/javascript" src='pages/scripts/common.js'></script>
+<SCRIPT type=text/javascript src='pages/scripts/layout.js'></SCRIPT>
+<link rel=stylesheet type=text/css href="pages/css/interface.css">
+<link rel=stylesheet type=text/css href="pages/css/java.css">
 <!-- Google Analytics -->
 <script type="text/javascript">
 
@@ -61,15 +64,10 @@
 
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
+    po.src = 'http://apis.google.com/js/plusone.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-
-<script type="text/javascript" src='pages/scripts/common.js'></script>
-<SCRIPT type=text/javascript src='pages/scripts/layout.js'></SCRIPT>
-<link rel=stylesheet type=text/css href="pages/css/interface.css">
-<link rel=stylesheet type=text/css href="pages/css/java.css">
 </head>
 <%
     UserService userService = UserServiceFactory.getUserService();

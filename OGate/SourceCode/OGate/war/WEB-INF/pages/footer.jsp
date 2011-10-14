@@ -20,7 +20,7 @@
 <%@page import="openones.gae.session.SessionCounter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"  isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<table border="0" width="100%" cellspacing="0" cellpadding="0" background="pages/images/bgfooter.gif" title="The web site is deployed from source code at https://open-ones.googlecode.com/svn/trunk/OGate/SourceCode/OGate,revision 322.">
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="pages/images/bgfooter.gif" title="The web site is deployed from source code at https://open-ones.googlecode.com/svn/trunk/OGate/SourceCode/OGate,revision 323.">
     <tr>
       <td width="78%" class=uportal-channel-text>
         <p align="center">${applicationScope.Copyright}
