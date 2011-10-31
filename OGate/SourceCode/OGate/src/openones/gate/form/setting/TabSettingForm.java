@@ -6,9 +6,7 @@
  * Version 2.0 (the "License"); you may not use this file
  * except in compliance with the License. You may obtain a
  * copy of the License at:
- *
  * http://www.apache.org/licenses/LICENSE-2.0
- *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -48,18 +46,23 @@ public class TabSettingForm extends BaseInForm {
     public String getSelectedTab() {
         return selectedTab;
     }
+
     public void setSelectedTab(String selectedTab) {
         this.selectedTab = selectedTab;
     }
+
     public String getEmailManagers() {
         return emailManagers;
     }
+
     public void setEmailManagers(String emailManagers) {
         this.emailManagers = emailManagers;
     }
+
     public String getNewTab() {
         return newTab;
     }
+
     public void setNewTab(String newTab) {
         this.newTab = newTab;
     }
@@ -70,6 +73,7 @@ public class TabSettingForm extends BaseInForm {
 
     /**
      * Get list of tab with order by "orderNo".
+     * 
      * @return
      */
     public Collection<TabForm> getTabFormList() {
@@ -91,10 +95,12 @@ public class TabSettingForm extends BaseInForm {
     public void setTabFormMap(Map<String, TabForm> tabFormMap) {
         this.tabFormMap = tabFormMap;
     }
+
     /**
      * [Give the description for method].
      * 
-     * @param allTabs list of tab string. Tab string is fommated "<tab code>-<tab name>".
+     * @param allTabs
+     *            list of tab string. Tab string is fommated "<tab code>-<tab name>".
      */
     public void setTabForms(String[] allTabs) {
         if (tabFormMap == null) {
@@ -103,7 +109,7 @@ public class TabSettingForm extends BaseInForm {
 
         TabForm tabForm;
         String[] tabStrings;
-        int len = (allTabs != null) ? allTabs.length: 0;
+        int len = (allTabs != null) ? allTabs.length : 0;
         String tabName;
         for (int i = 0; i < len; i++) {
             tabName = allTabs[i];
@@ -118,7 +124,7 @@ public class TabSettingForm extends BaseInForm {
                 tabFormMap.put(tabForm.getKey().toString(), tabForm);
             }
 
-         }
+        }
 
     }
 
@@ -134,9 +140,11 @@ public class TabSettingForm extends BaseInForm {
     public void setTabKeys(String tabKeys) {
         this.tabKeys = tabKeys;
     }
+
     public String getManagersOfTab() {
         return managersOfTab;
     }
+
     public void setManagersOfTab(String managersOfTab) {
         this.managersOfTab = managersOfTab;
     }
@@ -144,7 +152,8 @@ public class TabSettingForm extends BaseInForm {
     /**
      * Get list of email managers of tab.
      * 
-     * @param tabIndex order no of the tab
+     * @param tabIndex
+     *            order no of the tab
      * @return String of email with separator of comma or semi-comma
      */
     public String getManagerAtTab(int tabIndex) {

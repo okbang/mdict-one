@@ -58,8 +58,7 @@ public class LangControl extends LayoutControl {
         LangSettingBiz biz = new LangSettingBiz();
         
         //form.setLanguages(biz.getLangs());
-        form.setLanguages("vn-Việt Nam" + Constant.LF +
-                          "en-English");
+        form.setLanguages("vn-Việt Nam" + Constant.LF + "en-English");
 
         //ModuleBiz biz = new ModuleBiz(AuthorizationBiz.getLogonUser());
         //List<ModuleDTO> moduleList = biz.getModules();

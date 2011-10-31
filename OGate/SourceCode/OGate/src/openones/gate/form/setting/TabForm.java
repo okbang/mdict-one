@@ -89,7 +89,7 @@ public class TabForm implements Serializable {
     /**
      * [Give the description for method].
      * 
-     * @param emailAddr
+     * @param emailAddr email address of manager.
      * @return true if the emailAddr has not existed in the list.
      */
     public boolean addManager(String emailAddr) {

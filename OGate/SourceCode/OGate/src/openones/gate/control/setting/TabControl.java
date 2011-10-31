@@ -44,7 +44,7 @@ public class TabControl extends OGateBaseControl {
         LOG.finest("procInit.START");
         TabSettingOutForm tabOutForm = TabBiz.getTabs(getLangCd(req));
 
-        LOG.finest("Number of tabs:" + ((tabOutForm.getTabFormMap() != null) ? tabOutForm.getTabFormMap().size():0));
+        LOG.finest("Number of tabs:" + ((tabOutForm.getTabFormMap() != null) ? tabOutForm.getTabFormMap().size() : 0));
 
         outForm.putRequest("tabSettingForm", tabOutForm);
 
@@ -64,8 +64,8 @@ public class TabControl extends OGateBaseControl {
         LOG.finest("save.START");
         TabSettingForm form = (TabSettingForm) ReqUtil.getData(reqMap, TabSettingForm.class);
         String[] allTabs = req.getParameterValues("selectedTab");
-        LOG.finest("getSelectedTab=" + form.getSelectedTab() +
-                   ";getParameterValues(selectedTab)=" + CommonUtil.arrayToString(allTabs, ","));
+        LOG.finest("getSelectedTab=" + form.getSelectedTab()
+                 + ";getParameterValues(selectedTab)=" + CommonUtil.arrayToString(allTabs, ","));
 
         LOG.finest("Tab keys=" + form.getTabKeys());
 

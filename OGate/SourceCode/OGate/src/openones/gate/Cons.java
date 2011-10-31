@@ -23,7 +23,7 @@ package openones.gate;
  */
 public final class Cons {
     final static public String SK_USER = "user";
-    final static public String SK_NMLOGON_USER = "nmLogonUser";
+    public static final String SK_NMLOGON_USER = "nmLogonUser";
     public static final String SK_NEXTPAGE = "nextPage";
     public static final String SK_LANG = "lang";
 

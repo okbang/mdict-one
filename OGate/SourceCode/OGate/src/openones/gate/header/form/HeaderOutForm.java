@@ -36,7 +36,7 @@ public class HeaderOutForm extends BaseOutForm {
     
     public HeaderOutForm() {
         int i = 0;
-        for (String lang: LANGS) {
+        for (String lang : LANGS) {
             langList.add(new LangForm(LANGCODES[i], LANGS[i]));
             i++;
         }

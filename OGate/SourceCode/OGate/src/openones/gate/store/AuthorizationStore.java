@@ -31,7 +31,7 @@ public class AuthorizationStore {
     final static Logger LOG = Logger.getLogger("AuthorizationStore");
 
     public Long save(AuthorizationDTO dto) {
-        return (PMF.save(dto) ? dto.getKey(): null);
+        return (PMF.save(dto) ? dto.getKey() : null);
     }
 
     /**

@@ -34,7 +34,7 @@ public class FilterCond {
     }
 
     /**
-     * @param clazz
+     * @param clazz class of object.
      * @param langCd
      */
     public FilterCond(Class clazz, String langCd) {

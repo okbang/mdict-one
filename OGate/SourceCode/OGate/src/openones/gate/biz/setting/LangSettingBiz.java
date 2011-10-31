@@ -73,7 +73,7 @@ public class LangSettingBiz {
         String langCd;
         String langName;
         LangDTO langDto;
-        for (String lang: langs) {
+        for (String lang : langs) {
             langTokens = lang.split(HYPHEN);
             if ((langTokens != null) && (langTokens.length != 2)) {
                 langCd = langTokens[0];

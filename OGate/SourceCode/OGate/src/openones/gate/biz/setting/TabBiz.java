@@ -6,9 +6,7 @@
  * Version 2.0 (the "License"); you may not use this file
  * except in compliance with the License. You may obtain a
  * copy of the License at:
- *
  * http://www.apache.org/licenses/LICENSE-2.0
- *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -40,6 +38,7 @@ public class TabBiz {
     /**
      * Save the tab setting.
      * For current tabs, update the order.
+     * 
      * @param form
      * @return
      */
@@ -49,12 +48,12 @@ public class TabBiz {
 
         // Convert string of key "N,N,..." into the list
         if (form.getTabKeys() == null) { // remove all tab
-            //ModuleStore.deleteAll(Cons.ModuleType.Tab.toString());
+            // ModuleStore.deleteAll(Cons.ModuleType.Tab.toString());
             for (ModuleDTO tabModule : tabModules) {
                 LOG.finest("Delete Tab Module " + tabModule.getKey());
                 ModuleStore.delete(tabModule);
             }
-            
+
             return true;
         }
         String[] tabKeys = form.getTabKeys().split(",");
@@ -71,14 +70,14 @@ public class TabBiz {
         }
 
         boolean isNew;
-        ModuleDTO updateTabModule = null; 
+        ModuleDTO updateTabModule = null;
         // Insert new tab
-        int len = (tabKeys != null? tabKeys.length: -1);
+        int len = (tabKeys != null ? tabKeys.length : -1);
         String tabKey;
         TabForm tab;
         for (int i = 0; i < len; i++) {
-            tabKey= tabKeys[i];
-        //for (String tabKey : tabKeys) {
+            tabKey = tabKeys[i];
+            // for (String tabKey : tabKeys) {
             isNew = true;
             for (ModuleDTO tabModule : tabModules) {
                 LOG.finest("tabKey=" + tabKey + ";tabModule key=" + tabModule.getKey());
@@ -106,20 +105,21 @@ public class TabBiz {
             }
         }
         return true;
-//        ModuleDTO module = new ModuleDTO(form.getSelectedTab(), form.getSelectedTab(), "None");
-//        StringTokenizer tokenizer = new StringTokenizer(form.getEmailManagers(), "\n;,");
-//
-//        while (tokenizer.hasMoreTokens()) {
-//            module.addManager(tokenizer.nextToken());
-//        }
-//
-//        module.setType("Tab");
-//
-//        return ModuleStore.save(module);
+        // ModuleDTO module = new ModuleDTO(form.getSelectedTab(), form.getSelectedTab(), "None");
+        // StringTokenizer tokenizer = new StringTokenizer(form.getEmailManagers(), "\n;,");
+        //
+        // while (tokenizer.hasMoreTokens()) {
+        // module.addManager(tokenizer.nextToken());
+        // }
+        //
+        // module.setType("Tab");
+        //
+        // return ModuleStore.save(module);
     }
 
     /**
      * [Give the description for method].
+     * 
      * @param tabKey
      */
     private static void saveTabModule(String moduleId, String name, String emailManagers, int orderNo, String langCd) {
@@ -130,7 +130,7 @@ public class TabBiz {
         module.setOrderNo(orderNo);
         module.setLang(langCd);
         ModuleStore.save(module);
-        
+
     }
 
     /**
