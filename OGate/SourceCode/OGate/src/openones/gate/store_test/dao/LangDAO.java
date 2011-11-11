@@ -5,11 +5,13 @@ package openones.gate.store_test.dao;
 
 import java.util.List;
 
+import openones.gate.store_test.dto.AccountDTO;
 import openones.gate.store_test.dto.LangDTO;
 import openones.gate.store_test.util.OOGHibernateUtil;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
-
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @author katherine
@@ -56,12 +58,14 @@ public class LangDAO extends AbstractDAO {
 	/*
 	 * Get LangDTO by Id
 	 */
-	public LangDTO getLangByID(int id) {
+	public LangDTO getLangByLangCd(String langCd) {
 		LangDTO dto = null;
 		try {
 			Session session = OOGHibernateUtil.getSessionFactory()
 					.getCurrentSession();
-			dto = (LangDTO) session.get(controlledClass, id);
+			Criteria c = session.createCriteria(controlledClass);
+			c = c.add(Restrictions.eq("LangCd", langCd));
+			dto = (LangDTO) c.uniqueResult();
 		} catch (Exception ex) {
 			dto = null;
 		}

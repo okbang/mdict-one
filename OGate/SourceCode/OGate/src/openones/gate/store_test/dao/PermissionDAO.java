@@ -6,19 +6,19 @@ package openones.gate.store_test.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import openones.gate.store_test.dto.ModuleContentDTO;
 import openones.gate.store_test.dto.PermissionDTO;
 import openones.gate.store_test.util.OOGHibernateUtil;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @author katherine
- *
+ * 
  */
 public class PermissionDAO extends AbstractDAO {
-
 
 	static {
 		controlledClass = PermissionDTO.class;
@@ -74,15 +74,17 @@ public class PermissionDAO extends AbstractDAO {
 	}
 
 	/*
-	 * Get PermissionDTO by Id
+	 * Get PermissionDTO by permissionID and langCd
 	 */
-	public PermissionDTO getPermissionByID(int id, String langCd) {
+	public PermissionDTO getPermissionByID(int permissionID, String langCd) {
 		PermissionDTO dto = null;
 		try {
 			Session session = OOGHibernateUtil.getSessionFactory()
 					.getCurrentSession();
-			//session.createCriteria(controlledClass).
-			dto = (PermissionDTO) session.get(controlledClass, id);
+			Criteria c = session.createCriteria(controlledClass);
+			c = c.add(Restrictions.eq("PermissionID", permissionID));
+			c = c.add(Restrictions.eq("LangCd", langCd));
+			dto = (PermissionDTO) c.uniqueResult();
 		} catch (Exception ex) {
 			dto = null;
 		}

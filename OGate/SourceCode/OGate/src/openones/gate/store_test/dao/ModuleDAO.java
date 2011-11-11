@@ -6,19 +6,19 @@ package openones.gate.store_test.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import openones.gate.store_test.dto.ModuleContentDTO;
 import openones.gate.store_test.dto.ModuleDTO;
 import openones.gate.store_test.util.OOGHibernateUtil;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @author katherine
- *
+ * 
  */
 public class ModuleDAO extends AbstractDAO {
-
 
 	static {
 		controlledClass = ModuleDTO.class;
@@ -47,8 +47,8 @@ public class ModuleDAO extends AbstractDAO {
 		try {
 			Session session = OOGHibernateUtil.getSessionFactory()
 					.getCurrentSession();
-			List<ModuleDTO> objects = (List<ModuleDTO>) session
-					.createCriteria(controlledClass).list();
+			List<ModuleDTO> objects = (List<ModuleDTO>) session.createCriteria(
+					controlledClass).list();
 			return objects;
 		} catch (Exception ex) {
 
@@ -74,14 +74,17 @@ public class ModuleDAO extends AbstractDAO {
 	}
 
 	/*
-	 * Get ModuleDTO by Id
+	 * Get ModuleDTO by moduleID and langCd
 	 */
-	public ModuleDTO getModuleByID(int id) {
+	public ModuleDTO getModuleByID(int moduleID, String langCd) {
 		ModuleDTO dto = null;
 		try {
 			Session session = OOGHibernateUtil.getSessionFactory()
 					.getCurrentSession();
-			dto = (ModuleDTO) session.get(controlledClass, id);
+			Criteria c = session.createCriteria(controlledClass);
+			c = c.add(Restrictions.eq("ModuleID", moduleID));
+			c = c.add(Restrictions.eq("LangCd", langCd));
+			dto = (ModuleDTO) c.uniqueResult();
 		} catch (Exception ex) {
 			dto = null;
 		}

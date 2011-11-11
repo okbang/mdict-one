@@ -11,8 +11,7 @@ import openones.gate.store_test.util.OOGHibernateUtil;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-
-
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @author katherine
@@ -74,14 +73,16 @@ public class AccountDAO extends AbstractDAO {
 	}
 
 	/*
-	 * Get AccountDTO by Id
+	 * Get AccountDTO by AccountID
 	 */
-	public AccountDTO getAccountByID(int id) {
+	public AccountDTO getAccountByAccountID(int accountID) {
 		AccountDTO dto = null;
 		try {
 			Session session = OOGHibernateUtil.getSessionFactory()
 					.getCurrentSession();
-			dto = (AccountDTO) session.get(controlledClass, id);
+			Criteria c = session.createCriteria(controlledClass);
+			c = c.add(Restrictions.eq("AccountID", accountID));
+			dto = (AccountDTO) c.uniqueResult();
 		} catch (Exception ex) {
 			dto = null;
 		}
