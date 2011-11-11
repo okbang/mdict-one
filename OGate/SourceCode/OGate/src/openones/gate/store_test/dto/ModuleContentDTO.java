@@ -12,13 +12,52 @@ import java.util.Date;
 public class ModuleContentDTO {
 	private int moduleID;
 	private ModuleDTO module;
+	private String langCd;
 	private LangDTO lang;
 	private String content;
 	private int orderNo;
 	private Date createdTime;
+	private int creatorID;
 	private AccountDTO creator;
 	private Date lastModifiedTime;
+	private int lastModifierID;
 	private AccountDTO lastModifier;
+	/**
+	 * @return the langCd
+	 */
+	public String getLangCd() {
+		return langCd;
+	}
+	/**
+	 * @param langCd the langCd to set
+	 */
+	public void setLangCd(String langCd) {
+		this.langCd = langCd;
+	}
+	/**
+	 * @return the creatorID
+	 */
+	public int getCreatorID() {
+		return creatorID;
+	}
+	/**
+	 * @param creatorID the creatorID to set
+	 */
+	public void setCreatorID(int creatorID) {
+		this.creatorID = creatorID;
+	}
+	/**
+	 * @return the lastModifierID
+	 */
+	public int getLastModifierID() {
+		return lastModifierID;
+	}
+	/**
+	 * @param lastModifierID the lastModifierID to set
+	 */
+	public void setLastModifierID(int lastModifierID) {
+		this.lastModifierID = lastModifierID;
+	}
 	/**
 	 * @return the moduleID
 	 */
@@ -136,29 +175,28 @@ public class ModuleContentDTO {
 	}
 	/**
 	 * @param moduleID
-	 * @param lang
+	 * @param langCd
 	 * @param content
 	 * @param orderNo
 	 * @param createdTime
-	 * @param creator
+	 * @param creatorID
 	 * @param lastModifiedTime
-	 * @param lastModifier
+	 * @param lastModifierID
 	 */
-	public ModuleContentDTO(int moduleID, LangDTO lang,
-			String content, int orderNo, Date createdTime, AccountDTO creator,
-			Date lastModifiedTime, AccountDTO lastModifier) {
+	public ModuleContentDTO(int moduleID, String langCd, String content,
+			int orderNo, Date createdTime, int creatorID,
+			Date lastModifiedTime, int lastModifierID) {
 		super();
 		this.moduleID = moduleID;
-		this.lang = lang;
+		this.langCd = langCd;
 		this.content = content;
 		this.orderNo = orderNo;
 		this.createdTime = createdTime;
-		this.creator = creator;
+		this.creatorID = creatorID;
 		this.lastModifiedTime = lastModifiedTime;
-		this.lastModifier = lastModifier;
+		this.lastModifierID = lastModifierID;
 	}
 	/**
-	 * @param moduleID
 	 * @param module
 	 * @param lang
 	 * @param content
@@ -168,11 +206,10 @@ public class ModuleContentDTO {
 	 * @param lastModifiedTime
 	 * @param lastModifier
 	 */
-	public ModuleContentDTO(int moduleID, ModuleDTO module, LangDTO lang,
-			String content, int orderNo, Date createdTime, AccountDTO creator,
+	public ModuleContentDTO(ModuleDTO module, LangDTO lang, String content,
+			int orderNo, Date createdTime, AccountDTO creator,
 			Date lastModifiedTime, AccountDTO lastModifier) {
 		super();
-		this.moduleID = moduleID;
 		this.module = module;
 		this.lang = lang;
 		this.content = content;
@@ -182,6 +219,7 @@ public class ModuleContentDTO {
 		this.lastModifiedTime = lastModifiedTime;
 		this.lastModifier = lastModifier;
 	}
+	
 	
 	
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 11, 2011 3:27:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Nov 11, 2011 4:39:41 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="openones.gate.store_test.dto.ModuleDTO" table="MODULEDTO">
         <id name="moduleID" type="int">
@@ -9,6 +9,9 @@
             <generator class="assigned" />
         </id>
         <one-to-one name="module" class="openones.gate.store_test.dto.ModuleDTO"></one-to-one>
+        <property name="langCd" type="java.lang.String">
+            <column name="LANGCD" />
+        </property>
         <many-to-one name="lang" class="openones.gate.store_test.dto.LangDTO" fetch="join">
             <column name="LANG" />
         </many-to-one>
@@ -24,19 +27,25 @@
         <property name="orderNo" type="int">
             <column name="ORDERNO" />
         </property>
+        <property name="createdTime" type="java.util.Date">
+            <column name="CREATEDTIME" />
+        </property>
+        <property name="creatorID" type="int">
+            <column name="CREATORID" />
+        </property>
         <many-to-one name="creator" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
             <column name="CREATOR" />
         </many-to-one>
         <property name="lastModifiedTime" type="java.util.Date">
             <column name="LASTMODIFIEDTIME" />
         </property>
+        <property name="lastModifierID" type="int">
+            <column name="LASTMODIFIERID" />
+        </property>
         <many-to-one name="lastModifier" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
             <column name="LASTMODIFIER" />
         </many-to-one>
-        <property name="createdTime" type="java.util.Date">
-            <column name="CREATEDTIME" />
-        </property>
-        <one-to-one name="moduleContent" class="openones.gate.store_test.dto.ModuleContentDTO"></one-to-one>
+        <one-to-one name="moduleContent" class="openones.gate.store_test.dto.ModuleContentDTO" access="field"></one-to-one>
         <list name="managers" inverse="false" table="ACCOUNTDTO" lazy="true">
             <key>
                 <column name="MODULEID" />
@@ -44,7 +53,7 @@
             <list-index></list-index>
             <one-to-many class="openones.gate.store_test.dto.AccountDTO" />
         </list>
-        <list name="multiLangModuleContents" inverse="false" table="MODULECONTENTDTO" lazy="true">
+        <list name="multiLangModuleContents" inverse="false" table="MODULECONTENTDTO" lazy="true" access="field">
             <key>
                 <column name="MODULEID" />
             </key>

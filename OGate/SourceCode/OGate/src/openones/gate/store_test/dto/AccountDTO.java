@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author katherine
- *
+ * 
  */
 public class AccountDTO {
 	private int accountID;
@@ -17,6 +17,7 @@ public class AccountDTO {
 	private String firstName;
 	private String lastName;
 	private Date createdTime;
+	private int permissionID;
 	private PermissionDTO permission;
 	private List<ModuleDTO> createdModules;
 	private List<ModuleDTO> modifiedModules;
@@ -27,202 +28,266 @@ public class AccountDTO {
 	private List<ModuleManagerDTO> modifiedModuleManagers;
 	private List<ModuleTypeDTO> createdModuleTypes;
 	private List<ModuleTypeDTO> modifiedModuleTypes;
+
 	/**
 	 * @return the accountID
 	 */
 	public int getAccountID() {
 		return accountID;
 	}
+
 	/**
-	 * @param accountID the accountID to set
+	 * @param accountID
+	 *            the accountID to set
 	 */
 	public void setAccountID(int accountID) {
 		this.accountID = accountID;
 	}
+
 	/**
 	 * @return the password
 	 */
 	public String getPassword() {
 		return password;
 	}
+
 	/**
-	 * @param password the password to set
+	 * @param password
+	 *            the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	/**
 	 * @return the email
 	 */
 	public String getEmail() {
 		return email;
 	}
+
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	/**
 	 * @return the firstName
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
+
 	/**
-	 * @param firstName the firstName to set
+	 * @param firstName
+	 *            the firstName to set
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	/**
 	 * @return the lastName
 	 */
 	public String getLastName() {
 		return lastName;
 	}
+
 	/**
-	 * @param lastName the lastName to set
+	 * @param lastName
+	 *            the lastName to set
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	/**
 	 * @return the createdTime
 	 */
 	public Date getCreatedTime() {
 		return createdTime;
 	}
+
 	/**
-	 * @param createdTime the createdTime to set
+	 * @param createdTime
+	 *            the createdTime to set
 	 */
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
 	}
+
+	/**
+	 * @return the permissionID
+	 */
+	public int getPermissionID() {
+		return permissionID;
+	}
+
+	/**
+	 * @param permissionID
+	 *            the permissionID to set
+	 */
+	public void setPermissionID(int permissionID) {
+		this.permissionID = permissionID;
+	}
+
 	/**
 	 * @return the permission
 	 */
 	public PermissionDTO getPermission() {
 		return permission;
 	}
+
 	/**
-	 * @param permission the permission to set
+	 * @param permission
+	 *            the permission to set
 	 */
 	public void setPermission(PermissionDTO permission) {
 		this.permission = permission;
 	}
+
 	/**
 	 * @return the createdModules
 	 */
 	public List<ModuleDTO> getCreatedModules() {
 		return createdModules;
 	}
+
 	/**
-	 * @param createdModules the createdModules to set
+	 * @param createdModules
+	 *            the createdModules to set
 	 */
 	public void setCreatedModules(List<ModuleDTO> createdModules) {
 		this.createdModules = createdModules;
 	}
+
 	/**
 	 * @return the modifiedModules
 	 */
 	public List<ModuleDTO> getModifiedModules() {
 		return modifiedModules;
 	}
+
 	/**
-	 * @param modifiedModules the modifiedModules to set
+	 * @param modifiedModules
+	 *            the modifiedModules to set
 	 */
 	public void setModifiedModules(List<ModuleDTO> modifiedModules) {
 		this.modifiedModules = modifiedModules;
 	}
+
 	/**
 	 * @return the createdModuleContents
 	 */
 	public List<ModuleContentDTO> getCreatedModuleContents() {
 		return createdModuleContents;
 	}
+
 	/**
-	 * @param createdModuleContents the createdModuleContents to set
+	 * @param createdModuleContents
+	 *            the createdModuleContents to set
 	 */
 	public void setCreatedModuleContents(
 			List<ModuleContentDTO> createdModuleContents) {
 		this.createdModuleContents = createdModuleContents;
 	}
+
 	/**
 	 * @return the modifiedModuleContents
 	 */
 	public List<ModuleContentDTO> getModifiedModuleContents() {
 		return modifiedModuleContents;
 	}
+
 	/**
-	 * @param modifiedModuleContents the modifiedModuleContents to set
+	 * @param modifiedModuleContents
+	 *            the modifiedModuleContents to set
 	 */
 	public void setModifiedModuleContents(
 			List<ModuleContentDTO> modifiedModuleContents) {
 		this.modifiedModuleContents = modifiedModuleContents;
 	}
+
 	/**
 	 * @return the managedModules
 	 */
 	public List<ModuleManagerDTO> getManagedModules() {
 		return managedModules;
 	}
+
 	/**
-	 * @param managedModules the managedModules to set
+	 * @param managedModules
+	 *            the managedModules to set
 	 */
 	public void setManagedModules(List<ModuleManagerDTO> managedModules) {
 		this.managedModules = managedModules;
 	}
+
 	/**
 	 * @return the createdModuleManagers
 	 */
 	public List<ModuleManagerDTO> getCreatedModuleManagers() {
 		return createdModuleManagers;
 	}
+
 	/**
-	 * @param createdModuleManagers the createdModuleManagers to set
+	 * @param createdModuleManagers
+	 *            the createdModuleManagers to set
 	 */
 	public void setCreatedModuleManagers(
 			List<ModuleManagerDTO> createdModuleManagers) {
 		this.createdModuleManagers = createdModuleManagers;
 	}
+
 	/**
 	 * @return the modifiedModuleManagers
 	 */
 	public List<ModuleManagerDTO> getModifiedModuleManagers() {
 		return modifiedModuleManagers;
 	}
+
 	/**
-	 * @param modifiedModuleManagers the modifiedModuleManagers to set
+	 * @param modifiedModuleManagers
+	 *            the modifiedModuleManagers to set
 	 */
 	public void setModifiedModuleManagers(
 			List<ModuleManagerDTO> modifiedModuleManagers) {
 		this.modifiedModuleManagers = modifiedModuleManagers;
 	}
+
 	/**
 	 * @return the createdModuleTypes
 	 */
 	public List<ModuleTypeDTO> getCreatedModuleTypes() {
 		return createdModuleTypes;
 	}
+
 	/**
-	 * @param createdModuleTypes the createdModuleTypes to set
+	 * @param createdModuleTypes
+	 *            the createdModuleTypes to set
 	 */
 	public void setCreatedModuleTypes(List<ModuleTypeDTO> createdModuleTypes) {
 		this.createdModuleTypes = createdModuleTypes;
 	}
+
 	/**
 	 * @return the modifiedModuleTypes
 	 */
 	public List<ModuleTypeDTO> getModifiedModuleTypes() {
 		return modifiedModuleTypes;
 	}
+
 	/**
-	 * @param modifiedModuleTypes the modifiedModuleTypes to set
+	 * @param modifiedModuleTypes
+	 *            the modifiedModuleTypes to set
 	 */
 	public void setModifiedModuleTypes(List<ModuleTypeDTO> modifiedModuleTypes) {
 		this.modifiedModuleTypes = modifiedModuleTypes;
 	}
+
 	/**
 	 * 
 	 */
@@ -230,6 +295,29 @@ public class AccountDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	/**
+	 * @param accountID
+	 * @param password
+	 * @param email
+	 * @param firstName
+	 * @param lastName
+	 * @param createdTime
+	 * @param permissionID
+	 */
+	public AccountDTO(int accountID, String password, String email,
+			String firstName, String lastName, Date createdTime,
+			int permissionID) {
+		super();
+		this.accountID = accountID;
+		this.password = password;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.createdTime = createdTime;
+		this.permissionID = permissionID;
+	}
+
 	/**
 	 * @param accountID
 	 * @param password
@@ -251,7 +339,6 @@ public class AccountDTO {
 		this.createdTime = createdTime;
 		this.permission = permission;
 	}
-	
 
 	/**
 	 * @param accountID
@@ -300,6 +387,5 @@ public class AccountDTO {
 		this.createdModuleTypes = createdModuleTypes;
 		this.modifiedModuleTypes = modifiedModuleTypes;
 	}
-	
-	
+
 }

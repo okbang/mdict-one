@@ -10,12 +10,28 @@ import java.util.Date;
  *
  */
 public class ModuleManagerDTO {
+	private int managerID;
 	private AccountDTO manager;
+	private int moduleID;
 	private ModuleDTO module;
 	private Date createdTime;
+	private int creatorID;
 	private AccountDTO creator;
-	private AccountDTO lastModifier;
 	private Date lastModifiedTime;
+	private int lastModifierID;
+	private AccountDTO lastModifier;
+	/**
+	 * @return the managerID
+	 */
+	public int getManagerID() {
+		return managerID;
+	}
+	/**
+	 * @param managerID the managerID to set
+	 */
+	public void setManagerID(int managerID) {
+		this.managerID = managerID;
+	}
 	/**
 	 * @return the manager
 	 */
@@ -27,6 +43,18 @@ public class ModuleManagerDTO {
 	 */
 	public void setManager(AccountDTO manager) {
 		this.manager = manager;
+	}
+	/**
+	 * @return the moduleID
+	 */
+	public int getModuleID() {
+		return moduleID;
+	}
+	/**
+	 * @param moduleID the moduleID to set
+	 */
+	public void setModuleID(int moduleID) {
+		this.moduleID = moduleID;
 	}
 	/**
 	 * @return the module
@@ -53,6 +81,18 @@ public class ModuleManagerDTO {
 		this.createdTime = createdTime;
 	}
 	/**
+	 * @return the creatorID
+	 */
+	public int getCreatorID() {
+		return creatorID;
+	}
+	/**
+	 * @param creatorID the creatorID to set
+	 */
+	public void setCreatorID(int creatorID) {
+		this.creatorID = creatorID;
+	}
+	/**
 	 * @return the creator
 	 */
 	public AccountDTO getCreator() {
@@ -63,18 +103,6 @@ public class ModuleManagerDTO {
 	 */
 	public void setCreator(AccountDTO creator) {
 		this.creator = creator;
-	}
-	/**
-	 * @return the lastModifier
-	 */
-	public AccountDTO getLastModifier() {
-		return lastModifier;
-	}
-	/**
-	 * @param lastModifier the lastModifier to set
-	 */
-	public void setLastModifier(AccountDTO lastModifier) {
-		this.lastModifier = lastModifier;
 	}
 	/**
 	 * @return the lastModifiedTime
@@ -89,6 +117,30 @@ public class ModuleManagerDTO {
 		this.lastModifiedTime = lastModifiedTime;
 	}
 	/**
+	 * @return the lastModifierID
+	 */
+	public int getLastModifierID() {
+		return lastModifierID;
+	}
+	/**
+	 * @param lastModifierID the lastModifierID to set
+	 */
+	public void setLastModifierID(int lastModifierID) {
+		this.lastModifierID = lastModifierID;
+	}
+	/**
+	 * @return the lastModifier
+	 */
+	public AccountDTO getLastModifier() {
+		return lastModifier;
+	}
+	/**
+	 * @param lastModifier the lastModifier to set
+	 */
+	public void setLastModifier(AccountDTO lastModifier) {
+		this.lastModifier = lastModifier;
+	}
+	/**
 	 * 
 	 */
 	public ModuleManagerDTO() {
@@ -100,19 +152,37 @@ public class ModuleManagerDTO {
 	 * @param module
 	 * @param createdTime
 	 * @param creator
-	 * @param lastModifier
 	 * @param lastModifiedTime
+	 * @param lastModifier
 	 */
 	public ModuleManagerDTO(AccountDTO manager, ModuleDTO module,
-			Date createdTime, AccountDTO creator, AccountDTO lastModifier,
-			Date lastModifiedTime) {
+			Date createdTime, AccountDTO creator, Date lastModifiedTime,
+			AccountDTO lastModifier) {
 		super();
 		this.manager = manager;
 		this.module = module;
 		this.createdTime = createdTime;
 		this.creator = creator;
-		this.lastModifier = lastModifier;
 		this.lastModifiedTime = lastModifiedTime;
+		this.lastModifier = lastModifier;
+	}
+	/**
+	 * @param managerID
+	 * @param moduleID
+	 * @param createdTime
+	 * @param creatorID
+	 * @param lastModifiedTime
+	 * @param lastModifierID
+	 */
+	public ModuleManagerDTO(int managerID, int moduleID, Date createdTime,
+			int creatorID, Date lastModifiedTime, int lastModifierID) {
+		super();
+		this.managerID = managerID;
+		this.moduleID = moduleID;
+		this.createdTime = createdTime;
+		this.creatorID = creatorID;
+		this.lastModifiedTime = lastModifiedTime;
+		this.lastModifierID = lastModifierID;
 	}
 	
 	

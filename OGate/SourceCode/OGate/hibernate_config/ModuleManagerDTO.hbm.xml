@@ -1,27 +1,39 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 11, 2011 3:27:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Nov 11, 2011 4:39:41 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="openones.gate.store_test.dto.ModuleManagerDTO" table="MODULEMANAGERDTO">
-        <id name="manager" type="openones.gate.store_test.dto.AccountDTO">
-            <column name="MANAGER" />
+        <id name="moduleID" type="int">
+            <column name="MODULEID" />
             <generator class="assigned" />
         </id>
+        <property name="managerID" type="int">
+            <column name="MANAGERID" />
+        </property>
+        <many-to-one name="manager" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
+            <column name="MANAGER" />
+        </many-to-one>
         <many-to-one name="module" class="openones.gate.store_test.dto.ModuleDTO" fetch="join">
             <column name="MODULE" />
         </many-to-one>
         <property name="createdTime" type="java.util.Date">
             <column name="CREATEDTIME" />
         </property>
+        <property name="creatorID" type="int">
+            <column name="CREATORID" />
+        </property>
         <many-to-one name="creator" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
             <column name="CREATOR" />
-        </many-to-one>
-        <many-to-one name="lastModifier" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
-            <column name="LASTMODIFIER" />
         </many-to-one>
         <property name="lastModifiedTime" type="java.util.Date">
             <column name="LASTMODIFIEDTIME" />
         </property>
+        <property name="lastModifierID" type="int">
+            <column name="LASTMODIFIERID" />
+        </property>
+        <many-to-one name="lastModifier" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
+            <column name="LASTMODIFIER" />
+        </many-to-one>
     </class>
 </hibernate-mapping>
