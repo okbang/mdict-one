@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 11, 2011 3:27:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="openones.gate.store_test.dto.ModuleDTO" table="MODULEDTO">
+        <id name="moduleID" type="int">
+            <column name="MODULEID" />
+            <generator class="assigned" />
+        </id>
+        <one-to-one name="module" class="openones.gate.store_test.dto.ModuleDTO"></one-to-one>
+        <many-to-one name="lang" class="openones.gate.store_test.dto.LangDTO" fetch="join">
+            <column name="LANG" />
+        </many-to-one>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <many-to-one name="type" class="openones.gate.store_test.dto.ModuleTypeDTO" fetch="join">
+            <column name="TYPE" />
+        </many-to-one>
+        <property name="orderNo" type="int">
+            <column name="ORDERNO" />
+        </property>
+        <many-to-one name="creator" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
+            <column name="CREATOR" />
+        </many-to-one>
+        <property name="lastModifiedTime" type="java.util.Date">
+            <column name="LASTMODIFIEDTIME" />
+        </property>
+        <many-to-one name="lastModifier" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
+            <column name="LASTMODIFIER" />
+        </many-to-one>
+        <property name="createdTime" type="java.util.Date">
+            <column name="CREATEDTIME" />
+        </property>
+        <one-to-one name="moduleContent" class="openones.gate.store_test.dto.ModuleContentDTO"></one-to-one>
+        <list name="managers" inverse="false" table="ACCOUNTDTO" lazy="true">
+            <key>
+                <column name="MODULEID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.AccountDTO" />
+        </list>
+        <list name="multiLangModuleContents" inverse="false" table="MODULECONTENTDTO" lazy="true">
+            <key>
+                <column name="MODULEID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleContentDTO" />
+        </list>
+    </class>
+</hibernate-mapping>

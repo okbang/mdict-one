@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 11, 2011 3:27:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="openones.gate.store_test.dto.AccountDTO" table="ACCOUNTDTO">
+        <id name="accountID" type="int">
+            <column name="ACCOUNTID" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="firstName" type="java.lang.String">
+            <column name="FIRSTNAME" />
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="LASTNAME" />
+        </property>
+        <property name="createdTime" type="java.util.Date">
+            <column name="CREATEDTIME" />
+        </property>
+        <many-to-one name="permission" class="openones.gate.store_test.dto.PermissionDTO" fetch="join">
+            <column name="PERMISSION" />
+        </many-to-one>
+        <list name="createdModules" inverse="false" table="MODULEDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleDTO" />
+        </list>
+        <list name="modifiedModules" inverse="false" table="MODULEDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleDTO" />
+        </list>
+        <list name="createdModuleContents" inverse="false" table="MODULECONTENTDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleContentDTO" />
+        </list>
+        <list name="modifiedModuleContents" inverse="false" table="MODULECONTENTDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleContentDTO" />
+        </list>
+        <list name="managedModules" inverse="false" table="MODULEMANAGERDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleManagerDTO" />
+        </list>
+        <list name="createdModuleManagers" inverse="false" table="MODULEMANAGERDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleManagerDTO" />
+        </list>
+        <list name="modifiedModuleManagers" inverse="false" table="MODULEMANAGERDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleManagerDTO" />
+        </list>
+        <list name="createdModuleTypes" inverse="false" table="MODULETYPEDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleTypeDTO" />
+        </list>
+        <list name="modifiedModuleTypes" inverse="false" table="MODULETYPEDTO" lazy="true">
+            <key>
+                <column name="ACCOUNTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="openones.gate.store_test.dto.ModuleTypeDTO" />
+        </list>
+    </class>
+</hibernate-mapping>

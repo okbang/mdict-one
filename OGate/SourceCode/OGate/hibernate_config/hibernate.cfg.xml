@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="OOGSessionFactory">
+  <property name="hibernate.connection.driver_class">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.connection.password">root</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/oogdb</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.default_schema">oogdb</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+  <mapping class="openones.gate.store_test.dto.AccountDTO" resource="AccountDTO.hbm.xml"/>
+  <mapping class="openones.gate.store_test.dto.LangDTO" resource="LangDTO.hbm.xml"/>
+  <mapping class="openones.gate.store_test.dto.ModuleDTO" resource="ModuleDTO.hbm.xml"/>
+  <mapping class="openones.gate.store_test.dto.ModuleContentDTO" resource="ModuleContentDTO.hbm.xml"/>
+  <mapping class="openones.gate.store_test.dto.ModuleManagerDTO" resource="ModuleManagerDTO.hbm.xml"/>
+  <mapping class="openones.gate.store_test.dto.ModuleTypeDTO" resource="ModuleTypeDTO.hbm.xml"/>
+  <mapping class="openones.gate.store_test.dto.PermissionDTO" resource="PermissionDTO.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

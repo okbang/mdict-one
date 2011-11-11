@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 11, 2011 3:27:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="openones.gate.store_test.dto.ModuleTypeDTO" table="MODULETYPEDTO">
+        <id name="moduleTypeID" type="int">
+            <column name="MODULETYPEID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="lang" class="openones.gate.store_test.dto.LangDTO" fetch="join">
+            <column name="LANG" />
+        </many-to-one>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="createdTime" type="java.util.Date">
+            <column name="CREATEDTIME" />
+        </property>
+        <many-to-one name="creator" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
+            <column name="CREATOR" />
+        </many-to-one>
+        <many-to-one name="lastModifier" class="openones.gate.store_test.dto.AccountDTO" fetch="join">
+            <column name="LASTMODIFIER" />
+        </many-to-one>
+        <property name="lastModifiedTime" type="java.util.Date">
+            <column name="LASTMODIFIEDTIME" />
+        </property>
+    </class>
+</hibernate-mapping>
