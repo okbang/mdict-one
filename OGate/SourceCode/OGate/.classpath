@@ -5,6 +5,13 @@
 	<classpathentry kind="src" path="src_ut"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/derbyclient.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/ojdbc14.jar"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-simple-1.5.8.jar"/>
