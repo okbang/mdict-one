@@ -5,13 +5,11 @@ package openones.gate.store_test.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import openones.gate.store_test.dto.ModuleContentDTO;
 import openones.gate.store_test.dto.PermissionDTO;
 import openones.gate.store_test.util.OOGHibernateUtil;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -25,8 +23,17 @@ public class PermissionDAO extends AbstractDAO {
 	}
 
 	public Boolean insert(PermissionDTO dto) {
-		// TODO Auto-generated method stub
-		return super.insert(dto);
+		try {
+			Session session = OOGHibernateUtil.getSessionFactory()
+					.getCurrentSession();
+			Criteria c = session.createCriteria(controlledClass);
+			c = c.setProjection(Projections.max("PermissionID"));
+			PermissionDTO maxDTO = (PermissionDTO) c.uniqueResult();
+			dto.setPermissionID(maxDTO.getPermissionID() + 1);
+			return super.insert(dto);
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	public Boolean delete(PermissionDTO dto) {

@@ -5,13 +5,11 @@ package openones.gate.store_test.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import openones.gate.store_test.dto.ModuleContentDTO;
 import openones.gate.store_test.dto.ModuleDTO;
 import openones.gate.store_test.util.OOGHibernateUtil;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -25,8 +23,17 @@ public class ModuleDAO extends AbstractDAO {
 	}
 
 	public Boolean insert(ModuleDTO dto) {
-		// TODO Auto-generated method stub
-		return super.insert(dto);
+		try {
+			Session session = OOGHibernateUtil.getSessionFactory()
+					.getCurrentSession();
+			Criteria c = session.createCriteria(controlledClass);
+			c = c.setProjection(Projections.max("ModuleID"));
+			ModuleDTO maxDTO = (ModuleDTO) c.uniqueResult();
+			dto.setModuleID(maxDTO.getModuleID() + 1);
+			return super.insert(dto);
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	public Boolean delete(ModuleDTO dto) {
