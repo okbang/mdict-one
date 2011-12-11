@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConfigurationInfo class="rocky.jrockyreport.config.ConfigurationInfo">
+  <listConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_1_246AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>16</startMinute>
+  <vssPasswd>group1</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_1_246AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_2_246AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>16</startMinute>
+  <vssPasswd>group2</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_2_246AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_3_246AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>16</startMinute>
+  <vssPasswd>group3</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_3_246AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_4_246AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>16</startMinute>
+  <vssPasswd>group4</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_4_246AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_5_246PM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>16</startMinute>
+  <vssPasswd>group5</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_5_246PM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_6_246PM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group6</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_6_246PM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_7_246PM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group7</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_7_246PM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_8_246PM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group8</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_8_246PM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_9_246PM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group9</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_9_246PM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_10_357AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group10</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_10_357AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_11_357AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group11</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_11_357AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_12_357AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group12</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_12_357AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_13_357AM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group13</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_13_357AM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>PrePool-Group_14_246PM</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd>group14</vssPasswd>
+  <vssPath>\\10.0.0.150\PrePool2008_03\Group_14_246PM\sProject\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>ATeam-SU15-2008120W1</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd></vssPasswd>
+  <vssPath>\\10.0.0.150\ATeam\ATeam-200902-W4-CSharp\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Administrator</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>ATeam-200902-W1-G9</alias>
+  <duration>4</duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>codereport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://10.0.0.150:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>rai</jdbcUser>
+  <startHour>1</startHour>
+  <startMinute>15</startMinute>
+  <vssPasswd></vssPasswd>
+  <vssPath>\\10.0.0.150\ATeam\ATeam-200902-W1-G9\Wip\Source</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>Admin</vssUser>
+</ConfigItemInfo>
+<ConfigItemInfo class="rocky.jrockyreport.config.ConfigItemInfo">
+  <alias>J2EE-VSSDB</alias>
+  <duration></duration>
+  <jdbcDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriver>
+  <jdbcPasswd>jrockyreport</jdbcPasswd>
+  <jdbcUrl>jdbc:sqlserver://localhost:1433;databaseName=CodeReportCenter</jdbcUrl>
+  <jdbcUser>jrockyreport</jdbcUser>
+  <startHour></startHour>
+  <startMinute></startMinute>
+  <vssPasswd>thachln</vssPasswd>
+  <vssPath>D:\Data\Training Materials\Practices\J2EE-VSSDB\srcsafe.ini</vssPath>
+  <vssSrcRoot>$/</vssSrcRoot>
+  <vssUser>thachln</vssUser>
+</ConfigItemInfo>
+</listConfigItemInfo>
+</ConfigurationInfo>

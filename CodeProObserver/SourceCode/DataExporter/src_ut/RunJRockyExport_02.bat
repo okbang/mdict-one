@@ -1,0 +1,1 @@
+JRockyExport.bat CoreWA /ExportHSQL.properties /rdb2excel/Report-Template.xls D:/FSOFT/RAI/InitialTraining/DEV/InitialTraining/Utility/JRockyReport/Wip/Project/ExportedData/DailyReport_${CURRENT_DATE.yyyyMMddHHmmss}.xls

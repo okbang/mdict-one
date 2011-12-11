@@ -1,0 +1,13 @@
+<rocky.jdbc.AliasConfig>
+  <listAliasInfo>
+    <rocky.jdbc.AliasInfo>
+      <aliasName>CodeReportCenter</aliasName>
+      <serverType>0</serverType>
+      <serverName>localhost</serverName>
+      <port>0</port>
+      <databaseName>JRockyReporter</databaseName>
+      <userName>sa</userName>
+      <password></password>
+    </rocky.jdbc.AliasInfo>
+  </listAliasInfo>
+</rocky.jdbc.AliasConfig>

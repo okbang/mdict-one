@@ -1,0 +1,1 @@
+JRockyExport.bat "-conf=JRockyReport.xml" "-a=ATeam-SU15-2008120W1" "-r=/ExportSQL_ATeam-SU39-200812-W1.properties" "-t=/template/Report-Template.xls" "-o=SU39-200812-W1_DailyReport_${CURRENT_DATE.yyyyMMddHHmmss}.xls"

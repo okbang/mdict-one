@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AliasConfigurationInfo class="rocky.jdbc.AliasConfig">
+  <listAliasInfo>
+
+<AliasInfo class="rocky.jdbc.AliasInfo">
+  <aliasName>XXX</aliasName>
+  <serverType>4</serverType>
+  <serverName></serverName>
+  <databaseName></databaseName>
+  <port></port>
+  <userName>rai</userName>
+  <password>1</password>
+</AliasInfo>
+</listAliasInfo>
+</AliasConfigurationInfo>

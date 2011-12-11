@@ -1,0 +1,22 @@
+<rocky.jdbc.AliasConfig>
+  <listAliasInfo>
+    <rocky.jdbc.AliasInfo>
+      <aliasName>ProgNews</aliasName>
+      <serverType>1</serverType>
+      <serverName>raiservices</serverName>
+      <port>1433</port>
+      <databaseName>ProgNews</databaseName>
+      <userName>reportviewer</userName>
+      <password>reportviewer</password>
+    </rocky.jdbc.AliasInfo>
+  <rocky.jdbc.AliasInfo>
+      <aliasName>SVNReport</aliasName>
+      <serverType>0</serverType>
+      <serverName>localhost</serverName>
+      <port>1433</port>
+      <databaseName>svnreport</databaseName>
+      <userName>sa</userName>
+      <password></password>
+    </rocky.jdbc.AliasInfo>
+  </listAliasInfo>
+</rocky.jdbc.AliasConfig>

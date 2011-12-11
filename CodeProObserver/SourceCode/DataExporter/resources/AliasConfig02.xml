@@ -1,0 +1,13 @@
+<rocky.jdbc.AliasConfig>
+  <listAliasInfo>
+    <rocky.jdbc.AliasInfo>
+      <aliasName>CodeReportCenter</aliasName>
+      <serverType>1</serverType>
+      <serverName>rai-server</serverName>
+      <port>1433</port>
+      <databaseName>DrCenter</databaseName>
+      <userName>reportviewer</userName>
+      <password>reportviewer</password>
+    </rocky.jdbc.AliasInfo>
+  </listAliasInfo>
+</rocky.jdbc.AliasConfig>

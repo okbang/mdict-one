@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>JRockyReport configuration</comment>
+	<!-- Parameters -->
+	<entry key="INPUT_CHARSET">UTF-8</entry>
+	<entry key="STD_DATE_FORMAT">yyyy/MM/dd</entry>
+
+	<entry key="TEMP_PATH">${TEMP}/JRockyReport</entry>
+
+	<!--
+		LocCounter Implementor of rocky.vss2rdb.engine.ILocCounter
+	-->
+	<!--
+		<entry
+		key="LocCounterImpl">csdl.locc.measures.java.javaline.LoccUtil</entry>
+	-->
+	<!-- StepCounter at http://cvs.sourceforge.jp -->
+	<entry key="LocCounterImpl">tk.stepcounter.StepCounterImpl</entry>
+</properties>

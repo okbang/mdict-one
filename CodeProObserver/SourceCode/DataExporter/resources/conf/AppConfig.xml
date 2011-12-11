@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>JRockyReport configuration</comment>
+	<!-- Parameters -->
+	<entry key="INPUT_CHARSET">UTF-8</entry>
+	<entry key="STD_DATE_FORMAT">yyyy/MM/dd</entry>
+
+	<entry key="TEMP_PATH">${TEMP}/JRockyReport</entry>
+    <!-- JDBC URL Pattern -->
+	<entry key="ORACLE_URL">jdbc:oracle:thin:@$serverName:$port:$databaseName</entry>
+	<entry key="MSSQL_URL">jdbc:sqlserver://@$serverName:$port;databaseName=$databaseName</entry>
+	<entry key="MySQL_URL">jdbc:mysql://@$serverName:$port/$databaseName</entry>
+</properties>

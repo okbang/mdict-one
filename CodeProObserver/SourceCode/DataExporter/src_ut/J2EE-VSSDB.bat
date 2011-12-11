@@ -1,0 +1,1 @@
+JRockyExport.bat "-conf=JRockyReport.xml" "-a=J2EE-VSSDB" "-r=/J2EE-VSSDB.properties" "-t=/template/Report-Template.xls" "-o=J2EE-VSSDB_${CURRENT_DATE.yyyyMMddHHmmss}.xls"

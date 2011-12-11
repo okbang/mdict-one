@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="SVN2DBEntityPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>vn.fpt.fsoft.rai.svn2db.entity.SVNFile</class>
+    <class>vn.fpt.fsoft.rai.svn2db.entity.SVNVersion</class>
+    <class>vn.fpt.fsoft.rai.svn2db.entity.SVNFilePK</class>
+    <class>vn.fpt.fsoft.rai.svn2db.entity.SVNVersionPK</class>
+    <class>vn.fpt.fsoft.rai.svn2db.entity.Dir</class>
+    <class>vn.fpt.fsoft.rai.svn2db.entity.Revision</class>
+    <class>vn.fpt.fsoft.rai.svn2db.entity.SVNRepo</class>
+    
+    <!--  For MSSQL
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=ProgNews_Test"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.password" value="sa12345"/>
+    </properties>
+
+    -->
+
+    <!--  For HSQL  --> 
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/svnreport"/>
+      <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+     
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+    </properties>
+    
+  </persistence-unit>
+</persistence>
+
