@@ -38,6 +38,14 @@ How to develop?
 Step 1) Start the database HSQL by execute $SVNLOADER_SOURCE/hsqldb-8.1/svnreport/StartDB.bat (Working folder is $SVNLOADER_SOURCE/hsqldb-8.1/svnreport)
 Step 2) Import the project into the Eclipse, revise the database configuration in /SVNLoader/resources/META-INF/persistence.xml
 Step 3) Explore the feature of SVNLoader by execute the test case "testTransfer0002_GoogleCode" in /SVNLoader/src_ut/openones/svnloader/engine/SVNLoaderBizTest.java
+Step 4) Start HSQL client by execute "SVNLoader/hsqldb-8.1/svnreport/runManager.bat" to explore the database.
+  Input information for connection:
+   Setting Name: svnreport
+   Type: HSQL Database Engine Standalone
+   Driver: keep value "org.hsqldb.jdbcDriver"
+   URL: jdbc:hsqldb:hsql://localhost/svnreport
+   User: sa
+   Password: <blank>
 
 Bugs/Changes tracking
 ==============================
