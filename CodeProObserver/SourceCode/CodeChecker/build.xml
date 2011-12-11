@@ -1,0 +1,98 @@
+<project name="CodeChecker" default="dist" basedir=".">
+  <description>
+      Build file for SizeCounter project
+  </description>
+  <!-- Load user property definition overrides -->
+  <property file="build.properties"/>	
+
+  <!-- set global properties for this build
+    web.content: Folder contain web content of application
+  -->  
+  <property name="dist.home"  location="dist/${app.name}"/>
+  <property name="build.home"  location="build"/>
+  <property name="lib.compile" value="lib"/>
+  <!--<property name="lib.server.compile" value="server-lib"/> -->
+  <tstamp>
+      <format property="today" pattern="yyyyMMDDhhmmss"/>
+  </tstamp>
+  <!-- Configure the custom Ant tasks for the Manager application -->
+  <!--
+  <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+  <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" />
+  -->
+
+<!--
+
+  These properties control option settings on the Javac compiler when it
+  is invoked using the <javac> task.
+
+  compile.debug        Should compilation include the debug option?
+
+  compile.deprecation  Should compilation include the deprecation option?
+
+  compile.optimize     Should compilation include the optimize option?
+
+-->
+
+  <property name="compile.debug"       value="false"/>
+  <property name="compile.deprecation" value="false"/>
+  <property name="compile.optimize"    value="true"/>
+  
+  <path id="compile.classpath">
+    <fileset dir="${lib.compile}">
+       <include name="**/*.jar"/>
+    </fileset>
+	<!--
+	<fileset dir="${lib.server.compile}">
+       <include name="**/*.jar"/>
+    </fileset>
+	-->
+  </path>
+
+  <target name="init" depends="clean">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${dist.home}"/>  
+	<mkdir dir="${build.home}"/>
+    
+  </target>
+  
+  <target name="compile" depends="init" description="Compile all Java sources">
+
+    <!-- Compile Java classes as necessary -->
+	<echo message="Complie sourse folder 'src'"/>
+    <javac srcdir="src"
+          destdir="${build.home}"
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+          target="1.6"
+          source="1.6"
+          encoding="UTF-8"
+         optimize="${compile.optimize}">
+      <classpath refid="compile.classpath"/>
+    </javac>
+    
+  </target>
+
+  <target name="dist" depends="compile" description="generate the distribution" >       		
+	<!--copy *.jar from lib to ${dist.home}/lib-->
+	<copy todir="${dist.home}/lib" preservelastmodified="true">
+		<fileset dir="lib" />
+	</copy>
+	
+	<copy file="OpenOnes Checks_v1.0.xml" todir="${dist.home}/bin" preservelastmodified="true">
+	</copy>
+
+	<jar jarfile="${dist.home}/lib/${app.pkg}-${app.version}-${today}.jar" basedir="${build.home}"/>
+	<echo message="View the result within folder ${dist.home}"/>
+  </target>
+ 
+  <target name="clean" description="clean up the build folder" >
+    <!-- Delete the ${build.home} and ${dist.home} directory trees -->
+	<echo message="Delete the '${build.home}' and '${dist.home}' directory trees "/>
+    <delete dir="${build.home}"/>
+	<delete dir="dist"/>
+  </target>
+
+</project>

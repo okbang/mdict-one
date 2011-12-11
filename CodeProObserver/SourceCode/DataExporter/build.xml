@@ -1,0 +1,141 @@
+<project name="DBExporter" default="dist" basedir=".">
+  <description>
+      Build file for DataExporter project
+  </description>
+  <!-- Load user property definition overrides -->
+  <property file="build.properties"/>
+  
+  <!-- set global properties for this build
+    web.content: Folder contain web content of application
+  -->
+  <property name="build.home" location="build"/>
+  <property name="dist.home"  location="dist/${app.name}"/>  
+
+  <property name="lib.compile" value="lib"/>
+  
+  
+    <tstamp>
+      <format property="today" pattern="yyyyMMDDhhmmss"/>
+  </tstamp>
+  <!-- Configure the custom Ant tasks for the Manager application -->
+  <!--
+  <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+  <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" />
+  -->
+
+<!--
+
+  These properties control option settings on the Javac compiler when it
+  is invoked using the <javac> task.
+
+  compile.debug        Should compilation include the debug option?
+
+  compile.deprecation  Should compilation include the deprecation option?
+
+  compile.optimize     Should compilation include the optimize option?
+
+-->	
+	
+  <property name="compile.debug"       value="true"/>
+  <property name="compile.deprecation" value="false"/>
+  <property name="compile.optimize"    value="true"/>
+  
+  <path id="compile.classpath">
+    <fileset dir="${lib.compile}">
+       <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="init" depends="clean">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build.home}"/>
+	<mkdir dir="${build.home}/classes"/>	
+		
+	<copy todir="${build.home}/src" preservelastmodified="true">
+		<fileset dir="src" />
+	</copy>	
+	
+	<copy todir="${build.home}/src" preservelastmodified="true">
+		<fileset dir="rdb2excel" />
+	</copy>	
+	
+</target>
+  
+  <target name="compile" depends="init" description="Compile all Java sources">	
+	
+    <!-- Compile Java classes as necessary -->			
+	
+	<echo message="Complie sourse folder 'src'"/>
+    <javac srcdir="${build.home}/src"
+          destdir="${build.home}/classes"		  
+            debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+          target="1.6"
+          source="1.6"
+          encoding="UTF-8"
+          optimize="${compile.optimize}">
+      <classpath refid="compile.classpath"/>
+    </javac>
+    		
+  </target>
+
+  <target name="dist" depends="compile" description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist.home}"/>		
+	<mkdir dir="${dist.home}/bin"/>
+	<mkdir dir="${dist.home}/conf"/>
+	<mkdir dir="${dist.home}/output"/>
+	
+	<!--copy *.jar from lib to ${dist.home}/lib-->
+	<copy todir="${dist.home}/lib" preservelastmodified="true">
+		<fileset dir="lib" />
+	</copy>
+	
+	<!--copy Template_CodeReport01.xls from src_ut/templates to ${dist.home}/templates -->
+	<copy file="src_ut/templates/Template_CodeReport01.xls" todir="${dist.home}/templates" preservelastmodified="true">
+	</copy>
+	
+	<copy todir="${dist.home}/conf" preservelastmodified="true">
+		<fileset dir="./resources/conf" includes="AliasDB.xml, **/*.properties"/>
+	</copy>
+	
+	<!--copy AliasConfigProgNews.xml from src_ut/prognews to ${dist.home}/bin/conf -->
+	<!--
+	<copy file="src_ut/prognews/AliasConfigProgNews.xml" todir="${dist.home}/bin/conf" preservelastmodified="true">
+	</copy>
+	-->
+	
+	<!--copy DataExporter.bat from src_ut to ${dist.home}/bin -->
+	<copy file="src_ut/DataExporter.bat" todir="${dist.home}/bin" preservelastmodified="true">
+	</copy>
+	
+	<!--copy _db2excel.bat from rdb2excel to ${dist.home}/bin -->
+	<copy file="rdb2excel/_db2excel.bat" todir="${dist.home}/bin" preservelastmodified="true">
+	</copy>
+	
+	<!--copy ExportProgNewsHSQL_HAIS.IEM.properties from src_ut/fuojt-k2 to ${dist.home}/bin/conf -->
+	<!--
+	<copy file="src_ut/fuojt-k2/ExportProgNewsHSQL_HAIS.IEM.properties" todir="${dist.home}/bin/conf" preservelastmodified="true">
+	</copy>
+	-->
+	
+	<!--copy log4j.propertiesces from resources to ${dist.home}/bin -->
+	<copy file="resources/log4j.properties" todir="${dist.home}/bin" preservelastmodified="true">
+	</copy>
+	
+    <jar jarfile="${dist.home}/lib/${app.pkg}-${app.version}-${today}.jar" basedir="${build.home}/classes"/>
+	<echo message="View the result within folder ${dist.home}"/>
+  </target>
+
+  
+  <target name="clean" description="clean up the build folder" >
+    <!-- Delete the ${build.home} and ${dist.home} directory trees -->
+	<echo message="Delete the '${build.home}' and '${dist.home}' directory trees "/>
+    <delete dir="${build.home}"/>
+	<delete dir="dist"/>
+	<delete dir="bin"/>	
+  </target>
+
+</project>
