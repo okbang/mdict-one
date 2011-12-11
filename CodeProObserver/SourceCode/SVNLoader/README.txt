@@ -34,6 +34,10 @@ How to develop?
 - Support tools:
   + Database client: Squirrel (http://squirrel-sql.sourceforge.net/)
   + HSQL: http://hsqldb.org/
-  
+  A built-in HSQL is in folder "hsqldb-8.1/svnreport".
+Step 1) Start the database HSQL by execute $SVNLOADER_SOURCE/hsqldb-8.1/svnreport/StartDB.bat (Working folder is $SVNLOADER_SOURCE/hsqldb-8.1/svnreport)
+Step 2) Import the project into the Eclipse, revise the database configuration in /SVNLoader/resources/META-INF/persistence.xml
+Step 3) Explore the feature of SVNLoader by execute the test case "testTransfer0002_GoogleCode" in /SVNLoader/src_ut/openones/svnloader/engine/SVNLoaderBizTest.java
+
 Bugs/Changes tracking
 ==============================
