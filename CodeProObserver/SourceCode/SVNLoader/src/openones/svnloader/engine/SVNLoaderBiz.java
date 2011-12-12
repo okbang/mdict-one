@@ -68,10 +68,10 @@ import rocky.sizecounter.UnsupportedFileType;
 import com.puppycrawl.tools.checkstyle.api.AuditEvent;
 
 public class SVNLoaderBiz {
+    /** Logger. */
+    private static final Logger LOGGER = Logger.getLogger(SVNLoaderBiz.class);
     private final long startRevision = 0;
     private final long endRevision = -1; // head
-
-    private static Logger LOGGER = Logger.getLogger(SVNLoaderBiz.class);
 
     private String svnUrl;
     private String svnUsername;

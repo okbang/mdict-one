@@ -21,15 +21,14 @@ package openones.svnloader.dao;
 import openones.svnloader.dao.entity.ISVNRepo;
 
 /**
- * @author ThachLN
- *
+ * DAO Interface of SVN Repository.
+ * @author Thach Le
  */
 public interface ISVNRepoManager {
 
     /**
-     * 
-     * [Give the description for method].
-     * @param url
+     * Create a SVNRepo.
+     * @param url Path of SVN. Ex: https://...; file:///...
      * @param revisionID
      * @return SVNRepo
      * @throws Exception
