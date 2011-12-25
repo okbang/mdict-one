@@ -14,7 +14,7 @@
             <init-param>
               <description>Context configuration</description>
               <name>contextPath</name>
-              <value>MVCPortletSubmitForm</value>
+              <value>MVCSubmitForm</value>
             </init-param>        
 		<expiration-cache>0</expiration-cache>
 		<supports>
