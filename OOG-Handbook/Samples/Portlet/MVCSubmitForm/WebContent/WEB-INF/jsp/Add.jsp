@@ -16,27 +16,24 @@
  * specific language governing permissions and limitations
  * under the License.
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8" import="javax.portlet.*"%>
 <%@ taglib uri="http://java.sun.com/portlet" prefix="portlet"%>
 <portlet:defineObjects/>
 
 <script type="text/javascript" src='/${requestScope.contextPath}/scripts/common.js' ></script>
 
-<H1>List screen</H1>
+<H1>Add screen</H1>
 
-<form name="<portlet:namespace/>List" action="<portlet:actionURL/>" method="POST">
-  <input type="hidden" name="screenId" value="List"/>
+<form name="<portlet:namespace/>Add" action="<portlet:actionURL/>" method="POST">
+  <input type="hidden" name="screenId" value="Add"/>
   <input type="hidden" name="eventId" value=""/>
   
-  <%-- Search condition --%>
-  <input type="text" name="account" value=""/><input type="button" name="search" value="Search" onclick='submitAction("<portlet:namespace/>List", "search");'/><br/>
-  
   <%-- Search result --%>
-  Account: ${requestScope.formBean.account}<br/>
-  First name: ${requestScope.formBean.firstName}<br/>
-  Last name: ${requestScope.formBean.firstName}<br/>
-  Birthday: ${requestScope.formBean.birthDay}<br/>
+  Account: <input name="account" value="${requestScope.formBean.account}"/><br/>
+  First name: <input name="account" value="${requestScope.formBean.firstName}"/><br/>
+  Last name: <input name="account" value="${requestScope.formBean.firstName}"/><br/>
+  Birthday: <input name="account" value="${requestScope.formBean.birthDay}"/><br/>
   
-  <input type="button" name="add" value="Add" onclick='submitAction("<portlet:namespace/>List","add");'/>
+  <input type="button" name="save" value="Save" onclick='submitAction("<portlet:namespace/>Add","save");'/>
+  <input type="button" name="goBack" value="Go Back" onclick='submitAction("<portlet:namespace/>Add","goBack");'/>
 </form>
