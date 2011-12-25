@@ -33,10 +33,20 @@
   <input type="text" name="account" value=""/><input type="button" name="search" value="Search" onclick='submitAction("<portlet:namespace/>List", "search");'/><br/>
   
   <%-- Search result --%>
-  Account: ${requestScope.formBean.account}<br/>
-  First name: ${requestScope.formBean.firstName}<br/>
-  Last name: ${requestScope.formBean.firstName}<br/>
-  Birthday: ${requestScope.formBean.birthDay}<br/>
+  <table border="1" width="400px">
+    <tr>
+      <td width="5px">STT</td>
+      <td width="90px">Họ</td>
+      <td width="60px">Tên</td>
+      <td width="60px">Ngày sinh</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>XXX</td>
+      <td>XXX</td>
+      <td>XXX</td>
+    </tr>
+  </table>
   
   <input type="button" name="add" value="Add" onclick='submitAction("<portlet:namespace/>List","add");'/>
 </form>
