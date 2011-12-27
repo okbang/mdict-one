@@ -19,6 +19,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="javax.portlet.*"%>
 <%@ taglib uri="http://java.sun.com/portlet" prefix="portlet"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <portlet:defineObjects/>
 
 <script type="text/javascript" src='/${requestScope.contextPath}/scripts/common.js' ></script>
@@ -33,19 +34,24 @@
   <input type="text" name="account" value=""/><input type="button" name="search" value="Search" onclick='submitAction("<portlet:namespace/>List", "search");'/><br/>
   
   <%-- Search result --%>
-  <table border="1" width="400px">
+  <table border="1" width="450px">
     <tr>
       <td width="5px">STT</td>
+      <td width="55px">Tài khoản</td>
       <td width="90px">Họ</td>
       <td width="60px">Tên</td>
       <td width="60px">Ngày sinh</td>
     </tr>
+    <c:forEach var="accountInfo" items="${requestScope.accountList}">
     <tr>
-      <td>1</td>
-      <td>XXX</td>
-      <td>XXX</td>
-      <td>XXX</td>
+      <td></td>
+      <td>${accountInfo.account}</td>
+      <td>${accountInfo.firstName}</td>
+      <td>${accountInfo.lastName}</td>
+      <td>${accountInfo.birthDay}</td>
     </tr>
+    </c:forEach>
+    
   </table>
   
   <input type="button" name="add" value="Add" onclick='submitAction("<portlet:namespace/>List","add");'/>
