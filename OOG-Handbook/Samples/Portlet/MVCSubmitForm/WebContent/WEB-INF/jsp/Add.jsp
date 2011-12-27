@@ -29,10 +29,10 @@
   <input type="hidden" name="eventId" value=""/>
   
   <%-- Search result --%>
-  Account: <input name="account" value="${requestScope.formBean.account}"/><br/>
-  First name: <input name="account" value="${requestScope.formBean.firstName}"/><br/>
-  Last name: <input name="account" value="${requestScope.formBean.firstName}"/><br/>
-  Birthday: <input name="account" value="${requestScope.formBean.birthDay}"/><br/>
+  Account: <input name="account" value="${requestScope.accountBean.account}"/><br/>
+  First name: <input name="firstName" value="${requestScope.accountBean.firstName}"/><br/>
+  Last name: <input name="lastName" value="${requestScope.accountBean.lastName}"/><br/>
+  Birthday: <input name="birthDay" value="${requestScope.accountBean.birthDay}"/><br/>
   
   <input type="button" name="save" value="Save" onclick='submitAction("<portlet:namespace/>Add","save");'/>
   <input type="button" name="goBack" value="Go Back" onclick='submitAction("<portlet:namespace/>Add","goBack");'/>
