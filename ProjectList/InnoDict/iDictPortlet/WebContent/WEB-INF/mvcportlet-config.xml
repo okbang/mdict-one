@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AddAccount>
+  <view-screen>Lookup</view-screen>
+  <edit-screen>Edit</edit-screen>
+  <help-screen>Help</help-screen>
+
+  <screen id="Lookup" control="openones.idict.portlet.ctrl.LookupControl" input="/WEB-INF/jsp/Lookup.jsp">
+    <event id="translate" procId="translate"/>
+  </screen>
+</AddAccount>
