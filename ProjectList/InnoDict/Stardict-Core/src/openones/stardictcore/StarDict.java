@@ -88,6 +88,59 @@ public class StarDict {
         }
     }
 
+    public StarDict(IfoFile ifoFile, IdxFile idxFile, DictFile dictFile) {
+        this.ifoFile = ifoFile;
+        this.idxFile = idxFile;
+        this.dictFile = dictFile;
+    }
+
+    public static StarDict loadDict(String url) {
+        File file = new File(url);
+        String ifoFilePath;
+
+        IfoFile ifoFile = null;
+        IdxFile idxFile = null;
+        DictFile dictFile = null;
+
+        if (!file.isDirectory()) {
+            String filePathNoExt = getFileNameWithoutExtension(url);
+            LOG.debug("filePathNoExt=" + filePathNoExt);
+
+            ifoFilePath = filePathNoExt + ".ifo";
+            if (new File(ifoFilePath).isFile()) {
+                ifoFile = new IfoFile(ifoFilePath);
+            } else {
+                return null;
+            }
+
+            idxFile = new IdxFile(filePathNoExt + ".idx", ifoFile.getLongWordCount(), ifoFile.getLongIdxFileSize());
+            dictFile = new DictFile(filePathNoExt + ".dict");
+        } else {
+            String[] list = file.list();
+
+            for (int i = list.length - 1; i >= 0; i--) {
+                String extension = getExtension(list[i]);
+                String path = url + File.separator + list[i];
+                if (extension.equals("ifo")) {
+                    ifoFile = new IfoFile(path);
+                } else if (extension.equals("idx")) {
+                    idxFile = new IdxFile(path, ifoFile.getLongWordCount(), ifoFile.getLongIdxFileSize());
+                } else if (extension.equals("dict")) {
+                    dictFile = new DictFile(path);
+                } else {
+                    continue;
+                }
+            }
+        }
+
+        if ((ifoFile == null) || (idxFile == null) || (dictFile == null)) {
+            return null;
+        }
+
+        StarDict dict = new StarDict(ifoFile, idxFile, dictFile);
+        return dict;
+    }
+
     /**
      * get book name of dictionary.
      * @return Book name
@@ -280,9 +333,10 @@ public class StarDict {
      * @param url path of a file
      * @return original file name
      */
-    public String getFileNameWithoutExtension(String url) {
+    public static String getFileNameWithoutExtension(String url) {
         int dot = url.lastIndexOf(".");
-        return url.substring(0, dot);
+
+        return (dot > -1) ? url.substring(0, dot) : null;
     }
 
     /**
@@ -290,7 +344,7 @@ public class StarDict {
      * @param url path to file
      * @return extension of file
      */
-    public String getExtension(String url) {
+    public static String getExtension(String url) {
         int dot = url.lastIndexOf(".");
         return url.substring(dot + 1);
     }
