@@ -19,6 +19,9 @@
 package openones.idict.portlet.ctrl;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import javax.portlet.ActionRequest;
@@ -27,11 +30,11 @@ import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
-import openones.corewa.BaseInForm;
 import openones.corewa.BaseOutForm;
 import openones.corewa.ReqUtil;
 import openones.idict.DictUtil;
 import openones.idict.biz.DictBiz;
+import openones.idict.portlet.form.DictInfo;
 import openones.idict.portlet.form.LookupForm;
 import openones.portlet.control.BaseControl;
 
@@ -61,8 +64,8 @@ public class LookupControl extends BaseControl {
     public BaseOutForm init(RenderRequest request, RenderResponse response) throws PortletException, IOException {
         LOG.debug("init render.START");
         BaseOutForm outForm = new BaseOutForm();
-
-        outForm.putRequest("dictInfos", dictBiz.getDictInfoList());
+        Collection<DictInfo> dictInfoColl = dictBiz.getDictInfoList();
+        outForm.putSession("dictInfos", dictInfoColl);
 
         return outForm;
     }
@@ -80,19 +83,26 @@ public class LookupControl extends BaseControl {
      */
 
     /**
-     * [Give the description for method].
-     * @param request
-     * @param reqMap
-     * @param response
-     * @return
+     * Process event translate.
+     * @param request client request
+     * @param reqMap submitted data from client
+     * @param response response for client
+     * @return instance of BaseOutForm contains objects to save into request or session.
      * @throws PortletException
      * @throws IOException
      */
     public BaseOutForm translate(ActionRequest request, Map<String, Object> reqMap, ActionResponse response)
             throws PortletException, IOException {
-        BaseInForm lookupBean = (BaseInForm) ReqUtil.getData(reqMap, LookupForm.class);
+        LookupForm lookupBean = (LookupForm) ReqUtil.getData(reqMap, LookupForm.class);
+
+        LOG.debug("word=" + lookupBean.getWord() + ";selected dict=" + lookupBean.getSelectedDict());
+
+        List<String> dictNames = new ArrayList<String>();
+        dictNames.add(lookupBean.getSelectedDict());
+        Collection<DictInfo> dictInfoColl = dictBiz.getMeaningByDict(lookupBean.getWord(), dictNames);
 
         BaseOutForm outForm = new BaseOutForm();
+        outForm.putRequest("dictMeanings", dictInfoColl);
         outForm.putRequest("formBean", lookupBean);
 
         return outForm;

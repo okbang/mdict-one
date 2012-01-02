@@ -23,18 +23,29 @@
 <portlet:defineObjects/>
 
 <script type="text/javascript" src='/${requestScope.contextPath}/scripts/common.js' ></script>
-
-<H1>Lookup screen</H1>
-
 <form name="<portlet:namespace/>Lookup" action="<portlet:actionURL/>" method="POST">
   <input type="hidden" name="screenId" value="Lookup"/>
-  <input type="hidden" name="eventId" value=""/>
+  <input type="hidden" name="eventId" value="translate"/>
   
-  Tự điền <select>
-    <c:forEach var="dictInfo" items="${requestScope.dictInfos}">
-        <option value="${dictInfo.cd}">${dictInfo.name}</option>
+  Tự điền <select name="selectedDict">
+    <c:forEach var="dictInfo" items="${sessionScope.dictInfos}">
+        <%-- Use name of dict as code --%>
+        <c:choose>
+          <c:when test="${dictInfo.name == requestScope.formBean.selectedDict}">
+            <option value="${dictInfo.name}" selected="selected">${dictInfo.name}</option>
+          </c:when>
+          <c:otherwise><option value="${dictInfo.name}">${dictInfo.name}</option>
+          </c:otherwise>
+        </c:choose>
+        
     </c:forEach>
   </select><br/>
   <input type="text" name="word" value="${requestScope.formBean.word}"/>
   <input type="button" name="translate" value="Translate" onclick='submitAction("<portlet:namespace/>Lookup","translate");'/>
+  <br/>
+  <%-- Display meanings --%>
+  <c:forEach var="dictInfo" items="${requestScope.dictMeanings}">
+        ${dictInfo.meaning}<br />
+  </c:forEach>
+
 </form>

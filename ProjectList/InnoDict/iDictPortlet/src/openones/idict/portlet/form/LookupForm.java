@@ -22,11 +22,18 @@ import java.util.List;
 
 import openones.corewa.BaseInForm;
 
+/**
+ * Lookup Form is used to capture submitted data from the JSP.
+ * @author Thach Le
+ */
 public class LookupForm extends BaseInForm {
-    /** input. */
+    /** input: to be search word. */
     private String word;
 
-    /** output */
+    /** input: identified of selected dictionary. */
+    private String selectedDict;
+
+    /** output: dictionaries from repository. */
     private List<DictInfo> dictInfoList;
 
     /**
@@ -59,5 +66,21 @@ public class LookupForm extends BaseInForm {
      */
     public void setDictInfoList(List<DictInfo> dictInfoList) {
         this.dictInfoList = dictInfoList;
+    }
+
+    /**
+     * Get value of selectedDict.
+     * @return the selectedDict
+     */
+    public String getSelectedDict() {
+        return selectedDict;
+    }
+
+    /**
+     * Set the value for selectedDict.
+     * @param selectedDict the selectedDict to set
+     */
+    public void setSelectedDict(String selectedDict) {
+        this.selectedDict = selectedDict;
     }
 }

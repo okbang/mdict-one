@@ -30,6 +30,14 @@ public class DictInfo implements Serializable {
     /** Dictionary name. */
     private String name;
 
+    /** Contain meaning of an word in this dictionary. */
+    private String meaning;
+
+    /**
+     * Create in instance of DictInfo with code and name.
+     * @param code unique id of the dictionary
+     * @param name short name of dictionary
+     */
     public DictInfo(String code, String name) {
         this.cd = code;
         this.name = name;
@@ -65,5 +73,21 @@ public class DictInfo implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Get value of meaning.
+     * @return the meaning
+     */
+    public String getMeaning() {
+        return meaning;
+    }
+
+    /**
+     * Set the value for meaning.
+     * @param meaning the meaning to set
+     */
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
     }
 }

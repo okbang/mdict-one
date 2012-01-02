@@ -63,21 +63,32 @@ public class DictBiz {
 
     /**
      * Get instances of StarDicts.
+     * @param dictNames filter dictionaries. Null mean no filter
      * @return list of instances of StarDicts
      */
-    public List<StarDict> getDicts() {
+    public Collection<StarDict> getDicts(List<String> dictNames) {
         List<String> dictFolders = getDictFolders();
-        List<StarDict> dicts = new ArrayList<StarDict>();
+        Map<String, StarDict> dictMap = new TreeMap<String, StarDict>();
 
         StarDict dict;
         for (String dictFolderName : dictFolders) {
             dict = StarDict.loadDict(dictRepo + File.separator + dictFolderName);
             if (dict != null) {
-                dicts.add(dict);
+                if ((dictNames == null) || (dictNames.contains(dict.getDictName()))) {
+                    dictMap.put(dict.getDictName(), dict);
+                }
             }
         }
 
-        return dicts;
+        return dictMap.values();
+    }
+
+    /**
+     * Get all dictionaries from the repository.
+     * @return list of instances of StarDicts
+     */
+    public Collection<StarDict> getDicts() {
+        return getDicts(null);
     }
 
     /**
@@ -85,7 +96,7 @@ public class DictBiz {
      * @return list of dictionary information
      */
     public Collection<DictInfo> getDictInfoList() {
-        List<StarDict> dicts = getDicts();
+        Collection<StarDict> dicts = getDicts();
         // Use TreeMap to add the item with increasing order by key (name of dict)
         Map<String, DictInfo> dictMap = new TreeMap<String, DictInfo>();
 
@@ -93,6 +104,55 @@ public class DictBiz {
         int i = 0;
         for (StarDict dict : dicts) {
             dictInfo = new DictInfo(String.valueOf(i), dict.getDictName());
+            dictMap.put(dict.getDictName(), dictInfo);
+            i++;
+        }
+
+        return dictMap.values();
+    }
+
+    /**
+     * Get meaning of the work in all dictionaries.
+     * @param word word to be searched.
+     * @return list of DictInfo contain meanings of word.
+     */
+    public Collection<DictInfo> getMeaning(String word) {
+        Collection<StarDict> dicts = getDicts();
+        // Use TreeMap to add the item with increasing order by key (name of dict)
+        Map<String, DictInfo> dictMap = new TreeMap<String, DictInfo>();
+
+        DictInfo dictInfo;
+        int i = 0;
+        for (StarDict dict : dicts) {
+            dictInfo = new DictInfo(String.valueOf(i), dict.getDictName());
+            dictInfo.setMeaning(dict.lookupWord(word));
+            dictMap.put(dict.getDictName(), dictInfo);
+            i++;
+        }
+
+        return dictMap.values();
+    }
+
+    /**
+     * Get meanings of a word in dictionaries.
+     * @param word word to be lookup
+     * @param dictNames Names of dictionaries (preserved)
+     * @return list of meaning, dictionary name, dictionary code in DictInfo
+     */
+    public Collection<DictInfo> getMeaningByDict(String word, List<String> dictNames) {
+        Collection<StarDict> dicts = getDicts(dictNames);
+        // Use TreeMap to add the item with increasing order by key (name of dict)
+        Map<String, DictInfo> dictMap = new TreeMap<String, DictInfo>();
+
+        DictInfo dictInfo;
+        int i = 0; // use for code of dictionary
+        String meaning;
+        for (StarDict dict : dicts) {
+            dictInfo = new DictInfo(String.valueOf(i), dict.getDictName());
+            meaning = dict.lookupWord(word);
+            // replace newline character in Java by break line tag in HTML
+            meaning = meaning.replaceAll("\n", "<br/>");
+            dictInfo.setMeaning(meaning);
             dictMap.put(dict.getDictName(), dictInfo);
             i++;
         }
