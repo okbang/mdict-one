@@ -1,7 +1,9 @@
 package openones.idict.biz;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import openones.idict.portlet.form.DictInfo;
@@ -43,12 +45,14 @@ public class DictBizTest {
         DictBiz dictBiz = new DictBiz(
                 "/media/Data1/FSoft/OOG/IDictionary/trunk/SourceCode/Stardict-Core/src_ut/testdata");
 
-        List<DictInfo> dicts = dictBiz.getDictInfoList();
+        Collection<DictInfo> dicts = dictBiz.getDictInfoList();
 
         assertEquals(2, dicts.size());
 
-        DictInfo dict0 = dicts.get(0);
-        DictInfo dict1 = dicts.get(1);
+        Iterator<DictInfo> it = dicts.iterator();
+
+        DictInfo dict0 = it.next();
+        DictInfo dict1 = it.next();
 
         assertEquals("0", dict0.getCd());
         assertEquals("Easton's 1897 Bible Dictionary", dict0.getName());

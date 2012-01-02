@@ -20,18 +20,34 @@ package openones.idict.biz;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import openones.idict.portlet.form.DictInfo;
 import openones.stardictcore.StarDict;
 
+/**
+ * Dictionary Business Layer.
+ * @author Thach Le
+ */
 public class DictBiz {
+    /** Path of dictionary repository. */
     private String dictRepo;
 
+    /**
+     * Create instance of DictBiz with given path of dictionary repository.
+     * @param dictRepo path of dictionary repository
+     */
     public DictBiz(String dictRepo) {
         this.dictRepo = dictRepo;
     }
 
+    /**
+     * Get folders contain dictionaries of StarDict.
+     * @return List of folder which contain dictionaries of StarDict
+     */
     public List<String> getDictFolders() {
         File dictF = new File(dictRepo);
         List<String> dictFolders = new ArrayList<String>();
@@ -45,6 +61,10 @@ public class DictBiz {
         return dictFolders;
     }
 
+    /**
+     * Get instances of StarDicts.
+     * @return list of instances of StarDicts
+     */
     public List<StarDict> getDicts() {
         List<String> dictFolders = getDictFolders();
         List<StarDict> dicts = new ArrayList<StarDict>();
@@ -60,29 +80,23 @@ public class DictBiz {
         return dicts;
     }
 
-//    public List<String> getDictNames() {
-//        List<StarDict> dicts = getDicts();
-//        List<String> dictNames = new ArrayList<String>();
-//
-//        for (StarDict dict : dicts) {
-//            dictNames.add(dict.getDictName());
-//        }
-//
-//        return dictNames;
-//    }
-
-    public List<DictInfo> getDictInfoList() {
+    /**
+     * Get list of dictionary information. Dictionaries are shorted by name with increasing order.
+     * @return list of dictionary information
+     */
+    public Collection<DictInfo> getDictInfoList() {
         List<StarDict> dicts = getDicts();
-        List<DictInfo> dictInfos = new ArrayList<DictInfo>();
+        // Use TreeMap to add the item with increasing order by key (name of dict)
+        Map<String, DictInfo> dictMap = new TreeMap<String, DictInfo>();
 
         DictInfo dictInfo;
         int i = 0;
-        for (StarDict dict : dicts) {            
+        for (StarDict dict : dicts) {
             dictInfo = new DictInfo(String.valueOf(i), dict.getDictName());
-            dictInfos.add(dictInfo);
+            dictMap.put(dict.getDictName(), dictInfo);
             i++;
         }
 
-        return dictInfos;
+        return dictMap.values();
     }
 }

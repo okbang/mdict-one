@@ -39,7 +39,7 @@ import org.apache.log4j.Logger;
 
 /**
  * Controller of Lookup screen.
- * @author thachln
+ * @author Thach Le
  */
 public class LookupControl extends BaseControl {
     /** Logger. */
@@ -50,9 +50,9 @@ public class LookupControl extends BaseControl {
 
     /**
      * [Explain the description for this method here].
-     * @param request
-     * @param response
-     * @return
+     * @param request client request
+     * @param response response for client
+     * @return instance of BaseOutForm contains objects to save into request or session.
      * @throws PortletException
      * @throws IOException
      * @see openones.portlet.control.BaseControl#init(javax.portlet.RenderRequest, javax.portlet.RenderResponse)
@@ -78,16 +78,6 @@ public class LookupControl extends BaseControl {
      * @see openones.portlet.control.BaseControl#init(javax.portlet.ActionRequest, java.util.Map,
      *      javax.portlet.ActionResponse)
      */
-    // @Override
-    // public BaseOutForm init(ActionRequest request, Map<String, Object> reqMap, ActionResponse response)
-    // throws PortletException, IOException {
-    // LOG.debug("init.START");
-    // BaseOutForm outForm = new BaseOutForm();
-    //
-    // outForm.putRequest("dictInfos", dictBiz.getDictInfoList());
-    //
-    // return outForm;
-    // }
 
     /**
      * [Give the description for method].
@@ -101,6 +91,7 @@ public class LookupControl extends BaseControl {
     public BaseOutForm translate(ActionRequest request, Map<String, Object> reqMap, ActionResponse response)
             throws PortletException, IOException {
         BaseInForm lookupBean = (BaseInForm) ReqUtil.getData(reqMap, LookupForm.class);
+
         BaseOutForm outForm = new BaseOutForm();
         outForm.putRequest("formBean", lookupBean);
 
