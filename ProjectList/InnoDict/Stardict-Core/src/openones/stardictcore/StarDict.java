@@ -92,6 +92,10 @@ public class StarDict {
         this.ifoFile = ifoFile;
         this.idxFile = idxFile;
         this.dictFile = dictFile;
+
+        if (ifoFile.isBoolIsLoaded() && idxFile.isLoaded()) {
+            boolAvailable = true;
+        }
     }
 
     public static StarDict loadDict(String url) {

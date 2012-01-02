@@ -12,13 +12,13 @@ import org.junit.Test;
  */
 public class StarDictTest {
     /*** prjPath, dictPaht used for test case xxx */
-    //String prjPathWin = "J:/FSoft/OOG/IDictionary/trunk/SourceCode/Stardict-Core/";
-    //String dictPathWin = prjPathWin + "src_ut/testdata/stardict-dictd-easton-2.4.2";
+    // String prjPathWin = "J:/OOG/IDictionary/trunk/SourceCode/Stardict-Core/";
+    // String dictPathWin = prjPathWin + "src_ut/testdata/stardict-dictd-easton-2.4.2";
 
     /*** prjPath, dictPaht used for test case xxx02 */
-    String prjPath = "/media/Data1/FSoft/OOG/IDictionary/trunk/SourceCode/Stardict-Core/";
-    //String prjPath = prjPathWin;
-    String dictPath = prjPath + "src_ut/testdata/stardict-dictd_viet-anh-2.4.2";
+    String prjPath = "/media/Data1/Projects/Open-OnesGroup/GoogleCode_RapidSVN/trunk/ProjectList/InnoDict/Stardict-Core/";
+    // String prjPath = prjPathWin;
+    String dictPathVE = prjPath + "src_ut/testdata/stardict-dictd_viet-anh-2.4.2";
     String dictEastonPath = prjPath + "src_ut/testdata/stardict-dictd-easton-2.4.2";
 
     /**
@@ -31,6 +31,17 @@ public class StarDictTest {
         String expected = "   one of the seven eunuchs in Ahasuerus's court (Esther 1:10;\n   2:21).";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testLookupWordVE02() {
+        StarDict dict = StarDict.loadDict(dictPathVE);
+        String actual = dict.lookupWord("đi");
+        String expected = "@đi" + "\n" + "* verb" + "\n" + "- to go; to walk; to depart" + "\n"
+                + "=đi đến một nơi nào+to go to a place" + "\n" + "-To lead; to march; to play" + "\n"
+                + "=đường này đi đâu+Where does this road lead?";
+
+        assertEquals(expected, actual);
+    }
     /**
      * test get dictName.
      */
@@ -41,7 +52,7 @@ public class StarDictTest {
         String expected = "Easton's 1897 Bible Dictionary";
         assertEquals("Result: ", expected, actual);
     }
-    
+
     @Test
     public void testGetDictName03() {
         StarDict dict = StarDict.loadDict(dictEastonPath);
@@ -49,13 +60,13 @@ public class StarDictTest {
         String expected = "Easton's 1897 Bible Dictionary";
         assertEquals("Result: ", expected, actual);
     }
-    
+
     @Test
     public void testGetDictName04() {
         StarDict dict = StarDict.loadDict("/folder is not existed");
         Assert.assertNull(dict);
     }
-    
+
     @Test
     public void testGetDictVersion() {
         StarDict dict = new StarDict(dictEastonPath);
@@ -85,7 +96,7 @@ public class StarDictTest {
     @Test
     public void testGetDictName02() {
 
-        StarDict dict = new StarDict(dictPath);
+        StarDict dict = new StarDict(dictPathVE);
         String actual = dict.getDictName();
         String expected = "Việt Anh";
         assertEquals(expected, actual);
@@ -93,7 +104,7 @@ public class StarDictTest {
 
     @Test
     public void testGetWordByIndex02() {
-        StarDict dict = new StarDict(dictPath);
+        StarDict dict = new StarDict(dictPathVE);
         String actual = dict.getWordByIndex(1);
         String expected = "a";
         assertEquals(expected, actual);
