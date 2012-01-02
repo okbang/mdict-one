@@ -2,6 +2,8 @@ package openones.idict.biz;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -12,7 +14,19 @@ import openones.stardictcore.StarDict;
 import org.junit.Test;
 
 public class DictBizTest {
-    String dictRepo = "/media/Data1/Projects/Open-OnesGroup/GoogleCode_RapidSVN/trunk/ProjectList/InnoDict/Stardict-Core/dict-repo";
+
+    static String dictRepo;
+    static {
+        File file = new File(".");
+        try {
+            dictRepo = file.getCanonicalPath() + "/src_ut/dict-repo";
+        } catch (IOException ex) {
+            // TODO Auto-generated catch block
+            ex.printStackTrace();
+        }
+
+        System.out.println("Testing dictionary repository:" + dictRepo);
+    }
 
     @Test
     public void testGetDictFolders() {
