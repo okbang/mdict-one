@@ -20,7 +20,9 @@
 package openones.stardictcore;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -54,6 +56,7 @@ public class StarDict {
     /**
      * Constructor to load dictionary with given path.
      * @param url Path of one of stardict file or Path of folder contains stardict files
+     * @deprecated using StarDict.loadDict(String url)
      */
     public StarDict(String url) {
         File file = new File(url);
@@ -66,21 +69,24 @@ public class StarDict {
             dictFile = new DictFile(strURL + ".dict");
         } else {
             String[] list = file.list();
+            // Map<file extension,file name>
+            Map<String, String> fileMap = new HashMap<String, String>();
 
-            strURL = url;
+            // Build table to mapping the file extension and file name
             for (int i = list.length - 1; i >= 0; i--) {
-                String extension = getExtension(list[i]);
-                String path = url + File.separator + list[i];
-                if (extension.equals("ifo")) {
-                    ifoFile = new IfoFile(path);
-                } else if (extension.equals("idx")) {
-                    idxFile = new IdxFile(path, ifoFile.getLongWordCount(), ifoFile.getLongIdxFileSize());
-                } else if (extension.equals("dict")) {
-                    dictFile = new DictFile(path);
-                } else {
-                    continue;
+                if (list[i].endsWith(".ifo")) {
+                    fileMap.put(".ifo", list[i]);
+                } else if (list[i].endsWith(".idx")) {
+                    fileMap.put(".idx", list[i]);
+                } else if (list[i].endsWith(".dict")) {
+                    fileMap.put(".dict", list[i]);
                 }
             }
+
+            ifoFile = new IfoFile(url + File.separator + fileMap.get(".ifo"));
+            idxFile = new IdxFile(url + File.separator + fileMap.get(".idx"), ifoFile.getLongWordCount(),
+                    ifoFile.getLongIdxFileSize());
+            dictFile = new DictFile(url + File.separator + fileMap.get(".dict"));
         }
 
         if (ifoFile.isBoolIsLoaded() && idxFile.isLoaded()) {
@@ -88,6 +94,12 @@ public class StarDict {
         }
     }
 
+    /**
+     * Create a new object of StarDict with files: ifo, idx, dict.
+     * @param ifoFile info file
+     * @param idxFile index file
+     * @param dictFile data dictionary file
+     */
     public StarDict(IfoFile ifoFile, IdxFile idxFile, DictFile dictFile) {
         this.ifoFile = ifoFile;
         this.idxFile = idxFile;
@@ -98,6 +110,11 @@ public class StarDict {
         }
     }
 
+    /**
+     * Load dictionary from the folder.
+     * @param url path of folder
+     * @return object of StarDict
+     */
     public static StarDict loadDict(String url) {
         File file = new File(url);
         String ifoFilePath;
@@ -121,20 +138,25 @@ public class StarDict {
             dictFile = new DictFile(filePathNoExt + ".dict");
         } else {
             String[] list = file.list();
+            // Map<file extension,file name>
+            Map<String, String> fileMap = new HashMap<String, String>();
 
+            // Build table to mapping the file extension and file name
             for (int i = list.length - 1; i >= 0; i--) {
-                String extension = getExtension(list[i]);
-                String path = url + File.separator + list[i];
-                if (extension.equals("ifo")) {
-                    ifoFile = new IfoFile(path);
-                } else if (extension.equals("idx")) {
-                    idxFile = new IdxFile(path, ifoFile.getLongWordCount(), ifoFile.getLongIdxFileSize());
-                } else if (extension.equals("dict")) {
-                    dictFile = new DictFile(path);
-                } else {
-                    continue;
+                if (list[i].endsWith(".ifo")) {
+                    fileMap.put(".ifo", list[i]);
+                } else if (list[i].endsWith(".idx")) {
+                    fileMap.put(".idx", list[i]);
+                } else if (list[i].endsWith(".dict")) {
+                    fileMap.put(".dict", list[i]);
                 }
             }
+
+            ifoFile = new IfoFile(url + File.separator + fileMap.get(".ifo"));
+            idxFile = new IdxFile(url + File.separator + fileMap.get(".idx"), ifoFile.getLongWordCount(),
+                    ifoFile.getLongIdxFileSize());
+            dictFile = new DictFile(url + File.separator + fileMap.get(".dict"));
+
         }
 
         if ((ifoFile == null) || (idxFile == null) || (dictFile == null)) {
@@ -173,7 +195,7 @@ public class StarDict {
     /**
      * get word content from an idx. let say the stardict-dictd-easton-2.4.2, we give this method the idx 1000 and it
      * return us the "diana".
-     * @param idx
+     * @param idx index
      * @return word
      * @author LongNX
      */
@@ -276,6 +298,7 @@ public class StarDict {
 
         return false;
     }
+
     /**
      * Add list of word to idx, dict file, modify size .ifo file.
      * @param pWord word that is added
