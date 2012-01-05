@@ -15,18 +15,18 @@ import org.junit.Test;
 
 public class DictBizTest {
 
-    static String dictRepo;
-    static {
-        File file = new File(".");
-        try {
-            dictRepo = file.getCanonicalPath() + "/src_ut/dict-repo";
-        } catch (IOException ex) {
-            // TODO Auto-generated catch block
-            ex.printStackTrace();
-        }
-
-        System.out.println("Testing dictionary repository:" + dictRepo);
-    }
+    static String dictRepo = "/home/thachln/jPackages/iportal-4.0.3-quick-start-5050/dict-repo";
+//    static {
+//        File file = new File(".");
+//        try {
+//            dictRepo = file.getCanonicalPath() + "/src_ut/dict-repo";
+//        } catch (IOException ex) {
+//            // TODO Auto-generated catch block
+//            ex.printStackTrace();
+//        }
+//
+//        System.out.println("Testing dictionary repository:" + dictRepo);
+//    }
 
     @Test
     public void testGetDictFolders() {
@@ -36,7 +36,7 @@ public class DictBizTest {
         List<String> folders = dictBiz.getDictFolders();
 
         assertEquals(2, folders.size());
-        assertEquals("stardict-dictd_viet-anh-2.4.2", folders.get(1));
+        assertEquals("stardict-dictd_viet-anh-2.4.2", folders.get(0));
     }
 
     @Test
