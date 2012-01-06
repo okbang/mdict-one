@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+	<LinearLayout
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:orientation="vertical">
+			<TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="Tên Sự Kiện"
+				android:textColor="#ffffff" />
+			<EditText 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/event_name" 
+				android:capitalize="sentences"/>
+			<TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="Loại Sự Kiện"
+				android:textColor="#ffffff" />
+			<Spinner 
+				android:id="@+id/spinEventType"
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content" />
+			<TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="Mô Tả"
+				android:textColor="#ffffff" />
+			<EditText 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/description" 
+				android:capitalize="sentences"/>
+			<TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="Địa điểm"
+				android:textColor="#ffffff" />
+			<EditText 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/editLocation" 
+				android:capitalize="sentences"/>
+		</LinearLayout>
+		<TableLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+			<TableRow >
+				<TextView 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:text="Ngày Bắt Đầu"
+					android:textColor="#ffffff" />
+				<TextView 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:text="Giờ Bắt Đầu"
+					android:textColor="#ffffff"
+					android:paddingLeft="40sp"/>
+			</TableRow>
+			<TableRow 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<EditText 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:id="@+id/editStartDay"
+					android:editable="false" 
+					android:focusable="false" />
+				<EditText 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:id="@+id/editStartTime" 
+					android:focusable="false" 
+					android:editable="false"
+					android:paddingLeft="40sp">
+				</EditText>
+			</TableRow>
+			<TableRow >
+				<TextView 
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content" 
+					android:text="Ngày Kết Thúc"
+					android:textColor="#ffffff" />
+				<TextView 
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content" 
+					android:text="Giờ Kết Thúc"
+					android:textColor="#ffffff"
+					android:paddingLeft="40sp"/>
+			</TableRow>
+			<TableRow >
+				<EditText 
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content" 
+					android:id="@+id/editEndDay"
+					android:editable="false" 
+					android:focusable="false"/>
+				<EditText 
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content" 
+					android:id="@+id/editEndTime"
+					android:editable="false" 
+					android:focusable="false"
+					android:paddingLeft="40sp"/>
+			</TableRow>
+		</TableLayout>
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:orientation="horizontal">
+			<RadioGroup 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:orientation="horizontal"
+				android:gravity="center">
+				<RadioButton 
+					android:text="Ngày Dương" 
+					android:checked="true"
+					android:id="@+id/rbtnSolarDate" 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+				<RadioButton 
+					android:text="Ngày Âm" 
+					android:id="@+id/rbtnLunarDate"
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" />
+			</RadioGroup>
+		</LinearLayout>
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:orientation="vertical">
+			<TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="Lặp Lại"
+				android:textColor="#ffffff" />
+			<Spinner 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:id="@+id/spinRepeat" />
+			<TextView 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:text="Nhắc Nhở"
+				android:textColor="#ffffff" />
+			<Spinner 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:id="@+id/spinRemind" />
+			<ImageView 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:src="@drawable/split"/>
+			<TableLayout 
+				android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+        		android:orientation="horizontal">
+				<TableRow 
+					android:layout_width="fill_parent"
+            		android:layout_height="fill_parent"
+            		android:gravity="center">
+					<Button 
+						android:id="@+id/save"
+		    			android:text="Lưu"
+		    			android:layout_width="100px"
+                		android:layout_height="wrap_content"
+                		android:gravity="center"/>
+		    		<Button 
+		    			android:id="@+id/cancel"
+		    			android:text="Hủy"
+		    			android:layout_width="100px"
+                		android:layout_height="wrap_content"
+                		android:gravity="center"/>
+				</TableRow>
+			</TableLayout>
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>

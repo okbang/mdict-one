@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="vertical">
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="vertical">
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Tên Sự Kiện"
+				android:textColor="#ffffff" />
+			<EditText android:layout_width="fill_parent"
+				android:layout_height="50px" android:id="@+id/editEventName" />
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Loại Sự Kiện"
+				android:textColor="#ffffff" />
+			<Spinner android:id="@+id/spinEventType"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" />
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Mô Tả"
+				android:textColor="#ffffff" />
+			<EditText android:layout_width="fill_parent"
+				android:layout_height="50px" android:id="@+id/editDescription"/>
+		</LinearLayout>
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal">
+			<LinearLayout android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:orientation="vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Ngày Bắt Đầu"
+					android:textColor="#ffffff" />
+				<EditText android:layout_width="150px"
+					android:layout_height="50px" android:id="@+id/editStartDay" 
+					android:editable="false" android:focusable="false"/>
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="Giờ Bắt Đầu"
+					android:textColor="#ffffff" />
+				<EditText android:layout_width="150px"
+					android:layout_height="50px" android:id="@+id/editStartTime" 
+					android:editable="false" android:focusable="false"/>
+			</LinearLayout>
+			<LinearLayout android:orientation="vertical"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+				<TextView android:layout_height="wrap_content"
+					android:layout_width="wrap_content" android:text="Ngày Kết Thúc"
+					android:textColor="#ffffff" />
+				<EditText android:layout_height="50px"
+					android:layout_width="150px" android:id="@+id/editEndDay" 
+					android:editable="false" android:focusable="false"/>
+				<TextView android:layout_height="wrap_content"
+					android:layout_width="wrap_content" android:text="Giờ Kết Thúc"
+					android:textColor="#ffffff" />
+				<EditText android:layout_height="50px"
+					android:layout_width="150px" android:id="@+id/editEndTime" 
+					android:editable="false" android:focusable="false"/>
+			</LinearLayout>
+		</LinearLayout>
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal">
+
+			<RadioGroup android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+
+				<TextView android:layout_height="wrap_content"
+					android:layout_width="wrap_content" android:text="Lưu Theo:"
+					android:textColor="#ffffff" />
+				<RadioButton android:text="Ngày Dương" android:checked="true"
+					android:id="@+id/rbtnSolarDate" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+				<RadioButton android:text="Ngày Âm" android:id="@+id/rbtnLunarDate"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</RadioGroup>
+		</LinearLayout>
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="vertical">
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Lặp Lại"
+				android:textColor="#ffffff" />
+			<EditText android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:id="@+id/editRepeat" 
+				android:editable="false" android:focusable="false"/>
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Nhắc Nhở"
+				android:textColor="#ffffff" />
+			<EditText android:layout_width="fill_parent"
+				android:layout_height="50px" android:id="@+id/editRemind" 
+				android:editable="false" android:focusable="false"/>
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>

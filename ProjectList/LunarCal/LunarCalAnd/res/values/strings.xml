@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">ILunarCal</string>
+	<string-array name="eventTypes">
+		<item>Tiệc</item>
+		<item>Ngày Sinh Nhật</item>
+		<item>Ngày Giỗ</item>
+		<item>Khác</item>
+	</string-array>
+	<string-array name="repeat">
+		<item>Không lặp lại</item>
+		<item>Theo tuần</item>
+		<item>Theo tháng</item>
+		<item>Theo năm</item>
+	</string-array>
+	<string-array name="remind">
+		<item>Không nhắc nhở</item>
+		<item>Đúng thời gian</item>
+		<item>Trước 30 phút</item>
+		<item>Trước 1 giờ</item>
+		<item>Trước 1 ngày</item>
+	</string-array>
+</resources>
