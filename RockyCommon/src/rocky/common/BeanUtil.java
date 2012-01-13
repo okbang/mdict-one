@@ -15,14 +15,13 @@ public class BeanUtil {
     final static Logger LOG = Logger.getLogger("BeanUtil");
 
     /**
-     * 
      * @param entity
      * @return Map<property name, set method instance>
      * @throws IntrospectionException
      */
     public static Map<String, Method> getWriteMethodMap(Object entity) throws IntrospectionException {
         Map<String, Method> writeMethodMap = null;
-        
+
         if (writeMethodMap != null) {
             return writeMethodMap;
         }
@@ -39,7 +38,6 @@ public class BeanUtil {
     }
 
     /**
-     * 
      * @param entity
      * @return Map<property name, set method instance>
      * @throws IntrospectionException
@@ -73,23 +71,31 @@ public class BeanUtil {
 
         return true;
     }
-    
+
     public static boolean updateProperty(Object obj, String property, Object objValue) {
         return updateProperty(obj, property, objValue, String.class.getName());
     }
 
+    /**
+     * Update the value of Object's properties dynamically.
+     * @param instanceObj
+     * @param property
+     * @param objValue
+     * @param dataType
+     * @return
+     */
     public static boolean updateProperty(Object instanceObj, String property, Object objValue, String dataType) {
         Object actObj = null;
         Method setMethod;
         try {
             String setMethodName = "set" + (property.substring(0, 1).toUpperCase()) + property.substring(1);
-            
+
             if (!CommonUtil.isNNandNB(dataType)) {
                 dataType = String.class.getName();
-            }    
+            }
 
             if (String.class.getName().equals(dataType)) {
-                actObj = (String) objValue;
+                actObj = (objValue != null ? objValue.toString() : null);
                 setMethod = instanceObj.getClass().getMethod(setMethodName, String.class);
                 setMethod.invoke(instanceObj, actObj);
             } else if (Date.class.getName().equals(dataType)) {
