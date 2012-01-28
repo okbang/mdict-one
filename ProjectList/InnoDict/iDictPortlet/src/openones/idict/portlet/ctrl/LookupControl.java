@@ -103,7 +103,8 @@ public class LookupControl extends BaseControl {
 
         BaseOutForm outForm = new BaseOutForm();
         outForm.putRequest("dictMeanings", dictInfoColl);
-        outForm.putRequest("formBean", lookupBean);
+        //outForm.putRequest("formBean", lookupBean);
+        request.setAttribute("formBean", lookupBean);
 
         return outForm;
     }

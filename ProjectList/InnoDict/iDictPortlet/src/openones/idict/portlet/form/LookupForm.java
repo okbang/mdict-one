@@ -18,7 +18,10 @@
  */
 package openones.idict.portlet.form;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import openones.corewa.BaseInForm;
 
@@ -36,6 +39,8 @@ public class LookupForm extends BaseInForm {
     /** output: dictionaries from repository. */
     private List<DictInfo> dictInfoList;
 
+    /** Contains meanings of word. */
+    private Collection<DictInfo> dictMeanings = null;
     /**
      * Get value of word.
      * @return the word
@@ -82,5 +87,37 @@ public class LookupForm extends BaseInForm {
      */
     public void setSelectedDict(String selectedDict) {
         this.selectedDict = selectedDict;
+    }
+
+    /**
+     * Get value of dictMeanings.
+     * @return the dictMeanings
+     */
+    public Collection<DictInfo> getDictMeanings() {
+        return dictMeanings;
+    }
+
+    /**
+     * Set the value for dictMeanings.
+     * @param dictMeanings the dictMeanings to set
+     */
+    public void setDictMeanings(Collection<DictInfo> dictMeanings) {
+        this.dictMeanings = dictMeanings;
+    }
+
+    /**
+     * Support combo box "Dictionary". Map keys are interpreted as option values and the map values correspond to option
+     * labels.
+     * @return the dictNames
+     */
+    public Map<String, String> getDictNames() {
+        Map<String, String> dictNames = new TreeMap<String, String>();
+
+        if (dictInfoList != null) {
+            for (DictInfo dictInfo : dictInfoList) {
+                dictNames.put(dictInfo.getName(), dictInfo.getName());
+            }
+        }
+        return dictNames;
     }
 }

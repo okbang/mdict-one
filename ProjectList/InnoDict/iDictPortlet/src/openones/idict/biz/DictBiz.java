@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.log4j.Logger;
+
 import openones.idict.portlet.form.DictInfo;
 import openones.stardictcore.StarDict;
 
@@ -33,6 +35,9 @@ import openones.stardictcore.StarDict;
  * @author Thach Le
  */
 public class DictBiz {
+    /** Logger. */
+    private static Logger log = Logger.getLogger(DictBiz.class);
+
     /** Path of dictionary repository. */
     private String dictRepo;
 
@@ -52,10 +57,14 @@ public class DictBiz {
         File dictF = new File(dictRepo);
         List<String> dictFolders = new ArrayList<String>();
 
-        for (File subFile : dictF.listFiles()) {
-            if (subFile.isDirectory()) {
-                dictFolders.add(subFile.getName());
+        if (dictF != null) {
+            for (File subFile : dictF.listFiles()) {
+                if (subFile.isDirectory()) {
+                    dictFolders.add(subFile.getName());
+                }
             }
+        } else {
+            log.warn("No dictionary found at '" + dictRepo + "'");
         }
 
         return dictFolders;

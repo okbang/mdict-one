@@ -16,3 +16,8 @@ How to prepare the dictionary repository for unit testing
 3) Uncompress .tar.gz files into the folder "/iDictPortlet/src_ut/dict-repo". It is called "Dictionary Repository" (DictRepo)
 
 Now, you can run Test Cases in /iDictPortlet/src_ut/openones/idict/biz/DictBizTest.java
+
+Version up
+==================================================================
+0.0.3
+- Using Spring MVC Portlet Framework 3.1
