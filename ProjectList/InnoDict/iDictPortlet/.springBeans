@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>WebContent/WEB-INF/SamplePortletContext.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

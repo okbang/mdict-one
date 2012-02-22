@@ -39,10 +39,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.portlet.ModelAndView;
 import org.springframework.web.portlet.bind.annotation.ActionMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
+
 /**
  * @author Thach Le
  */
-
 @Controller
 @RequestMapping("VIEW")
 @SessionAttributes("lookupForm")
@@ -71,6 +71,10 @@ public class LookupController {
         return mav;
     }
 
+    /**
+     * Create bean for form.
+     * @return Form bean for UI.
+     */
     @ModelAttribute("lookupForm")
     public LookupForm getCommandObject() {
         log.debug("getCommandObject.START");
@@ -85,10 +89,10 @@ public class LookupController {
 
     /**
      * Process submitted form by clicking "Translate" button.
-     * @param formBean
-     * @param result
-     * @param status
-     * @param response
+     * @param formBean bean captures input data
+     * @param result result of binding data
+     * @param status status of session
+     * @param response response of action
      */
     @ActionMapping(params = "action=translate")
     public void translateWord(@ModelAttribute(value = "lookupForm") LookupForm formBean, BindingResult result,
@@ -110,6 +114,10 @@ public class LookupController {
         }
     }
 
+    /**
+     * Process after the action "translateWord" (method "translateWord") is executed.
+     * @return view "sLookup" which next page "sLookup.jsp" will displayed
+     */
     @RenderMapping(params = "action=translate")
     public String postTranslateWord() {
         log.debug("postTranslateWord.START");

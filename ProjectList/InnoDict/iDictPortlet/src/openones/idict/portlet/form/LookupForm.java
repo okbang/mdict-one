@@ -18,18 +18,17 @@
  */
 package openones.idict.portlet.form;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import openones.corewa.BaseInForm;
-
 /**
  * Lookup Form is used to capture submitted data from the JSP.
  * @author Thach Le
  */
-public class LookupForm extends BaseInForm {
+public class LookupForm implements Serializable {
     /** input: to be search word. */
     private String word;
 

@@ -17,7 +17,15 @@ How to prepare the dictionary repository for unit testing
 
 Now, you can run Test Cases in /iDictPortlet/src_ut/openones/idict/biz/DictBizTest.java
 
+Discussion Board:
+==================================================================
+http://www.open-ones.com/ishare/posts/list/35.page
+
 Version up
 ==================================================================
-0.0.3
+0.0.4 (Status: Development)
+- Remove the framework of MVCPortlet (http://mvcportlet.googlecode.com/)
+- Support Ajax in Lookup screen
+
+0.0.3:
 - Using Spring MVC Portlet Framework 3.1
